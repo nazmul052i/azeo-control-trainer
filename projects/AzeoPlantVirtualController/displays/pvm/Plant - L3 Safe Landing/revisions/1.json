@@ -1,0 +1,414 @@
+{
+ "display": "Plant - L3 Safe Landing",
+ "pvms": [],
+ "schema_version": 3,
+ "items": [
+  {
+   "kind": "text",
+   "id": "title",
+   "text": "SAFE LANDING  /  Manual control workspace",
+   "x": 24,
+   "y": 18,
+   "w": 1160,
+   "h": 45,
+   "font_size": 20,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "authority",
+   "text": "Equipment controls remain available at every step, during Pause, and after End guide.",
+   "x": 24,
+   "y": 76,
+   "w": 1210,
+   "h": 34,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sequence",
+   "text": "Open the PA faceplate for guidance. Each command below is an individual operator action; verify actual feedback before confirming.",
+   "x": 24,
+   "y": 122,
+   "w": 1480,
+   "h": 48,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "monitor",
+   "text": "Vessels / trends / AI",
+   "target": "Plant - L2 Shutdown Monitoring",
+   "x": 24,
+   "y": 855,
+   "w": 340,
+   "h": 34
+  },
+  {
+   "kind": "rect",
+   "id": "itm_82bed999-a0bb-4790-a563-b021eeb91a7d",
+   "x": 1290.0,
+   "y": 12.0,
+   "w": 240,
+   "h": 100,
+   "fill_role": "SURFACE_PANEL",
+   "width": 1.0,
+   "locked": true,
+   "source_element_id": "195ffeeb-3a7d-4380-b4a6-360de818e8e4",
+   "group": "ug_4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 0,
+   "pvm_link": "linked",
+   "instance_id": "4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 0.0,
+   "source_y": 0.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "actions": [
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "text",
+   "id": "itm_485d2ef0-5969-4916-a91c-0360b6250d27",
+   "text": "SAFE LANDING",
+   "x": 1300.0,
+   "y": 17.0,
+   "w": 220,
+   "h": 22,
+   "font_size": 11.0,
+   "source_element_id": "eaef6f0e-31ac-46b4-ac03-a5e4b719822b",
+   "group": "ug_4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 1,
+   "pvm_link": "linked",
+   "instance_id": "4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 10.0,
+   "source_y": 5.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "actions": [
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "datalink",
+   "id": "itm_aa8bab00-a4c4-4d40-b49c-12cc3b5aab4c",
+   "path": "@procedure/pa_safe_landing/rev-001/procedure.yaml/STATE",
+   "datalink_type": "string",
+   "x": 1300.0,
+   "y": 39.0,
+   "w": 220,
+   "h": 26,
+   "word_wrap": true,
+   "source_element_id": "e95fd75a-98cd-4fbc-9a7a-7476b5a4b346",
+   "group": "ug_4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 2,
+   "pvm_link": "linked",
+   "instance_id": "4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 10.0,
+   "source_y": 27.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "actions": [
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "user_entry",
+   "id": "itm_3ffb9b2b-81a6-4605-80f4-15583fa28559",
+   "x": 1300.0,
+   "y": 72.0,
+   "w": 220,
+   "h": 30,
+   "entry": {
+    "kind": "button",
+    "label": "Procedure…"
+   },
+   "actions": [
+    {
+     "event": "click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    },
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "source_element_id": "8843c923-da70-4475-a25b-ed1f45c16e5f",
+   "group": "ug_4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 3,
+   "pvm_link": "linked",
+   "instance_id": "4c0062c6-2ebe-4234-8271-3dc27cfaa76b",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 10.0,
+   "source_y": 60.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "text",
+   "id": "upstream_title",
+   "text": "Isolate upstream fresh feed",
+   "x": 24,
+   "y": 203,
+   "w": 450,
+   "h": 36,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "field",
+   "text": "Simulation Workbench → Plant disturbances → MF-031; active, value 0. Verify FT-1004.",
+   "x": 504,
+   "y": 203,
+   "w": 995,
+   "h": 60,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "heater_title",
+   "text": "Remove H1 firing",
+   "x": 24,
+   "y": 291,
+   "w": 450,
+   "h": 36,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "heater",
+   "text": "Open manual controls",
+   "target": "Plant - L3 Manual Heater",
+   "x": 504,
+   "y": 291,
+   "w": 300,
+   "h": 34
+  },
+  {
+   "kind": "text",
+   "id": "feed_title",
+   "text": "Stop fresh charge and recycle import",
+   "x": 24,
+   "y": 379,
+   "w": 450,
+   "h": 36,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "feed",
+   "text": "Open manual controls",
+   "target": "Plant - L3 Manual Feed",
+   "x": 504,
+   "y": 379,
+   "w": 300,
+   "h": 34
+  },
+  {
+   "kind": "text",
+   "id": "columns_title",
+   "text": "Remove column heat and isolate transfers",
+   "x": 24,
+   "y": 467,
+   "w": 450,
+   "h": 36,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "columns",
+   "text": "Open manual controls",
+   "target": "Plant - L3 Manual Columns",
+   "x": 504,
+   "y": 467,
+   "w": 300,
+   "h": 34
+  },
+  {
+   "kind": "text",
+   "id": "boiler_title",
+   "text": "Remove B1 firing and balance the held inventory",
+   "x": 24,
+   "y": 555,
+   "w": 450,
+   "h": 36,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "boiler",
+   "text": "Open manual controls",
+   "target": "Plant - L3 Manual Boiler",
+   "x": 504,
+   "y": 555,
+   "w": 300,
+   "h": 34
+  },
+  {
+   "kind": "text",
+   "id": "rotating_title",
+   "text": "Stop process pumps and compressor",
+   "x": 24,
+   "y": 643,
+   "w": 450,
+   "h": 36,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "rotating",
+   "text": "Open manual controls",
+   "target": "Plant - L3 Manual Rotating",
+   "x": 504,
+   "y": 643,
+   "w": 300,
+   "h": 34
+  },
+  {
+   "kind": "text",
+   "id": "containment_title",
+   "text": "Retain hot inventories and support services",
+   "x": 24,
+   "y": 731,
+   "w": 450,
+   "h": 36,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "containment",
+   "text": "Open manual controls",
+   "target": "Plant - L3 Manual Containment",
+   "x": 504,
+   "y": 731,
+   "w": 300,
+   "h": 34
+  }
+ ],
+ "stacking_order": [
+  "title",
+  "authority",
+  "sequence",
+  "monitor",
+  "itm_82bed999-a0bb-4790-a563-b021eeb91a7d",
+  "itm_485d2ef0-5969-4916-a91c-0360b6250d27",
+  "itm_aa8bab00-a4c4-4d40-b49c-12cc3b5aab4c",
+  "itm_3ffb9b2b-81a6-4605-80f4-15583fa28559",
+  "upstream_title",
+  "field",
+  "heater_title",
+  "heater",
+  "feed_title",
+  "feed",
+  "columns_title",
+  "columns",
+  "boiler_title",
+  "boiler",
+  "rotating_title",
+  "rotating",
+  "containment_title",
+  "containment"
+ ],
+ "width": 1560,
+ "height": 920,
+ "level": 3,
+ "parent": "Plant - L2 Shutdown Monitoring"
+}

@@ -1,0 +1,833 @@
+{
+  "schema_version": 1,
+  "gain_basis": "percent output per percent PV span",
+  "reset_unit": "s",
+  "commissioning": {
+    "startup_state": "lined_up_hold",
+    "initial_modes": {
+      "PID": "MAN",
+      "AO": "MAN",
+      "DO": "MAN"
+    },
+    "pid_setpoint_source": "snapshot_pv_with_engineered_exceptions",
+    "engineered_setpoint_exceptions": {
+      "AIC-7002": "constraint_design_sp",
+      "PDIC-5001": "constraint_design_sp",
+      "PDIC-6001": "constraint_design_sp",
+      "PIC-1001": "constraint_design_sp",
+      "PIC-2002": "constraint_design_sp",
+      "PIC-7002": "constraint_design_sp",
+      "TIC-2001": "constraint_design_sp",
+      "TIC-3004": "constraint_design_sp",
+      "TIC-4002": "constraint_design_sp",
+      "PIC-5001": "commissioned_pressure_sp",
+      "FIC-5003": "snapshot_pv_x_1.35_headroom",
+      "FIC-6003": "snapshot_pv_x_1.35_headroom"
+    },
+    "transfer_policy": "operator_one_loop_at_a_time"
+  },
+  "modules": {
+    "AIC-0103": {
+      "pv": "AT-0103",
+      "output": "FCV-0102",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.0,
+      "reset": 900.0,
+      "role": "CT1 basin conductivity blowdown"
+    },
+    "FIC-0101": {
+      "pv": "FT-0102",
+      "output": "FCV-0101",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.8,
+      "reset": 60.0,
+      "role": "D3 off-gas to fuel header"
+    },
+    "LIC-0101": {
+      "pv": "LT-0101",
+      "output": "LCV-0101",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.5,
+      "reset": 600.0,
+      "role": "CT1 basin makeup water"
+    },
+    "PIC-0101": {
+      "pv": "PT-0101",
+      "output": "split: PCV-0102/PCV-0101",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.5,
+      "reset": 240.0,
+      "role": "Fuel gas header pressure"
+    },
+    "PIC-0102": {
+      "pv": "PT-0102",
+      "output": "PCV-0103",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.8,
+      "reset": 120.0,
+      "role": "Fuel gas to H1"
+    },
+    "PIC-0103": {
+      "pv": "PT-0103",
+      "output": "PCV-0104",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.2,
+      "reset": 150.0,
+      "role": "Fuel gas to B1"
+    },
+    "PIC-0105": {
+      "pv": "PT-0105",
+      "output": "SC-0101",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 4.0,
+      "reset": 30.0,
+      "role": "Cooling-water supply-header pressure"
+    },
+    "TIC-0102": {
+      "pv": "TT-0102",
+      "output": "SC-0102",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 3.0,
+      "reset": 180.0,
+      "role": "CT1 supply temperature via common fan speed"
+    },
+    "FIC-1001": {
+      "pv": "FT-1001",
+      "output": "FCV-1001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "LIC-1001",
+      "gain": 2.4,
+      "reset": 60.0,
+      "role": "Charge flow"
+    },
+    "FIC-1002": {
+      "pv": "FT-1003",
+      "output": "FCV-1002",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.9,
+      "reset": 90.0,
+      "role": "Charge pump minimum flow"
+    },
+    "LIC-1001": {
+      "pv": "LT-1001",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.6,
+      "reset": 700.0,
+      "role": "D1 level to charge flow"
+    },
+    "LIC-1002": {
+      "pv": "LT-1001",
+      "output": "LCV-1001",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.0,
+      "reset": 900.0,
+      "role": "D1 level via off-spec import"
+    },
+    "PIC-1001": {
+      "pv": "PT-1002",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.6,
+      "reset": 180.0,
+      "role": "override, parked at 100"
+    },
+    "SIC-1001": {
+      "pv": "ST-1001",
+      "output": "SC-1001",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.0,
+      "reset": 20.0,
+      "role": "P-101A VFD speed control"
+    },
+    "LIC-2001": {
+      "pv": "LT-2001",
+      "output": "LCV-2001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.0,
+      "reset": 300.0,
+      "role": "V-201 KO drum level"
+    },
+    "PIC-2001": {
+      "pv": "PT-2001",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.0,
+      "reset": 200.0,
+      "role": "C1 suction pressure to speed"
+    },
+    "PIC-2002": {
+      "pv": "PT-2002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.2,
+      "reset": 120.0,
+      "role": "override, parked at 0"
+    },
+    "SIC-2001": {
+      "pv": "ST-2001",
+      "output": "SC-2001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "PIC-2001",
+      "gain": 2.1,
+      "reset": 15.0,
+      "role": "C1 VFD speed control"
+    },
+    "TIC-2001": {
+      "pv": "TT-2002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 3.3,
+      "reset": 120.0,
+      "role": "override, parked at 0"
+    },
+    "TIC-2002": {
+      "pv": "TT-2002",
+      "output": "FCV-2003",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 3.3,
+      "reset": 180.0,
+      "role": "C1 discharge temperature"
+    },
+    "UIC-2001": {
+      "pv": "UY-2001",
+      "output": "FCV-2001",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.4,
+      "reset": 120.0,
+      "role": "C1 anti-surge margin"
+    },
+    "AIC-3001": {
+      "pv": "AT-3001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.84,
+      "reset": 240.0,
+      "role": "H1 flue oxygen trims the air ratio"
+    },
+    "FIC-3001": {
+      "pv": "FT-3001",
+      "output": "FCV-3001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "TIC-3001",
+      "gain": 2.0,
+      "reset": 30.0,
+      "role": "H1 fuel gas flow"
+    },
+    "FIC-3003": {
+      "pv": "FT-3003",
+      "output": "FCV-3004",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "TIC-3001",
+      "gain": 0.49,
+      "reset": 45.0,
+      "role": "H1 combustion air flow"
+    },
+    "PIC-3001": {
+      "pv": "PT-3002",
+      "output": "split: FCV-3002/FCV-3003",
+      "action": "direct",
+      "normal_mode": "CAS",
+      "master": "ZC-3001",
+      "gain": 1.0,
+      "reset": 200.0,
+      "role": "H1 fuel oil header pressure"
+    },
+    "PIC-3002": {
+      "pv": "PT-3003",
+      "output": "SC-3001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.9,
+      "reset": 120.0,
+      "role": "H1 draft to ID fan"
+    },
+    "TIC-3001": {
+      "pv": "TT-3001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 6.0,
+      "reset": 300.0,
+      "role": "H1 outlet temperature"
+    },
+    "TIC-3002": {
+      "pv": "TT-3002",
+      "output": "FCV-3005",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 5.0,
+      "reset": 300.0,
+      "role": "H1 pass 1 outlet, pass balancing"
+    },
+    "TIC-3003": {
+      "pv": "TT-3003",
+      "output": "FCV-3006",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 5.0,
+      "reset": 300.0,
+      "role": "H1 pass 2 outlet, pass balancing"
+    },
+    "TIC-3004": {
+      "pv": "TT-3005",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 15.0,
+      "reset": 120.0,
+      "role": "override, parked at 100; PV = high select of TT-3005 / TT-3006"
+    },
+    "ZC-3001": {
+      "pv": "ZT-3002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.2,
+      "reset": 900.0,
+      "role": "FCV-3002 valve position controller"
+    },
+    "AIC-4001": {
+      "pv": "AT-4001",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.5,
+      "reset": 1800.0,
+      "role": "R1 product impurity trims bed temperature"
+    },
+    "FIC-4001": {
+      "pv": "FT-4001",
+      "output": "FCV-4001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "TIC-4001",
+      "gain": 0.24,
+      "reset": 20.0,
+      "role": "R1 quench gas flow"
+    },
+    "LIC-4001": {
+      "pv": "LT-4001",
+      "output": "LCV-4001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.2,
+      "reset": 420.0,
+      "role": "D3 level to T1"
+    },
+    "LIC-4002": {
+      "pv": "LT-4002",
+      "output": "LCV-4002",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.6,
+      "reset": 420.0,
+      "role": "D3 interface, sour water draw"
+    },
+    "PIC-4001": {
+      "pv": "PT-4002",
+      "output": "PCV-4001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.65,
+      "reset": 320.0,
+      "role": "D3 pressure"
+    },
+    "TIC-4001": {
+      "pv": "TT-4002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "CAS",
+      "master": "AIC-4001",
+      "gain": 5.5,
+      "reset": 320.0,
+      "role": "PV = high select of TT-4002 / TT-4003"
+    },
+    "TIC-4002": {
+      "pv": "TT-4002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 16.5,
+      "reset": 60.0,
+      "role": "override, parked at 0; PV = high select of TT-4002 / TT-4003"
+    },
+    "TIC-4005": {
+      "pv": "TT-4005",
+      "output": "FCV-4002",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.4,
+      "reset": 240.0,
+      "role": "D3 temperature via E-401 CW"
+    },
+    "AIC-5001": {
+      "pv": "AT-5001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.4,
+      "reset": 1200.0,
+      "role": "T1 distillate quality trims tray temperature"
+    },
+    "AIC-5002": {
+      "pv": "AT-5002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.4,
+      "reset": 1200.0,
+      "role": "T1 bottoms quality trims sump temperature"
+    },
+    "FIC-5001": {
+      "pv": "FT-5002",
+      "output": "FCV-5001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "TIC-5001",
+      "gain": 2.0,
+      "reset": 45.0,
+      "role": "T1 reflux flow"
+    },
+    "FIC-5002": {
+      "pv": "FT-5005",
+      "output": "FCV-5004",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "TIC-5002",
+      "gain": 2.0,
+      "reset": 45.0,
+      "role": "T1 reboiler steam flow"
+    },
+    "FIC-5003": {
+      "pv": "FT-5006",
+      "output": "FCV-5005",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.1,
+      "reset": 60.0,
+      "role": "T1 condenser cooling water"
+    },
+    "FIC-5004": {
+      "pv": "FT-5007",
+      "output": "FCV-5006",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.8,
+      "reset": 90.0,
+      "role": "P-501 minimum flow protection"
+    },
+    "FIC-5005": {
+      "pv": "FT-5008",
+      "output": "FCV-5007",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.5,
+      "reset": 90.0,
+      "role": "P-502 minimum flow protection"
+    },
+    "LIC-5001": {
+      "pv": "LT-5001",
+      "output": "FCV-5002",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 3.0,
+      "reset": 320.0,
+      "role": "T1 reflux drum level to distillate"
+    },
+    "LIC-5002": {
+      "pv": "LT-5002",
+      "output": "FCV-5003",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.2,
+      "reset": 600.0,
+      "role": "T1 sump level"
+    },
+    "LIC-5003": {
+      "pv": "LT-5003",
+      "output": "LCV-5001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.6,
+      "reset": 420.0,
+      "role": "T1 drum water boot"
+    },
+    "PDIC-5001": {
+      "pv": "PDT-5001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.5,
+      "reset": 60.0,
+      "role": "override, parked at 100"
+    },
+    "PIC-5001": {
+      "pv": "PT-5001",
+      "output": "split: PCV-5002/PCV-5001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.8,
+      "reset": 120.0,
+      "role": "T1 pressure, vent and hot gas bypass"
+    },
+    "TIC-5001": {
+      "pv": "TT-5003",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "CAS",
+      "master": "AIC-5001",
+      "gain": 1.05,
+      "reset": 1500.0,
+      "role": "pressure-compensated SP on PT-5001"
+    },
+    "TIC-5002": {
+      "pv": "TT-5006",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "AIC-5002",
+      "gain": 1.2,
+      "reset": 1500.0,
+      "role": "pressure-compensated SP on PT-5002"
+    },
+    "AIC-6001": {
+      "pv": "AT-6001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.4,
+      "reset": 1200.0,
+      "role": "T2 distillate quality trims tray temperature"
+    },
+    "AIC-6002": {
+      "pv": "AT-6002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.4,
+      "reset": 1200.0,
+      "role": "T2 bottoms quality trims sump temperature"
+    },
+    "FIC-6001": {
+      "pv": "FT-6002",
+      "output": "FCV-6001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "TIC-6001",
+      "gain": 2.0,
+      "reset": 45.0,
+      "role": "T2 reflux flow"
+    },
+    "FIC-6002": {
+      "pv": "FT-6005",
+      "output": "FCV-6004",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "TIC-6002",
+      "gain": 2.0,
+      "reset": 45.0,
+      "role": "T2 reboiler steam flow"
+    },
+    "FIC-6003": {
+      "pv": "FT-6006",
+      "output": "FCV-6005",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.1,
+      "reset": 60.0,
+      "role": "T2 condenser cooling water"
+    },
+    "FIC-6004": {
+      "pv": "FT-6007",
+      "output": "FCV-6006",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.8,
+      "reset": 90.0,
+      "role": "P-601 minimum flow protection"
+    },
+    "FIC-6005": {
+      "pv": "FT-6008",
+      "output": "FCV-6007",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.5,
+      "reset": 90.0,
+      "role": "P-602 minimum flow protection"
+    },
+    "LIC-6001": {
+      "pv": "LT-6001",
+      "output": "FCV-6002",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 3.0,
+      "reset": 320.0,
+      "role": "T2 reflux drum level to distillate"
+    },
+    "LIC-6002": {
+      "pv": "LT-6002",
+      "output": "FCV-6003",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.2,
+      "reset": 600.0,
+      "role": "T2 sump level"
+    },
+    "PDIC-6001": {
+      "pv": "PDT-6001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.5,
+      "reset": 60.0,
+      "role": "override, parked at 100"
+    },
+    "PIC-6001": {
+      "pv": "PT-6001",
+      "output": "PCV-6001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.6,
+      "reset": 260.0,
+      "role": "T2 pressure"
+    },
+    "TIC-6001": {
+      "pv": "TT-6003",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "CAS",
+      "master": "AIC-6001",
+      "gain": 1.05,
+      "reset": 1500.0,
+      "role": "pressure-compensated SP on PT-6001"
+    },
+    "TIC-6002": {
+      "pv": "TT-6006",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "AIC-6002",
+      "gain": 1.2,
+      "reset": 1500.0,
+      "role": "pressure-compensated SP on PT-6002"
+    },
+    "AIC-7001": {
+      "pv": "AT-7001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 0.84,
+      "reset": 240.0,
+      "role": "B1 flue oxygen trims the air ratio"
+    },
+    "AIC-7002": {
+      "pv": "AT-7002",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 30.0,
+      "reset": 90.0,
+      "role": "override, parked at 0"
+    },
+    "CIC-7001": {
+      "pv": "CT-7001",
+      "output": "FCV-7004",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.0,
+      "reset": 600.0,
+      "role": "Drum conductivity via blowdown"
+    },
+    "FIC-7001": {
+      "pv": "FT-7002",
+      "output": "FCV-7001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "LIC-7001",
+      "gain": 1.6,
+      "reset": 40.0,
+      "role": "B1 feedwater flow"
+    },
+    "FIC-7002": {
+      "pv": "FT-7003",
+      "output": "FCV-7002",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "PIC-7001",
+      "gain": 2.0,
+      "reset": 30.0,
+      "role": "B1 fuel gas flow"
+    },
+    "FIC-7003": {
+      "pv": "FT-7004",
+      "output": "SC-7001",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "PIC-7001",
+      "gain": 0.66,
+      "reset": 45.0,
+      "role": "B1 combustion air flow"
+    },
+    "LIC-7001": {
+      "pv": "LT-7001",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.32,
+      "reset": 240.0,
+      "role": "B1 drum level, three element"
+    },
+    "LIC-7002": {
+      "pv": "LT-7002",
+      "output": "LCV-7001",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.5,
+      "reset": 300.0,
+      "role": "Deaerator level"
+    },
+    "PIC-7001": {
+      "pv": "PT-7002",
+      "output": "cascade SP",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.12,
+      "reset": 200.0,
+      "role": "MP steam header pressure, boiler master"
+    },
+    "PIC-7002": {
+      "pv": "PT-7002",
+      "output": "PCV-7001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.35,
+      "reset": 120.0,
+      "role": "override, parked at 0"
+    },
+    "TIC-7001": {
+      "pv": "TT-7001",
+      "output": "TCV-7001",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 4.5,
+      "reset": 200.0,
+      "role": "Superheat via desuperheater spray"
+    },
+    "AIC-8001": {
+      "pv": "AT-8002",
+      "output": "split: FCV-8003/FCV-8002/FCV-8001",
+      "action": "reverse",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 1.12,
+      "reset": 240.0,
+      "role": "Outlet pH, split range reagents"
+    },
+    "FIC-8001": {
+      "pv": "FT-8001",
+      "output": "FCV-8004",
+      "action": "reverse",
+      "normal_mode": "CAS",
+      "master": "LIC-8001",
+      "gain": 1.8,
+      "reset": 60.0,
+      "role": "Effluent discharge flow"
+    },
+    "LIC-8001": {
+      "pv": "LT-8001",
+      "output": "cascade SP",
+      "action": "direct",
+      "normal_mode": "AUTO",
+      "master": null,
+      "gain": 2.0,
+      "reset": 300.0,
+      "role": "Neutralisation tank level"
+    }
+  },
+  "companion": "engineering/Control_Modules.md",
+  "companion_sha256": "fcbbb33c4f8ac31928584235fb1a0b26ab9e5e74f40874f26d4af622f51a37f6"
+}

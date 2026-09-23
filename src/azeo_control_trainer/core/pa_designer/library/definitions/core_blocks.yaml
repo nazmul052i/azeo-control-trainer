@@ -1,0 +1,250 @@
+schema_version: 1
+field_catalog:
+  - {key: section, label: Section, group: Identity, editor: text, description: Operational section shown in run plans and SOP output.}
+  - {key: unit_procedure, label: Unit procedure, group: Identity, editor: text, description: Reusable procedural phase containing this block.}
+  - {key: equipment, label: Equipment, group: Identity, editor: text, description: Equipment or control-module reference presented to operators.}
+  - {key: description, label: Description, group: Identity, editor: multiline, description: Engineering intent and concise block description.}
+  - {key: display_text, label: Display text, group: Operator, editor: multiline, description: Primary instruction displayed while the block is active.}
+  - {key: operator_guidance, label: Operator guidance, group: Operator, editor: multiline, description: Expanded operating knowledge supplementing the approved SOP.}
+  - {key: audible, label: Audible prompt, group: Operator, editor: boolean, description: Requests an attention sound when the block becomes active.}
+  - {key: condition, label: Condition, group: Process, editor: expression, description: Reviewed process or variable expression evaluated by the execution engine.}
+  - {key: tag, label: Tag, group: Process, editor: tag, description: Declared procedure tag read or written by this block.}
+  - {key: value, label: Value, group: Process, editor: yaml, description: Typed value or training default used by the block.}
+  - {key: start, label: Ramp start, group: Process, editor: number, description: Initial ramp value in engineering units.}
+  - {key: end, label: Ramp end, group: Process, editor: number, description: Final reviewed ramp value in engineering units.}
+  - {key: rate_per_sec, label: Rate per second, group: Process, editor: number, description: Maximum ramp change per second.}
+  - {key: variable, label: Procedure variable, group: Input, editor: text, description: Declared runtime variable receiving operator input.}
+  - {key: input_type, label: Input data type, group: Input, editor: choice, description: Type and control used to collect operator input., options: [float, int, bool, str, selection]}
+  - {key: choices, label: Input choices, group: Input, editor: yaml, description: Reviewed selection values when input type is selection.}
+  - {key: min_value, label: Minimum value, group: Input, editor: number, description: Inclusive lower bound for operator input.}
+  - {key: max_value, label: Maximum value, group: Input, editor: number, description: Inclusive upper bound for operator input.}
+  - {key: delay_sec, label: Delay seconds, group: Timing, editor: number, description: Reviewed fixed duration before continuation.}
+  - {key: timeout_sec, label: Timeout seconds, group: Timing, editor: number, description: Maximum time allowed for completion or process readiness.}
+  - {key: poll_sec, label: Poll seconds, group: Timing, editor: number, description: Interval between process-condition evaluations or ramp updates.}
+  - {key: require_confirmation, label: Require confirmation, group: Operator, editor: boolean, description: Requires explicit operator acknowledgement before continuation.}
+  - {key: skip_if, label: Skip expression, group: Execution, editor: expression, description: Optional condition that marks this block skipped.}
+  - {key: on_failure, label: On failure, group: Failure handling, editor: choice, description: Default action when block execution fails., options: [fail, alarm, hold, abort, skip]}
+  - {key: on_timeout, label: On timeout, group: Failure handling, editor: choice, description: Default action when the block exceeds its timeout., options: [fail, alarm, hold, abort]}
+  - {key: severity, label: Severity, group: Failure handling, editor: choice, description: Operator and audit severity assigned to the message., options: [info, warning, alarm, critical]}
+  - {key: goto_on_pass, label: Pass branch, group: Routing, editor: text, description: Legacy ordered-flow target selected after success.}
+  - {key: goto_on_fail, label: Fail branch, group: Routing, editor: text, description: Legacy ordered-flow recovery target selected after failure.}
+  - {key: goto_on_timeout, label: Timeout branch, group: Routing, editor: text, description: Legacy ordered-flow target selected after timeout.}
+  - {key: comment_prompt, label: Comment prompt, group: Operator, editor: text, description: Prompt describing the required operating observation.}
+  - {key: document_link, label: Document link, group: References, editor: path, description: "Controlled SOP, drawing, checklist, or instruction reference."}
+  - {key: video_link, label: Video link, group: References, editor: url, description: Optional reviewed training or task-demonstration video.}
+  - {key: notes, label: Engineering notes, group: Governance, editor: multiline, description: Internal engineering note retained with this procedure revision.}
+  - {key: subprocedure_path, label: Subprocedure, group: Reuse, editor: path, description: Relative path to the reusable procedure definition.}
+  - {key: prefix, label: Namespace prefix, group: Reuse, editor: text, description: Prefix preventing step-ID collisions during composition.}
+blocks:
+  - block_id: core.check
+    name: Process Condition Check
+    palette_label: Condition Check
+    category: Logic and Decisions
+    step_type: check
+    description: Evaluates a process or runtime-variable expression and exposes pass or failure behavior.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [logic, condition, decision, read]
+    field_keys: [section, unit_procedure, equipment, description, condition, timeout_sec, skip_if, on_failure, goto_on_pass, goto_on_fail, document_link, notes]
+    template: {id: check_condition, type: check, description: Verify the required process condition., condition: TAG.PV > 0, on_failure: fail}
+  - block_id: core.permissive
+    name: Safety Permissive
+    category: Safety and Monitoring
+    step_type: permissive
+    description: Verifies a reviewed prerequisite and records permissive success or blocked status.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [permissive, safety, readiness]
+    field_keys: [section, unit_procedure, equipment, description, display_text, condition, timeout_sec, skip_if, on_failure, goto_on_pass, goto_on_fail, document_link, notes]
+    template: {id: permissive_ready, type: permissive, description: Confirm the required permissive., condition: TAG.PV > 0, on_failure: hold}
+  - block_id: core.wait_until
+    name: Wait for Process Condition
+    palette_label: Wait for Condition
+    category: Logic and Decisions
+    step_type: wait_until
+    description: Polls a process expression until it becomes true or the configured timeout action occurs.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [wait, condition, timeout]
+    field_keys: [section, unit_procedure, equipment, description, condition, timeout_sec, poll_sec, on_timeout, goto_on_pass, goto_on_timeout, notes]
+    template: {id: wait_for_condition, type: wait_until, description: Wait for the reviewed process condition., condition: TAG.PV > 0, timeout_sec: 60, poll_sec: 1, on_timeout: hold}
+  - block_id: core.delay
+    name: Reviewed Delay
+    category: Logic and Decisions
+    step_type: delay
+    description: Holds procedure progression for a fixed reviewed duration.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [delay, timer]
+    field_keys: [section, unit_procedure, equipment, description, delay_sec, skip_if, goto_on_pass, notes]
+    template: {id: delay_step, type: delay, description: Wait for the reviewed duration., delay_sec: 5}
+  - block_id: core.instruction
+    name: Operator Instruction
+    category: Operator Interaction
+    step_type: instruction
+    description: Presents concise instructions and expanded operating guidance for acknowledgement.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [operator, instruction, guidance, acknowledgement]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, require_confirmation, skip_if, on_failure, document_link, video_link, notes]
+    template: {id: operator_instruction, type: instruction, description: Perform the documented operator action., display_text: Complete the operator action and acknowledge.}
+  - block_id: core.operator_confirm
+    name: Operator Confirmation
+    palette_label: Confirmation
+    category: Operator Interaction
+    step_type: operator_confirm
+    description: Requires an explicit operator response before procedure continuation.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [operator, confirmation, acknowledgement]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, timeout_sec, on_failure, document_link, video_link, notes]
+    template: {id: operator_confirm, type: operator_confirm, description: Operator confirms readiness to continue.}
+  - block_id: core.operator_input
+    name: Bounded Operator Input
+    palette_label: Operator Input
+    category: Operator Interaction
+    step_type: operator_input
+    description: Collects a typed and bounded operator value in a declared runtime variable for later validation.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    revision_note: Added bounded setting and selection interaction.
+    tags: [operator, input, setting, variable, limits]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, variable, input_type, value, choices, min_value, max_value, timeout_sec, on_failure, document_link, video_link, notes]
+    template: {id: operator_input, type: operator_input, description: Enter the observed process value., variable: operator_value, input_type: float, value: 0.0, min_value: 0, max_value: 100}
+  - block_id: core.operator_comment
+    name: Required Operator Comment
+    palette_label: Operator Comment
+    category: Operator Interaction
+    step_type: operator_comment
+    description: Captures a required operating observation in the immutable run audit.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [operator, comment, audit]
+    field_keys: [section, unit_procedure, equipment, description, comment_prompt, audible, timeout_sec, on_failure, notes]
+    template: {id: operator_comment, type: operator_comment, description: Capture an operating observation., comment_prompt: Record the operating observation.}
+  - block_id: core.write_tag
+    name: Controlled Tag Write
+    category: Process Actions
+    step_type: write_tag
+    description: Writes a typed reviewed value through the simulator or records an advisory proposal.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [write, output, setpoint, mode]
+    field_keys: [section, unit_procedure, equipment, description, tag, value, require_confirmation, skip_if, on_failure, goto_on_pass, goto_on_fail, document_link, notes]
+    template: {id: write_tag, type: write_tag, description: Write the reviewed simulator value., tag: TAG.SP, value: 0}
+  - block_id: core.ramp_tag
+    name: Controlled Setpoint Ramp
+    palette_label: Setpoint Ramp
+    category: Process Actions
+    step_type: ramp_tag
+    description: Moves a simulator or advisory target from start to end at a bounded rate.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [ramp, setpoint, rate, output]
+    field_keys: [section, unit_procedure, equipment, description, operator_guidance, tag, start, end, rate_per_sec, poll_sec, require_confirmation, skip_if, on_failure, document_link, notes]
+    template: {id: ramp_setpoint, type: ramp_tag, description: Ramp the simulator setpoint., tag: TAG.SP, start: 0, end: 10, rate_per_sec: 1, poll_sec: 1}
+  - block_id: core.watchdog
+    name: Operating Envelope Watchdog
+    palette_label: Envelope Watchdog
+    category: Safety and Monitoring
+    step_type: watchdog
+    description: Evaluates a reviewed operating envelope and raises the configured response when violated.
+    version: 1.0.0
+    owner: Process Safety
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [watchdog, envelope, monitoring, alarm]
+    field_keys: [section, unit_procedure, equipment, description, condition, severity, poll_sec, on_failure, goto_on_pass, goto_on_fail, document_link, notes]
+    template: {id: watchdog_guard, type: watchdog, description: Monitor the approved operating envelope., condition: TAG.PV > 0, severity: alarm, on_failure: hold}
+  - block_id: core.warning
+    name: Operator Warning
+    category: Safety and Monitoring
+    step_type: warning
+    description: Records and displays a reviewed warning without automatically aborting execution.
+    version: 1.0.0
+    owner: Process Safety
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [warning, message, operator]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, severity, require_confirmation, document_link, video_link, notes]
+    template: {id: warning_message, type: warning, description: Review the warning before continuing., severity: warning}
+  - block_id: core.alarm
+    name: Procedure Alarm
+    category: Safety and Monitoring
+    step_type: alarm
+    description: Creates an auditable procedure alarm requiring operator attention.
+    version: 1.0.0
+    owner: Process Safety
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [alarm, operator, escalation]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, severity, require_confirmation, document_link, video_link, notes]
+    template: {id: procedure_alarm, type: alarm, description: Procedure alarm requires operator attention., severity: alarm, audible: true}
+  - block_id: core.hold
+    name: Procedure Hold
+    category: Safety and Monitoring
+    step_type: hold
+    description: Places execution in a controlled held state for operator and engineering review.
+    version: 1.0.0
+    owner: Process Safety
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [hold, pause, safety]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, severity, document_link, notes]
+    template: {id: procedure_hold, type: hold, description: Hold for operator review., severity: warning, audible: true}
+  - block_id: core.abort
+    name: Procedure Abort
+    category: Safety and Monitoring
+    step_type: abort
+    description: Terminates the procedure with a critical auditable reason and operator indication.
+    version: 1.0.0
+    owner: Process Safety
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [abort, stop, critical, safety]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, severity, document_link, notes]
+    template: {id: procedure_abort, type: abort, description: Abort the procedure safely., severity: critical, audible: true}
+  - block_id: core.complete
+    name: Procedure Complete
+    category: Logic and Decisions
+    step_type: complete
+    description: Records successful procedure completion and handover guidance.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    revision_note: Initial governed core block.
+    tags: [complete, end, handover]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, document_link, notes]
+    template: {id: complete, type: complete, description: Procedure complete.}
+  - block_id: core.subprocedure
+    name: Reusable Subprocedure
+    palette_label: Subprocedure
+    category: Reusable Modules
+    step_type: subprocedure
+    description: Composes a reviewed reusable procedure with an isolated step namespace.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    revision_note: Initial governed reusable-procedure block.
+    tags: [reuse, subprocedure, composition, module]
+    field_keys: [section, unit_procedure, equipment, description, subprocedure_path, prefix, skip_if, on_failure, document_link, notes]
+    template: {id: subprocedure, type: subprocedure, description: Execute a reusable subprocedure., subprocedure_path: subprocedures/example.yaml, prefix: module}

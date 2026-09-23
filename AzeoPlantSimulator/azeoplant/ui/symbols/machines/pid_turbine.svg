@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="108" viewBox="0 0 78 108" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID turbine</title>
+  <desc id="desc">Portable turbine symbol extracted from motor.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #24407C;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #F8FAFD;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #F8FAFD;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-27.5 -162.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 31 201 L 91 166 L 91 266 L 31 231 Z M 101 216 L 91 216" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.172068" cx="39" cy="18.5833" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.948718" data-anchor-y="0.5" cx="74" cy="54" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.827932" cx="39" cy="89.4167" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0512821" data-anchor-y="0.5" cx="4" cy="54" r="3" />
+  </g>
+</svg>

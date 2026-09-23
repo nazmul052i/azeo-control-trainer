@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="106" height="78" viewBox="0 0 106 78" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID induced draft cooling tower</title>
+  <desc id="desc">Portable induced draft cooling tower symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #24407C;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #F8FAFD;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #F8FAFD;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-143.5 -331.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="147" y="335" width="98" height="70" fill="none" stroke="none" />
+        <path d="M 171 405 L 166 395 L 171 395 L 147 345 L 181 345 L 181 335 L 211 335 L 211 345 L 245 345 L 221 395 L 226 395 L 221 405 Z M 181 345 L 211 345 M 171 395 L 221 395" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0512821" cx="53" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.849057" data-anchor-y="0.5" cx="90" cy="39" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.948718" cx="53" cy="74" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.150943" data-anchor-y="0.5" cx="16" cy="39" r="3" />
+  </g>
+</svg>

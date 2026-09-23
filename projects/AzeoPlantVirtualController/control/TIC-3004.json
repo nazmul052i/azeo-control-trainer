@@ -1,0 +1,155 @@
+{
+  "name": "TIC-3004",
+  "description": "H1 tube skin temperature constraint",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U300",
+    "workbook_block_type": "PID",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Constraint override on high select of two skins",
+    "pv_source_text": "TT-3005 and TT-3006",
+    "final_element_text": "Low select into FIC-3001",
+    "mapped_input_tags": [
+      "TT-3005",
+      "TT-3006"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "FIC-3001"
+    ],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "TT-3005",
+        "Unit": "U300",
+        "Alarm description": "H1 tube skin temperature high high",
+        "Alarm type": "HI_HI",
+        "Setpoint": 640,
+        "EU": "degC",
+        "Priority": "Critical",
+        "Deadband": 5,
+        "On-delay (s)": 3
+      }
+    ],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "SUPERVISORY",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "high_select",
+      "sources": [
+        "TT-3005",
+        "TT-3006"
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "TT-3005",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "TT-3005",
+        "label": "H1 pass 1 tube skin temperature",
+        "scale_lo": 0.0,
+        "scale_hi": 750.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 750.0,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "TT-3006",
+      "x": 0.0,
+      "y": 110.0,
+      "config": {
+        "tag": "TT-3006",
+        "label": "H1 pass 2 tube skin temperature",
+        "scale_lo": 0.0,
+        "scale_hi": 750.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 750.0,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "MAX_SELECT",
+      "instance_name": "PV_SELECT",
+      "x": 235.0,
+      "y": 60.0,
+      "config": {
+        "description": "High-select PV"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "PID",
+      "instance_name": "TIC-3004",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 15.0,
+        "RESET": 120.0,
+        "RATE": 0.0,
+        "sp_init": 600.0,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 750.0,
+        "sp_lo": 0.0,
+        "sp_hi": 750.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "degC",
+        "op_unit": "%",
+        "description": "H1 tube skin temperature constraint",
+        "hi_hi_lim": 640.0,
+        "alarm_hys": 5.0,
+        "sp_pv_track_man": false,
+        "out_init": 100.0
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "IN"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

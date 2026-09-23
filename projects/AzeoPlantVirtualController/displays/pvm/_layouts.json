@@ -1,0 +1,36 @@
+[
+  {
+    "layout": "Azeo Plant - Operator Layout",
+    "screens": [
+      {
+        "name": "Screen 1",
+        "width": 1920,
+        "height": 1080,
+        "origin": [
+          0,
+          0
+        ],
+        "frames": [
+          {
+            "name": "Main",
+            "rect": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "kind": "dynamic",
+            "levels": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "navigation_bar": true,
+            "coordinates": true
+          }
+        ]
+      }
+    ]
+  }
+]

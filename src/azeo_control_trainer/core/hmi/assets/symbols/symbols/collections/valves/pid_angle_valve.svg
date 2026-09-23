@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="88" viewBox="0 0 108 88" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID angle valve</title>
+  <desc id="desc">Portable angle valve symbol extracted from Valves.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-12.5 -172.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 66 206 L 116 176 L 116 236 Z M 66 206 L 96 256 L 36 256 Z" stroke-linejoin="round" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.386364" cx="54" cy="34" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.962963" data-anchor-y="0.386364" cx="104" cy="34" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.954545" cx="54" cy="84" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.5" data-anchor-y="0.386364" cx="54" cy="34" r="3" />
+  </g>
+</svg>

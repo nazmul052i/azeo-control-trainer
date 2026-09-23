@@ -1,0 +1,383 @@
+{
+ "display": "D1",
+ "pvms": [
+  {
+   "id": "pvm_96bf",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": ""
+   },
+   "x": 152.0,
+   "y": 253.36695813333336,
+   "w": 128.0,
+   "h": 216.0,
+   "variant": "vessel",
+   "standard": "hphmi.controller"
+  },
+  {
+   "id": "pvm_56a3",
+   "class": "DEVCTL/dynamo_compact",
+   "params": {
+    "path": ""
+   },
+   "x": 288.0,
+   "y": 480.0,
+   "w": 72.0,
+   "h": 56.0,
+   "variant": "pump",
+   "standard": "hphmi.controller"
+  },
+  {
+   "id": "pvm_fa94",
+   "class": "DEVCTL/dynamo_compact",
+   "params": {
+    "path": ""
+   },
+   "x": 392.0,
+   "y": 472.4361272727273,
+   "w": 72.0,
+   "h": 47.0,
+   "variant": "hp_b_valve",
+   "standard": "hphmi.controller"
+  },
+  {
+   "id": "pvm_0ab9",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-1001/FT-1001"
+   },
+   "x": 48.0,
+   "y": 300.02083333333337,
+   "w": 96.0,
+   "h": 42.0,
+   "standard": "hphmi.controller"
+  },
+  {
+   "id": "pvm_9b0e",
+   "class": "DEVCTL/dynamo_compact",
+   "params": {
+    "path": ""
+   },
+   "x": 324.0,
+   "y": 192.0,
+   "w": 84.0,
+   "h": 88.0,
+   "variant": "compressor",
+   "standard": "hphmi.controller"
+  }
+ ],
+ "items": [
+  {
+   "kind": "symbol",
+   "x": 1288.0,
+   "y": 300.02083333333337,
+   "w": 88.0,
+   "h": 480.0,
+   "text": "",
+   "symbol": "bubble_column",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ],
+   "id": "itm_a8adad9f"
+  },
+  {
+   "kind": "stream_connector",
+   "x": 32.0,
+   "y": 338.02083333333337,
+   "w": 96.0,
+   "h": 30.0,
+   "text": "Fresh Feed",
+   "stream_direction": "incoming",
+   "ports": [
+    {
+     "name": "process",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e"
+    }
+   ],
+   "font_family": "Segoe UI",
+   "font_size": 8.0,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "id": "itm_8704"
+  },
+  {
+   "kind": "symbol",
+   "x": 896.0,
+   "y": 152.0,
+   "w": 88.0,
+   "h": 128.0,
+   "text": "",
+   "symbol": "column",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ],
+   "id": "itm_377c"
+  },
+  {
+   "kind": "symbol",
+   "x": 1056.0,
+   "y": 232.43612727272728,
+   "w": 88.0,
+   "h": 480.0,
+   "text": "",
+   "symbol": "bubble_column",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ],
+   "id": "itm_3583"
+  },
+  {
+   "kind": "symbol",
+   "x": 745.0,
+   "y": 280.0,
+   "w": 110.0,
+   "h": 236.04166666666669,
+   "text": "",
+   "symbol": "reactor",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ],
+   "id": "itm_194b"
+  },
+  {
+   "kind": "symbol",
+   "x": 504.0,
+   "y": 375.6816090909091,
+   "w": 168.0,
+   "h": 204.2727272727273,
+   "text": "",
+   "symbol": "furnace",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ],
+   "id": "itm_0d7d"
+  },
+  {
+   "kind": "symbol",
+   "x": 896.0,
+   "y": 560.0,
+   "w": 64.0,
+   "h": 72.0,
+   "text": "",
+   "symbol": "dished_tank",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ],
+   "id": "itm_8273"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "pvm_9b0e",
+   "a_side": "outline:e:0.9581:0.1990",
+   "b": "itm_0d7d",
+   "b_side": "outline:w:0.0510:0.5550",
+   "id": "itm_f5b2"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "pvm_fa94",
+   "a_side": "outline:e:0.9738:0.6754",
+   "b": "itm_0d7d",
+   "b_side": "outline:w:0.0510:0.5497",
+   "id": "itm_6d84"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "itm_8704",
+   "a_side": "process",
+   "b": "pvm_96bf",
+   "b_side": "w",
+   "arrow_end": "filled_arrow",
+   "arrow_size": "small",
+   "id": "itm_18e9"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "pvm_96bf",
+   "a_side": "s",
+   "b": "pvm_56a3",
+   "b_side": "w",
+   "id": "itm_ebc0"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "pvm_56a3",
+   "a_side": "outline:e:0.9634:0.1957",
+   "b": "pvm_fa94",
+   "b_side": "outline:w:0.0366:0.6754",
+   "id": "itm_7a4f"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "itm_0d7d",
+   "a_side": "outline:e:0.9618:0.7853",
+   "b": "itm_194b",
+   "b_side": "outline:w:0.0795:0.1990",
+   "id": "itm_db4f"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "itm_194b",
+   "a_side": "n",
+   "b": "itm_377c",
+   "b_side": "w",
+   "id": "itm_c2b3"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "itm_194b",
+   "a_side": "s",
+   "b": "itm_8273",
+   "b_side": "w",
+   "id": "itm_0c1f"
+  },
+  {
+   "kind": "pipe",
+   "auto": false,
+   "corner_radius": 7.0,
+   "a": "itm_377c",
+   "a_side": "s",
+   "b": "itm_3583",
+   "b_side": "outline:w:0.0581:0.4293",
+   "id": "itm_790e"
+  }
+ ],
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 1,
+ "schema_version": 2
+}

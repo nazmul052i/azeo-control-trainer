@@ -1,0 +1,78 @@
+[
+  {
+    "display_set": "Azeo Plant - Operator Hierarchy",
+    "hierarchy": [
+      {
+        "display": "Overview - L1 Plant",
+        "level": 1,
+        "children": [
+          {
+            "display": "Plant - L2 Shutdown Monitoring",
+            "level": 2,
+            "children": [
+              {"display": "Plant - L3 Safe Landing", "level": 3},
+              {"display": "Plant - L3 Manual Heater", "level": 3},
+              {"display": "Plant - L3 Manual Feed", "level": 3},
+              {"display": "Plant - L3 Manual Columns", "level": 3},
+              {"display": "Plant - L3 Manual Boiler", "level": 3},
+              {"display": "Plant - L3 Manual Rotating", "level": 3},
+              {"display": "Plant - L3 Manual Containment", "level": 3}
+            ]
+          },
+          {
+            "display": "Overview - L2 Process Coordination",
+            "level": 2
+          },
+          {
+            "display": "U010 - L2 Fuel Gas and Utilities",
+            "level": 2
+          },
+          {
+            "display": "U100 - L2 Feed Preparation",
+            "level": 2
+          },
+          {
+            "display": "U200 - L2 Recycle Compression",
+            "level": 2
+          },
+          {
+            "display": "U300 - L2 Charge Heating",
+            "level": 2,
+            "children": [
+              {
+                "display": "Overview - L3 Charge Heater",
+                "level": 3,
+                "children": [
+                  {
+                    "display": "Overview - L4 Heater Safety",
+                    "level": 4
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "display": "U400 - L2 Reaction and Separation",
+            "level": 2
+          },
+          {
+            "display": "U500 - L2 Primary Fractionation",
+            "level": 2
+          },
+          {
+            "display": "U600 - L2 Product Fractionation",
+            "level": 2
+          },
+          {
+            "display": "U700 - L2 Steam Generation",
+            "level": 2
+          },
+          {
+            "display": "U800 - L2 Effluent Treatment",
+            "level": 2
+          }
+        ]
+      }
+    ]
+  }
+]

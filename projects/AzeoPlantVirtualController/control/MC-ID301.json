@@ -1,0 +1,173 @@
+{
+  "name": "MC-ID301",
+  "description": "H1 induced draft fan motor control",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U300",
+    "workbook_block_type": "MOTOR",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Motor control with VFD, permissives, run feedback timeout, duty-standby changeover",
+    "pv_source_text": "XS-ID301-RUN",
+    "final_element_text": "XY-ID301-STR and XY-ID301-STP",
+    "mapped_input_tags": [
+      "XS-ID301-RUN"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "XY-ID301-STR",
+      "XY-ID301-STP"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "COMMISSIONED",
+    "start_permissives": "No standing heater trip, damper at purge position"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "DI",
+      "instance_name": "XS-ID301-RUN",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "XS-ID301-RUN",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "XS-ID301-FLT",
+      "x": 0.0,
+      "y": 95.0,
+      "config": {
+        "tag": "XS-ID301-FLT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "MOTOR_INTERLOCK",
+      "instance_name": "INTERLOCK",
+      "x": 360.0,
+      "y": 60.0,
+      "config": {
+        "STARTUP_TIMEOUT": 10.0,
+        "STOP_TIMEOUT": 10.0,
+        "AUTO_RESET": false,
+        "LATCH_TRIPS": true,
+        "PERM_1_DESC": "Drive available",
+        "PERM_2_DESC": "Suction valve open",
+        "TRIP_1_DESC": "Drive fault",
+        "TRIP_2_DESC": "Emergency shutdown"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "DEVCTL",
+      "instance_name": "MC-ID301",
+      "x": 680.0,
+      "y": 60.0,
+      "config": {
+        "DEVICE_KIND": "MOTOR",
+        "START_TIMEOUT": 10.0,
+        "STOP_TIMEOUT": 10.0,
+        "RESET_REQUIRED": true,
+        "use_azeo_states": true,
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "INTERLOCK_OPT": "PASSIVE_IF_BAD",
+        "description": "H1 induced draft fan motor control"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "DO",
+      "instance_name": "XY-ID301-STR",
+      "x": 980.0,
+      "y": 40.0,
+      "config": {
+        "tag": "XY-ID301-STR",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "NOT",
+      "instance_name": "STOP_COMMAND",
+      "x": 850.0,
+      "y": 230.0,
+      "config": {}
+    },
+    {
+      "id": "b007",
+      "block_type": "DO",
+      "instance_name": "XY-ID301-STP",
+      "x": 980.0,
+      "y": 230.0,
+      "config": {
+        "tag": "XY-ID301-STP",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "TRIP_1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "START_PERMIT",
+      "dst_block_id": "b004",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b004",
+      "src_terminal": "DO_START",
+      "dst_block_id": "b005",
+      "dst_terminal": "CAS_IN_D"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b004",
+      "src_terminal": "DO_START",
+      "dst_block_id": "b006",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b006",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b007",
+      "dst_terminal": "CAS_IN_D"
+    }
+  ],
+  "comments": []
+}

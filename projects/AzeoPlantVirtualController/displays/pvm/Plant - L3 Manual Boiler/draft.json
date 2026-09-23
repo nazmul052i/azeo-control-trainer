@@ -1,0 +1,448 @@
+{
+ "display": "Plant - L3 Manual Boiler",
+ "pvms": [],
+ "schema_version": 3,
+ "items": [
+  {
+   "kind": "text",
+   "id": "title",
+   "text": "Remove B1 firing and balance the held inventory / Manual controls",
+   "x": 24,
+   "y": 18,
+   "w": 1150,
+   "h": 48,
+   "font_size": 20,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "instruction",
+   "text": "Use Boiler controls to remove fuel and close XV-7001. With steam demand removed, stop feedwater, blowdown and spray demand for this training hold. Retain water and cooling services; monitor drum level and pressure. Expected flame-failure protection remains active.",
+   "x": 24,
+   "y": 82,
+   "w": 1512,
+   "h": 88,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "authority",
+   "text": "1 Select MAN   2 Apply the individual demand   3 Verify field feedback in the PA conditions. Protection remains active.",
+   "x": 24,
+   "y": 180,
+   "w": 1512,
+   "h": 50,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "workspace",
+   "text": "All manual controls",
+   "target": "Plant - L3 Safe Landing",
+   "x": 24,
+   "y": 865,
+   "w": 340,
+   "h": 34
+  },
+  {
+   "kind": "display_link",
+   "id": "monitor",
+   "text": "Vessels / trends / AI",
+   "target": "Plant - L2 Shutdown Monitoring",
+   "x": 395,
+   "y": 865,
+   "w": 340,
+   "h": 34
+  },
+  {
+   "kind": "text",
+   "id": "header00",
+   "text": "Output / demand",
+   "x": 24,
+   "y": 240,
+   "w": 260,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "header0266",
+   "text": "Mode",
+   "x": 290,
+   "y": 240,
+   "w": 75,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "header0430",
+   "text": "Readback",
+   "x": 454,
+   "y": 240,
+   "w": 105,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "FCV-7002_tag",
+   "text": "FCV-7002",
+   "x": 24,
+   "y": 280,
+   "w": 258,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "datalink",
+   "id": "FCV-7002_mode",
+   "path": "FIC-7002/FCV-7002/MODE.ACTUAL",
+   "datalink_type": "string",
+   "x": 290,
+   "y": 280,
+   "w": 78,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "datalink",
+   "id": "FCV-7002_readback",
+   "path": "FIC-7002/FCV-7002/READBACK",
+   "datalink_type": "numeric",
+   "x": 454,
+   "y": 280,
+   "w": 90,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "user_entry",
+   "id": "FCV-7002_manual",
+   "x": 376,
+   "y": 280,
+   "w": 66,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "FIC-7002/FCV-7002/MODE.TARGET",
+    "value": "MAN",
+    "label": "MAN"
+   }
+  },
+  {
+   "kind": "user_entry",
+   "id": "FCV-7002_apply",
+   "x": 562,
+   "y": 280,
+   "w": 184,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "FIC-7002/FCV-7002/OUT",
+    "value": 0,
+    "label": "Set 0%"
+   }
+  },
+  {
+   "kind": "text",
+   "id": "XY-XV7001-OPN_tag",
+   "text": "XY-XV7001-OPN",
+   "x": 24,
+   "y": 330,
+   "w": 258,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "datalink",
+   "id": "XY-XV7001-OPN_mode",
+   "path": "XC-XV7001/XY-XV7001-OPN/MODE.ACTUAL",
+   "datalink_type": "string",
+   "x": 290,
+   "y": 330,
+   "w": 78,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "datalink",
+   "id": "XY-XV7001-OPN_readback",
+   "path": "XC-XV7001/XY-XV7001-OPN/READBACK_D",
+   "datalink_type": "string",
+   "x": 454,
+   "y": 330,
+   "w": 90,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "user_entry",
+   "id": "XY-XV7001-OPN_manual",
+   "x": 376,
+   "y": 330,
+   "w": 66,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "XC-XV7001/XY-XV7001-OPN/MODE.TARGET",
+    "value": "MAN",
+    "label": "MAN"
+   }
+  },
+  {
+   "kind": "user_entry",
+   "id": "XY-XV7001-OPN_apply",
+   "x": 562,
+   "y": 330,
+   "w": 184,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "XC-XV7001/XY-XV7001-OPN/OUT_D",
+    "value": false,
+    "label": "Remove OPEN"
+   }
+  },
+  {
+   "kind": "text",
+   "id": "FCV-7001_tag",
+   "text": "FCV-7001",
+   "x": 24,
+   "y": 380,
+   "w": 258,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "datalink",
+   "id": "FCV-7001_mode",
+   "path": "FIC-7001/FCV-7001/MODE.ACTUAL",
+   "datalink_type": "string",
+   "x": 290,
+   "y": 380,
+   "w": 78,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "datalink",
+   "id": "FCV-7001_readback",
+   "path": "FIC-7001/FCV-7001/READBACK",
+   "datalink_type": "numeric",
+   "x": 454,
+   "y": 380,
+   "w": 90,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "user_entry",
+   "id": "FCV-7001_manual",
+   "x": 376,
+   "y": 380,
+   "w": 66,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "FIC-7001/FCV-7001/MODE.TARGET",
+    "value": "MAN",
+    "label": "MAN"
+   }
+  },
+  {
+   "kind": "user_entry",
+   "id": "FCV-7001_apply",
+   "x": 562,
+   "y": 380,
+   "w": 184,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "FIC-7001/FCV-7001/OUT",
+    "value": 0,
+    "label": "Set 0%"
+   }
+  },
+  {
+   "kind": "text",
+   "id": "FCV-7004_tag",
+   "text": "FCV-7004",
+   "x": 24,
+   "y": 430,
+   "w": 258,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "datalink",
+   "id": "FCV-7004_mode",
+   "path": "CIC-7001/FCV-7004/MODE.ACTUAL",
+   "datalink_type": "string",
+   "x": 290,
+   "y": 430,
+   "w": 78,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "datalink",
+   "id": "FCV-7004_readback",
+   "path": "CIC-7001/FCV-7004/READBACK",
+   "datalink_type": "numeric",
+   "x": 454,
+   "y": 430,
+   "w": 90,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "user_entry",
+   "id": "FCV-7004_manual",
+   "x": 376,
+   "y": 430,
+   "w": 66,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "CIC-7001/FCV-7004/MODE.TARGET",
+    "value": "MAN",
+    "label": "MAN"
+   }
+  },
+  {
+   "kind": "user_entry",
+   "id": "FCV-7004_apply",
+   "x": 562,
+   "y": 430,
+   "w": 184,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "CIC-7001/FCV-7004/OUT",
+    "value": 0,
+    "label": "Set 0%"
+   }
+  },
+  {
+   "kind": "text",
+   "id": "TCV-7001_tag",
+   "text": "TCV-7001",
+   "x": 24,
+   "y": 480,
+   "w": 258,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "datalink",
+   "id": "TCV-7001_mode",
+   "path": "TIC-7001/TCV-7001/MODE.ACTUAL",
+   "datalink_type": "string",
+   "x": 290,
+   "y": 480,
+   "w": 78,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "datalink",
+   "id": "TCV-7001_readback",
+   "path": "TIC-7001/TCV-7001/READBACK",
+   "datalink_type": "numeric",
+   "x": 454,
+   "y": 480,
+   "w": 90,
+   "h": 30,
+   "decimals": 1
+  },
+  {
+   "kind": "user_entry",
+   "id": "TCV-7001_manual",
+   "x": 376,
+   "y": 480,
+   "w": 66,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "TIC-7001/TCV-7001/MODE.TARGET",
+    "value": "MAN",
+    "label": "MAN"
+   }
+  },
+  {
+   "kind": "user_entry",
+   "id": "TCV-7001_apply",
+   "x": 562,
+   "y": 480,
+   "w": 184,
+   "h": 34,
+   "entry": {
+    "kind": "button",
+    "path": "TIC-7001/TCV-7001/OUT",
+    "value": 0,
+    "label": "Set 0%"
+   }
+  }
+ ],
+ "stacking_order": [
+  "title",
+  "instruction",
+  "authority",
+  "workspace",
+  "monitor",
+  "header00",
+  "header0266",
+  "header0430",
+  "FCV-7002_tag",
+  "FCV-7002_mode",
+  "FCV-7002_readback",
+  "FCV-7002_manual",
+  "FCV-7002_apply",
+  "XY-XV7001-OPN_tag",
+  "XY-XV7001-OPN_mode",
+  "XY-XV7001-OPN_readback",
+  "XY-XV7001-OPN_manual",
+  "XY-XV7001-OPN_apply",
+  "FCV-7001_tag",
+  "FCV-7001_mode",
+  "FCV-7001_readback",
+  "FCV-7001_manual",
+  "FCV-7001_apply",
+  "FCV-7004_tag",
+  "FCV-7004_mode",
+  "FCV-7004_readback",
+  "FCV-7004_manual",
+  "FCV-7004_apply",
+  "TCV-7001_tag",
+  "TCV-7001_mode",
+  "TCV-7001_readback",
+  "TCV-7001_manual",
+  "TCV-7001_apply"
+ ],
+ "width": 1560,
+ "height": 920,
+ "level": 3,
+ "parent": "Plant - L2 Shutdown Monitoring"
+}

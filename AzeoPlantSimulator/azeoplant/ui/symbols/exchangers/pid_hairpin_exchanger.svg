@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="99" height="38" viewBox="0 0 99 38" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID hairpin exchanger</title>
+  <desc id="desc">Portable hairpin exchanger symbol extracted from Exchanger&amp;Pumps.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #24407C;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #F8FAFD;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #F8FAFD;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-342.5 -71.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="346" y="75" width="91" height="30" fill="none" stroke="none" />
+        <path d="M 350.96 81 L 360.88 81 L 360.88 75 L 365.84 75 L 365.84 81 L 415.43 81 L 415.43 75 L 420.39 75 L 420.39 81 L 430.31 81 C 434 81 437 85.03 437 90 C 437 94.97 434 99 430.31 99 L 420.39 99 L 420.39 105 L 415.43 105 L 415.43 99 L 365.84 99 L 365.84 105 L 360.88 105 L 360.88 99 L 350.96 99 L 346 98 L 346 95 L 350.96 94 L 428.32 94 C 430.24 94 431.79 92.21 431.79 90 C 431.79 87.79 430.24 86 428.32 86 L 350.96 86 L 346 85 L 346 82 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 350.96 78 L 350.96 89 M 350.96 91 L 350.96 102 M 360.88 81 L 365.84 81 M 415.43 81 L 420.39 81 M 420.39 99 L 415.43 99 M 365.84 99 L 360.88 99" fill="none" stroke-miterlimit="10" class="symbol-line" />
+        <path d="M 347.98 83 L 347.98 84.5 M 348.98 82 L 348.98 84 M 347.98 96 L 347.98 97.5 M 348.98 95 L 348.98 97" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.263158" cx="49.5" cy="10" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.959596" data-anchor-y="0.5" cx="95" cy="19" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.736842" cx="49.5" cy="28" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.040404" data-anchor-y="0.671053" cx="4" cy="25.5" r="3" />
+  </g>
+</svg>

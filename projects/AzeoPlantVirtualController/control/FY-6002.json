@@ -1,0 +1,56 @@
+{
+  "name": "FY-6002",
+  "description": "T2 feed rate feedforward",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U600",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Feedforward on feed rate",
+    "pv_source_text": "FT-6001",
+    "final_element_text": "FIC-6001 and FIC-6002 setpoints",
+    "mapped_input_tags": [
+      "FT-6001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "FIC-6001",
+      "FIC-6002"
+    ],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "MONITOR_ONLY_SUPERSEDED",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "drives_control": false,
+    "implemented_in": [
+      "TIC-6001",
+      "TIC-6002"
+    ]
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "FT-6001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-6001",
+        "label": "T2 feed flow",
+        "scale_lo": 0.0,
+        "scale_hi": 300.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 300.0,
+        "eng_units": "m3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

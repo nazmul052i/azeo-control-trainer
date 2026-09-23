@@ -1,0 +1,845 @@
+{
+ "display": "Overview - L3 Charge Heater",
+ "pvms": [
+  {
+   "id": "l3_tic3001",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "TIC-3001/TIC-3001"
+   },
+   "x": 61,
+   "y": 158,
+   "w": 280,
+   "h": 84,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "H1 OUTLET TEMP"
+  },
+  {
+   "id": "l3_fic3001",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-3001/FIC-3001"
+   },
+   "x": 54,
+   "y": 784,
+   "w": 348,
+   "h": 70,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "TOTAL FUEL"
+  },
+  {
+   "id": "l3_pic3001",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-3001/PIC-3001"
+   },
+   "x": 422,
+   "y": 784,
+   "w": 348,
+   "h": 70,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "FUEL HEADER"
+  },
+  {
+   "id": "l3_fic3003",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-3003/FIC-3003"
+   },
+   "x": 790,
+   "y": 784,
+   "w": 348,
+   "h": 70,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "COMBUSTION AIR"
+  },
+  {
+   "id": "l3_aic3001",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "AIC-3001/AIC-3001"
+   },
+   "x": 1158,
+   "y": 784,
+   "w": 348,
+   "h": 70,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "FLUE O2 TRIM"
+  },
+  {
+   "id": "l3_id301_pvm",
+   "class": "DEVCTL/dynamo_compact",
+   "params": {
+    "path": "MC-ID301/MC-ID301"
+   },
+   "x": 190,
+   "y": 455,
+   "w": 190,
+   "h": 62,
+   "standard": "hphmi.controller",
+   "variant": "fan",
+   "label": "ID-301"
+  }
+ ],
+ "schema_version": 3,
+ "items": [
+  {
+   "kind": "text",
+   "id": "l3_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U300 · CHARGE HEATER H1 SECONDARY OPERATION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "l3_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Detailed process relationships for non-routine operation and fault isolation: charge passes, fuel split, combustion air, draft, stack, and the reactor inlet constraint.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "text_role": "TEXT_DIM"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l3_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE",
+   "fill_role": "SURFACE_PANEL",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "l3_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L3",
+   "font_size": 19,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "line",
+   "id": "l3_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid",
+   "line_role": "LINE_SOFT"
+  },
+  {
+   "kind": "display_link",
+   "id": "l3_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "U300 - L2 Charge Heating",
+   "text": "Up one level"
+  },
+  {
+   "kind": "display_link",
+   "id": "l3_down",
+   "x": 1290,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L4 Heater Safety",
+   "text": "Open next level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l3_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1040,
+   "h": 590,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE_SOFT",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "l3_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1016,
+   "h": 24,
+   "text": "H1 PROCESS / COMBUSTION",
+   "font_size": 10,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l3_right_panel",
+   "x": 1094,
+   "y": 116,
+   "w": 464,
+   "h": 590,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE_SOFT",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "l3_right_title",
+   "x": 1106,
+   "y": 122,
+   "w": 440,
+   "h": 24,
+   "text": "HEATER CONDITION",
+   "font_size": 10,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_feed",
+   "x": 72,
+   "y": 279,
+   "w": 110,
+   "h": 88,
+   "symbol": "exchanger",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "l3_feed_tag",
+   "x": 48,
+   "y": 245,
+   "w": 160,
+   "h": 24,
+   "text": "FROM U200 · CHARGE",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "HEADING"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_fcv3001",
+   "x": 244,
+   "y": 291,
+   "w": 66,
+   "h": 55,
+   "symbol": "control_valve",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "l3_fcv3001_tag",
+   "x": 225,
+   "y": 350,
+   "w": 102,
+   "h": 21,
+   "text": "FCV-3001",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_h1",
+   "x": 420,
+   "y": 188,
+   "w": 220,
+   "h": 330,
+   "symbol": "furnace",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "l3_h1_tag",
+   "x": 425,
+   "y": 170,
+   "w": 65,
+   "h": 30,
+   "text": "H1",
+   "font_size": 14,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "l3_h1_desc",
+   "x": 450,
+   "y": 522,
+   "w": 160,
+   "h": 23,
+   "text": "CHARGE HEATER",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_fcv3002",
+   "x": 324,
+   "y": 579,
+   "w": 62,
+   "h": 50,
+   "symbol": "control_valve",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_fcv3003",
+   "x": 430,
+   "y": 579,
+   "w": 62,
+   "h": 50,
+   "symbol": "control_valve",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "l3_fuel_gas",
+   "x": 272,
+   "y": 635,
+   "w": 160,
+   "h": 21,
+   "text": "FUEL GAS · FCV-3002",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "l3_fuel_oil",
+   "x": 405,
+   "y": 635,
+   "w": 160,
+   "h": 21,
+   "text": "FUEL OIL · FCV-3003",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_fcv3004",
+   "x": 674,
+   "y": 579,
+   "w": 62,
+   "h": 50,
+   "symbol": "control_valve",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_id301",
+   "x": 793,
+   "y": 563,
+   "w": 74,
+   "h": 72,
+   "symbol": "fan",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "l3_air",
+   "x": 650,
+   "y": 635,
+   "w": 130,
+   "h": 21,
+   "text": "COMBUSTION AIR",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "l3_id301_tag",
+   "x": 790,
+   "y": 635,
+   "w": 82,
+   "h": 21,
+   "text": "ID-301",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_stack",
+   "x": 891,
+   "y": 153,
+   "w": 80,
+   "h": 175,
+   "symbol": "stack",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "l3_stack_tag",
+   "x": 980,
+   "y": 327,
+   "w": 70,
+   "h": 21,
+   "text": "STACK",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "symbol",
+   "id": "l3_to_r1",
+   "x": 891,
+   "y": 419,
+   "w": 84,
+   "h": 125,
+   "symbol": "reactor",
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "l3_to_r1_tag",
+   "x": 861,
+   "y": 548,
+   "w": 145,
+   "h": 22,
+   "text": "TO U400 · R1",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "HEADING"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_charge_in",
+   "a": "l3_feed",
+   "a_side": "e",
+   "b": "l3_fcv3001",
+   "b_side": "w",
+   "width": 5,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_charge_h1",
+   "a": "l3_fcv3001",
+   "a_side": "e",
+   "b": "l3_h1",
+   "b_side": "w",
+   "width": 5,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_h1_out",
+   "a": "l3_h1",
+   "a_side": "e",
+   "b": "l3_to_r1",
+   "b_side": "w",
+   "width": 5,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_fg",
+   "a": "l3_fcv3002",
+   "a_side": "n",
+   "b": "l3_h1",
+   "b_side": "s",
+   "width": 3,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_fo",
+   "a": "l3_fcv3003",
+   "a_side": "n",
+   "b": "l3_h1",
+   "b_side": "s",
+   "width": 3,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_air_run",
+   "a": "l3_fcv3004",
+   "a_side": "e",
+   "b": "l3_id301",
+   "b_side": "w",
+   "width": 3,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_air_h1",
+   "a": "l3_id301",
+   "a_side": "w",
+   "b": "l3_h1",
+   "b_side": "s",
+   "width": 3,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "l3_flue",
+   "a": "l3_h1",
+   "a_side": "n",
+   "b": "l3_stack",
+   "b_side": "s",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT",
+   "route_mode": "manual",
+   "route_points": [
+    [
+     530,
+     170
+    ],
+    [
+     825,
+     170
+    ],
+    [
+     825,
+     385
+    ],
+    [
+     931,
+     385
+    ]
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "l3_passes",
+   "x": 433,
+   "y": 277,
+   "w": 194,
+   "h": 22,
+   "text": "FOUR PARALLEL CHARGE PASSES",
+   "font_size": 8,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "line",
+   "id": "l3_pass1",
+   "x": 457,
+   "y": 307,
+   "w": 146,
+   "h": 1,
+   "width": 3,
+   "end_arrow": "none",
+   "style": "solid",
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "line",
+   "id": "l3_pass2",
+   "x": 457,
+   "y": 330,
+   "w": 146,
+   "h": 1,
+   "width": 3,
+   "end_arrow": "none",
+   "style": "solid",
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "line",
+   "id": "l3_pass3",
+   "x": 457,
+   "y": 353,
+   "w": 146,
+   "h": 1,
+   "width": 3,
+   "end_arrow": "none",
+   "style": "solid",
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "line",
+   "id": "l3_pass4",
+   "x": 457,
+   "y": 376,
+   "w": 146,
+   "h": 1,
+   "width": 3,
+   "end_arrow": "none",
+   "style": "solid",
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "text",
+   "id": "l3_trend_title",
+   "x": 1110,
+   "y": 155,
+   "w": 432,
+   "h": 23,
+   "text": "THERMAL PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "chart",
+   "id": "l3_trend",
+   "x": 1110,
+   "y": 181,
+   "w": 432,
+   "h": 190,
+   "pens": [
+    {
+     "label": "H1 outlet",
+     "path": "TIC-3001/TIC-3001/PV"
+    },
+    {
+     "label": "H1 setpoint",
+     "path": "TIC-3001/TIC-3001/SP_WRK"
+    },
+    {
+     "label": "Bridgewall",
+     "path": "BMS-3001/TT-3005/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 600
+  },
+  {
+   "kind": "text",
+   "id": "l3_alarm_title",
+   "x": 1110,
+   "y": 388,
+   "w": 432,
+   "h": 23,
+   "text": "ACTIVE U300 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "alarm_list",
+   "id": "l3_alarms",
+   "x": 1110,
+   "y": 414,
+   "w": 432,
+   "h": 150,
+   "path_prefix": "TIC-3001",
+   "priority_min": 0
+  },
+  {
+   "kind": "table",
+   "id": "l3_constraints",
+   "x": 1110,
+   "y": 578,
+   "w": 432,
+   "h": 107,
+   "columns": [
+    {
+     "key": "condition",
+     "title": "Constraint",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "condition": "Draft pressure",
+     "value": {
+      "path": "TIC-3001/PT-3001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "condition": "Flue O2",
+     "value": {
+      "path": "AIC-3001/AIC-3001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "condition": "Burner flame",
+     "value": {
+      "path": "BMS-3001/BS-3001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "PROVEN",
+       "false": "NO FLAME"
+      }
+     }
+    }
+   ],
+   "row_height": 23,
+   "header_height": 22
+  },
+  {
+   "kind": "round_rect",
+   "id": "l3_footer",
+   "x": 38,
+   "y": 725,
+   "w": 1520,
+   "h": 137,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE_SOFT",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "l3_footer_title",
+   "x": 54,
+   "y": 728,
+   "w": 300,
+   "h": 25,
+   "text": "PRIMARY HEATER LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "HEADING"
+  },
+  {
+   "kind": "text",
+   "id": "l3_footer_note",
+   "x": 850,
+   "y": 728,
+   "w": 655,
+   "h": 25,
+   "text": "For a lost permit, trip, or failed restart, use L4 first-out diagnostics.",
+   "font_size": 8.5,
+   "font_bold": false,
+   "text_halign": "right",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT_DIM"
+  }
+ ],
+ "description": "L3 charge-heater secondary-operation display derived from AP-PID-U300. Native process symbols, smart piping, live loop PVMs, condition table, alarm scope, and thermal trend.",
+ "width": 1600,
+ "height": 900,
+ "level": 3,
+ "parent": "U300 - L2 Charge Heating"
+}

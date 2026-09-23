@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="258" viewBox="0 0 168 258" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID bucket elevator</title>
+  <desc id="desc">Vertical bucket-elevator material-handling symbol.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-622 -132)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="626" y="136" width="160" height="250" class="symbol-fill symbol-line" />
+        <rect x="686" y="176" width="40" height="180" fill="none" class="symbol-line" />
+        <path d="M 726 176 C 748.09 176 766 193.91 766 216 L 726 216 Z M 686 316 L 686 356 C 663.91 356 646 338.09 646 316 Z" fill="none" stroke-miterlimit="10" class="symbol-line" />
+        <ellipse cx="706" cy="176" rx="20" ry="20" class="symbol-fill symbol-line" />
+        <ellipse cx="706" cy="356" rx="20" ry="20" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.502976" data-anchor-y="0.0174419" cx="84.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.979167" data-anchor-y="0.501938" cx="164.5" cy="129.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.502976" data-anchor-y="0.986434" cx="84.5" cy="254.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0267857" data-anchor-y="0.501938" cx="4.5" cy="129.5" r="3" />
+  </g>
+</svg>

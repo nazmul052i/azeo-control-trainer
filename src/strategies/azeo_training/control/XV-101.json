@@ -1,0 +1,124 @@
+{
+  "name": "XV-101",
+  "description": "Tank101 inlet block valve. Two-state Device Control module (course book Module 6, template VLVNC-11): DI1 carries the closed/open position the MTR-102 interlock reads.",
+  "blocks": [
+    {
+      "id": "di_open",
+      "block_type": "DI",
+      "instance_name": "DI_CMD_OPEN",
+      "x": -640.0,
+      "y": -160.0,
+      "config": {
+        "tag": "XV-101.cmd_open"
+      }
+    },
+    {
+      "id": "di_close",
+      "block_type": "DI",
+      "instance_name": "DI_CMD_CLOSE",
+      "x": -640.0,
+      "y": -60.0,
+      "config": {
+        "tag": "XV-101.cmd_close"
+      }
+    },
+    {
+      "id": "di_pos",
+      "block_type": "DI",
+      "instance_name": "DI1",
+      "x": -640.0,
+      "y": 40.0,
+      "config": {
+        "tag": "XV-101.ZSO"
+      }
+    },
+    {
+      "id": "di_perm",
+      "block_type": "DI",
+      "instance_name": "DI_PERMIT",
+      "x": -640.0,
+      "y": 140.0,
+      "config": {
+        "tag": "XV-101.permit"
+      }
+    },
+    {
+      "id": "dc",
+      "block_type": "DEVCTL",
+      "instance_name": "DC1",
+      "x": -200.0,
+      "y": -20.0,
+      "config": {
+        "START_TIMEOUT": 10.0,
+        "STOP_TIMEOUT": 10.0,
+        "RESET_REQUIRED": false,
+        "use_azeo_states": true,
+        "mode": "AUTO"
+      }
+    },
+    {
+      "id": "do_sol",
+      "block_type": "DO",
+      "instance_name": "DO1",
+      "x": 240.0,
+      "y": -60.0,
+      "config": {
+        "tag": "XV-101.solenoid"
+      }
+    },
+    {
+      "id": "do_pv",
+      "block_type": "DO",
+      "instance_name": "DO_PV_D",
+      "x": 240.0,
+      "y": 60.0,
+      "config": {
+        "tag": "XV-101.PV_D"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "di_open",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "START_CMD"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "di_close",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "STOP_CMD"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "di_pos",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "di_perm",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "PERMISSIVE_D"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "dc",
+      "src_terminal": "DO_START",
+      "dst_block_id": "do_sol",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "dc",
+      "src_terminal": "RUNNING",
+      "dst_block_id": "do_pv",
+      "dst_terminal": "IN"
+    }
+  ]
+}

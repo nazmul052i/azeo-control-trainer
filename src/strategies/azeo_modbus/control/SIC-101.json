@@ -1,0 +1,62 @@
+{
+  "name": "SIC-101",
+  "description": "VFD-101 speed control. **The drive owns its own output**: the sequence asks for a speed by writing VFD-101.speed_sp and this module decides what reaches holding register 40002. An operator can write the same tag, which is how every other command in this trainer reaches a device — the setpoint is the handle, not the register.",
+  "blocks": [
+    {
+      "id": "ai_sp",
+      "block_type": "AI",
+      "instance_name": "AI_SPEED_SP",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "VFD-101.speed_sp",
+        "scale_lo": 0.0,
+        "scale_hi": 100.0,
+        "eng_units": "%",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "Speed demand"
+      }
+    },
+    {
+      "id": "ai_pv",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": 0.0,
+      "y": 140.0,
+      "config": {
+        "tag": "VFD-101.speed_pv",
+        "scale_lo": 0.0,
+        "scale_hi": 100.0,
+        "eng_units": "%",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "VFD-101 Speed"
+      }
+    },
+    {
+      "id": "ao",
+      "block_type": "AO",
+      "instance_name": "AO1",
+      "x": 360.0,
+      "y": 0.0,
+      "config": {
+        "tag": "VFD-101.speed_ref",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "mode": "CAS",
+        "eng_units": "%"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "ai_sp",
+      "src_terminal": "OUT",
+      "dst_block_id": "ao",
+      "dst_terminal": "CAS_IN"
+    }
+  ],
+  "comments": []
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "default_project": "AzeoPlantVirtualController",
+  "exclude_globs": [
+    "*.before-*",
+    "*.after-*",
+    "*.pre-*",
+    "*.post-*",
+    "*.docs-*",
+    "*.backup*",
+    "*.bak*",
+    "*~"
+  ]
+}

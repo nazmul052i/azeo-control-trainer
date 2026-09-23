@@ -1,0 +1,643 @@
+{
+ "display": "U200 - L2 Recycle Compression",
+ "pvms": [
+  {
+   "id": "u200_in",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-2001/LIC-2001"
+   },
+   "x": 95,
+   "y": 225,
+   "w": 130,
+   "h": 105,
+   "standard": "hphmi.controller",
+   "variant": "vessel",
+   "label": "V201",
+   "choices": {
+    "equipment_symbol": "drum",
+    "show_hp_anatomy": false,
+    "show_readout": false
+   }
+  },
+  {
+   "id": "u200_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-2001/PIC-2001"
+   },
+   "x": 289.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Suction pressure"
+  },
+  {
+   "id": "u200_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "SIC-2001/SIC-2001"
+   },
+   "x": 633.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "C1 speed"
+  },
+  {
+   "id": "u200_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "UIC-2001/UIC-2001"
+   },
+   "x": 977.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Anti-surge"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U200 · RECYCLE GAS COMPRESSION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Protect C1 surge margin while maintaining reactor-loop circulation, knockout-drum level, discharge pressure, and temperature.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u200_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u200_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U200",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u200_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u200_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u200_in_tag",
+   "x": 70,
+   "y": 198,
+   "w": 180,
+   "h": 22,
+   "text": "V201",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u200_in_label",
+   "x": 65,
+   "y": 335,
+   "w": 190,
+   "h": 28,
+   "text": "Suction knockout drum",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u200_c1",
+   "x": 380,
+   "y": 240,
+   "w": 145,
+   "h": 115,
+   "symbol": "compressor",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w"
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e"
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0,
+     "normal": "n"
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0,
+     "normal": "s"
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u200_c1_tag",
+   "x": 355,
+   "y": 213,
+   "w": 195,
+   "h": 22,
+   "text": "C1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u200_c1_label",
+   "x": 350,
+   "y": 360,
+   "w": 205,
+   "h": 28,
+   "text": "Recycle compressor",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u200_cooler",
+   "x": 650,
+   "y": 225,
+   "w": 120,
+   "h": 110,
+   "symbol": "air_cooler",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w"
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e"
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0,
+     "normal": "n"
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0,
+     "normal": "s"
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u200_cooler_tag",
+   "x": 625,
+   "y": 198,
+   "w": 170,
+   "h": 22,
+   "text": "E201",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u200_cooler_label",
+   "x": 620,
+   "y": 340,
+   "w": 180,
+   "h": 28,
+   "text": "Discharge cooler",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u200_out",
+   "x": 900,
+   "y": 245,
+   "w": 90,
+   "h": 75,
+   "symbol": "control_valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w"
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e"
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0,
+     "normal": "n"
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0,
+     "normal": "s"
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u200_out_tag",
+   "x": 875,
+   "y": 218,
+   "w": 140,
+   "h": 22,
+   "text": "FCV-2001",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u200_out_label",
+   "x": 870,
+   "y": 325,
+   "w": 150,
+   "h": 28,
+   "text": "Anti-surge recycle",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u200_pipe_0",
+   "a": "u200_in",
+   "a_side": "outlet",
+   "b": "u200_c1",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u200_pipe_1",
+   "a": "u200_c1",
+   "a_side": "outlet",
+   "b": "u200_cooler",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u200_pipe_2",
+   "a": "u200_cooler",
+   "a_side": "outlet",
+   "b": "u200_out",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u200_pipe_3",
+   "a": "u200_out",
+   "a_side": "bottom",
+   "b": "u200_in",
+   "b_side": "bottom",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u200_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u200_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "Recycle flow",
+     "value": {
+      "path": "UIC-2001/UIC-2001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Discharge pressure",
+     "value": {
+      "path": "PIC-2002/PIC-2002/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Discharge temperature",
+     "value": {
+      "path": "TIC-2002/TIC-2002/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u200_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u200_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "Recycle flow",
+     "path": "UIC-2001/UIC-2001/PV"
+    },
+    {
+     "label": "Discharge pressure",
+     "path": "PIC-2002/PIC-2002/PV"
+    },
+    {
+     "label": "Discharge temperature",
+     "path": "TIC-2002/TIC-2002/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u200_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE PIC-2001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u200_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "PIC-2001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u200_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u200_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  }
+ ],
+ "description": "L2 primary-operation display for U200, derived from AP-PID-U200. Native editable equipment with named process ports, smart pipes, registered live vessel PVMs, KPIs, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant",
+ "schema_version": 2
+}

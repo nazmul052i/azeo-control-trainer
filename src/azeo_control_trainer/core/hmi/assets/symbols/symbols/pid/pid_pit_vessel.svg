@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="103" height="63" viewBox="0 0 103 63" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID pit vessel</title>
+  <desc id="desc">Open pit-vessel symbol.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-387 -872)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="391" y="876" width="95" height="55" fill="none" stroke="none" />
+        <path d="M 398.66 916 C 394.43 916 391 907.05 391 896 C 391 884.95 394.43 876 398.66 876 L 478.34 876 C 482.57 876 486 884.95 486 896 C 486 907.05 482.57 916 478.34 916 L 433.52 916 L 433.52 926 C 433.52 928.76 429.06 931 423.56 931 C 418.06 931 413.6 928.76 413.6 926 L 413.6 916 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.504854" data-anchor-y="0.0714286" cx="52" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.966019" data-anchor-y="0.388889" cx="99.5" cy="24.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.359806" data-anchor-y="0.944444" cx="37.06" cy="59.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0436893" data-anchor-y="0.388889" cx="4.5" cy="24.5" r="3" />
+  </g>
+</svg>

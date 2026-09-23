@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "schema": "dynalive.display/1",
+    "name": "L2 TANK101",
+    "id": "L2_TANK101",
+    "level": 2,
+    "area": "AZEO_TRAINING",
+    "w": 1800,
+    "h": 1100,
+    "scan_ms": 500,
+    "revision": 1
+  },
+  "objects": [
+    {
+      "id": "n_node_1",
+      "type": "vessel",
+      "x": 90,
+      "y": 150,
+      "w": 170,
+      "h": 200,
+      "props": {
+        "tag": "LI-101",
+        "label": "T-101",
+        "symbol": "pid_tank_vessel"
+      }
+    },
+    {
+      "id": "n_node_2",
+      "type": "pv",
+      "x": 330,
+      "y": 130,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "tag": "LI-101",
+        "label": "LI-101",
+        "show_bar": true
+      }
+    },
+    {
+      "id": "n_node_3",
+      "type": "pump",
+      "x": 150,
+      "y": 560,
+      "w": 92,
+      "h": 88,
+      "props": {
+        "tag": "MTR-102",
+        "label": "MTR-102",
+        "symbol": "pid_centrifugal_pump_1"
+      }
+    },
+    {
+      "id": "n_node_4",
+      "type": "valve",
+      "x": 330,
+      "y": 578,
+      "w": 82,
+      "h": 58,
+      "props": {
+        "tag": "XV-101",
+        "label": "XV-101",
+        "symbol": "pid_gate_valve"
+      }
+    },
+    {
+      "id": "n_node_5",
+      "type": "valve",
+      "x": 500,
+      "y": 556,
+      "w": 86,
+      "h": 82,
+      "props": {
+        "tag": "XV-101",
+        "label": "FV-102",
+        "symbol": "pid_diaphragm_actuated_gate_valve"
+      }
+    },
+    {
+      "id": "n_node_6",
+      "type": "pv",
+      "x": 505,
+      "y": 380,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "tag": "FIC-102",
+        "label": "FIC-102",
+        "show_bar": true
+      }
+    },
+    {
+      "id": "p_0_0",
+      "type": "pipe",
+      "x": 151,
+      "y": 346,
+      "w": 23,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": true
+      }
+    },
+    {
+      "id": "p_0_1",
+      "type": "pipe",
+      "x": 151,
+      "y": 346,
+      "w": 2,
+      "h": 258,
+      "props": {
+        "orient": "v",
+        "major": true
+      }
+    },
+    {
+      "id": "p_1_0",
+      "type": "pipe",
+      "x": 240,
+      "y": 604,
+      "w": 91,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": true
+      }
+    },
+    {
+      "id": "p_1_1",
+      "type": "pipe",
+      "x": 331,
+      "y": 604,
+      "w": 2,
+      "h": 3,
+      "props": {
+        "orient": "v",
+        "major": true
+      }
+    },
+    {
+      "id": "p_2_0",
+      "type": "pipe",
+      "x": 410,
+      "y": 607,
+      "w": 91,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": true
+      }
+    },
+    {
+      "id": "p_2_1",
+      "type": "pipe",
+      "x": 501,
+      "y": 597,
+      "w": 2,
+      "h": 10,
+      "props": {
+        "orient": "v",
+        "major": true
+      }
+    },
+    {
+      "id": "p_3_0",
+      "type": "pipe",
+      "x": 256,
+      "y": 250,
+      "w": 74,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": false
+      }
+    },
+    {
+      "id": "p_3_1",
+      "type": "pipe",
+      "x": 331,
+      "y": 164,
+      "w": 2,
+      "h": 86,
+      "props": {
+        "orient": "v",
+        "major": false
+      }
+    },
+    {
+      "id": "p_4_0",
+      "type": "pipe",
+      "x": 543,
+      "y": 452,
+      "w": 2,
+      "h": 105,
+      "props": {
+        "orient": "v",
+        "major": false
+      }
+    }
+  ]
+}

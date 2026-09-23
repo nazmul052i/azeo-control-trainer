@@ -1,0 +1,356 @@
+{
+  "name": "LIC-7001",
+  "description": "B1 steam drum three-element level",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U700",
+    "workbook_block_type": "PID",
+    "design_default_mode": "CAS",
+    "strategy_demonstrated": "Three-element level with shrink and swell compensation",
+    "pv_source_text": "LT-7001",
+    "final_element_text": "FIC-7001 setpoint",
+    "mapped_input_tags": [
+      "LT-7001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "FIC-7001"
+    ],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "LT-7001",
+        "Unit": "U700",
+        "Alarm description": "B1 drum level low low",
+        "Alarm type": "LO_LO",
+        "Setpoint": -200,
+        "EU": "mm",
+        "Priority": "Critical",
+        "Deadband": 10,
+        "On-delay (s)": 2
+      },
+      {
+        "Tag": "LT-7001",
+        "Unit": "U700",
+        "Alarm description": "B1 drum level low",
+        "Alarm type": "LO",
+        "Setpoint": -120,
+        "EU": "mm",
+        "Priority": "High",
+        "Deadband": 10,
+        "On-delay (s)": 3
+      },
+      {
+        "Tag": "LT-7001",
+        "Unit": "U700",
+        "Alarm description": "B1 drum level high",
+        "Alarm type": "HI",
+        "Setpoint": 120,
+        "EU": "mm",
+        "Priority": "High",
+        "Deadband": 10,
+        "On-delay (s)": 3
+      },
+      {
+        "Tag": "LT-7001",
+        "Unit": "U700",
+        "Alarm description": "B1 drum level high high",
+        "Alarm type": "HI_HI",
+        "Setpoint": 200,
+        "EU": "mm",
+        "Priority": "Critical",
+        "Deadband": 10,
+        "On-delay (s)": 2
+      },
+      {
+        "Tag": "PT-7001",
+        "Unit": "U700",
+        "Alarm description": "B1 drum pressure high high",
+        "Alarm type": "HI_HI",
+        "Setpoint": 52,
+        "EU": "barg",
+        "Priority": "Critical",
+        "Deadband": 0.5,
+        "On-delay (s)": 2
+      },
+      {
+        "Tag": "BS-7001",
+        "Unit": "U700",
+        "Alarm description": "B1 flame failure",
+        "Alarm type": "DISCRETE",
+        "Setpoint": "False",
+        "EU": "-",
+        "Priority": "Critical",
+        "Deadband": 0,
+        "On-delay (s)": 1
+      }
+    ],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "LT-7001"
+      ]
+    },
+    "external_reset_contract": {
+      "master": "LIC-7001",
+      "reset_source": "FIC-7001",
+      "path": "ctrl.FIC-7001.BKCAL_OUT -> LIC-7001/BKCAL_IN (0.0..80.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    "executable_consumers": [
+      {
+        "source": "LIC-7001.OUT",
+        "consumer": "SP_HANDOFF:FIC-7001",
+        "conversion": "0..100% -> 0.0..80.0 EU"
+      }
+    ],
+    "feedforward_contract": {
+      "source": "FT-7001",
+      "path": "PID.FF_VAL",
+      "gain": 1.4285714285714286,
+      "excluded_from_external_reset": true
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "LT-7001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "LT-7001",
+        "label": "B1 steam drum level",
+        "scale_lo": -300.0,
+        "scale_hi": 300.0,
+        "XD_SCALE_LO": -300.0,
+        "XD_SCALE_HI": 300.0,
+        "eng_units": "mm",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "LIC-7001",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 1.32,
+        "RESET": 240.0,
+        "RATE": 0.0,
+        "sp_init": -1.1131999875509333,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": -300.0,
+        "pv_scale_hi": 300.0,
+        "sp_lo": -300.0,
+        "sp_hi": 300.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "mm",
+        "op_unit": "%",
+        "description": "B1 steam drum three-element level",
+        "lo_lo_lim": -200.0,
+        "lo_lim": -120.0,
+        "hi_lim": 120.0,
+        "hi_hi_lim": 200.0,
+        "alarm_hys": 10.0,
+        "sp_pv_track_man": true,
+        "reset_impl": "external",
+        "out_init": 37.12287001590792,
+        "ff_enable": true,
+        "ff_gain": 1.4285714285714286,
+        "ff_scale_lo": 0.0,
+        "ff_scale_hi": 100.0
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "MEM_BOOL",
+      "instance_name": "CASCADE_ENABLE",
+      "x": 760.0,
+      "y": 520.0,
+      "config": {
+        "initial_value": true,
+        "label": "Cascade demand armed; slave CAS owns transfer"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "SP_HANDOFF",
+      "instance_name": "TO_FIC-7001",
+      "x": 980.0,
+      "y": 400.0,
+      "config": {
+        "controller_tag": "FIC-7001",
+        "target_parameter": "CAS_IN",
+        "ramp_rate": 0.0,
+        "hold_on_shed": true,
+        "required_modes": "CAS"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "AI",
+      "instance_name": "PT-7001",
+      "x": 0.0,
+      "y": 320.0,
+      "config": {
+        "tag": "PT-7001",
+        "label": "B1 steam drum pressure",
+        "scale_lo": 0.0,
+        "scale_hi": 60.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 60.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "HI_HI_LIM": 52.0,
+        "HI_HI_DELAY_ON": 2.0,
+        "ALARM_HYS": 0.5
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "DI",
+      "instance_name": "BS-7001",
+      "x": 0.0,
+      "y": 410.0,
+      "config": {
+        "tag": "BS-7001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "DISC_LIM": 0,
+        "PV_FTIME": 1.0
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "BKCAL_FROM_FIC-7001",
+      "x": 520.0,
+      "y": 670.0,
+      "config": {
+        "path": "ctrl.FIC-7001.BKCAL_OUT",
+        "default": 29.698296012726335,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.FIC-7001.BKCAL_OUT"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "SCALER",
+      "instance_name": "BKCAL_FIC-7001_EU_TO_PCT",
+      "x": 750.0,
+      "y": 670.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 80.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "SCALER",
+      "instance_name": "LIC-7001_PCT_TO_FIC-7001_EU",
+      "x": 700.0,
+      "y": 330.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 80.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "b010",
+      "block_type": "AI",
+      "instance_name": "FT-7001",
+      "x": 180.0,
+      "y": 520.0,
+      "config": {
+        "tag": "FT-7001",
+        "label": "B1 steam flow to header",
+        "scale_lo": 0.0,
+        "scale_hi": 70.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 70.0,
+        "eng_units": "t/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b008",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b008",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b009",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "APC_SP"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b004",
+      "dst_terminal": "ACTIVE"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b010",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "FF_VAL"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

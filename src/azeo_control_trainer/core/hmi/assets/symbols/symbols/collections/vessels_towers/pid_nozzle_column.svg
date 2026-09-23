@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="188" viewBox="0 0 58 188" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID nozzle column</title>
+  <desc id="desc">Portable nozzle column symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-242.5 -644.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 246 663 C 246 654.72 257.19 648 271 648 C 284.81 648 296 654.72 296 663 L 296 813 C 296 821.28 284.81 828 271 828 C 257.19 828 246 821.28 246 813 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 246 690 L 296 690 M 246 726 L 296 726" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+        <path d="M 246 690 L 296 726 M 246 726 L 296 690" fill="none" stroke-miterlimit="10" class="symbol-line" />
+        <path d="M 246 750 L 296 750 M 246 786 L 296 786" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+        <path d="M 246 750 L 296 786 M 246 786 L 296 750 M 246 738 L 271 738 M 266.2 742.8 L 271 738 L 275.8 742.8 M 271 738 L 271 742.8" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0212766" cx="29" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.931034" data-anchor-y="0.5" cx="54" cy="94" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.978723" cx="29" cy="184" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0689655" data-anchor-y="0.5" cx="4" cy="94" r="3" />
+  </g>
+</svg>

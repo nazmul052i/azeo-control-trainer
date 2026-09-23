@@ -1,0 +1,90 @@
+{
+  "name": "XV-OPTION",
+  "description": "Optional workshop, course book Module 6: a valve driven by a Device Control block whose setpoint names are Flush(1)/Hold(0) and whose process-variable names are Flushing(1)/Holding(0) — the platform equivalent of the two Azeo named sets the workshop asks for.",
+  "blocks": [
+    {
+      "id": "di_cmd",
+      "block_type": "DI",
+      "instance_name": "DI_SP_D",
+      "x": -560.0,
+      "y": -80.0,
+      "config": {
+        "tag": "XV-OPTION.cmd_flush"
+      }
+    },
+    {
+      "id": "di_fb",
+      "block_type": "DI",
+      "instance_name": "DI1",
+      "x": -560.0,
+      "y": 40.0,
+      "config": {
+        "tag": "XV-OPTION.ZSO"
+      }
+    },
+    {
+      "id": "dc",
+      "block_type": "DEVCTL",
+      "instance_name": "DC1",
+      "x": -160.0,
+      "y": -20.0,
+      "config": {
+        "START_TIMEOUT": 5.0,
+        "STOP_TIMEOUT": 5.0,
+        "RESET_REQUIRED": false,
+        "use_azeo_states": true,
+        "mode": "AUTO"
+      }
+    },
+    {
+      "id": "do",
+      "block_type": "DO",
+      "instance_name": "DO1",
+      "x": 260.0,
+      "y": -60.0,
+      "config": {
+        "tag": "XV-OPTION.solenoid"
+      }
+    },
+    {
+      "id": "do_pv",
+      "block_type": "DO",
+      "instance_name": "DO_PV_D",
+      "x": 260.0,
+      "y": 60.0,
+      "config": {
+        "tag": "XV-OPTION.PV_D"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "di_cmd",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "START_CMD"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "di_fb",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "dc",
+      "src_terminal": "DO_START",
+      "dst_block_id": "do",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "dc",
+      "src_terminal": "RUNNING",
+      "dst_block_id": "do_pv",
+      "dst_terminal": "IN"
+    }
+  ]
+}

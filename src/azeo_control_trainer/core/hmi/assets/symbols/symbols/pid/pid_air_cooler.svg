@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="28" viewBox="0 0 78 28" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID air cooler</title>
+  <desc id="desc">Horizontal air-cooler symbol.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-61 -622)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="65" y="626" width="70" height="20" class="symbol-fill symbol-line" />
+        <path d="M 75 640 L 125 632 C 127.21 632 129 633.79 129 636 C 129 638.21 127.21 640 125 640 L 75 632 C 72.79 632 71 633.79 71 636 C 71 638.21 72.79 640 75 640 Z" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.50641" data-anchor-y="0.160714" cx="39.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.955128" data-anchor-y="0.517857" cx="74.5" cy="14.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.50641" data-anchor-y="0.875" cx="39.5" cy="24.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0576923" data-anchor-y="0.517857" cx="4.5" cy="14.5" r="3" />
+  </g>
+</svg>

@@ -1,0 +1,124 @@
+{
+  "name": "HC-HV5001",
+  "description": "T1 reflux manual bypass status",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U500",
+    "workbook_block_type": "DC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Field manual valve, position monitored only, operated from the simulator field HMI",
+    "pv_source_text": "ZSO-HV5001 and ZSC-HV5001",
+    "final_element_text": "None",
+    "mapped_input_tags": [
+      "ZSO-HV5001",
+      "ZSC-HV5001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "MONITOR_ONLY"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "VLVCTL",
+      "instance_name": "HC-HV5001",
+      "x": 560.0,
+      "y": 60.0,
+      "config": {
+        "STROKE_TIME": 5.0,
+        "FAIL_ACTION": "CLOSE",
+        "description": "T1 reflux manual bypass status"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "ZSO-HV5001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "ZSO-HV5001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "DI",
+      "instance_name": "ZSC-HV5001",
+      "x": 0.0,
+      "y": 95.0,
+      "config": {
+        "tag": "ZSC-HV5001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "CONSTANT",
+      "instance_name": "OPEN_POSITION",
+      "x": 210.0,
+      "y": 280.0,
+      "config": {
+        "value": 100.0,
+        "label": "Open limit position"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "CONSTANT",
+      "instance_name": "CLOSED_POSITION",
+      "x": 210.0,
+      "y": 360.0,
+      "config": {
+        "value": 0.0,
+        "label": "Closed/default position"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "SWITCH",
+      "instance_name": "POSITION_FROM_LIMITS",
+      "x": 360.0,
+      "y": 300.0,
+      "config": {}
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "SELECT"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "POS_FB"
+    }
+  ],
+  "comments": []
+}

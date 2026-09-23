@@ -1,0 +1,627 @@
+{
+ "display": "U300 - L2 Charge Heating",
+ "pvms": [
+  {
+   "id": "u300_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "TIC-3001/TIC-3001"
+   },
+   "x": 117.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "H1 outlet"
+  },
+  {
+   "id": "u300_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-3001/FIC-3001"
+   },
+   "x": 461.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Total fuel"
+  },
+  {
+   "id": "u300_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-3003/FIC-3003"
+   },
+   "x": 805.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Combustion air"
+  },
+  {
+   "id": "u300_loop_3",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "AIC-3001/AIC-3001"
+   },
+   "x": 1149.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Flue O2"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U300 · CHARGE HEATING",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Operate H1 inside fuel, air, draft, oxygen, flame, and reactor-inlet constraints; drill into L3 for pass and combustion diagnosis.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_down",
+   "x": 1290,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L3 Charge Heater",
+   "text": "Open next level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u300_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u300_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U300",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u300_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u300_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "symbol",
+   "id": "u300_feed",
+   "x": 75,
+   "y": 270,
+   "w": 115,
+   "h": 90,
+   "symbol": "exchanger"
+  },
+  {
+   "kind": "text",
+   "id": "u300_feed_tag",
+   "x": 50,
+   "y": 243,
+   "w": 165,
+   "h": 22,
+   "text": "CHARGE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u300_feed_label",
+   "x": 45,
+   "y": 365,
+   "w": 175,
+   "h": 28,
+   "text": "From recycle compression",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u300_h1",
+   "x": 360,
+   "y": 190,
+   "w": 180,
+   "h": 280,
+   "symbol": "furnace"
+  },
+  {
+   "kind": "text",
+   "id": "u300_h1_tag",
+   "x": 335,
+   "y": 163,
+   "w": 230,
+   "h": 22,
+   "text": "H1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u300_h1_label",
+   "x": 330,
+   "y": 475,
+   "w": 240,
+   "h": 28,
+   "text": "Charge heater",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u300_fan",
+   "x": 665,
+   "y": 345,
+   "w": 100,
+   "h": 95,
+   "symbol": "fan"
+  },
+  {
+   "kind": "text",
+   "id": "u300_fan_tag",
+   "x": 640,
+   "y": 318,
+   "w": 150,
+   "h": 22,
+   "text": "ID-301",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u300_fan_label",
+   "x": 635,
+   "y": 445,
+   "w": 160,
+   "h": 28,
+   "text": "Induced-draft fan",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u300_stack",
+   "x": 835,
+   "y": 175,
+   "w": 82,
+   "h": 190,
+   "symbol": "stack"
+  },
+  {
+   "kind": "text",
+   "id": "u300_stack_tag",
+   "x": 810,
+   "y": 148,
+   "w": 132,
+   "h": 22,
+   "text": "STACK",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u300_stack_label",
+   "x": 805,
+   "y": 370,
+   "w": 142,
+   "h": 28,
+   "text": "Flue gas",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u300_r1",
+   "x": 985,
+   "y": 240,
+   "w": 90,
+   "h": 155,
+   "symbol": "reactor"
+  },
+  {
+   "kind": "text",
+   "id": "u300_r1_tag",
+   "x": 960,
+   "y": 213,
+   "w": 140,
+   "h": 22,
+   "text": "R1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u300_r1_label",
+   "x": 955,
+   "y": 400,
+   "w": 150,
+   "h": 28,
+   "text": "To reaction",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u300_pipe_0",
+   "a": "u300_feed",
+   "a_side": "e",
+   "b": "u300_h1",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u300_pipe_1",
+   "a": "u300_h1",
+   "a_side": "e",
+   "b": "u300_r1",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u300_pipe_2",
+   "a": "u300_fan",
+   "a_side": "w",
+   "b": "u300_h1",
+   "b_side": "s",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u300_pipe_3",
+   "a": "u300_h1",
+   "a_side": "n",
+   "b": "u300_stack",
+   "b_side": "s",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u300_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u300_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "H1 outlet",
+     "value": {
+      "path": "TIC-3001/TIC-3001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Draft pressure",
+     "value": {
+      "path": "TIC-3001/PT-3001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Bridgewall temperature",
+     "value": {
+      "path": "BMS-3001/TT-3005/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u300_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u300_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "H1 outlet",
+     "path": "TIC-3001/TIC-3001/PV"
+    },
+    {
+     "label": "Draft pressure",
+     "path": "TIC-3001/PT-3001/PV"
+    },
+    {
+     "label": "Bridgewall temperature",
+     "path": "BMS-3001/TT-3005/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u300_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE TIC-3001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u300_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "TIC-3001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u300_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u300_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "display_link",
+   "id": "u300_open_l3",
+   "x": 850,
+   "y": 662,
+   "w": 270,
+   "h": 32,
+   "target": "Overview - L3 Charge Heater",
+   "text": "Open H1 secondary operation"
+  }
+ ],
+ "description": "L2 primary-operation display for U300, derived from AP-PID-U300. Native editable equipment, smart pipes, live PVMs, KPIs, profile, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

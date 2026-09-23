@@ -1,0 +1,250 @@
+{
+  "name": "MTR-101",
+  "description": "P-101 drive. Running feedback is discrete input 10003, ready 10004, trip 10005. Start is coil 1 and the field reset is coil 3. The trip is inverted into the interlock, because DEVCTL's INTERLOCK is a *permit* — True means may run — and wiring a trip straight to it would let the motor run only while it was tripped. The start permissive is the drive being ready AND a speed reference above 5 %: the plant starts the motor from the VFD, so a start with the drive at rest can never get its run feedback and would sit in Starting until the 10 s timer faulted it. Refusing it up front is what the operator can act on.",
+  "blocks": [
+    {
+      "id": "di_start",
+      "block_type": "DI",
+      "instance_name": "DI_START_CMD",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "MTR-101.cmd_start"
+      }
+    },
+    {
+      "id": "di_stop",
+      "block_type": "DI",
+      "instance_name": "DI_STOP_CMD",
+      "x": 0.0,
+      "y": 90.0,
+      "config": {
+        "tag": "MTR-101.cmd_stop"
+      }
+    },
+    {
+      "id": "di_run",
+      "block_type": "DI",
+      "instance_name": "DI1",
+      "x": 0.0,
+      "y": 180.0,
+      "config": {
+        "tag": "MTR-101.run_fb"
+      }
+    },
+    {
+      "id": "di_ready",
+      "block_type": "DI",
+      "instance_name": "DI_READY",
+      "x": 0.0,
+      "y": 270.0,
+      "config": {
+        "tag": "MTR-101.ready"
+      }
+    },
+    {
+      "id": "di_trip",
+      "block_type": "DI",
+      "instance_name": "DI_TRIP",
+      "x": 0.0,
+      "y": 360.0,
+      "config": {
+        "tag": "MTR-101.trip"
+      }
+    },
+    {
+      "id": "di_rst",
+      "block_type": "DI",
+      "instance_name": "DI_RESET_CMD",
+      "x": 0.0,
+      "y": 450.0,
+      "config": {
+        "tag": "MTR-101.cmd_reset"
+      }
+    },
+    {
+      "id": "not_trip",
+      "block_type": "NOT",
+      "instance_name": "NOT1",
+      "x": 200.0,
+      "y": 360.0,
+      "config": {}
+    },
+    {
+      "id": "dc",
+      "block_type": "DEVCTL",
+      "instance_name": "DC1",
+      "x": 380.0,
+      "y": 120.0,
+      "config": {
+        "START_TIMEOUT": 10.0,
+        "STOP_TIMEOUT": 10.0,
+        "RESET_REQUIRED": true,
+        "use_azeo_states": true,
+        "mode": "AUTO"
+      }
+    },
+    {
+      "id": "do_start",
+      "block_type": "DO",
+      "instance_name": "DO1",
+      "x": 640.0,
+      "y": 90.0,
+      "config": {
+        "tag": "MTR-101.do_start"
+      }
+    },
+    {
+      "id": "do_rst",
+      "block_type": "DO",
+      "instance_name": "DO_RESET",
+      "x": 640.0,
+      "y": 200.0,
+      "config": {
+        "tag": "MTR-101.reset"
+      }
+    },
+    {
+      "id": "ai_speed",
+      "block_type": "AI",
+      "instance_name": "AI_SPEED_REF",
+      "x": 0.0,
+      "y": 570.0,
+      "config": {
+        "tag": "VFD-101.speed_ref",
+        "scale_lo": 0.0,
+        "scale_hi": 100.0,
+        "eng_units": "%",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "Drive speed reference reaching the VFD"
+      }
+    },
+    {
+      "id": "k_min",
+      "block_type": "CONSTANT",
+      "instance_name": "MIN_SPEED",
+      "x": 0.0,
+      "y": 650.0,
+      "config": {
+        "value": 5.0,
+        "label": "minimum reference to start on, %"
+      }
+    },
+    {
+      "id": "cmp_speed",
+      "block_type": "COMPARATOR",
+      "instance_name": "SPEED_PRESENT",
+      "x": 180.0,
+      "y": 590.0,
+      "config": {
+        "OP": "GT",
+        "HYST": 1.0
+      }
+    },
+    {
+      "id": "and_permit",
+      "block_type": "AND",
+      "instance_name": "START_PERMIT",
+      "x": 200.0,
+      "y": 420.0,
+      "config": {
+        "NOF_INPUTS": 2
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "di_start",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "START_CMD"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "di_stop",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "STOP_CMD"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "di_run",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "di_trip",
+      "src_terminal": "OUT",
+      "dst_block_id": "not_trip",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "not_trip",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "dc",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "di_rst",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RESET"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "dc",
+      "src_terminal": "DO_START",
+      "dst_block_id": "do_start",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "di_rst",
+      "src_terminal": "OUT",
+      "dst_block_id": "do_rst",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "ai_speed",
+      "src_terminal": "OUT",
+      "dst_block_id": "cmp_speed",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w011",
+      "src_block_id": "k_min",
+      "src_terminal": "OUT",
+      "dst_block_id": "cmp_speed",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w012",
+      "src_block_id": "di_ready",
+      "src_terminal": "OUT",
+      "dst_block_id": "and_permit",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w013",
+      "src_block_id": "cmp_speed",
+      "src_terminal": "GT",
+      "dst_block_id": "and_permit",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w014",
+      "src_block_id": "and_permit",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "dc",
+      "dst_terminal": "PERMISSIVE_D"
+    }
+  ],
+  "comments": []
+}

@@ -1,0 +1,139 @@
+{
+  "name": "TIC-4002",
+  "description": "R1 temperature runaway override",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U400",
+    "workbook_block_type": "PID",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Constraint override, fast quench on excursion",
+    "pv_source_text": "TT-4002 and TT-4003",
+    "final_element_text": "High select onto FCV-4001",
+    "mapped_input_tags": [
+      "TT-4002",
+      "TT-4003"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "SUPERVISORY",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "high_select",
+      "sources": [
+        "TT-4002",
+        "TT-4003"
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "TT-4002",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "TT-4002",
+        "label": "R1 bed 1 temperature",
+        "scale_lo": 0.0,
+        "scale_hi": 550.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 550.0,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "TT-4003",
+      "x": 0.0,
+      "y": 110.0,
+      "config": {
+        "tag": "TT-4003",
+        "label": "R1 bed 2 temperature",
+        "scale_lo": 0.0,
+        "scale_hi": 550.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 550.0,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "MAX_SELECT",
+      "instance_name": "PV_SELECT",
+      "x": 235.0,
+      "y": 60.0,
+      "config": {
+        "description": "High-select PV"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "PID",
+      "instance_name": "TIC-4002",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 16.5,
+        "RESET": 60.0,
+        "RATE": 0.0,
+        "sp_init": 392.0,
+        "action": "direct",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 550.0,
+        "sp_lo": 0.0,
+        "sp_hi": 550.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "degC",
+        "op_unit": "%",
+        "description": "R1 temperature runaway override",
+        "sp_pv_track_man": false,
+        "out_init": 0.0
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "IN"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

@@ -1,0 +1,740 @@
+{
+ "display": "U500 - L2 Primary Fractionation",
+ "pvms": [
+  {
+   "id": "u500_t1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5001/LIC-5001"
+   },
+   "x": 250,
+   "y": 170,
+   "w": 105,
+   "h": 300,
+   "standard": "hphmi.controller",
+   "variant": "vessel",
+   "label": "T1",
+   "choices": {
+    "equipment_symbol": "column",
+    "show_hp_anatomy": false,
+    "show_readout": false
+   }
+  },
+  {
+   "id": "u500_d501",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5002/LIC-5002"
+   },
+   "x": 690,
+   "y": 185,
+   "w": 125,
+   "h": 90,
+   "standard": "hphmi.controller",
+   "variant": "vessel",
+   "label": "D501",
+   "choices": {
+    "equipment_symbol": "drum",
+    "show_hp_anatomy": false,
+    "show_readout": false
+   }
+  },
+  {
+   "id": "u500_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-5001/PIC-5001"
+   },
+   "x": 461.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "T1 pressure"
+  },
+  {
+   "id": "u500_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "AIC-5001/AIC-5001"
+   },
+   "x": 805.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Overhead quality"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U500 · PRIMARY FRACTIONATION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Maintain T1 pressure, reflux, bottoms inventory, reboiler duty, and overhead composition while routing stabilized feed to U600.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u500_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u500_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U500/U500B",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u500_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u500_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "symbol",
+   "id": "u500_feed",
+   "x": 60,
+   "y": 310,
+   "w": 75,
+   "h": 60,
+   "symbol": "control_valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u500_feed_tag",
+   "x": 35,
+   "y": 283,
+   "w": 125,
+   "h": 22,
+   "text": "FEED",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u500_feed_label",
+   "x": 30,
+   "y": 375,
+   "w": 135,
+   "h": 28,
+   "text": "From D3",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "text",
+   "id": "u500_t1_tag",
+   "x": 225,
+   "y": 143,
+   "w": 155,
+   "h": 22,
+   "text": "T1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u500_t1_label",
+   "x": 220,
+   "y": 475,
+   "w": 165,
+   "h": 28,
+   "text": "Primary fractionator",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u500_cond",
+   "x": 485,
+   "y": 175,
+   "w": 110,
+   "h": 85,
+   "symbol": "condenser",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u500_cond_tag",
+   "x": 460,
+   "y": 148,
+   "w": 160,
+   "h": 22,
+   "text": "E501",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u500_cond_label",
+   "x": 455,
+   "y": 265,
+   "w": 170,
+   "h": 28,
+   "text": "Overhead condenser",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "text",
+   "id": "u500_d501_tag",
+   "x": 665,
+   "y": 158,
+   "w": 175,
+   "h": 22,
+   "text": "D501",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u500_d501_label",
+   "x": 660,
+   "y": 280,
+   "w": 185,
+   "h": 28,
+   "text": "Reflux drum",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u500_p501",
+   "x": 890,
+   "y": 215,
+   "w": 105,
+   "h": 90,
+   "symbol": "pump",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u500_p501_tag",
+   "x": 865,
+   "y": 188,
+   "w": 155,
+   "h": 22,
+   "text": "P501A/B",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u500_p501_label",
+   "x": 860,
+   "y": 310,
+   "w": 165,
+   "h": 28,
+   "text": "Reflux pumps",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u500_reb",
+   "x": 480,
+   "y": 390,
+   "w": 115,
+   "h": 90,
+   "symbol": "reboiler",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u500_reb_tag",
+   "x": 455,
+   "y": 363,
+   "w": 165,
+   "h": 22,
+   "text": "E502",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u500_reb_label",
+   "x": 450,
+   "y": 485,
+   "w": 175,
+   "h": 28,
+   "text": "T1 reboiler",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u500_pipe_0",
+   "a": "u500_feed",
+   "a_side": "outlet",
+   "b": "u500_t1",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u500_pipe_1",
+   "a": "u500_t1",
+   "a_side": "top",
+   "b": "u500_cond",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u500_pipe_2",
+   "a": "u500_cond",
+   "a_side": "outlet",
+   "b": "u500_d501",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u500_pipe_3",
+   "a": "u500_d501",
+   "a_side": "outlet",
+   "b": "u500_p501",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u500_pipe_4",
+   "a": "u500_reb",
+   "a_side": "inlet",
+   "b": "u500_t1",
+   "b_side": "bottom",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u500_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u500_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "T1 pressure",
+     "value": {
+      "path": "PIC-5001/PIC-5001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Overhead quality",
+     "value": {
+      "path": "AIC-5001/AIC-5001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Reboiler temperature",
+     "value": {
+      "path": "TIC-5002/TIC-5002/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u500_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u500_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "T1 pressure",
+     "path": "PIC-5001/PIC-5001/PV"
+    },
+    {
+     "label": "Overhead quality",
+     "path": "AIC-5001/AIC-5001/PV"
+    },
+    {
+     "label": "Reboiler temperature",
+     "path": "TIC-5002/TIC-5002/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u500_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE PIC-5001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u500_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "PIC-5001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u500_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u500_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  }
+ ],
+ "description": "L2 primary-operation display for U500, derived from AP-PID-U500/U500B. Native editable equipment with named process ports, smart pipes, registered live vessel PVMs, KPIs, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

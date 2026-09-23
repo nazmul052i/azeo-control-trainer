@@ -1,0 +1,198 @@
+{
+  "name": "OPT-9501",
+  "description": "Plant optimiser",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "PLANT",
+    "workbook_block_type": "OPT",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Equation-based or direct search, maximises R2 yield against fuel cost",
+    "pv_source_text": "Multiple",
+    "final_element_text": "MPC-9501 targets",
+    "mapped_input_tags": [],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "MPC-9501"
+    ],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "EXTERNAL_MODEL_REQUIRED",
+    "model_basis": "Workbook provides no objective function, constraints, prices, or optimizer model"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "ACT",
+      "instance_name": "OPT-9501",
+      "x": 380.0,
+      "y": 80.0,
+      "config": {
+        "SCRIPT_MODE": 1,
+        "EXPRESSION": "OUT1 = IN1 + IN2 + IN3 + IN4 + IN5 + IN6",
+        "description": "Monitored economic-quality index; no optimizer writes"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "AT-4001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "AT-4001",
+        "label": "R1 product impurity",
+        "scale_lo": 0.0,
+        "scale_hi": 500.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 500.0,
+        "eng_units": "ppm",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "AI",
+      "instance_name": "AT-5001",
+      "x": 0.0,
+      "y": 100.0,
+      "config": {
+        "tag": "AT-5001",
+        "label": "T1 distillate heavy key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "AI",
+      "instance_name": "AT-5002",
+      "x": 0.0,
+      "y": 200.0,
+      "config": {
+        "tag": "AT-5002",
+        "label": "T1 bottoms light key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "AI",
+      "instance_name": "AT-6001",
+      "x": 0.0,
+      "y": 300.0,
+      "config": {
+        "tag": "AT-6001",
+        "label": "T2 distillate heavy key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "AI",
+      "instance_name": "AT-6002",
+      "x": 0.0,
+      "y": 400.0,
+      "config": {
+        "tag": "AT-6002",
+        "label": "T2 bottoms light key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "AI",
+      "instance_name": "AT-8002",
+      "x": 0.0,
+      "y": 500.0,
+      "config": {
+        "tag": "AT-8002",
+        "label": "Neutralisation tank outlet pH",
+        "scale_lo": 0.0,
+        "scale_hi": 14.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 14.0,
+        "eng_units": "pH",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "IN3"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "IN4"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "IN5"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "IN6"
+    }
+  ],
+  "comments": []
+}

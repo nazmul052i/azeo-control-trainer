@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="103" viewBox="0 0 48 103" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID reactor</title>
+  <desc id="desc">Portable reactor symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-42.5 -34.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="46" y="38" width="40" height="95" fill="none" stroke="none" />
+        <path d="M 86 45.66 L 86 125.34 C 86 129.57 77.05 133 66 133 C 54.95 133 46 129.57 46 125.34 L 46 45.66 C 46 41.43 54.95 38 66 38 C 77.05 38 86 41.43 86 45.66 Z M 46 45.66 L 86 45.66 M 46 125.34 L 86 125.34 M 46 105.42 L 86 105.42 M 46 65.58 L 86 65.58 M 54 65.58 L 46 73.55 M 70 65.58 L 46 89.48 M 78 65.58 L 46 97.45 M 86 65.58 L 46 105.42 M 86 73.55 L 54 105.42 M 86 89.48 L 70 105.42 M 86 97.45 L 78 105.42 M 62 65.58 L 46 81.52 M 86 81.52 L 62 105.42" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.038835" cx="24" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.916667" data-anchor-y="0.5" cx="44" cy="51.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.961165" cx="24" cy="99" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0833333" data-anchor-y="0.5" cx="4" cy="51.5" r="3" />
+  </g>
+</svg>

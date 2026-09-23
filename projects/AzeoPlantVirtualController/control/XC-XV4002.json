@@ -1,0 +1,312 @@
+{
+  "name": "XC-XV4002",
+  "description": "D3 off-gas shutdown valve control",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U400",
+    "workbook_block_type": "DC",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "On-off shutdown valve with travel timer and ESD interface",
+    "pv_source_text": "ZSO-XV4002 and ZSC-XV4002",
+    "final_element_text": "XY-XV4002-OPN",
+    "mapped_input_tags": [
+      "ZSO-XV4002",
+      "ZSC-XV4002"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "XY-XV4002-OPN"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [
+      "E11"
+    ],
+    "alarms": [],
+    "implementation_state": "COMMISSIONED"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "DI",
+      "instance_name": "ZSO-XV4002",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "ZSO-XV4002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "ZSC-XV4002",
+      "x": 0.0,
+      "y": 95.0,
+      "config": {
+        "tag": "ZSC-XV4002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "VLVCTL",
+      "instance_name": "XC-XV4002",
+      "x": 560.0,
+      "y": 60.0,
+      "config": {
+        "STROKE_TIME": 5.0,
+        "FAIL_ACTION": "CLOSE",
+        "description": "D3 off-gas shutdown valve control"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "CONSTANT",
+      "instance_name": "OPEN_POSITION",
+      "x": 210.0,
+      "y": 280.0,
+      "config": {
+        "value": 100.0,
+        "label": "Open limit position"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "CONSTANT",
+      "instance_name": "CLOSED_POSITION",
+      "x": 210.0,
+      "y": 360.0,
+      "config": {
+        "value": 0.0,
+        "label": "Closed/default position"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "SWITCH",
+      "instance_name": "POSITION_FROM_LIMITS",
+      "x": 360.0,
+      "y": 300.0,
+      "config": {}
+    },
+    {
+      "id": "b007",
+      "block_type": "DI",
+      "instance_name": "HS-9002",
+      "x": 0.0,
+      "y": 620.0,
+      "config": {
+        "tag": "HS-9002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "DI",
+      "instance_name": "HS-9001",
+      "x": 0.0,
+      "y": 700.0,
+      "config": {
+        "tag": "HS-9001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "DI",
+      "instance_name": "GD-9001",
+      "x": 0.0,
+      "y": 780.0,
+      "config": {
+        "tag": "GD-9001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b010",
+      "block_type": "DI",
+      "instance_name": "GD-9002",
+      "x": 0.0,
+      "y": 860.0,
+      "config": {
+        "tag": "GD-9002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b011",
+      "block_type": "DI",
+      "instance_name": "FD-9001",
+      "x": 0.0,
+      "y": 940.0,
+      "config": {
+        "tag": "FD-9001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b012",
+      "block_type": "DI",
+      "instance_name": "TSHH-4001",
+      "x": 0.0,
+      "y": 1020.0,
+      "config": {
+        "tag": "TSHH-4001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b013",
+      "block_type": "DI",
+      "instance_name": "LSHH-4001",
+      "x": 0.0,
+      "y": 1100.0,
+      "config": {
+        "tag": "LSHH-4001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b014",
+      "block_type": "OR",
+      "instance_name": "ESD_CAUSES",
+      "x": 650.0,
+      "y": 620.0,
+      "config": {
+        "NOF_INPUTS": 7
+      }
+    },
+    {
+      "id": "b015",
+      "block_type": "NOT",
+      "instance_name": "ESD_PERMIT",
+      "x": 850.0,
+      "y": 620.0,
+      "config": {}
+    },
+    {
+      "id": "b016",
+      "block_type": "DO",
+      "instance_name": "XY-XV4002-OPN",
+      "x": 850.0,
+      "y": 40.0,
+      "config": {
+        "tag": "XY-XV4002-OPN",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "SELECT"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "POS_FB"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b014",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b008",
+      "src_terminal": "OUT",
+      "dst_block_id": "b014",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b009",
+      "src_terminal": "OUT",
+      "dst_block_id": "b014",
+      "dst_terminal": "IN_D3"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b010",
+      "src_terminal": "OUT",
+      "dst_block_id": "b014",
+      "dst_terminal": "IN_D4"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "b011",
+      "src_terminal": "OUT",
+      "dst_block_id": "b014",
+      "dst_terminal": "IN_D5"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "b012",
+      "src_terminal": "OUT",
+      "dst_block_id": "b014",
+      "dst_terminal": "IN_D6"
+    },
+    {
+      "id": "w011",
+      "src_block_id": "b013",
+      "src_terminal": "OUT",
+      "dst_block_id": "b014",
+      "dst_terminal": "IN_D7"
+    },
+    {
+      "id": "w012",
+      "src_block_id": "b014",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b015",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w013",
+      "src_block_id": "b015",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b003",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w014",
+      "src_block_id": "b003",
+      "src_terminal": "DO_OPEN",
+      "dst_block_id": "b016",
+      "dst_terminal": "CAS_IN_D"
+    }
+  ],
+  "comments": []
+}

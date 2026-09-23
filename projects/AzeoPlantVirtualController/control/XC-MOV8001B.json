@@ -1,0 +1,235 @@
+{
+  "name": "XC-MOV8001B",
+  "description": "P-801B suction isolation valve control",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U800",
+    "workbook_block_type": "DC",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Control room operable MOV: open, close, stop, travel timer, discrepancy alarm, torque trip, interlock to downstream pump start",
+    "pv_source_text": "ZSO-MOV8001B and ZSC-MOV8001B",
+    "final_element_text": "XY-MOV8001B-OPN and XY-MOV8001B-CLS",
+    "mapped_input_tags": [
+      "ZSO-MOV8001B",
+      "ZSC-MOV8001B"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "XY-MOV8001B-OPN",
+      "XY-MOV8001B-CLS"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "COMMISSIONED"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "DI",
+      "instance_name": "ZSO-MOV8001B",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "ZSO-MOV8001B",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "ZSC-MOV8001B",
+      "x": 0.0,
+      "y": 95.0,
+      "config": {
+        "tag": "ZSC-MOV8001B",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "DI",
+      "instance_name": "XS-MOV8001B-TRQ",
+      "x": 0.0,
+      "y": 190.0,
+      "config": {
+        "tag": "XS-MOV8001B-TRQ",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "DI",
+      "instance_name": "XS-MOV8001B-AVL",
+      "x": 0.0,
+      "y": 285.0,
+      "config": {
+        "tag": "XS-MOV8001B-AVL",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "VLVCTL",
+      "instance_name": "XC-MOV8001B",
+      "x": 560.0,
+      "y": 60.0,
+      "config": {
+        "STROKE_TIME": 15.0,
+        "FAIL_ACTION": "CLOSE",
+        "description": "P-801B suction isolation valve control"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "CONSTANT",
+      "instance_name": "OPEN_POSITION",
+      "x": 210.0,
+      "y": 280.0,
+      "config": {
+        "value": 100.0,
+        "label": "Open limit position"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "CONSTANT",
+      "instance_name": "CLOSED_POSITION",
+      "x": 210.0,
+      "y": 360.0,
+      "config": {
+        "value": 0.0,
+        "label": "Closed/default position"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "SWITCH",
+      "instance_name": "POSITION_FROM_LIMITS",
+      "x": 360.0,
+      "y": 300.0,
+      "config": {}
+    },
+    {
+      "id": "b009",
+      "block_type": "NOT",
+      "instance_name": "XS-MOV8001B-TRQ_HEALTHY",
+      "x": 210.0,
+      "y": 450.0,
+      "config": {}
+    },
+    {
+      "id": "b010",
+      "block_type": "AND",
+      "instance_name": "DEVICE_PERMITS",
+      "x": 1030.0,
+      "y": 500.0,
+      "config": {
+        "NOF_INPUTS": 2
+      }
+    },
+    {
+      "id": "b011",
+      "block_type": "DO",
+      "instance_name": "XY-MOV8001B-CLS",
+      "x": 850.0,
+      "y": 40.0,
+      "config": {
+        "tag": "XY-MOV8001B-CLS",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    },
+    {
+      "id": "b012",
+      "block_type": "DO",
+      "instance_name": "XY-MOV8001B-OPN",
+      "x": 850.0,
+      "y": 140.0,
+      "config": {
+        "tag": "XY-MOV8001B-OPN",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b008",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b008",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b008",
+      "dst_terminal": "SELECT"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b008",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "POS_FB"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b010",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b009",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b010",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b010",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b005",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "b005",
+      "src_terminal": "DO_CLOSE",
+      "dst_block_id": "b011",
+      "dst_terminal": "CAS_IN_D"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "b005",
+      "src_terminal": "DO_OPEN",
+      "dst_block_id": "b012",
+      "dst_terminal": "CAS_IN_D"
+    }
+  ],
+  "comments": []
+}

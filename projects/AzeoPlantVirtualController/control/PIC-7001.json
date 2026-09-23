@@ -1,0 +1,157 @@
+{
+  "name": "PIC-7001",
+  "description": "MP steam header pressure boiler master",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U700",
+    "workbook_block_type": "PID",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Boiler master, base-load or header pressure control",
+    "pv_source_text": "PT-7002",
+    "final_element_text": "Firing demand",
+    "mapped_input_tags": [
+      "PT-7002"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "PT-7002",
+        "Unit": "U700",
+        "Alarm description": "MP steam header pressure low",
+        "Alarm type": "LO",
+        "Setpoint": 32,
+        "EU": "barg",
+        "Priority": "High",
+        "Deadband": 0.5,
+        "On-delay (s)": 10
+      }
+    ],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "SUPERVISORY",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "PT-7002"
+      ]
+    },
+    "external_reset_contract": {
+      "master": "PIC-7001",
+      "reset_source": "FIC-7002",
+      "path": "ctrl.FIC-7002.BKCAL_OUT -> PIC-7001/BKCAL_IN (0.0..5000.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "PT-7002",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "PT-7002",
+        "label": "MP steam header pressure",
+        "scale_lo": 0.0,
+        "scale_hi": 45.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 45.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "PIC-7001",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 1.12,
+        "RESET": 200.0,
+        "RATE": 0.0,
+        "sp_init": 36.02164266709303,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 45.0,
+        "sp_lo": 0.0,
+        "sp_hi": 45.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "barg",
+        "op_unit": "%",
+        "description": "MP steam header pressure boiler master",
+        "lo_lim": 32.0,
+        "alarm_hys": 0.5,
+        "sp_pv_track_man": true,
+        "reset_impl": "external",
+        "out_init": 19.138461047159222
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "BKCAL_FROM_FIC-7002",
+      "x": 520.0,
+      "y": 670.0,
+      "config": {
+        "path": "ctrl.FIC-7002.BKCAL_OUT",
+        "default": 956.9230523579612,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.FIC-7002.BKCAL_OUT"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "SCALER",
+      "instance_name": "BKCAL_FIC-7002_EU_TO_PCT",
+      "x": 750.0,
+      "y": 670.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 5000.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "clamp": true
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

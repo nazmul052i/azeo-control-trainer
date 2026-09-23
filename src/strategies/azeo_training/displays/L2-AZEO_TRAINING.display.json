@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "schema": "dynalive.display/1",
+    "name": "azeo_training — unit control",
+    "id": "L2-AZEO_TRAINING",
+    "level": 2,
+    "area": "AZEO_TRAINING",
+    "w": 980,
+    "h": 550,
+    "scan_ms": 1000,
+    "revision": 1
+  },
+  "objects": [
+    {
+      "id": "o_fic_102",
+      "type": "pv",
+      "x": 40,
+      "y": 100,
+      "w": 112,
+      "h": 44,
+      "props": {
+        "tag": "FIC-102",
+        "label": "FIC-102",
+        "show_bar": true
+      }
+    },
+    {
+      "id": "t_fic_102",
+      "type": "text",
+      "x": 40,
+      "y": 82,
+      "w": 260,
+      "h": 14,
+      "props": {}
+    },
+    {
+      "id": "o_li_101",
+      "type": "pv",
+      "x": 340,
+      "y": 100,
+      "w": 112,
+      "h": 44,
+      "props": {
+        "tag": "LI-101",
+        "label": "LI-101",
+        "show_bar": true
+      }
+    },
+    {
+      "id": "t_li_101",
+      "type": "text",
+      "x": 340,
+      "y": 82,
+      "w": 260,
+      "h": 14,
+      "props": {}
+    },
+    {
+      "id": "o_lic_201",
+      "type": "pv",
+      "x": 640,
+      "y": 100,
+      "w": 112,
+      "h": 44,
+      "props": {
+        "tag": "LIC-201",
+        "label": "LIC-201",
+        "show_bar": true
+      }
+    },
+    {
+      "id": "t_lic_201",
+      "type": "text",
+      "x": 640,
+      "y": 82,
+      "w": 260,
+      "h": 14,
+      "props": {}
+    },
+    {
+      "id": "o_mtr_102",
+      "type": "pump",
+      "x": 40,
+      "y": 230,
+      "w": 30,
+      "h": 30,
+      "props": {
+        "tag": "MTR-102",
+        "label": "MTR-102"
+      }
+    },
+    {
+      "id": "t_mtr_102",
+      "type": "text",
+      "x": 40,
+      "y": 212,
+      "w": 260,
+      "h": 14,
+      "props": {}
+    },
+    {
+      "id": "o_mtr_203",
+      "type": "pump",
+      "x": 340,
+      "y": 230,
+      "w": 30,
+      "h": 30,
+      "props": {
+        "tag": "MTR-203",
+        "label": "MTR-203"
+      }
+    },
+    {
+      "id": "t_mtr_203",
+      "type": "text",
+      "x": 340,
+      "y": 212,
+      "w": 260,
+      "h": 14,
+      "props": {}
+    },
+    {
+      "id": "o_xv_101",
+      "type": "pump",
+      "x": 640,
+      "y": 230,
+      "w": 30,
+      "h": 30,
+      "props": {
+        "tag": "XV-101",
+        "label": "XV-101"
+      }
+    },
+    {
+      "id": "t_xv_101",
+      "type": "text",
+      "x": 640,
+      "y": 212,
+      "w": 260,
+      "h": 14,
+      "props": {}
+    },
+    {
+      "id": "o_xv_option",
+      "type": "pump",
+      "x": 40,
+      "y": 360,
+      "w": 30,
+      "h": 30,
+      "props": {
+        "tag": "XV-OPTION",
+        "label": "XV-OPTION"
+      }
+    },
+    {
+      "id": "t_xv_option",
+      "type": "text",
+      "x": 40,
+      "y": 342,
+      "w": 260,
+      "h": 14,
+      "props": {}
+    }
+  ]
+}

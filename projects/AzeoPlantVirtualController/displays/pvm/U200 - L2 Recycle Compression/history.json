@@ -1,0 +1,222 @@
+[
+ {
+  "rev": 1,
+  "env": "PROD",
+  "workstations": [
+   "CON-01"
+  ],
+  "by": "Azeo Plant display generator",
+  "at": "2026-08-29 15:10",
+  "diff": [
+   "+ PVM PIC-2001/PIC-2001 PID/dynamo_inline",
+   "+ PVM SIC-2001/SIC-2001 PID/dynamo_inline",
+   "+ PVM UIC-2001/UIC-2001 PID/dynamo_inline",
+   "+ PVM LIC-2001/LIC-2001 PID/dynamo_inline"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 2,
+  "env": "PROD",
+  "workstations": [
+   "CON-01"
+  ],
+  "by": "Azeo Plant display generator",
+  "at": "2026-08-29 15:27",
+  "diff": [
+   "~ moved PIC-2001/PIC-2001 117,704 -> 117,720",
+   "~ moved UIC-2001/UIC-2001 805,704 -> 805,720",
+   "~ moved LIC-2001/LIC-2001 1149,704 -> 1149,720",
+   "~ moved SIC-2001/SIC-2001 461,704 -> 461,720"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 3,
+  "env": "PROD",
+  "workstations": [
+   "CON-01"
+  ],
+  "by": "Azeo Plant display generator",
+  "at": "2026-08-29 18:56",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 4,
+  "env": "PROD",
+  "workstations": [
+   "CON-01"
+  ],
+  "by": "Azeo Plant display generator",
+  "at": "2026-08-29 19:11",
+  "diff": [
+   "+ PVM LIC-2001/LIC-2001 PID/dynamo_inline",
+   "- PVM LIC-2001/LIC-2001 PID/dynamo_inline",
+   "~ moved UIC-2001/UIC-2001 805,720 -> 977,720",
+   "~ moved PIC-2001/PIC-2001 117,720 -> 289,720",
+   "~ moved SIC-2001/SIC-2001 461,720 -> 633,720"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 5,
+  "env": "PROD",
+  "workstations": [
+   "CON-01"
+  ],
+  "by": "Azeo Plant display generator",
+  "at": "2026-09-03 10:42",
+  "diff": [
+   "~ rebound/configured u200_cooler",
+   "~ rebound/configured u200_c1",
+   "~ rebound/configured u200_out"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 6,
+  "env": "PROD",
+  "workstations": [
+   "CON-01"
+  ],
+  "by": "Azeo Plant display generator",
+  "at": "2026-09-13 01:07",
+  "diff": [
+   "~ resized PIC-2001/PIC-2001 330×132 -> 330×164",
+   "~ resized UIC-2001/UIC-2001 330×132 -> 330×164",
+   "~ resized SIC-2001/SIC-2001 330×132 -> 330×164",
+   "~ restyled u200_cooler_label",
+   "~ rebound/configured u200_out",
+   "~ restyled u200_loop_title",
+   "~ restyled u200_process_title",
+   "~ rebound/configured u200_c1",
+   "~ restyled u200_pipe_3",
+   "~ rerouted u200_pipe_3",
+   "~ restyled l2_rule",
+   "~ restyled u200_focus_panel",
+   "~ restyled u200_c1_label",
+   "~ restyled u200_in_tag",
+   "~ resized u200_loop_panel",
+   "~ restyled u200_loop_panel",
+   "~ restyled u200_alarm_title",
+   "~ rebound/configured u200_cooler",
+   "~ moved u200_out_label",
+   "~ resized u200_out_label",
+   "~ restyled u200_out_label",
+   "~ restyled l2_title",
+   "~ restyled u200_kpi_title",
+   "~ restyled l2_badge_text",
+   "~ restyled u200_process_panel",
+   "~ restyled u200_cooler_tag",
+   "~ restyled l2_purpose",
+   "~ restyled u200_trend_title",
+   "~ restyled u200_pipe_1",
+   "~ restyled l2_badge",
+   "~ restyled u200_pipe_0",
+   "~ restyled u200_out_tag",
+   "~ restyled u200_c1_tag",
+   "~ restyled u200_pipe_2",
+   "~ moved u200_in_label",
+   "~ resized u200_in_label",
+   "~ restyled u200_in_label",
+   "~ restyled u200_focus_title",
+   "~ description changed",
+   "~ background changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 7,
+  "env": "PROD",
+  "workstations": [
+   "CON-01"
+  ],
+  "by": "apply_hierarchy_templates",
+  "at": "2026-09-15 14:35",
+  "diff": [
+   "+ PVM UIC-2001/UIC-2001 PID/dynamo_inline",
+   "+ PVM TIC-2002/TIC-2002 PID/dynamo_inline",
+   "+ PVM LIC-2001/LIC-2001 PID/dynamo_inline",
+   "+ PVM PIC-2002/PT-2002 AI/dynamo_inline",
+   "+ PVM PIC-2001/PT-2001 AI/dynamo_inline",
+   "+ PVM SIC-2001/ST-2001 AI/dynamo_inline",
+   "- PVM LIC-2001/LIC-2001 PID/dynamo_inline",
+   "- PVM PIC-2001/PIC-2001 PID/dynamo_inline",
+   "- PVM SIC-2001/SIC-2001 PID/dynamo_inline",
+   "- PVM UIC-2001/UIC-2001 PID/dynamo_inline",
+   "+ text envelope_QUALITY",
+   "+ symbol pump",
+   "+ symbol product",
+   "+ text configure_note",
+   "+ text operating_trends_title",
+   "+ alarm list alarms_2",
+   "+ text reactor_tag",
+   "+ symbol feed",
+   "+ pipe feed_run",
+   "+ text alarms_title_2",
+   "+ text loop_label_FEED_FLOW",
+   "+ text envelope_UTILITY",
+   "+ rect process",
+   "+ chart unit_temp",
+   "+ text title",
+   "+ text feed_tag",
+   "+ rect envelope",
+   "+ rect unit_alarms",
+   "+ text purpose",
+   "+ text loop_label_LEVEL",
+   "+ text envelope_title",
+   "+ chart unit_flow",
+   "+ text process_title",
+   "+ text product_tag",
+   "+ rect operating_trends",
+   "+ text unit_flow_title",
+   "+ text unit_temp_title",
+   "+ display link up",
+   "+ text pump_tag",
+   "+ text envelope_PRESSURE",
+   "+ pipe charge_run",
+   "+ pipe product_run",
+   "+ text level",
+   "+ symbol reactor",
+   "+ text unit_alarms_title",
+   "+ text loop_label_TEMPERATURE",
+   "- text u200_focus_title",
+   "- text u200_kpi_title",
+   "- text u200_process_title",
+   "- chart u200_trend",
+   "- text u200_out_tag",
+   "- pipe u200_pipe_2",
+   "- text u200_c1_tag",
+   "- text u200_cooler_label",
+   "- text u200_loop_title",
+   "- text l2_title",
+   "- text u200_trend_title",
+   "- text l2_purpose",
+   "- text u200_in_tag",
+   "- text u200_in_label",
+   "- round rect u200_loop_panel",
+   "- round rect u200_focus_panel",
+   "- alarm list u200_alarms",
+   "- text u200_c1_label",
+   "- line l2_rule",
+   "- text u200_alarm_title",
+   "- round rect u200_process_panel",
+   "- symbol u200_out",
+   "- display link l2_up",
+   "- round rect l2_badge",
+   "- pipe u200_pipe_1",
+   "- text u200_cooler_tag",
+   "- text l2_badge_text",
+   "- symbol u200_c1",
+   "- pipe u200_pipe_0",
+   "- symbol u200_cooler",
+   "- pipe u200_pipe_3",
+   "- table u200_kpis",
+   "- text u200_out_label",
+   "~ description changed",
+   "~ tag presentation changed"
+  ],
+  "released_items": 0
+ }
+]

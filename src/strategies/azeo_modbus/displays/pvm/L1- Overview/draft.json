@@ -1,0 +1,41 @@
+{
+ "display": "Overview",
+ "pvms": [
+  {
+   "id": "pvm_6dd6",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-101/PID1"
+   },
+   "x": -436.0,
+   "y": -541.0,
+   "w": 150.0,
+   "h": 54.0,
+   "standard": "hphmi.controller"
+  },
+  {
+   "id": "pvm_a31c",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-101/AI1"
+   },
+   "x": -592.0,
+   "y": -463.0,
+   "w": 150.0,
+   "h": 54.0,
+   "standard": "hphmi.controller"
+  },
+  {
+   "id": "pvm_a1d2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-101/PID1"
+   },
+   "x": -638.0,
+   "y": -631.0,
+   "w": 150.0,
+   "h": 54.0,
+   "standard": "hphmi.controller"
+  }
+ ]
+}

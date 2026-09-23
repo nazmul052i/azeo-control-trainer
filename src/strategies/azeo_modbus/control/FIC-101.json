@@ -1,0 +1,112 @@
+{
+  "name": "FIC-101",
+  "description": "Discharge flow control. FT-101 (30003) through FV-101 (40001). The flow loop the level master cascades to.",
+  "blocks": [
+    {
+      "id": "ai",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-101.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 200.0,
+        "eng_units": "gpm",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "Discharge Flow"
+      }
+    },
+    {
+      "id": "pid",
+      "block_type": "PID",
+      "instance_name": "PID1",
+      "x": 260.0,
+      "y": 0.0,
+      "config": {
+        "GAIN": 0.6,
+        "RESET": 20.0,
+        "RATE": 0.0,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 200.0,
+        "sp_lo": 0.0,
+        "sp_hi": 200.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "mode": "AUTO",
+        "pv_unit": "gpm",
+        "op_unit": "%",
+        "description": "Discharge flow controller"
+      }
+    },
+    {
+      "id": "scl",
+      "block_type": "SCALER",
+      "instance_name": "SCLR1",
+      "x": 460.0,
+      "y": 0.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0
+      }
+    },
+    {
+      "id": "ao",
+      "block_type": "AO",
+      "instance_name": "AO1",
+      "x": 640.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FV-101.OUT",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "mode": "CAS",
+        "eng_units": "%"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "ai",
+      "src_terminal": "OUT",
+      "dst_block_id": "pid",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "pid",
+      "src_terminal": "OUT",
+      "dst_block_id": "scl",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "scl",
+      "src_terminal": "OUT",
+      "dst_block_id": "ao",
+      "dst_terminal": "CAS_IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "ao",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "scl",
+      "dst_terminal": "BKCAL_IN"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "scl",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "pid",
+      "dst_terminal": "BKCAL_IN"
+    }
+  ],
+  "comments": []
+}

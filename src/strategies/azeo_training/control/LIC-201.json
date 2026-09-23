@@ -1,0 +1,111 @@
+{
+  "name": "LIC-201",
+  "description": "Tank201 level control — course book Module 9, 'Azeo Cascade Control'. The primary whose output becomes the FIC-201 remote setpoint; RCAS_OUT is published for the plant start-up equipment module to read.",
+  "blocks": [
+    {
+      "id": "ai",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": -700.0,
+      "y": 0.0,
+      "config": {
+        "tag": "LI-201.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 1000.0,
+        "eng_units": "gal",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "Tank201 Level"
+      }
+    },
+    {
+      "id": "pid",
+      "block_type": "PID",
+      "instance_name": "PID1",
+      "x": -320.0,
+      "y": 0.0,
+      "config": {
+        "sp_init": 600.0,
+        "GAIN": 0.8,
+        "RESET": 120.0,
+        "RATE": 0.0,
+        "action": "direct",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 1000.0,
+        "sp_lo": 0.0,
+        "sp_hi": 1000.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "mode": "AUTO",
+        "pv_unit": "gal"
+      }
+    },
+    {
+      "id": "scl",
+      "block_type": "SCALER",
+      "instance_name": "SCLR1",
+      "x": 20.0,
+      "y": 0.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "ao",
+      "block_type": "AO",
+      "instance_name": "AO1",
+      "x": 360.0,
+      "y": 0.0,
+      "config": {
+        "tag": "LIC-201.rsp",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "mode": "CAS",
+        "eng_units": "%"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "ai",
+      "src_terminal": "OUT",
+      "dst_block_id": "pid",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "pid",
+      "src_terminal": "OUT",
+      "dst_block_id": "scl",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "scl",
+      "src_terminal": "OUT",
+      "dst_block_id": "ao",
+      "dst_terminal": "CAS_IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "ao",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "scl",
+      "dst_terminal": "BKCAL_IN"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "scl",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "pid",
+      "dst_terminal": "BKCAL_IN"
+    }
+  ]
+}

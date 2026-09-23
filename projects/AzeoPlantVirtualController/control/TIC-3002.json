@@ -1,0 +1,157 @@
+{
+  "name": "TIC-3002",
+  "description": "H1 pass 1 outlet temperature",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U300",
+    "workbook_block_type": "PID",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Pass balancing",
+    "pv_source_text": "TT-3002",
+    "final_element_text": "FCV-3005",
+    "mapped_input_tags": [
+      "TT-3002"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "FCV-3005"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "TT-3002"
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "TT-3002",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "TT-3002",
+        "label": "H1 pass 1 outlet temperature",
+        "scale_lo": 0.0,
+        "scale_hi": 500.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 500.0,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "TIC-3002",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 5.0,
+        "RESET": 300.0,
+        "RATE": 0.0,
+        "sp_init": 350.15297948010533,
+        "action": "direct",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 500.0,
+        "sp_lo": 0.0,
+        "sp_hi": 500.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "degC",
+        "op_unit": "%",
+        "description": "H1 pass 1 outlet temperature",
+        "sp_pv_track_man": true,
+        "out_init": 0.0
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "SCALER",
+      "instance_name": "OUT_SCALE",
+      "x": 700.0,
+      "y": 40.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "AO",
+      "instance_name": "FCV-3005",
+      "x": 980.0,
+      "y": 40.0,
+      "config": {
+        "tag": "FCV-3005",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "sp_lo_lim": 0.0,
+        "sp_hi_lim": 100.0,
+        "mode": "MAN",
+        "normal_mode": "CAS",
+        "eng_units": "",
+        "description": "H1 pass 1 balancing valve"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w002",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "CAS_IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b004",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b003",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

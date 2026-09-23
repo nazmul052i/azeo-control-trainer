@@ -1,0 +1,262 @@
+{
+  "name": "FY-3002",
+  "description": "H1 fuel and air cross-limiting",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U300",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "High select on air, low select on fuel",
+    "pv_source_text": "FT-3001 / FT-3003",
+    "final_element_text": "Selector outputs",
+    "mapped_input_tags": [
+      "FT-3001",
+      "FT-3003"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "ENGINEERING_HOLD",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "executable_consumers": [
+      {
+        "source": "ctrl.AIC-3001.OUT",
+        "consumer": "FY-3002 excess-air ratio"
+      },
+      {
+        "source": "ctrl.TIC-3004.OUT",
+        "consumer": "FY-3002 fuel low-limit"
+      },
+      {
+        "source": "ctrl.TIC-3001.OUT",
+        "consumer": "FIC-3001/FIC-3003 demand"
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "FT-3001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-3001",
+        "label": "H1 fuel gas flow",
+        "scale_lo": 0.0,
+        "scale_hi": 3000.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 3000.0,
+        "eng_units": "Nm3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "FT-3003",
+      "x": 0.0,
+      "y": 110.0,
+      "config": {
+        "tag": "FT-3003",
+        "label": "H1 combustion air flow",
+        "scale_lo": 0.0,
+        "scale_hi": 35.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 35.0,
+        "eng_units": "kNm3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "AI",
+      "instance_name": "PT-0102",
+      "x": 0.0,
+      "y": 200.0,
+      "config": {
+        "tag": "PT-0102",
+        "label": "Fuel gas supply to H1",
+        "scale_lo": 0.0,
+        "scale_hi": 15.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 15.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "TIC-3001_DEMAND",
+      "x": 230.0,
+      "y": 0.0,
+      "config": {
+        "path": "ctrl.TIC-3001.OUT",
+        "default": 60.43050132123975,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.TIC-3001.OUT"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "AIC-3001_TRIM",
+      "x": 230.0,
+      "y": 100.0,
+      "config": {
+        "path": "ctrl.AIC-3001.OUT",
+        "default": 66.42377398468425,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.AIC-3001.OUT"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "TIC-3004_LIMIT",
+      "x": 230.0,
+      "y": 200.0,
+      "config": {
+        "path": "ctrl.TIC-3004.OUT",
+        "default": 100.0,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.TIC-3004.OUT"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "ACT",
+      "instance_name": "FY-3002",
+      "x": 500.0,
+      "y": 90.0,
+      "config": {
+        "SCRIPT_MODE": 1,
+        "EXPRESSION": "OUT1 = min(IN1 / 100.0 * 2500.0, IN3 * 1000.0 / (9.6 * (1.05 + 0.002 * IN4)), IN5 / 100.0 * 2500.0, 2500.0 * clamp(IN6 / 2.0, 0.0, 1.0)); OUT2 = max(IN1 / 100.0 * 2500.0, IN2) * 9.6 * (1.05 + 0.002 * IN4) / 1000.0",
+        "description": "H1 evidenced fuel/air cross-limit"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "MEM_BOOL",
+      "instance_name": "CROSS_LIMIT_ENABLE",
+      "x": 760.0,
+      "y": 520.0,
+      "config": {
+        "initial_value": true,
+        "label": "Cascade demand armed; slave CAS owns transfer"
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "SP_HANDOFF",
+      "instance_name": "TO_FIC-3001",
+      "x": 980.0,
+      "y": 400.0,
+      "config": {
+        "controller_tag": "FIC-3001",
+        "target_parameter": "CAS_IN",
+        "ramp_rate": 0.0,
+        "hold_on_shed": true,
+        "required_modes": "CAS"
+      }
+    },
+    {
+      "id": "b010",
+      "block_type": "SP_HANDOFF",
+      "instance_name": "TO_FIC-3003",
+      "x": 980.0,
+      "y": 400.0,
+      "config": {
+        "controller_tag": "FIC-3003",
+        "target_parameter": "CAS_IN",
+        "ramp_rate": 0.0,
+        "hold_on_shed": true,
+        "required_modes": "CAS"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN3"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN4"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN5"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN6"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b007",
+      "src_terminal": "OUT1",
+      "dst_block_id": "b009",
+      "dst_terminal": "APC_SP"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b008",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b009",
+      "dst_terminal": "ACTIVE"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "b007",
+      "src_terminal": "OUT2",
+      "dst_block_id": "b010",
+      "dst_terminal": "APC_SP"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "b008",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b010",
+      "dst_terminal": "ACTIVE"
+    }
+  ],
+  "comments": []
+}

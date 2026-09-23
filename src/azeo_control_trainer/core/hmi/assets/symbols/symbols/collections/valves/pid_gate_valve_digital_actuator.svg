@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID gate valve digital actuator</title>
+  <desc id="desc">Portable gate valve digital actuator symbol extracted from Valves.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-182.5 -882.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="218.5" y="886" width="35" height="35" class="symbol-fill symbol-line" />
+        <path d="M 236 921 L 236 956" fill="none" stroke-linejoin="round" stroke-miterlimit="10" class="symbol-line" />
+        <g font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="14px" class="symbol-text">
+          <text x="236" y="909.5">D</text>
+        </g>
+        <path d="M 186 926 L 236 956 L 186 986 Z M 286 926 L 236 956 L 286 986 Z" stroke-linejoin="round" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.037037" cx="54" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.962963" data-anchor-y="0.685185" cx="104" cy="74" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.685185" cx="54" cy="74" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.037037" data-anchor-y="0.685185" cx="4" cy="74" r="3" />
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+{
+  "name": "SEQ-101",
+  "description": "Discharge-train start/stop sequence as an SFC chart. One SFC_CHART block owns the whole procedure; the cmd_start/cmd_stop DIs declare the operator command tags for the faceplate and the tag database.",
+  "blocks": [
+    {
+      "id": "dca849517793",
+      "block_type": "SFC_CHART",
+      "instance_name": "CHART",
+      "x": 120,
+      "y": 80,
+      "config": {
+        "CHART": "{\"steps\": [{\"id\": \"s_idle\", \"name\": \"IDLE\", \"description\": \"Everything safe: valve shut, drive off\", \"initial\": true, \"x\": 0.0, \"y\": 0.0, \"actions\": [{\"id\": \"a_xv0\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_open', 0)\", \"description\": \"Discharge valve closed\"}, {\"id\": \"a_xvc0\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_close', 0)\", \"description\": \"Clear the close request\"}, {\"id\": \"a_mtr0\", \"qualifier\": \"N\", \"expression\": \"set_tag('MTR-101.cmd_start', 0)\", \"description\": \"No start request\"}, {\"id\": \"a_stp0\", \"qualifier\": \"N\", \"expression\": \"set_tag('MTR-101.cmd_stop', 0)\", \"description\": \"Clear the stop request\"}, {\"id\": \"a_spd0\", \"qualifier\": \"N\", \"expression\": \"set_tag('VFD-101.speed_sp', 0.0)\", \"description\": \"Zero speed demand\"}]}, {\"id\": \"s_open\", \"name\": \"OPEN_PATH\", \"description\": \"Open the discharge valve\", \"initial\": false, \"x\": 0.0, \"y\": 0.0, \"actions\": [{\"id\": \"a_xv1\", \"name\": \"\", \"description\": \"\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_open', 1)\"}]}, {\"id\": \"s_drive\", \"name\": \"START_DRIVE\", \"description\": \"Valve proven open - start the motor\", \"initial\": false, \"x\": 0.0, \"y\": 0.0, \"actions\": [{\"id\": \"a_xv1b\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_open', 1)\", \"description\": \"Hold the path open\"}, {\"id\": \"a_spdmin\", \"qualifier\": \"N\", \"expression\": \"set_tag('VFD-101.speed_sp', 10.0)\", \"description\": \"Minimum reference \\u2014 MTR-101 start permissive needs speed_ref > 5%\"}, {\"id\": \"a_mtr1\", \"qualifier\": \"N\", \"expression\": \"set_tag('MTR-101.cmd_start', 1)\", \"description\": \"Start the drive\"}]}, {\"id\": \"s_ramp\", \"name\": \"RAMP_TO_SPEED\", \"description\": \"Ramp the VFD setpoint at 8 %/s to 55 %\", \"initial\": false, \"x\": 0.0, \"y\": 0.0, \"actions\": [{\"id\": \"a_xv1c\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_open', 1)\", \"description\": \"Hold the path open\"}, {\"id\": \"a_mtr1b\", \"qualifier\": \"N\", \"expression\": \"set_tag('MTR-101.cmd_start', 1)\", \"description\": \"Hold the run request\"}, {\"id\": \"a_rampspd\", \"qualifier\": \"N\", \"expression\": \"set_tag('VFD-101.speed_sp', min(55.0, max(10.0, step_time * 8.0)))\", \"description\": \"Ramp 8 %/s from the 10% floor to 55%\"}]}, {\"id\": \"s_run\", \"name\": \"RUNNING\", \"description\": \"At speed - hold the train\", \"initial\": false, \"x\": 0.0, \"y\": 0.0, \"actions\": [{\"id\": \"a_xv4\", \"name\": \"\", \"description\": \"\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_open', 1)\"}, {\"id\": \"a_mtr3\", \"name\": \"\", \"description\": \"\", \"qualifier\": \"N\", \"expression\": \"set_tag('MTR-101.cmd_start', 1)\"}, {\"id\": \"a_spd\", \"name\": \"\", \"description\": \"\", \"qualifier\": \"N\", \"expression\": \"set_tag('VFD-101.speed_sp', 55.0)\"}]}, {\"id\": \"s_stop\", \"name\": \"STOPPING\", \"description\": \"Drive off, valve open until proven stopped\", \"initial\": false, \"x\": 0.0, \"y\": 0.0, \"actions\": [{\"id\": \"a_xv1d\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_open', 1)\", \"description\": \"Path stays open while coasting\"}, {\"id\": \"a_mtr0b\", \"qualifier\": \"N\", \"expression\": \"set_tag('MTR-101.cmd_start', 0)\", \"description\": \"Drop the run request\"}, {\"id\": \"a_stp1\", \"qualifier\": \"N\", \"expression\": \"set_tag('MTR-101.cmd_stop', 1)\", \"description\": \"DEVCTL latches running \\u2014 it stops on STOP_CMD, not on START_CMD falling\"}, {\"id\": \"a_spd0b\", \"qualifier\": \"N\", \"expression\": \"set_tag('VFD-101.speed_sp', 0.0)\", \"description\": \"Speed demand to zero\"}]}, {\"id\": \"s_close\", \"name\": \"CLOSE_PATH\", \"description\": \"Close the valve behind the stopped train\", \"initial\": false, \"x\": 0.0, \"y\": 0.0, \"actions\": [{\"id\": \"a_xv0b\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_open', 0)\", \"description\": \"Drop the open request\"}, {\"id\": \"a_xvc1\", \"qualifier\": \"N\", \"expression\": \"set_tag('XV-101.cmd_close', 1)\", \"description\": \"XV-101 DEVCTL latches \\u2014 it closes on cmd_close, not on cmd_open falling\"}]}], \"transitions\": [{\"id\": \"t_start\", \"name\": \"Start requested\", \"description\": \"\", \"condition\": \"tag('SEQ-101.cmd_start', 0) == 1\", \"source\": \"s_idle\", \"target\": \"s_open\"}, {\"id\": \"t_zso\", \"name\": \"Valve proven open\", \"description\": \"\", \"condition\": \"tag('XV-101.ZSO', 0) == 1\", \"source\": \"s_open\", \"target\": \"s_drive\"}, {\"id\": \"t_runfb\", \"name\": \"Motor running\", \"description\": \"\", \"condition\": \"tag('MTR-101.run_fb', 0) == 1\", \"source\": \"s_drive\", \"target\": \"s_ramp\"}, {\"id\": \"t_atspeed\", \"name\": \"At operating speed\", \"description\": \"\", \"condition\": \"tag('VFD-101.speed_pv', 0.0) >= 50.0\", \"source\": \"s_ramp\", \"target\": \"s_run\"}, {\"id\": \"t_stop\", \"name\": \"Stop requested\", \"description\": \"\", \"condition\": \"tag('SEQ-101.cmd_stop', 0) == 1\", \"source\": \"s_run\", \"target\": \"s_stop\"}, {\"id\": \"t_stopped\", \"name\": \"Motor proven stopped\", \"description\": \"\", \"condition\": \"tag('MTR-101.run_fb', 1) == 0\", \"source\": \"s_stop\", \"target\": \"s_close\"}, {\"id\": \"t_closed\", \"name\": \"Valve proven closed\", \"description\": \"\", \"condition\": \"tag('XV-101.ZSC', 0) == 1\", \"source\": \"s_close\", \"target\": \"s_idle\"}]}"
+      }
+    },
+    {
+      "id": "67a0142e6fca",
+      "block_type": "DI",
+      "instance_name": "DI_START",
+      "x": 480,
+      "y": 80,
+      "config": {
+        "tag": "SEQ-101.cmd_start"
+      }
+    },
+    {
+      "id": "e07de576e6cc",
+      "block_type": "DI",
+      "instance_name": "DI_STOP",
+      "x": 480,
+      "y": 260,
+      "config": {
+        "tag": "SEQ-101.cmd_stop"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

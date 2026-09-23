@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PID Function Block — Parameter Reference</title>
+<style>
+  :root {
+    /* Operate Silver Theme */
+    --bg-main: #E0E2EB;
+    --bg-panel: #EBECF1;
+    --bg-card: #F0F1F5;
+    --bg-inset: #DBDBE0;
+    --text-primary: #000000;
+    --text-secondary: #0E3260;
+    --text-header: #0E3260;
+    --accent: #3C6291;
+    --accent-dim: #7B92AD;
+    --border: #B2C7D5;
+    --alarm-red: #FF0000;
+    --alarm-yellow: #FFFF00;
+    --alarm-green: #44AA66;
+    --tag-blue: #3C6291;
+    --tag-green: #14696A;
+    --tag-orange: #9D4F00;
+    --tag-purple: #6F3198;
+    --tag-red: #CC4455;
+    --tag-teal: #14696A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 0;
+  }
+
+  /* ── Sticky sidebar navigation ──────────────────────────────── */
+  .page-wrapper {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: var(--bg-inset);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 20px 0;
+    z-index: 100;
+  }
+
+  .sidebar h2 {
+    color: var(--accent);
+    font-size: 14px;
+    padding: 0 16px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .sidebar .logo {
+    text-align: center;
+    padding: 0 16px 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+
+  .sidebar .logo h1 {
+    font-size: 18px;
+    color: var(--text-header);
+    margin-bottom: 2px;
+  }
+
+  .sidebar .logo span {
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .sidebar a {
+    display: block;
+    padding: 5px 16px 5px 24px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.15s;
+  }
+
+  .sidebar a:hover {
+    color: var(--text-header);
+    background: rgba(60, 98, 145, 0.12);
+  }
+
+  .sidebar .section-head {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 12px;
+    padding: 12px 16px 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Main content area ──────────────────────────────────────── */
+  .main {
+    margin-left: 260px;
+    padding: 30px 40px 60px;
+    max-width: 960px;
+  }
+
+  .main > h1 {
+    font-size: 28px;
+    color: var(--text-header);
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+  }
+
+  .main > .subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  /* ── Section headers ────────────────────────────────────────── */
+  h2.section {
+    font-size: 22px;
+    color: var(--accent);
+    margin: 40px 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 20px;
+  }
+
+  h3.subsection {
+    font-size: 16px;
+    color: var(--text-header);
+    margin: 24px 0 12px;
+    scroll-margin-top: 20px;
+  }
+
+  /* ── Parameter cards ────────────────────────────────────────── */
+  .param-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s;
+  }
+
+  .param-card:hover {
+    border-color: var(--accent-dim);
+  }
+
+  .param-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .param-name {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-header);
+  }
+
+  .param-tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-float    { background: rgba(68,136,204,0.2); color: var(--tag-blue); }
+  .tag-bool     { background: rgba(68,170,102,0.2); color: var(--tag-green); }
+  .tag-enum     { background: rgba(136,102,204,0.2); color: var(--tag-purple); }
+  .tag-readonly { background: rgba(204,68,85,0.2);  color: var(--tag-red); }
+  .tag-signal   { background: rgba(204,119,51,0.2); color: var(--tag-orange); }
+  .tag-seconds  { background: rgba(68,170,170,0.2); color: var(--tag-teal); }
+
+  .param-azeo {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .param-desc {
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .param-detail {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .param-detail code {
+    background: var(--bg-inset);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+    color: var(--accent);
+  }
+
+  .param-detail ul {
+    margin: 4px 0 4px 20px;
+  }
+
+  .param-detail li {
+    margin-bottom: 2px;
+  }
+
+  .param-range {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    background: var(--bg-inset);
+    padding: 3px 10px;
+    border-radius: 3px;
+    color: var(--text-secondary);
+  }
+
+  .param-range strong { color: var(--accent); }
+
+  /* ── Enum value table ───────────────────────────────────────── */
+  .enum-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 13px;
+  }
+
+  .enum-table th {
+    text-align: left;
+    padding: 6px 12px;
+    background: var(--bg-inset);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .enum-table td {
+    padding: 5px 12px;
+    border-bottom: 1px solid rgba(123,146,173,0.4);
+    color: var(--text-primary);
+  }
+
+  .enum-table tr:last-child td { border-bottom: none; }
+
+  .enum-table code {
+    background: var(--bg-inset);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: 'Consolas', monospace;
+    color: var(--accent);
+  }
+
+  /* ── Equation block ─────────────────────────────────────────── */
+  .equation {
+    background: var(--bg-inset);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    border-radius: 0 4px 4px 0;
+    overflow-x: auto;
+  }
+
+  /* ── Info boxes ─────────────────────────────────────────────── */
+  .info-box {
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+
+  .info-box.note {
+    background: rgba(60,98,145,0.08);
+    border: 1px solid rgba(60,98,145,0.3);
+    color: var(--accent);
+  }
+
+  .info-box.warning {
+    background: rgba(157,79,0,0.08);
+    border: 1px solid rgba(157,79,0,0.3);
+    color: #9D4F00;
+  }
+
+  .info-box.tip {
+    background: rgba(20,105,106,0.08);
+    border: 1px solid rgba(20,105,106,0.3);
+    color: #14696A;
+  }
+
+  .info-box strong { display: block; margin-bottom: 4px; }
+
+  /* ── Mode diagram ───────────────────────────────────────────── */
+  .mode-diagram {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .mode-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .mode-box .mode-label {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-header);
+    margin-bottom: 4px;
+  }
+
+  .mode-box .mode-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .mode-box.auto { border-color: #9BADC6; }
+  .mode-box.man  { border-color: #9D4F00; }
+  .mode-box.cas  { border-color: #0000C6; }
+  .mode-box.oos  { border-color: #FF0000; }
+
+  /* ── Search ─────────────────────────────────────────────────── */
+  .search-bar {
+    position: sticky;
+    top: 0;
+    background: var(--bg-main);
+    padding: 12px 0;
+    z-index: 50;
+    margin-bottom: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .search-bar input:focus {
+    border-color: var(--accent);
+  }
+
+  .search-bar input::placeholder {
+    color: var(--text-secondary);
+  }
+
+  .hidden { display: none !important; }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 800px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 16px; }
+    .mode-diagram { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── Print styles ───────────────────────────────────────────── */
+  @media print {
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    body { background: white; color: #222; }
+    .param-card { border-color: #ccc; background: #f8f8f8; }
+    .search-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SIDEBAR NAVIGATION
+     ═══════════════════════════════════════════════════════════════ -->
+<nav class="sidebar">
+  <div class="logo">
+    <h1>PID Reference</h1>
+    <span>Function Block Parameter Guide</span>
+  </div>
+
+  <div class="section-head">Overview</div>
+  <a href="#overview">Introduction</a>
+  <a href="#modes">Operating Modes</a>
+  <a href="#equation">PID Equation</a>
+
+  <div class="section-head">Tuning</div>
+  <a href="#gain">Gain (Kp)</a>
+  <a href="#reset">Reset / Ti</a>
+  <a href="#rate">Rate / Td</a>
+  <a href="#alpha">Derivative Filter</a>
+  <a href="#pv_ftime">PV Filter</a>
+  <a href="#sp_ftime">SP Filter</a>
+  <a href="#sp_rate">SP Rate Limits</a>
+  <a href="#ff_gain">Feedforward</a>
+  <a href="#ideadband">I-Deadband</a>
+  <a href="#beta_gamma">2-DOF (Beta/Gamma)</a>
+  <a href="#form">Form &amp; Structure</a>
+  <a href="#bal_time">Balance Time</a>
+
+  <div class="section-head">Limits</div>
+  <a href="#alarm_limits">Alarm Limits</a>
+  <a href="#output_limits">Output Limits</a>
+  <a href="#sp_limits">SP Limits</a>
+  <a href="#arw_limits">ARW Limits</a>
+
+  <div class="section-head">Options</div>
+  <a href="#frsipid_opts">FRSIPID Options</a>
+  <a href="#control_opts">Control Options</a>
+  <a href="#nl_gain">Nonlinear Gain</a>
+  <a href="#linearization">Linearization</a>
+  <a href="#shedding">Remote Shedding</a>
+  <a href="#status_opts">Status Options</a>
+  <a href="#tracking_opts">Tracking Options</a>
+  <a href="#condalm">Conditional Alarm</a>
+  <a href="#process_type">Process Type</a>
+
+  <div class="section-head">Diagnostics</div>
+  <a href="#stdev">STDEV</a>
+  <a href="#field_val">FIELD_VAL</a>
+  <a href="#nl_gain_mod">NL_GAIN_MOD</a>
+  <a href="#ports">I/O Ports</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MAIN CONTENT
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="main">
+
+<h1>PID Function Block &mdash; Parameter Reference</h1>
+<p class="subtitle">
+  Comprehensive guide to all PID block parameters, modes, and configuration options.<br>
+  Based on Azeo PID function block specification with full industrial feature set.
+</p>
+
+<!-- Search -->
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search parameters... (e.g. gain, shed_opt, linearization)">
+</div>
+
+
+<!-- ═══════════════ OVERVIEW ═══════════════════════════════════ -->
+<h2 class="section" id="overview">Overview</h2>
+
+<div class="param-card" data-search="overview introduction pid function block">
+  <div class="param-desc">
+    The PID Function Block implements a full-featured industrial PID controller with:
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>Standard and Series</strong> PID equation forms</li>
+      <li><strong>8 operating modes:</strong> OOS, IMan, LO, Man, Auto, Cas, RCas, ROut</li>
+      <li><strong>8 structures</strong> including Two Degrees of Freedom (Beta/Gamma)</li>
+      <li><strong>PIDPlus</strong> adaptive gain with saturation recovery</li>
+      <li><strong>Nonlinear gain</strong> modification (NL_GAP, NL_TBAND, NL_HYST)</li>
+      <li><strong>Feedforward</strong> with configurable gain and scale</li>
+      <li><strong>Anti-Reset Windup</strong> with Dynamic Reset Limiting (DRL)</li>
+      <li><strong>Signal linearization</strong> (square root for flow)</li>
+      <li><strong>Remote shedding</strong> with configurable timeout actions</li>
+      <li><strong>Cascade initialization</strong> via BKCAL_IN / BKCAL_OUT</li>
+      <li><strong>6-point alarming:</strong> HI_HI, HI, DV_HI, DV_LO, LO, LO_LO</li>
+      <li><strong>Output tracking</strong> for overrides and interlocks</li>
+      <li><strong>Process variability</strong> monitoring (STDEV)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── Modes ──────────────────────────────────────────────────── -->
+<h2 class="section" id="modes">Operating Modes</h2>
+
+<div class="mode-diagram">
+  <div class="mode-box oos">
+    <div class="mode-label">OOS</div>
+    <div class="mode-desc">Out of Service</div>
+  </div>
+  <div class="mode-box">
+    <div class="mode-label">IMan</div>
+    <div class="mode-desc">Initializing Manual</div>
+  </div>
+  <div class="mode-box">
+    <div class="mode-label">LO</div>
+    <div class="mode-desc">Local Override</div>
+  </div>
+  <div class="mode-box man">
+    <div class="mode-label">Man</div>
+    <div class="mode-desc">Manual</div>
+  </div>
+  <div class="mode-box auto">
+    <div class="mode-label">Auto</div>
+    <div class="mode-desc">Automatic</div>
+  </div>
+  <div class="mode-box cas">
+    <div class="mode-label">Cas</div>
+    <div class="mode-desc">Cascade</div>
+  </div>
+  <div class="mode-box cas">
+    <div class="mode-label">RCas</div>
+    <div class="mode-desc">Remote Cascade</div>
+  </div>
+  <div class="mode-box cas">
+    <div class="mode-label">ROut</div>
+    <div class="mode-desc">Remote Output</div>
+  </div>
+</div>
+
+<div class="param-card" data-search="mode priority hierarchy oos iman lo man auto cas rcas rout">
+  <div class="param-desc">Mode Priority (highest to lowest):</div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>OOS</strong> &mdash; Block is offline. Output held. All alarms suppressed.</li>
+      <li><strong>IMan</strong> &mdash; Downstream block not ready. Output tracks BKCAL_IN. Automatic mode.</li>
+      <li><strong>LO</strong> &mdash; External interlock active. Output follows TRK_VAL. Cannot be overridden by operator.</li>
+      <li><strong>Man</strong> &mdash; Operator directly sets output. No PID calculation. SP optionally tracks PV.</li>
+      <li><strong>Auto</strong> &mdash; PID controls output to maintain SP. Operator sets SP.</li>
+      <li><strong>Cas</strong> &mdash; SP driven by upstream controller via CAS_IN. PID controls output.</li>
+      <li><strong>RCas</strong> &mdash; SP driven by remote host via RCAS_IN. Subject to SHED_TIME timeout.</li>
+      <li><strong>ROut</strong> &mdash; Output driven by remote host via ROUT_IN. Subject to SHED_TIME timeout.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="info-box note">
+  <strong>Mode Shedding:</strong>
+  Higher-priority modes always override lower ones. If a remote connection times out (SHED_TIME),
+  the block automatically sheds to a safer mode based on SHED_OPT configuration.
+</div>
+
+<!-- ── Equation ───────────────────────────────────────────────── -->
+<h2 class="section" id="equation">PID Equation</h2>
+
+<div class="param-card" data-search="equation standard series isa interacting form">
+  <div class="param-desc"><strong>Standard (ISA) Form:</strong></div>
+  <div class="equation">
+OUT = Kp &times; [ e(t) + (1/Ti) &int; e(&tau;) d&tau; + Td &times; de(t)/dt ] + Bias
+  </div>
+
+  <div class="param-desc" style="margin-top: 12px;"><strong>Series (Interacting) Form:</strong></div>
+  <div class="equation">
+OUT = Kp &times; (1 + 1/(Ti&middot;s)) &times; (1 + Td&middot;s) &times; e(t)
+  </div>
+
+  <div class="param-detail" style="margin-top: 12px;">
+    Where: <code>e(t) = SP - PV</code> (reverse acting) or <code>e(t) = PV - SP</code> (direct acting).<br>
+    The derivative is filtered: <code>Td_eff = Td / (1 + &alpha;&middot;Td&middot;s)</code>
+  </div>
+</div>
+
+
+<!-- ═══════════════ TUNING ═════════════════════════════════════ -->
+<h2 class="section" id="tuning">Tuning Parameters</h2>
+
+<!-- GAIN -->
+<div class="param-card" id="gain" data-search="gain kp proportional controller">
+  <div class="param-header">
+    <span class="param-name">gain</span>
+    <span class="param-tag tag-float">float</span>
+    <span class="param-azeo">Azeo: GAIN</span>
+  </div>
+  <div class="param-desc">
+    Controller Gain (Kp) &mdash; Multiplier on the error signal.
+  </div>
+  <div class="param-detail">
+    Higher values give faster, more aggressive response but risk oscillation.
+    In Standard form, gain affects all three terms (P, I, D) simultaneously.
+    In Series form, gain only multiplies the proportional path.
+    <ul>
+      <li>Increase for sluggish response (underdamped)</li>
+      <li>Decrease for oscillatory response (overdamped)</li>
+      <li>Set to 0 to disable proportional action (integral-only control)</li>
+    </ul>
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 999 &nbsp;|&nbsp; <strong>Default:</strong> 1.0 &nbsp;|&nbsp; <strong>Typical:</strong> 0.5 &ndash; 2.0</div>
+</div>
+
+<!-- RESET -->
+<div class="param-card" id="reset" data-search="reset integral time ti seconds repeat">
+  <div class="param-header">
+    <span class="param-name">reset</span>
+    <span class="param-tag tag-seconds">seconds</span>
+    <span class="param-azeo">Azeo: RESET</span>
+  </div>
+  <div class="param-desc">
+    Integral Time (Ti) &mdash; Time for the integral term to repeat the proportional action.
+  </div>
+  <div class="param-detail">
+    Smaller Ti = faster integral action = eliminates steady-state offset quicker,
+    but too small causes integral windup and oscillation.
+    Set to maximum (9999) to effectively disable integral action (P or PD control).
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 s &nbsp;|&nbsp; <strong>Default:</strong> 60.0 s &nbsp;|&nbsp; <strong>Typical:</strong> 2 &ndash; 120 s</div>
+</div>
+
+<!-- RATE -->
+<div class="param-card" id="rate" data-search="rate derivative time td seconds">
+  <div class="param-header">
+    <span class="param-name">rate</span>
+    <span class="param-tag tag-seconds">seconds</span>
+    <span class="param-azeo">Azeo: RATE</span>
+  </div>
+  <div class="param-desc">
+    Derivative Time (Td) &mdash; Predictive term that responds to rate-of-change.
+  </div>
+  <div class="param-detail">
+    Higher Td = more damping on fast disturbances. Set to 0 for PI control only (most common).
+    Use with caution on noisy signals. Always use with the derivative filter (&alpha;).
+    <ul>
+      <li>Effective on temperature, level, and slow pressure loops</li>
+      <li>Generally avoided on flow loops (too noisy)</li>
+    </ul>
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 s &nbsp;|&nbsp; <strong>Default:</strong> 0.0 s &nbsp;|&nbsp; <strong>Typical:</strong> 0 &ndash; 30 s</div>
+</div>
+
+<!-- ALPHA -->
+<div class="param-card" id="alpha" data-search="alpha derivative filter coefficient noise">
+  <div class="param-header">
+    <span class="param-name">alpha</span>
+    <span class="param-tag tag-float">float</span>
+    <span class="param-azeo">Azeo: ALPHA</span>
+  </div>
+  <div class="param-desc">
+    Derivative Filter Coefficient (&alpha;) &mdash; First-order filter on the D-term.
+  </div>
+  <div class="param-detail">
+    Filters the derivative to limit high-frequency noise amplification:
+    <code>Td_eff = Td / (1 + &alpha;&middot;Td&middot;s)</code>.
+    Increase if D-term is noisy; decrease for faster derivative response.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0.05 &ndash; 1.0 &nbsp;|&nbsp; <strong>Default:</strong> 0.125 &nbsp;|&nbsp; <strong>Typical:</strong> 0.1 &ndash; 0.2</div>
+</div>
+
+<!-- PV_FTIME -->
+<div class="param-card" id="pv_ftime" data-search="pv filter time constant input noise smoothing">
+  <div class="param-header">
+    <span class="param-name">pv_ftime</span>
+    <span class="param-tag tag-seconds">seconds</span>
+    <span class="param-azeo">Azeo: PV_FTIME</span>
+  </div>
+  <div class="param-desc">
+    PV Input Filter Time Constant &mdash; Low-pass filter applied to PV before PID calculation.
+  </div>
+  <div class="param-detail">
+    Smooths sensor noise. Set to 0 for no filtering. Too large adds phase lag
+    and reduces loop stability. Applied after linearization (L_TYPE) but before
+    the PID error calculation.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 s &nbsp;|&nbsp; <strong>Default:</strong> 0.0 s &nbsp;|&nbsp; <strong>Typical:</strong> 0.5 &ndash; 5 s</div>
+</div>
+
+<!-- SP_FTIME -->
+<div class="param-card" id="sp_ftime" data-search="sp filter time constant setpoint softening ramp">
+  <div class="param-header">
+    <span class="param-name">sp_ftime</span>
+    <span class="param-tag tag-seconds">seconds</span>
+    <span class="param-azeo">Azeo: SP_FTIME</span>
+  </div>
+  <div class="param-desc">
+    SP Filter Time Constant &mdash; Softens setpoint step changes into smooth ramps.
+  </div>
+  <div class="param-detail">
+    Reduces overshoot on SP changes. Only affects SP response; disturbance rejection is unaffected.
+    Set to 0 to disable. Use in combination with SP rate limits for comprehensive SP shaping.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 s &nbsp;|&nbsp; <strong>Default:</strong> 0.0 s</div>
+</div>
+
+<!-- SP_RATE -->
+<div class="param-card" id="sp_rate" data-search="sp rate limit increase decrease ramp speed">
+  <div class="param-header">
+    <span class="param-name">sp_rate_up / sp_rate_dn</span>
+    <span class="param-tag tag-float">EU/s</span>
+    <span class="param-azeo">Azeo: SP_RATE_UP / SP_RATE_DN</span>
+  </div>
+  <div class="param-desc">
+    SP Rate Limits &mdash; Maximum rate of SP change (EU per second).
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><code>sp_rate_up</code>: Max rate SP can increase. 0 = immediate (no limit).</li>
+      <li><code>sp_rate_dn</code>: Max rate SP can decrease. 0 = immediate (no limit).</li>
+    </ul>
+    Used to ramp SP slowly, protecting equipment from thermal shock or pressure transients.
+    Example: 2 psig/s for pressure, 5 &deg;F/s for temperature controllers.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 EU/s &nbsp;|&nbsp; <strong>Default:</strong> 0.0 (no limit)</div>
+</div>
+
+<!-- FF_GAIN -->
+<div class="param-card" id="ff_gain" data-search="feedforward gain ff_val ff_gain disturbance rejection">
+  <div class="param-header">
+    <span class="param-name">ff_gain</span>
+    <span class="param-tag tag-float">float</span>
+    <span class="param-azeo">Azeo: FF_GAIN</span>
+  </div>
+  <div class="param-desc">
+    Feedforward Gain &mdash; Scales FF_VAL before adding to output.
+  </div>
+  <div class="param-detail">
+    <code>OUT += FF_GAIN &times; FF_VAL</code>. Set to 0 to disable. Requires <code>ff_enable = True</code>.
+    Used for measurable disturbance rejection (e.g., steam flow feedforward to level control).
+  </div>
+  <div class="param-range"><strong>Range:</strong> &minus;999 &ndash; 999 &nbsp;|&nbsp; <strong>Default:</strong> 1.0</div>
+</div>
+
+<!-- IDEADBAND -->
+<div class="param-card" id="ideadband" data-search="integral deadband limit cycle sticky valve">
+  <div class="param-header">
+    <span class="param-name">ideadband</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: IDEADBAND</span>
+  </div>
+  <div class="param-desc">
+    Integral Deadband &mdash; Suppresses integral action when error is small.
+  </div>
+  <div class="param-detail">
+    When <code>|error| &lt; ideadband</code>, integral accumulation is frozen.
+    Prevents limit-cycle oscillation on processes with deadband (e.g., sticky valves).
+    Set to 0 to disable.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 EU &nbsp;|&nbsp; <strong>Default:</strong> 0.0 &nbsp;|&nbsp; <strong>Typical:</strong> 0.5 &ndash; 2&times; noise level</div>
+</div>
+
+<!-- BETA / GAMMA -->
+<div class="param-card" id="beta_gamma" data-search="beta gamma two degrees freedom 2dof setpoint weight">
+  <div class="param-header">
+    <span class="param-name">beta / gamma</span>
+    <span class="param-tag tag-float">0&ndash;1</span>
+    <span class="param-azeo">Azeo: BETA / GAMMA</span>
+  </div>
+  <div class="param-desc">
+    Two Degrees of Freedom &mdash; Independent SP response vs disturbance rejection tuning.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>Beta (&beta;):</strong> Proportional SP weight. P-term = Kp &times; (&beta;&middot;SP &minus; PV).
+        &beta;=0: no P kick on SP change. &beta;=1: full proportional response.</li>
+      <li><strong>Gamma (&gamma;):</strong> Derivative SP weight. D-term acts on (&gamma;&middot;SP &minus; PV).
+        &gamma;=0: derivative on PV only (no SP kick). &gamma;=1: derivative on full error.</li>
+    </ul>
+    Only active when <code>Structure = TWO_DOF</code>.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0.0 &ndash; 1.0 &nbsp;|&nbsp; <strong>Default:</strong> &beta;=1.0, &gamma;=0.0</div>
+</div>
+
+<!-- FORM & STRUCTURE -->
+<div class="param-card" id="form" data-search="form structure standard series isa interacting pid_on_error pi_error_d_pv two_dof">
+  <div class="param-header">
+    <span class="param-name">form / structure</span>
+    <span class="param-tag tag-enum">enum</span>
+    <span class="param-azeo">Azeo: FORM / STRUCTURE</span>
+  </div>
+  <div class="param-desc">
+    PID Form and Structure &mdash; Control equation type and where P/I/D act.
+  </div>
+
+  <table class="enum-table">
+    <tr><th>Form</th><th>Description</th></tr>
+    <tr><td><code>STANDARD</code></td><td>ISA form &mdash; gain affects all terms. Most common.</td></tr>
+    <tr><td><code>SERIES</code></td><td>Interacting form &mdash; I and D decoupled. Matches legacy DCS tuning.</td></tr>
+  </table>
+
+  <table class="enum-table" style="margin-top: 8px;">
+    <tr><th>Structure</th><th>Description</th></tr>
+    <tr><td><code>PID_ON_ERROR</code></td><td>All terms act on error (SP&minus;PV). Fastest SP response.</td></tr>
+    <tr><td><code>PI_ERROR_D_PV</code></td><td>P+I on error, D on PV only. Default &mdash; prevents derivative kick.</td></tr>
+    <tr><td><code>I_ERROR_PD_PV</code></td><td>I on error, P+D on PV. Smoothest SP response.</td></tr>
+    <tr><td><code>PD_ON_ERROR</code></td><td>No integral &mdash; P+D on error only.</td></tr>
+    <tr><td><code>P_ERROR_D_PV</code></td><td>No integral &mdash; P on error, D on PV.</td></tr>
+    <tr><td><code>ID_ON_ERROR</code></td><td>No proportional &mdash; I+D on error.</td></tr>
+    <tr><td><code>I_ERROR_D_PV</code></td><td>No proportional &mdash; I on error, D on PV.</td></tr>
+    <tr><td><code>TWO_DOF</code></td><td>Uses Beta/Gamma SP weights for independent tuning.</td></tr>
+  </table>
+</div>
+
+<!-- BAL_TIME -->
+<div class="param-card" id="bal_time" data-search="balance time bal_time bias dissipation p pd structure manual auto transfer">
+  <div class="param-header">
+    <span class="param-name">bal_time</span>
+    <span class="param-tag tag-seconds">seconds</span>
+    <span class="param-azeo">Azeo: BAL_TIME</span>
+  </div>
+  <div class="param-desc">
+    Balance Time &mdash; Bias dissipation time for P and PD structures.
+  </div>
+  <div class="param-detail">
+    For structures without integral action, the manual bias is dissipated exponentially
+    over BAL_TIME seconds after switching to Auto. Provides smooth transition from
+    manual bias to pure proportional control. Set to 0 for immediate bias removal.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 600 s &nbsp;|&nbsp; <strong>Default:</strong> 0.0 s &nbsp;|&nbsp; <strong>Typical:</strong> 30 &ndash; 120 s</div>
+</div>
+
+
+<!-- ═══════════════ LIMITS ═════════════════════════════════════ -->
+<h2 class="section" id="limits">Limits</h2>
+
+<!-- ALARM LIMITS -->
+<h3 class="subsection" id="alarm_limits">Alarm Limits</h3>
+
+<div class="param-card" data-search="hi_hi_lim hi_lim lo_lim lo_lo_lim alarm critical warning">
+  <div class="param-header">
+    <span class="param-name">hi_hi_lim / hi_lim / lo_lim / lo_lo_lim</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: HI_HI_LIM, HI_LIM, LO_LIM, LO_LO_LIM</span>
+  </div>
+  <div class="param-desc">
+    Absolute PV alarm limits &mdash; triggers when PV crosses these thresholds.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>HI_HI_LIM:</strong> Critical (red) alarm. Set to +INF to disable.</li>
+      <li><strong>HI_LIM:</strong> Warning (yellow) alarm. Set to +INF to disable.</li>
+      <li><strong>LO_LIM:</strong> Warning (yellow) alarm. Set to &minus;INF to disable.</li>
+      <li><strong>LO_LO_LIM:</strong> Critical (red) alarm. Set to &minus;INF to disable.</li>
+    </ul>
+    Alarms clear when PV returns past the limit by ALARM_HYS amount.
+  </div>
+</div>
+
+<div class="param-card" data-search="dv_hi_lim dv_lo_lim deviation alarm setpoint">
+  <div class="param-header">
+    <span class="param-name">dv_hi_lim / dv_lo_lim</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: DV_HI_LIM / DV_LO_LIM</span>
+  </div>
+  <div class="param-desc">
+    Deviation Alarm Limits &mdash; triggers when PV deviates from SP.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>DV_HI_LIM:</strong> Triggers when PV &gt; SP + DV_HI_LIM.</li>
+      <li><strong>DV_LO_LIM:</strong> Triggers when PV &lt; SP + DV_LO_LIM (typically negative).</li>
+    </ul>
+    Deviation alarms move with SP. Automatically suppressed during SP changes.
+  </div>
+  <div class="param-range"><strong>Typical:</strong> &plusmn;5 &ndash; 15% of PV span</div>
+</div>
+
+<div class="param-card" data-search="alarm_hys hysteresis deadband chattering">
+  <div class="param-header">
+    <span class="param-name">alarm_hys</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: ALARM_HYS</span>
+  </div>
+  <div class="param-desc">
+    Alarm Hysteresis &mdash; PV must return past limit by this amount before alarm clears.
+  </div>
+  <div class="param-detail">
+    Prevents alarm chattering when PV oscillates near a limit.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 EU &nbsp;|&nbsp; <strong>Default:</strong> 0.0 &nbsp;|&nbsp; <strong>Typical:</strong> 1 &ndash; 2% of PV span</div>
+</div>
+
+<!-- OUTPUT LIMITS -->
+<h3 class="subsection" id="output_limits">Output Limits</h3>
+
+<div class="param-card" data-search="out_hi_lim out_lo_lim output clamp valve maximum minimum">
+  <div class="param-header">
+    <span class="param-name">out_hi_lim / out_lo_lim</span>
+    <span class="param-tag tag-float">%</span>
+    <span class="param-azeo">Azeo: OUT_HI_LIM / OUT_LO_LIM</span>
+  </div>
+  <div class="param-desc">
+    Output Limits &mdash; Clamps controller output to protect equipment.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>OUT_HI_LIM:</strong> Maximum output. Typical 100%. Reduce for equipment protection.</li>
+      <li><strong>OUT_LO_LIM:</strong> Minimum output. Typical 0%. Raise for minimum flow requirements.</li>
+    </ul>
+    Can be bypassed in Manual mode with <code>no_out_limits_in_man = True</code>.
+  </div>
+  <div class="param-range"><strong>Default:</strong> 0 &ndash; 100%</div>
+</div>
+
+<!-- SP LIMITS -->
+<h3 class="subsection" id="sp_limits">Setpoint Limits</h3>
+
+<div class="param-card" data-search="sp_hi_lim sp_lo_lim setpoint clamp operator safe range">
+  <div class="param-header">
+    <span class="param-name">sp_hi_lim / sp_lo_lim</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: SP_HI_LIM / SP_LO_LIM</span>
+  </div>
+  <div class="param-desc">
+    Setpoint Limits &mdash; Prevents operator from setting SP outside safe range.
+  </div>
+  <div class="param-detail">
+    Applied in Auto and Cas modes. Can be enforced in Cas/RCas with
+    <code>obey_sp_lim_cas_rcas = True</code>.
+  </div>
+</div>
+
+<!-- ARW LIMITS -->
+<h3 class="subsection" id="arw_limits">Anti-Reset-Windup Limits</h3>
+
+<div class="param-card" data-search="arw_hi_lim arw_lo_lim anti reset windup integral saturation">
+  <div class="param-header">
+    <span class="param-name">arw_hi_lim / arw_lo_lim</span>
+    <span class="param-tag tag-float">%</span>
+    <span class="param-azeo">Azeo: ARW_HI_LIM / ARW_LO_LIM</span>
+  </div>
+  <div class="param-desc">
+    ARW Limits &mdash; Stops integral accumulation when output exceeds these levels.
+  </div>
+  <div class="param-detail">
+    Prevents integral windup during output saturation. Typically set equal to
+    or slightly beyond the output limits. When output exceeds ARW limits,
+    integral action freezes until the output returns to the active range.
+  </div>
+  <div class="param-range"><strong>Default:</strong> same as OUT_HI_LIM / OUT_LO_LIM</div>
+</div>
+
+
+<!-- ═══════════════ OPTIONS ════════════════════════════════════ -->
+<h2 class="section" id="options">Options</h2>
+
+<!-- FRSIPID_OPTS -->
+<h3 class="subsection" id="frsipid_opts">FRSIPID Options</h3>
+
+<div class="param-card" data-search="pidplus adaptive gain noise automatic">
+  <div class="param-header">
+    <span class="param-name">use_pidplus</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: FRSIPID_OPTS.PIDPlus</span>
+  </div>
+  <div class="param-desc">
+    PIDPlus Algorithm &mdash; Automatic gain adaptation based on PV noise.
+  </div>
+  <div class="param-detail">
+    Dynamically adjusts effective gain for optimal response across varying process conditions.
+    Useful for nonlinear or variable-deadtime processes.
+  </div>
+</div>
+
+<div class="param-card" data-search="nonlinear gain modification variable schedule error">
+  <div class="param-header">
+    <span class="param-name">use_nonlinear_gain</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: FRSIPID_OPTS.NL_Gain</span>
+  </div>
+  <div class="param-desc">
+    Nonlinear Gain Modification &mdash; Variable gain schedule based on error magnitude.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li>Inside NL_GAP: gain reduced to Kp &times; NL_MINMOD</li>
+      <li>Inside NL_TBAND: gain transitions linearly</li>
+      <li>Outside NL_TBAND: full gain Kp applied</li>
+    </ul>
+    Reduces limit cycling while maintaining disturbance rejection.
+  </div>
+</div>
+
+<div class="param-card" data-search="dynamic reset limit drl bkcal cascade windup">
+  <div class="param-header">
+    <span class="param-name">dynamic_reset_limit</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: FRSIPID_OPTS.DRL</span>
+  </div>
+  <div class="param-desc">
+    Dynamic Reset Limiting (DRL) &mdash; Limits integral based on downstream capacity.
+  </div>
+  <div class="param-detail">
+    Uses BKCAL_IN feedback to limit integral action to what the downstream block can actually accept.
+    Prevents integral windup in cascade configurations when secondary loop is saturated.
+  </div>
+</div>
+
+<div class="param-card" data-search="delayed output bad pv sensor failure hold ramp">
+  <div class="param-header">
+    <span class="param-name">use_delayed_out_bad_pv</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: FRSIPID_OPTS.Delayed_OUT</span>
+  </div>
+  <div class="param-desc">
+    Delayed Output on Bad PV &mdash; Holds output on transient sensor failures.
+  </div>
+  <div class="param-detail">
+    When PV goes BAD, holds the output at last good value for one scan, then slowly ramps.
+    Prevents sudden output jumps on transient sensor failures.
+  </div>
+</div>
+
+<div class="param-card" data-search="recovery filter saturation pidplus aggressive conservative">
+  <div class="param-header">
+    <span class="param-name">recovery_fltr</span>
+    <span class="param-tag tag-float">0&ndash;1</span>
+    <span class="param-azeo">Azeo: RECOVERY_FLTR</span>
+  </div>
+  <div class="param-desc">
+    PIDPlus Saturation Recovery Filter.
+  </div>
+  <div class="param-detail">
+    Controls how aggressively PIDPlus exits output saturation.
+    0 = aggressive (fast recovery, risk of overshoot). 1 = conservative.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0.0 &ndash; 1.0 &nbsp;|&nbsp; <strong>Default:</strong> 1.0</div>
+</div>
+
+<!-- CONTROL_OPTS -->
+<h3 class="subsection" id="control_opts">Control Options</h3>
+
+<div class="param-card" data-search="direct acting reverse controller action heating cooling">
+  <div class="param-header">
+    <span class="param-name">direct_acting</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.Direct</span>
+  </div>
+  <div class="param-desc">
+    Controller Action Direction.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>Direct (True):</strong> Output increases when PV increases. Example: cooling valve.</li>
+      <li><strong>Reverse (False):</strong> Output increases when PV decreases. Example: heating valve. Most common.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="param-card" data-search="bypass mode open loop testing commissioning">
+  <div class="param-header">
+    <span class="param-name">bypass / bypass_enable</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.Bypass</span>
+  </div>
+  <div class="param-desc">
+    Bypass Mode &mdash; PV passed directly to output (open-loop).
+  </div>
+  <div class="param-detail">
+    Both <code>bypass_enable</code> AND <code>bypass</code> must be True for bypass to activate.
+    Two-step requirement prevents accidental bypass. Used for commissioning and testing.
+  </div>
+</div>
+
+<div class="param-card" data-search="sp pv track manual lo iman bumpless transfer">
+  <div class="param-header">
+    <span class="param-name">sp_pv_track_*</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.SP_PV_Track</span>
+  </div>
+  <div class="param-desc">
+    SP Tracks PV &mdash; In specified modes, SP is set equal to PV.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><code>sp_pv_track_lo_iman</code>: SP tracks PV in LO and IMan modes.</li>
+      <li><code>sp_pv_track_man</code>: SP tracks PV in Manual mode.</li>
+      <li><code>sp_pv_track_rout</code>: SP tracks PV in Remote Output mode.</li>
+    </ul>
+    Ensures bumpless transfer when transitioning back to Auto/Cas.
+  </div>
+</div>
+
+<div class="param-card" data-search="use pv bkcal_out back calculation cascade primary upstream">
+  <div class="param-header">
+    <span class="param-name">use_pv_for_bkcal_out</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.UsePV_BKCAL</span>
+  </div>
+  <div class="param-desc">
+    Use PV for Back-Calculation Output.
+  </div>
+  <div class="param-detail">
+    Sets BKCAL_OUT = PV instead of SP. Required in cascade configurations where the
+    upstream controller needs the actual process value for proper anti-windup tracking.
+  </div>
+</div>
+
+<div class="param-card" data-search="no output limits manual mode full stroke commissioning">
+  <div class="param-header">
+    <span class="param-name">no_out_limits_in_man</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.NoOutLimMan</span>
+  </div>
+  <div class="param-desc">
+    No Output Limits in Manual &mdash; Allows full 0&ndash;100% range in Manual mode.
+  </div>
+</div>
+
+<div class="param-card" data-search="obey sp limits cascade remote enforce safe bounds">
+  <div class="param-header">
+    <span class="param-name">obey_sp_lim_cas_rcas</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.ObeySPLim</span>
+  </div>
+  <div class="param-desc">
+    Obey SP Limits in Cascade/RCas &mdash; Enforces SP limits even with external SP sources.
+  </div>
+</div>
+
+<div class="param-card" data-search="track enable tracking external override interlock trk_val trk_in_d">
+  <div class="param-header">
+    <span class="param-name">track_enable / track_in_manual</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.Track</span>
+  </div>
+  <div class="param-desc">
+    Output Tracking &mdash; Output follows TRK_VAL when TRK_IN_D is True.
+  </div>
+  <div class="param-detail">
+    Used for override control, interlocks, or external output forcing.
+    <code>track_in_manual</code> allows tracking even in Manual mode (normally Manual gives operator exclusive control).
+  </div>
+</div>
+
+<div class="param-card" data-search="feedforward enable ff_enable ff_gain measurable disturbance">
+  <div class="param-header">
+    <span class="param-name">ff_enable</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.FF_Enable</span>
+  </div>
+  <div class="param-desc">
+    Feedforward Enable &mdash; Enables OUT += FF_GAIN &times; FF_VAL path.
+  </div>
+</div>
+
+<div class="param-card" data-search="simulate simulation mode offline testing training checkout">
+  <div class="param-header">
+    <span class="param-name">simulate_enabled</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.Simulate</span>
+  </div>
+  <div class="param-desc">
+    Simulation Mode &mdash; PV reads from SIMULATE_IN instead of real process input.
+  </div>
+  <div class="param-detail">
+    Used for offline testing, loop checkout, and training without affecting the live process.
+  </div>
+</div>
+
+<div class="param-card" data-search="act_on_ir bias adjustment bumpless transfer p pd">
+  <div class="param-header">
+    <span class="param-name">act_on_ir</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.ACT_ON_IR</span>
+  </div>
+  <div class="param-desc">
+    Bias Adjustment on Transfer &mdash; Auto-adjusts bias for bumpless Man&rarr;Auto transfer.
+  </div>
+  <div class="param-detail">
+    For P and PD structures: automatically calculates the required bias so that
+    the output does not change at the moment of transfer from Manual to Auto.
+  </div>
+</div>
+
+<div class="param-card" data-search="sp_track_retained_target mode preserve original target">
+  <div class="param-header">
+    <span class="param-name">sp_track_retained_target</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONTROL_OPTS.SP_Track_Retained</span>
+  </div>
+  <div class="param-desc">
+    SP Track Retain Target Mode &mdash; Preserves original target mode during SP-PV tracking.
+  </div>
+</div>
+
+<!-- NONLINEAR GAIN -->
+<h3 class="subsection" id="nl_gain">Nonlinear Gain Parameters</h3>
+
+<div class="param-card" data-search="nl_gap gap error band reduced gain deadband limit cycle">
+  <div class="param-header">
+    <span class="param-name">nl_gap</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: NL_GAP</span>
+  </div>
+  <div class="param-desc">
+    NL Gap &mdash; Error band where gain is reduced to Kp &times; NL_MINMOD.
+  </div>
+  <div class="param-detail">
+    When |error| &lt; NL_GAP, reduced gain prevents limit cycling near setpoint.
+    Set to 0 to disable.
+  </div>
+  <div class="param-range"><strong>Typical:</strong> 1 &ndash; 3&times; noise amplitude</div>
+</div>
+
+<div class="param-card" data-search="nl_hyst hysteresis switching gain boundary">
+  <div class="param-header">
+    <span class="param-name">nl_hyst</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: NL_HYST</span>
+  </div>
+  <div class="param-desc">
+    NL Hysteresis &mdash; Prevents rapid switching between reduced and full gain.
+  </div>
+  <div class="param-range"><strong>Typical:</strong> 0.5&times; NL_GAP</div>
+</div>
+
+<div class="param-card" data-search="nl_tband transition band linear gain smooth">
+  <div class="param-header">
+    <span class="param-name">nl_tband</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: NL_TBAND</span>
+  </div>
+  <div class="param-desc">
+    NL Transition Band &mdash; Region where gain linearly transitions from reduced to full.
+  </div>
+  <div class="param-detail">
+    Must be &ge; NL_GAP. Wider band = smoother gain transition.
+  </div>
+</div>
+
+<div class="param-card" data-search="nl_minmod minimum gain modifier multiplier zero half full">
+  <div class="param-header">
+    <span class="param-name">nl_minmod</span>
+    <span class="param-tag tag-float">0&ndash;1</span>
+    <span class="param-azeo">Azeo: NL_MINMOD</span>
+  </div>
+  <div class="param-desc">
+    NL Minimum Gain Multiplier &mdash; Gain inside NL_GAP = Kp &times; NL_MINMOD.
+  </div>
+  <div class="param-detail">
+    0.0 = zero gain inside gap (integral only). 0.5 = half gain. 1.0 = full gain (disables NL effect).
+  </div>
+</div>
+
+<!-- LINEARIZATION -->
+<h3 class="subsection" id="linearization">Linearization (L_TYPE)</h3>
+
+<div class="param-card" data-search="l_type linearization square root flow direct indirect">
+  <div class="param-header">
+    <span class="param-name">l_type</span>
+    <span class="param-tag tag-enum">enum</span>
+    <span class="param-azeo">Azeo: L_TYPE</span>
+  </div>
+  <div class="param-desc">
+    Linearization Type &mdash; PV signal conditioning applied before PV filter.
+  </div>
+  <table class="enum-table">
+    <tr><th>Value</th><th>Description</th></tr>
+    <tr><td><code>DIRECT</code></td><td>No linearization &mdash; PV passes through as-is.</td></tr>
+    <tr><td><code>INDIRECT</code></td><td>Square root linearization for flow transmitters: PV = &radic;(raw/span) &times; span</td></tr>
+    <tr><td><code>INDIRECT_SQUARE_ROOT</code></td><td>Inverse square root linearization.</td></tr>
+  </table>
+</div>
+
+<div class="param-card" data-search="low_cut low cutoff zero flow noise sensor threshold">
+  <div class="param-header">
+    <span class="param-name">low_cut / low_cutoff_enabled</span>
+    <span class="param-tag tag-float">EU</span>
+    <span class="param-azeo">Azeo: LOW_CUT</span>
+  </div>
+  <div class="param-desc">
+    Low Cutoff &mdash; Forces PV to 0.0 when below threshold.
+  </div>
+  <div class="param-detail">
+    Critical for zero-based flow sensors to eliminate noise near zero flow.
+    <code>low_cutoff_enabled</code> must be True to activate.
+  </div>
+  <div class="param-range"><strong>Typical:</strong> 2 &ndash; 5% of PV span</div>
+</div>
+
+<!-- SHEDDING -->
+<h3 class="subsection" id="shedding">Remote Shedding</h3>
+
+<div class="param-card" data-search="shed_opt shedding remote timeout action rcas rout fallback safety">
+  <div class="param-header">
+    <span class="param-name">shed_opt</span>
+    <span class="param-tag tag-enum">enum</span>
+    <span class="param-azeo">Azeo: SHED_OPT</span>
+  </div>
+  <div class="param-desc">
+    Shed Option &mdash; Action on remote setpoint/output communication timeout.
+  </div>
+  <table class="enum-table">
+    <tr><th>Value</th><th>Action</th></tr>
+    <tr><td><code>NO_ACTION</code></td><td>Do nothing &mdash; remote host handles recovery.</td></tr>
+    <tr><td><code>SHED_TO_NORMAL</code></td><td>Shed to next lower mode (RCas&rarr;Cas, ROut&rarr;Auto).</td></tr>
+    <tr><td><code>SHED_TO_MANUAL</code></td><td>Shed directly to Manual mode.</td></tr>
+    <tr><td><code>SHED_TO_AUTO</code></td><td>Shed to Automatic mode.</td></tr>
+  </table>
+</div>
+
+<div class="param-card" data-search="shed_time timeout duration seconds rcas_in rout_in staleness">
+  <div class="param-header">
+    <span class="param-name">shed_time</span>
+    <span class="param-tag tag-seconds">seconds</span>
+    <span class="param-azeo">Azeo: SHED_TIME</span>
+  </div>
+  <div class="param-desc">
+    Shed Time &mdash; Timeout for RCAS_IN / ROUT_IN updates.
+  </div>
+  <div class="param-detail">
+    If no new value is received within this time, the block sheds per SHED_OPT.
+    Set to 0 to disable timeout checking.
+  </div>
+  <div class="param-range"><strong>Range:</strong> 0 &ndash; 9999 s &nbsp;|&nbsp; <strong>Default:</strong> 0.0 s &nbsp;|&nbsp; <strong>Typical:</strong> 10 &ndash; 60 s</div>
+</div>
+
+<!-- STATUS_OPTS -->
+<h3 class="subsection" id="status_opts">Status Options (STATUS_OPTS)</h3>
+
+<div class="param-card" data-search="bad_if_limited status pv limit sensor pegged wiring fault">
+  <div class="param-header">
+    <span class="param-name">bad_if_limited</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: STATUS_OPTS.Bad_if_Limited</span>
+  </div>
+  <div class="param-desc">
+    Bad if Limited &mdash; Sets PV status to BAD when PV input is at a limit.
+  </div>
+  <div class="param-detail">
+    Use when a limited PV reading is unreliable (e.g., sensor pegged at 0% or 100% indicates a wiring fault).
+  </div>
+</div>
+
+<div class="param-card" data-search="uncertain_if_limited status pv limit reduced confidence">
+  <div class="param-header">
+    <span class="param-name">uncertain_if_limited</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: STATUS_OPTS.Uncertain_if_Limited</span>
+  </div>
+  <div class="param-desc">
+    Uncertain if Limited &mdash; Sets PV status to UNCERTAIN when PV is at a limit.
+  </div>
+  <div class="param-detail">
+    Less severe than Bad if Limited &mdash; reading may still be usable but confidence is reduced.
+  </div>
+</div>
+
+<div class="param-card" data-search="target_manual_if_bad_in latch manual bad pv safety critical">
+  <div class="param-header">
+    <span class="param-name">target_manual_if_bad_in</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: STATUS_OPTS.Target_Man_Bad</span>
+  </div>
+  <div class="param-desc">
+    Target Manual if Bad IN &mdash; Latches target mode to Manual on bad PV.
+  </div>
+  <div class="param-detail">
+    Prevents automatic return to Auto when PV recovers &mdash; operator must explicitly
+    request Auto mode. Safer for critical loops.
+  </div>
+</div>
+
+<div class="param-card" data-search="use_uncertain_as_good status treat uncertain operational valid">
+  <div class="param-header">
+    <span class="param-name">use_uncertain_as_good</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: STATUS_OPTS.Uncertain_as_Good</span>
+  </div>
+  <div class="param-desc">
+    Use Uncertain as Good &mdash; Treats UNCERTAIN PV as GOOD for mode resolution.
+  </div>
+  <div class="param-detail">
+    Block stays in Auto/Cas even with uncertain PV. Useful when sensor quality
+    fluctuates but readings are still operationally valid.
+  </div>
+</div>
+
+<!-- TRACKING OPTIONS -->
+<h3 class="subsection" id="tracking_opts">Tracking Options</h3>
+
+<div class="param-card" data-search="track_opt tracking option bad signal quality trk_val last good">
+  <div class="param-header">
+    <span class="param-name">track_opt</span>
+    <span class="param-tag tag-enum">enum</span>
+    <span class="param-azeo">Azeo: TRACK_OPT</span>
+  </div>
+  <div class="param-desc">
+    Tracking Option &mdash; Behavior when TRK_VAL signal has bad quality.
+  </div>
+  <table class="enum-table">
+    <tr><th>Value</th><th>Behavior</th></tr>
+    <tr><td><code>ALWAYS_USE_VALUE</code></td><td>Use TRK_VAL regardless of quality.</td></tr>
+    <tr><td><code>USE_LAST_GOOD_VALUE</code></td><td>Hold last known-good TRK_VAL.</td></tr>
+    <tr><td><code>TRACK_IF_BAD</code></td><td>Activate tracking when signal is bad.</td></tr>
+  </table>
+  <div class="param-detail" style="margin-top:8px;">Only relevant when <code>track_enable = True</code>.</div>
+</div>
+
+<!-- CONDALM -->
+<h3 class="subsection" id="condalm">Conditional Alarm</h3>
+
+<div class="param-card" data-search="condalm_enabled conditional alarm master gate suppress commissioning">
+  <div class="param-header">
+    <span class="param-name">condalm_enabled</span>
+    <span class="param-tag tag-bool">bool</span>
+    <span class="param-azeo">Azeo: CONDALM_ENABLED</span>
+  </div>
+  <div class="param-desc">
+    Conditional Alarm Enable &mdash; Master gate for all alarm evaluation.
+  </div>
+  <div class="param-detail">
+    When disabled (False), no alarms are evaluated or reported &mdash; all alarm states are cleared.
+    Use during commissioning or when the block is in an abnormal but expected condition.
+  </div>
+  <div class="param-range"><strong>Default:</strong> True (alarms enabled)</div>
+</div>
+
+<!-- PROCESS TYPE -->
+<h3 class="subsection" id="process_type">Process Type</h3>
+
+<div class="param-card" data-search="process_type self regulating integrating metadata classification">
+  <div class="param-header">
+    <span class="param-name">process_type</span>
+    <span class="param-tag tag-enum">enum</span>
+    <span class="param-azeo">Azeo: PROCESS_TYPE</span>
+  </div>
+  <div class="param-desc">
+    Process Type &mdash; Metadata classification of the controlled process.
+  </div>
+  <table class="enum-table">
+    <tr><th>Value</th><th>Description</th></tr>
+    <tr><td><code>SELF_REGULATING</code></td><td>Process reaches steady state on its own (heat exchanger, pressure vessel).</td></tr>
+    <tr><td><code>INTEGRATING</code></td><td>Process integrates &mdash; no natural steady state (tank level, position).</td></tr>
+  </table>
+  <div class="info-box note" style="margin-top:8px;">
+    <strong>Note:</strong> Informational only &mdash; does not change PID algorithm behavior.
+  </div>
+</div>
+
+
+<!-- ═══════════════ DIAGNOSTICS ════════════════════════════════ -->
+<h2 class="section" id="diagnostics">Diagnostics</h2>
+
+<!-- STDEV -->
+<div class="param-card" id="stdev" data-search="stdev standard deviation variability process monitoring welford rolling">
+  <div class="param-header">
+    <span class="param-name">stdev / stdev_time / stdev_cap</span>
+    <span class="param-tag tag-readonly">read/config</span>
+    <span class="param-azeo">Azeo: STDEV / STDEV_TIME / STDEV_CAP</span>
+  </div>
+  <div class="param-desc">
+    Process Variability Monitoring &mdash; Rolling standard deviation of PV.
+  </div>
+  <div class="param-detail">
+    <ul>
+      <li><strong>stdev_time:</strong> Window duration (seconds) for rolling calculation. 0 = disabled.</li>
+      <li><strong>stdev_cap:</strong> Maximum STDEV value. Clips large transients.</li>
+      <li><strong>stdev:</strong> (Read-only) Current standard deviation value.</li>
+    </ul>
+    Calculated using Welford's online algorithm (numerically stable). Useful for
+    detecting controller performance degradation, oscillation, or process upsets.
+  </div>
+  <div class="param-range"><strong>Typical:</strong> stdev_time = 30 &ndash; 120 s, stdev_cap = 1 &ndash; 2&times; expected variability</div>
+</div>
+
+<!-- FIELD_VAL -->
+<div class="param-card" id="field_val" data-search="field_val pv percent scale diagnostic">
+  <div class="param-header">
+    <span class="param-name">field_val</span>
+    <span class="param-tag tag-readonly">read-only</span>
+    <span class="param-azeo">Azeo: FIELD_VAL</span>
+  </div>
+  <div class="param-desc">
+    FIELD_VAL &mdash; PV expressed as percent of PV scale.
+  </div>
+  <div class="param-detail">
+    Calculated as: <code>pv_scale.to_percent(PV)</code>. Useful for monitoring how far
+    the PV is within its configured range, independent of engineering units.
+  </div>
+</div>
+
+<!-- NL_GAIN_MOD -->
+<div class="param-card" id="nl_gain_mod" data-search="nl_gain_mod nonlinear gain modifier knl current applied">
+  <div class="param-header">
+    <span class="param-name">nl_gain_mod</span>
+    <span class="param-tag tag-readonly">read-only</span>
+    <span class="param-azeo">Azeo: NL_GAIN_MOD</span>
+  </div>
+  <div class="param-desc">
+    NL Gain Modifier &mdash; Last computed nonlinear gain multiplier (KNL).
+  </div>
+  <div class="param-detail">
+    Shows the current gain modifier being applied (0.0 to 1.0). Useful for verifying
+    that nonlinear gain is working as expected. 1.0 = full gain applied.
+  </div>
+</div>
+
+<!-- I/O PORTS -->
+<h3 class="subsection" id="ports">I/O Ports</h3>
+
+<div class="param-card" data-search="ports in out bkcal_in bkcal_out cas_in rcas_in rout_in rcas_out rout_out signal status">
+  <div class="param-header">
+    <span class="param-name">I/O Ports</span>
+    <span class="param-tag tag-signal">SignalStatus</span>
+  </div>
+  <div class="param-desc">
+    All I/O ports carry a composite SignalStatus (value + limit + bad flag).
+  </div>
+  <table class="enum-table">
+    <tr><th>Port</th><th>Direction</th><th>Description</th></tr>
+    <tr><td><code>IN</code></td><td>Input</td><td>Process variable input (raw PV from transmitter).</td></tr>
+    <tr><td><code>OUT</code></td><td>Output</td><td>Controller output to final control element.</td></tr>
+    <tr><td><code>BKCAL_IN</code></td><td>Input</td><td>Back-calculation input from downstream block (anti-windup).</td></tr>
+    <tr><td><code>BKCAL_OUT</code></td><td>Output</td><td>Back-calculation output to upstream block.</td></tr>
+    <tr><td><code>CAS_IN</code></td><td>Input</td><td>Cascade SP input from upstream controller.</td></tr>
+    <tr><td><code>RCAS_IN</code></td><td>Input</td><td>Remote Cascade SP from host/OPC. Subject to SHED_TIME.</td></tr>
+    <tr><td><code>ROUT_IN</code></td><td>Input</td><td>Remote Output from host/OPC. Subject to SHED_TIME.</td></tr>
+    <tr><td><code>RCAS_OUT</code></td><td>Output</td><td>BKCAL equivalent for Remote Cascade mode.</td></tr>
+    <tr><td><code>ROUT_OUT</code></td><td>Output</td><td>BKCAL equivalent for Remote Output mode.</td></tr>
+    <tr><td><code>FF_VAL</code></td><td>Input</td><td>Feedforward value (scaled by FF_GAIN).</td></tr>
+    <tr><td><code>TRK_VAL</code></td><td>Input</td><td>Tracking value (used when TRK_IN_D is True).</td></tr>
+    <tr><td><code>SIMULATE_IN</code></td><td>Input</td><td>Simulated PV (used when simulate_enabled is True).</td></tr>
+  </table>
+</div>
+
+<div class="info-box tip">
+  <strong>Cascade Wiring Pattern:</strong>
+  Connect primary OUT &rarr; secondary CAS_IN, and secondary BKCAL_OUT &rarr; primary BKCAL_IN.
+  Enable <code>dynamic_reset_limit</code> on the primary for proper anti-windup.
+</div>
+
+
+<!-- ═══════════════ QUICK REFERENCE TABLE ═══════════════════════ -->
+<h2 class="section" id="quick_ref">Quick Reference</h2>
+
+<div class="param-card" data-search="quick reference all parameters summary table">
+  <table class="enum-table">
+    <tr><th>Parameter</th><th>Type</th><th>Default</th><th>Azeo Name</th></tr>
+    <tr><td><code>gain</code></td><td>float</td><td>1.0</td><td>GAIN</td></tr>
+    <tr><td><code>reset</code></td><td>float (s)</td><td>60.0</td><td>RESET</td></tr>
+    <tr><td><code>rate</code></td><td>float (s)</td><td>0.0</td><td>RATE</td></tr>
+    <tr><td><code>alpha</code></td><td>float</td><td>0.125</td><td>ALPHA</td></tr>
+    <tr><td><code>pv_ftime</code></td><td>float (s)</td><td>0.0</td><td>PV_FTIME</td></tr>
+    <tr><td><code>sp_ftime</code></td><td>float (s)</td><td>0.0</td><td>SP_FTIME</td></tr>
+    <tr><td><code>sp_rate_up</code></td><td>float (EU/s)</td><td>0.0</td><td>SP_RATE_UP</td></tr>
+    <tr><td><code>sp_rate_dn</code></td><td>float (EU/s)</td><td>0.0</td><td>SP_RATE_DN</td></tr>
+    <tr><td><code>ff_gain</code></td><td>float</td><td>1.0</td><td>FF_GAIN</td></tr>
+    <tr><td><code>ideadband</code></td><td>float (EU)</td><td>0.0</td><td>IDEADBAND</td></tr>
+    <tr><td><code>beta</code></td><td>float</td><td>1.0</td><td>BETA</td></tr>
+    <tr><td><code>gamma</code></td><td>float</td><td>0.0</td><td>GAMMA</td></tr>
+    <tr><td><code>bal_time</code></td><td>float (s)</td><td>0.0</td><td>BAL_TIME</td></tr>
+    <tr><td><code>bias</code></td><td>float (%)</td><td>0.0</td><td>BIAS</td></tr>
+    <tr><td><code>hi_hi_lim</code></td><td>float (EU)</td><td>+INF</td><td>HI_HI_LIM</td></tr>
+    <tr><td><code>hi_lim</code></td><td>float (EU)</td><td>+INF</td><td>HI_LIM</td></tr>
+    <tr><td><code>lo_lim</code></td><td>float (EU)</td><td>&minus;INF</td><td>LO_LIM</td></tr>
+    <tr><td><code>lo_lo_lim</code></td><td>float (EU)</td><td>&minus;INF</td><td>LO_LO_LIM</td></tr>
+    <tr><td><code>dv_hi_lim</code></td><td>float (EU)</td><td>+INF</td><td>DV_HI_LIM</td></tr>
+    <tr><td><code>dv_lo_lim</code></td><td>float (EU)</td><td>&minus;INF</td><td>DV_LO_LIM</td></tr>
+    <tr><td><code>alarm_hys</code></td><td>float (EU)</td><td>0.0</td><td>ALARM_HYS</td></tr>
+    <tr><td><code>out_hi_lim</code></td><td>float (%)</td><td>100.0</td><td>OUT_HI_LIM</td></tr>
+    <tr><td><code>out_lo_lim</code></td><td>float (%)</td><td>0.0</td><td>OUT_LO_LIM</td></tr>
+    <tr><td><code>sp_hi_lim</code></td><td>float (EU)</td><td>100.0</td><td>SP_HI_LIM</td></tr>
+    <tr><td><code>sp_lo_lim</code></td><td>float (EU)</td><td>0.0</td><td>SP_LO_LIM</td></tr>
+    <tr><td><code>arw_hi_lim</code></td><td>float (%)</td><td>100.0</td><td>ARW_HI_LIM</td></tr>
+    <tr><td><code>arw_lo_lim</code></td><td>float (%)</td><td>0.0</td><td>ARW_LO_LIM</td></tr>
+    <tr><td><code>l_type</code></td><td>enum</td><td>DIRECT</td><td>L_TYPE</td></tr>
+    <tr><td><code>low_cut</code></td><td>float (EU)</td><td>0.0</td><td>LOW_CUT</td></tr>
+    <tr><td><code>shed_opt</code></td><td>enum</td><td>NO_ACTION</td><td>SHED_OPT</td></tr>
+    <tr><td><code>shed_time</code></td><td>float (s)</td><td>0.0</td><td>SHED_TIME</td></tr>
+    <tr><td><code>track_opt</code></td><td>enum</td><td>ALWAYS_USE_VALUE</td><td>TRACK_OPT</td></tr>
+    <tr><td><code>process_type</code></td><td>enum</td><td>SELF_REGULATING</td><td>PROCESS_TYPE</td></tr>
+    <tr><td><code>nl_gap</code></td><td>float (EU)</td><td>0.0</td><td>NL_GAP</td></tr>
+    <tr><td><code>nl_hyst</code></td><td>float (EU)</td><td>0.0</td><td>NL_HYST</td></tr>
+    <tr><td><code>nl_tband</code></td><td>float (EU)</td><td>0.0</td><td>NL_TBAND</td></tr>
+    <tr><td><code>nl_minmod</code></td><td>float</td><td>1.0</td><td>NL_MINMOD</td></tr>
+    <tr><td><code>recovery_fltr</code></td><td>float</td><td>1.0</td><td>RECOVERY_FLTR</td></tr>
+    <tr><td><code>stdev_time</code></td><td>float (s)</td><td>0.0</td><td>STDEV_TIME</td></tr>
+    <tr><td><code>stdev_cap</code></td><td>float</td><td>100.0</td><td>STDEV_CAP</td></tr>
+  </table>
+</div>
+
+</div><!-- /main -->
+</div><!-- /page-wrapper -->
+
+<!-- ═══════════════ SEARCH SCRIPT ══════════════════════════════ -->
+<script>
+document.getElementById('searchInput').addEventListener('input', function() {
+  const query = this.value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.param-card');
+  const sections = document.querySelectorAll('h2.section, h3.subsection');
+
+  if (!query) {
+    cards.forEach(c => c.classList.remove('hidden'));
+    sections.forEach(s => s.classList.remove('hidden'));
+    return;
+  }
+
+  cards.forEach(card => {
+    const text = (card.textContent + ' ' + (card.dataset.search || '')).toLowerCase();
+    card.classList.toggle('hidden', !text.includes(query));
+  });
+
+  // Hide section headers if all their cards are hidden
+  sections.forEach(section => {
+    let next = section.nextElementSibling;
+    let hasVisible = false;
+    while (next && !next.matches('h2.section, h3.subsection')) {
+      if (next.matches('.param-card') && !next.classList.contains('hidden')) {
+        hasVisible = true;
+      }
+      next = next.nextElementSibling;
+    }
+    section.classList.toggle('hidden', !hasVisible);
+  });
+});
+</script>
+
+</body>
+</html>

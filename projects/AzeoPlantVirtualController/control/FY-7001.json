@@ -1,0 +1,54 @@
+{
+  "name": "FY-7001",
+  "description": "Steam flow feedforward",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U700",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Feedforward element of the three-element scheme",
+    "pv_source_text": "FT-7001",
+    "final_element_text": "LIC-7001 output bias",
+    "mapped_input_tags": [
+      "FT-7001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "LIC-7001"
+    ],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "MONITOR_ONLY_SUPERSEDED",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "drives_control": false,
+    "implemented_in": [
+      "LIC-7001"
+    ]
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "FT-7001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-7001",
+        "label": "B1 steam flow to header",
+        "scale_lo": 0.0,
+        "scale_hi": 70.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 70.0,
+        "eng_units": "t/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

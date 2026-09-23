@@ -1,0 +1,607 @@
+{
+ "display": "U010 - L2 Fuel Gas and Utilities",
+ "pvms": [
+  {
+   "id": "u010_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-0101/PIC-0101"
+   },
+   "x": 117.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Supply pressure"
+  },
+  {
+   "id": "u010_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-0102/PIC-0102"
+   },
+   "x": 461.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Fuel header"
+  },
+  {
+   "id": "u010_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-0103/PIC-0103"
+   },
+   "x": 805.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Flare header"
+  },
+  {
+   "id": "u010_loop_3",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-0101/FIC-0101"
+   },
+   "x": 1149.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Fuel flow"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U010 · FUEL GAS AND UTILITIES",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Control the plant fuel-gas header and maintain reliable supply to H1, B1, flare, and utility consumers.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u010_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u010_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U010",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u010_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u010_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "symbol",
+   "id": "u010_source",
+   "x": 90,
+   "y": 240,
+   "w": 80,
+   "h": 150,
+   "symbol": "stack"
+  },
+  {
+   "kind": "text",
+   "id": "u010_source_tag",
+   "x": 65,
+   "y": 213,
+   "w": 130,
+   "h": 22,
+   "text": "SOURCE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u010_source_label",
+   "x": 60,
+   "y": 395,
+   "w": 140,
+   "h": 28,
+   "text": "Natural-gas supply",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u010_knockout",
+   "x": 285,
+   "y": 268,
+   "w": 115,
+   "h": 90,
+   "symbol": "drum"
+  },
+  {
+   "kind": "text",
+   "id": "u010_knockout_tag",
+   "x": 260,
+   "y": 241,
+   "w": 165,
+   "h": 22,
+   "text": "D3 OFFGAS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u010_knockout_label",
+   "x": 255,
+   "y": 363,
+   "w": 175,
+   "h": 28,
+   "text": "Recovered fuel gas",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u010_header",
+   "x": 510,
+   "y": 235,
+   "w": 100,
+   "h": 160,
+   "symbol": "vessel"
+  },
+  {
+   "kind": "text",
+   "id": "u010_header_tag",
+   "x": 485,
+   "y": 208,
+   "w": 150,
+   "h": 22,
+   "text": "FG HEADER",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u010_header_label",
+   "x": 480,
+   "y": 400,
+   "w": 160,
+   "h": 28,
+   "text": "Fuel-gas distribution",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u010_h1",
+   "x": 750,
+   "y": 238,
+   "w": 95,
+   "h": 155,
+   "symbol": "furnace"
+  },
+  {
+   "kind": "text",
+   "id": "u010_h1_tag",
+   "x": 725,
+   "y": 211,
+   "w": 145,
+   "h": 22,
+   "text": "H1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u010_h1_label",
+   "x": 720,
+   "y": 398,
+   "w": 155,
+   "h": 28,
+   "text": "Charge heater",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u010_b1",
+   "x": 945,
+   "y": 252,
+   "w": 95,
+   "h": 130,
+   "symbol": "heater"
+  },
+  {
+   "kind": "text",
+   "id": "u010_b1_tag",
+   "x": 920,
+   "y": 225,
+   "w": 145,
+   "h": 22,
+   "text": "B1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u010_b1_label",
+   "x": 915,
+   "y": 387,
+   "w": 155,
+   "h": 28,
+   "text": "Steam boiler",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u010_pipe_0",
+   "a": "u010_source",
+   "a_side": "e",
+   "b": "u010_header",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u010_pipe_1",
+   "a": "u010_knockout",
+   "a_side": "e",
+   "b": "u010_header",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u010_pipe_2",
+   "a": "u010_header",
+   "a_side": "e",
+   "b": "u010_h1",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u010_pipe_3",
+   "a": "u010_header",
+   "a_side": "e",
+   "b": "u010_b1",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u010_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u010_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "Supply pressure",
+     "value": {
+      "path": "PIC-0101/PIC-0101/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Header pressure",
+     "value": {
+      "path": "PIC-0102/PIC-0102/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Fuel flow",
+     "value": {
+      "path": "FIC-0101/FIC-0101/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u010_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u010_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "Supply pressure",
+     "path": "PIC-0101/PIC-0101/PV"
+    },
+    {
+     "label": "Header pressure",
+     "path": "PIC-0102/PIC-0102/PV"
+    },
+    {
+     "label": "Fuel flow",
+     "path": "FIC-0101/FIC-0101/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u010_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE PIC-0101 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u010_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "PIC-0101",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u010_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u010_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  }
+ ],
+ "description": "L2 primary-operation display for U010, derived from AP-PID-U010. Native editable equipment, smart pipes, live PVMs, KPIs, profile, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

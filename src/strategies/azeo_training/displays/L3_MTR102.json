@@ -1,0 +1,1042 @@
+{
+  "schema": "hmi-graphics-drawing",
+  "version": 3,
+  "nodes": [
+    {
+      "id": "node-1",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_tank_vessel.svg",
+      "label": "T-101",
+      "labelVisible": true,
+      "locked": false,
+      "left": 80,
+      "top": 120,
+      "width": 150,
+      "height": 180,
+      "defaultWidth": 150,
+      "defaultHeight": 180,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 0.833333,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "LI-101",
+        "equipmentClass": "vessel",
+        "binding": "analog:LI-101.PV?lo=50,hi=800,text=off",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-2",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_discrete_instrument.svg",
+      "label": "LI-101",
+      "labelVisible": true,
+      "locked": false,
+      "left": 300,
+      "top": 110,
+      "width": 64,
+      "height": 64,
+      "defaultWidth": 64,
+      "defaultHeight": 64,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.0,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "LI-101",
+        "equipmentClass": "instrument",
+        "binding": "indicator:LI-101.PV",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-3",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_centrifugal_pump_1.svg",
+      "label": "MTR-102",
+      "labelVisible": true,
+      "locked": false,
+      "left": 140,
+      "top": 520,
+      "width": 92,
+      "height": 88,
+      "defaultWidth": 92,
+      "defaultHeight": 88,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.045455,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "MTR-102",
+        "equipmentClass": "pump",
+        "binding": "state:MTR-102.PV_D?0=normal,1=active",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-4",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_discrete_instrument.svg",
+      "label": "DO-102",
+      "labelVisible": true,
+      "locked": false,
+      "left": 140,
+      "top": 700,
+      "width": 58,
+      "height": 58,
+      "defaultWidth": 58,
+      "defaultHeight": 58,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.0,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "MTR-102",
+        "equipmentClass": "instrument",
+        "binding": "state:MTR-102.do_start?0=normal,1=active",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-5",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_discrete_instrument.svg",
+      "label": "ZI-102",
+      "labelVisible": true,
+      "locked": false,
+      "left": 230,
+      "top": 700,
+      "width": 58,
+      "height": 58,
+      "defaultWidth": 58,
+      "defaultHeight": 58,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.0,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "MTR-102",
+        "equipmentClass": "instrument",
+        "binding": "state:MTR-102.run_fb?0=normal,1=active",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-6",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_gate_valve.svg",
+      "label": "XV-101",
+      "labelVisible": true,
+      "locked": false,
+      "left": 320,
+      "top": 538,
+      "width": 80,
+      "height": 56,
+      "defaultWidth": 80,
+      "defaultHeight": 56,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.428571,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "XV-101",
+        "equipmentClass": "valve",
+        "binding": "state:XV-101.PV_D?0=normal,1=active",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-7",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_discrete_instrument.svg",
+      "label": "ZSO-101",
+      "labelVisible": true,
+      "locked": false,
+      "left": 330,
+      "top": 700,
+      "width": 58,
+      "height": 58,
+      "defaultWidth": 58,
+      "defaultHeight": 58,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.0,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "XV-101",
+        "equipmentClass": "instrument",
+        "binding": "state:XV-101.ZSO?0=normal,1=active",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-8",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_diaphragm_actuated_gate_valve.svg",
+      "label": "FV-102",
+      "labelVisible": true,
+      "locked": false,
+      "left": 490,
+      "top": 516,
+      "width": 84,
+      "height": 80,
+      "defaultWidth": 84,
+      "defaultHeight": 80,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.05,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "FIC-102",
+        "equipmentClass": "valve",
+        "binding": "state:XV-101.PV_D?0=normal,1=active",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-9",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_shared_control_display.svg",
+      "label": "FIC-102",
+      "labelVisible": true,
+      "locked": false,
+      "left": 495,
+      "top": 340,
+      "width": 72,
+      "height": 72,
+      "defaultWidth": 72,
+      "defaultHeight": 72,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.0,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "FIC-102",
+        "equipmentClass": "instrument",
+        "binding": "indicator:FIC-102/PID1/PV",
+        "state": "normal"
+      }
+    },
+    {
+      "id": "node-10",
+      "nodeKind": "symbol",
+      "primitiveKind": null,
+      "source": "symbols/pid/pid_discrete_instrument.svg",
+      "label": "FT-102",
+      "labelVisible": true,
+      "locked": false,
+      "left": 660,
+      "top": 540,
+      "width": 64,
+      "height": 64,
+      "defaultWidth": 64,
+      "defaultHeight": 64,
+      "aspectLocked": true,
+      "aspectLockUserSet": false,
+      "aspectRatio": 1.0,
+      "layerId": "layer-1",
+      "groupId": null,
+      "rotation": 0,
+      "flipX": false,
+      "flipY": false,
+      "ports": {
+        "top": {
+          "x": 0.5,
+          "y": 0.02
+        },
+        "right": {
+          "x": 0.98,
+          "y": 0.5
+        },
+        "bottom": {
+          "x": 0.5,
+          "y": 0.98
+        },
+        "left": {
+          "x": 0.02,
+          "y": 0.5
+        }
+      },
+      "symbolStyle": {
+        "stroke": "#8C8C8C",
+        "fill": "#C0C0C0",
+        "strokeWidth": 1.5
+      },
+      "standardRefs": {
+        "stroke": "color-equipment-outline",
+        "fill": "color-equipment-fill",
+        "strokeWidth": "line-width-equipment"
+      },
+      "hmi": {
+        "tag": "FIC-102",
+        "equipmentClass": "instrument",
+        "binding": "indicator:FT-102.PV",
+        "state": "normal"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "id": "connection-1",
+      "from": {
+        "nodeId": "node-1",
+        "side": "bottom"
+      },
+      "to": {
+        "nodeId": "node-3",
+        "side": "left"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "process",
+      "color": "#8A8A8A",
+      "width": 1.5,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "solid",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-2",
+      "from": {
+        "nodeId": "node-3",
+        "side": "right"
+      },
+      "to": {
+        "nodeId": "node-6",
+        "side": "left"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "process",
+      "color": "#8A8A8A",
+      "width": 1.5,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "solid",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-3",
+      "from": {
+        "nodeId": "node-6",
+        "side": "right"
+      },
+      "to": {
+        "nodeId": "node-8",
+        "side": "left"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "process",
+      "color": "#8A8A8A",
+      "width": 1.5,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "solid",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-4",
+      "from": {
+        "nodeId": "node-8",
+        "side": "right"
+      },
+      "to": {
+        "nodeId": "node-10",
+        "side": "left"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "process",
+      "color": "#8A8A8A",
+      "width": 1.5,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "solid",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-5",
+      "from": {
+        "nodeId": "node-1",
+        "side": "right"
+      },
+      "to": {
+        "nodeId": "node-2",
+        "side": "left"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "instrument",
+      "color": "#8A8A8A",
+      "width": 1.0,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "dashed",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-6",
+      "from": {
+        "nodeId": "node-3",
+        "side": "bottom"
+      },
+      "to": {
+        "nodeId": "node-4",
+        "side": "top"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "instrument",
+      "color": "#8A8A8A",
+      "width": 1.0,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "dashed",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-7",
+      "from": {
+        "nodeId": "node-3",
+        "side": "bottom"
+      },
+      "to": {
+        "nodeId": "node-5",
+        "side": "top"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "instrument",
+      "color": "#8A8A8A",
+      "width": 1.0,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "dashed",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-8",
+      "from": {
+        "nodeId": "node-6",
+        "side": "bottom"
+      },
+      "to": {
+        "nodeId": "node-7",
+        "side": "top"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "instrument",
+      "color": "#8A8A8A",
+      "width": 1.0,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "dashed",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    },
+    {
+      "id": "connection-9",
+      "from": {
+        "nodeId": "node-9",
+        "side": "bottom"
+      },
+      "to": {
+        "nodeId": "node-8",
+        "side": "top"
+      },
+      "startArrow": "none",
+      "endArrow": "none",
+      "kind": "instrument",
+      "color": "#8A8A8A",
+      "width": 1.0,
+      "colorStandard": "color-process-line",
+      "widthStandard": "line-width-process",
+      "dash": "dashed",
+      "waypoints": [],
+      "cornerRadius": 10,
+      "jumps": true,
+      "label": "",
+      "labelPosition": 0.5,
+      "avoidObstacles": true
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer-1",
+      "name": "Process",
+      "visible": true,
+      "locked": false
+    }
+  ],
+  "activeLayerId": "layer-1",
+  "hmiStandards": {
+    "activeTheme": "normal",
+    "themes": [
+      {
+        "id": "normal",
+        "name": "HP-HMI neutral gray"
+      },
+      {
+        "id": "lowLight",
+        "name": "Dark console (night shift)"
+      },
+      {
+        "id": "highContrast",
+        "name": "High contrast"
+      },
+      {
+        "id": "colorAccessible",
+        "name": "Red/green-shifted accessibility"
+      }
+    ],
+    "definitions": [
+      {
+        "id": "color-background",
+        "name": "Display background",
+        "type": "color",
+        "role": "background",
+        "required": true,
+        "values": {
+          "normal": "#D2D2D2",
+          "lowLight": "#2C3134",
+          "highContrast": "#FFFFFF",
+          "colorAccessible": "#D4D4D0"
+        }
+      },
+      {
+        "id": "color-equipment-outline",
+        "name": "Equipment outline",
+        "type": "color",
+        "role": "equipment-outline",
+        "required": true,
+        "values": {
+          "normal": "#8C8C8C",
+          "lowLight": "#7E888D",
+          "highContrast": "#000000",
+          "colorAccessible": "#7E7E78"
+        }
+      },
+      {
+        "id": "color-equipment-fill",
+        "name": "Equipment fill",
+        "type": "color",
+        "role": "equipment-fill",
+        "required": true,
+        "values": {
+          "normal": "#C0C0C0",
+          "lowLight": "#3A4145",
+          "highContrast": "#FFFFFF",
+          "colorAccessible": "#C2C2BC"
+        }
+      },
+      {
+        "id": "color-process-line",
+        "name": "Process line (all services)",
+        "type": "color",
+        "role": "process-line",
+        "required": true,
+        "values": {
+          "normal": "#8A8A8A",
+          "lowLight": "#7E888D",
+          "highContrast": "#000000",
+          "colorAccessible": "#7E7E78"
+        }
+      },
+      {
+        "id": "color-text",
+        "name": "Operator text",
+        "type": "color",
+        "role": "text",
+        "required": true,
+        "values": {
+          "normal": "#1C1C1C",
+          "lowLight": "#E4E8EA",
+          "highContrast": "#000000",
+          "colorAccessible": "#1A1A18"
+        }
+      },
+      {
+        "id": "color-alarm",
+        "name": "Priority 1 alarm",
+        "type": "color",
+        "role": "alarm",
+        "required": true,
+        "values": {
+          "normal": "#C4262E",
+          "lowLight": "#D9484F",
+          "highContrast": "#B00000",
+          "colorAccessible": "#8E44AD"
+        }
+      },
+      {
+        "id": "color-warning",
+        "name": "Priority 2 alarm",
+        "type": "color",
+        "role": "warning",
+        "required": true,
+        "values": {
+          "normal": "#E08A1E",
+          "lowLight": "#E89A3C",
+          "highContrast": "#A85800",
+          "colorAccessible": "#E08A1E"
+        }
+      },
+      {
+        "id": "color-bad-quality",
+        "name": "Bad quality",
+        "type": "color",
+        "role": "bad-quality",
+        "required": true,
+        "values": {
+          "normal": "#9AA0A6",
+          "lowLight": "#8B9296",
+          "highContrast": "#4A4A4A",
+          "colorAccessible": "#9AA0A6"
+        }
+      },
+      {
+        "id": "color-manual",
+        "name": "Operator-actionable",
+        "type": "color",
+        "role": "manual",
+        "required": true,
+        "values": {
+          "normal": "#1F6FB2",
+          "lowLight": "#5AA0DA",
+          "highContrast": "#00429B",
+          "colorAccessible": "#0072B2"
+        }
+      },
+      {
+        "id": "color-alarm-3",
+        "name": "Priority 3 alarm",
+        "type": "color",
+        "role": "",
+        "required": false,
+        "values": {
+          "normal": "#E3D02A",
+          "lowLight": "#D8C425",
+          "highContrast": "#7A6B00",
+          "colorAccessible": "#E3D02A"
+        }
+      },
+      {
+        "id": "color-normal-band",
+        "name": "Normal band shading",
+        "type": "color",
+        "role": "",
+        "required": false,
+        "values": {
+          "normal": "#5C7A5C",
+          "lowLight": "#5C7A5C",
+          "highContrast": "#5C7A5C",
+          "colorAccessible": "#5C7A5C"
+        }
+      },
+      {
+        "id": "color-data-field",
+        "name": "Data field background",
+        "type": "color",
+        "role": "",
+        "required": false,
+        "values": {
+          "normal": "#E4E4E4",
+          "lowLight": "#22272A",
+          "highContrast": "#FFFFFF",
+          "colorAccessible": "#E6E6E2"
+        }
+      },
+      {
+        "id": "line-width-equipment",
+        "name": "Equipment line",
+        "type": "line-width",
+        "role": "",
+        "required": true,
+        "values": {
+          "normal": 1.5,
+          "lowLight": 1.5,
+          "highContrast": 1.5,
+          "colorAccessible": 1.5
+        }
+      },
+      {
+        "id": "line-width-process",
+        "name": "Process line",
+        "type": "line-width",
+        "role": "",
+        "required": true,
+        "values": {
+          "normal": 1.5,
+          "lowLight": 1.5,
+          "highContrast": 1.5,
+          "colorAccessible": 1.5
+        }
+      }
+    ]
+  },
+  "canvas": {
+    "width": 1800,
+    "height": 1100,
+    "gridSize": 20,
+    "snap": true,
+    "snapOptions": {
+      "grid": true,
+      "objects": true,
+      "guides": true,
+      "ports": true,
+      "vertices": true,
+      "angles": true,
+      "tolerance": 6
+    },
+    "guides": []
+  },
+  "connectorStyle": {
+    "color": "#8A8A8A",
+    "width": 1.5,
+    "startArrow": "none",
+    "endArrow": "none",
+    "kind": "process",
+    "colorStandard": "color-process-line",
+    "widthStandard": "line-width-process"
+  }
+}

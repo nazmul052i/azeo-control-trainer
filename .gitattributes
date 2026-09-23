@@ -1,0 +1,4 @@
+*.pdf binary
+src/strategies/**/control/*.json text eol=lf
+src/strategies/**/sequence/*.json text eol=lf
+projects/AzeoPlantVirtualController/engineering/Control_Modules.md text eol=lf

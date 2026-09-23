@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="128" viewBox="0 0 58 128" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID bubble column</title>
+  <desc id="desc">Portable bubble column symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-143.5 -644.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 147 663 C 147 654.72 158.19 648 172 648 C 185.81 648 197 654.72 197 663 L 197 753 C 197 761.28 185.81 768 172 768 C 158.19 768 147 761.28 147 753 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 147 673 L 197 673 M 147 743 L 197 743" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+        <path d="M 147 683 L 167 683 M 159.5 681 C 167.44 677.36 176.56 677.36 184.5 681 M 177 683 L 197 683 M 147 693 L 167 693 M 159.5 691 C 167.44 687.36 176.56 687.36 184.5 691 M 177 693 L 197 693 M 147 703 L 167 703 M 159.5 701 C 167.44 697.36 176.56 697.36 184.5 701 M 177 703 L 197 703 M 147 713 L 167 713 M 159.5 711 C 167.44 707.36 176.56 707.36 184.5 711 M 177 713 L 197 713 M 147 723 L 167 723 M 159.5 721 C 167.44 717.36 176.56 717.36 184.5 721 M 177 723 L 197 723 M 147 733 L 167 733 M 159.5 731 C 167.44 727.36 176.56 727.36 184.5 731 M 177 733 L 197 733" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.03125" cx="29" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.931034" data-anchor-y="0.5" cx="54" cy="64" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.96875" cx="29" cy="124" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0689655" data-anchor-y="0.5" cx="4" cy="64" r="3" />
+  </g>
+</svg>

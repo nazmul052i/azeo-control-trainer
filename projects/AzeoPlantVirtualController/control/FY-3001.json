@@ -1,0 +1,54 @@
+{
+  "name": "FY-3001",
+  "description": "Charge rate feedforward",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U300",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Ratio and bias feedforward with lead-lag",
+    "pv_source_text": "FT-1001",
+    "final_element_text": "TIC-3001 output bias",
+    "mapped_input_tags": [
+      "FT-1001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "TIC-3001"
+    ],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "MONITOR_ONLY_SUPERSEDED",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "drives_control": false,
+    "implemented_in": [
+      "TIC-3001"
+    ]
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "FT-1001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-1001",
+        "label": "Charge flow from D1",
+        "scale_lo": 0.0,
+        "scale_hi": 300.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 300.0,
+        "eng_units": "m3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

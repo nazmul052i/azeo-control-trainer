@@ -1,0 +1,32 @@
+{
+  "name": "LI-101",
+  "description": "TANK-101 level from LT-101, input register 30001 scaled by 10. Low-low is the pump's dry-run protection.",
+  "blocks": [
+    {
+      "id": "ai",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "LT-101.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 1000.0,
+        "eng_units": "gal",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "Tank101 Level",
+        "HI_HI_ENAB": true,
+        "HI_HI_LIM": 900.0,
+        "HI_ENAB": true,
+        "HI_LIM": 800.0,
+        "LO_ENAB": true,
+        "LO_LIM": 150.0,
+        "LO_LO_ENAB": true,
+        "LO_LO_LIM": 50.0
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

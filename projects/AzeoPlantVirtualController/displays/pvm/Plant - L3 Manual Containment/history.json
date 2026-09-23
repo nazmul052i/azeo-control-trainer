@@ -1,0 +1,70 @@
+[
+ {
+  "rev": 1,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:17",
+  "diff": [
+   "+ text XY-XV4002-OPN_tag",
+   "+ user entry FCV-4001_apply",
+   "+ user entry XY-XV4002-OPN_apply",
+   "+ datalink FCV-4001_mode",
+   "+ text title",
+   "+ display link monitor",
+   "+ text XY-XV4001-OPN_tag",
+   "+ datalink XY-XV4001-OPN_mode",
+   "+ user entry XY-XV4002-OPN_manual",
+   "+ datalink XY-XV4002-OPN_mode",
+   "+ text instruction",
+   "+ user entry FCV-4001_manual",
+   "+ text authority",
+   "+ datalink XY-XV4001-OPN_readback",
+   "+ user entry XY-XV4001-OPN_manual",
+   "+ text header0266",
+   "+ text FCV-4001_tag",
+   "+ display link workspace",
+   "+ text header00",
+   "+ datalink XY-XV4002-OPN_readback",
+   "+ datalink FCV-4001_readback",
+   "+ user entry XY-XV4001-OPN_apply",
+   "+ text header0430",
+   "~ page width changed",
+   "~ page height changed",
+   "~ display level changed",
+   "~ parent display changed",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 2,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:22",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 3,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:24",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 4,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:27",
+  "diff": [
+   "~ rebound/configured XY-XV4002-OPN_apply",
+   "~ rebound/configured XY-XV4001-OPN_apply"
+  ],
+  "released_items": 0
+ }
+]

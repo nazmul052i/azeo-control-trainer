@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID discrete instrument</title>
+  <desc id="desc">Circular instrument bubble with TI and tag-number placeholders.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-162 -312)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <ellipse cx="191" cy="341" rx="25" ry="25" class="symbol-fill symbol-line" />
+        <path d="M 166 341 L 216 341" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+    <text x="191" y="336" class="symbol-text" font-family="Arial" font-size="12" text-anchor="middle">TI</text>
+    <text x="191" y="356" class="symbol-text" font-family="Arial" font-size="12" text-anchor="middle">##</text>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.508621" data-anchor-y="0.0775862" cx="29.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.939655" data-anchor-y="0.508621" cx="54.5" cy="29.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.508621" data-anchor-y="0.939655" cx="29.5" cy="54.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0775862" data-anchor-y="0.508621" cx="4.5" cy="29.5" r="3" />
+  </g>
+</svg>

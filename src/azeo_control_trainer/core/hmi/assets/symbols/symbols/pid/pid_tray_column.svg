@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="128" viewBox="0 0 58 128" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID tray column</title>
+  <desc id="desc">Vertical process column containing dashed tray lines.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-282 -452)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 286 471 C 286 462.72 297.19 456 311 456 C 324.81 456 336 462.72 336 471 L 336 561 C 336 569.28 324.81 576 311 576 C 297.19 576 286 569.28 286 561 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 286 481 L 336 481 M 286 491 L 336 491 M 286 501 L 336 501 M 286 511 L 336 511 M 286 521 L 336 521 M 286 531 L 336 531 M 286 541 L 336 541 M 286 551 L 336 551" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.508621" data-anchor-y="0.0351562" cx="29.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.939655" data-anchor-y="0.503906" cx="54.5" cy="64.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.508621" data-anchor-y="0.972656" cx="29.5" cy="124.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0775862" data-anchor-y="0.503906" cx="4.5" cy="64.5" r="3" />
+  </g>
+</svg>

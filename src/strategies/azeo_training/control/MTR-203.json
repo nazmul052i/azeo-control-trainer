@@ -1,0 +1,222 @@
+{
+  "name": "MTR-203",
+  "description": "Tank201 transfer pump. Course book Module 11: once Tank201 reaches STARTUP_LEVEL the plant start-up equipment module starts MTR-203 to maintain level. Interlocked on Tank201 low-low level.",
+  "blocks": [
+    {
+      "id": "di_start",
+      "block_type": "DI",
+      "instance_name": "DI_START_CMD",
+      "x": -880.0,
+      "y": -160.0,
+      "config": {
+        "tag": "MTR-203.cmd_start"
+      }
+    },
+    {
+      "id": "di_stop",
+      "block_type": "DI",
+      "instance_name": "DI_STOP_CMD",
+      "x": -880.0,
+      "y": -80.0,
+      "config": {
+        "tag": "MTR-203.cmd_stop"
+      }
+    },
+    {
+      "id": "di_run",
+      "block_type": "DI",
+      "instance_name": "DI_RUN_FB",
+      "x": -880.0,
+      "y": 0.0,
+      "config": {
+        "tag": "MTR-203.run_fb"
+      }
+    },
+    {
+      "id": "di_reset",
+      "block_type": "DI",
+      "instance_name": "DI_RESET",
+      "x": -880.0,
+      "y": 80.0,
+      "config": {
+        "tag": "MTR-203.reset_cmd"
+      }
+    },
+    {
+      "id": "ai_level",
+      "block_type": "AI",
+      "instance_name": "AI_LI201",
+      "x": -880.0,
+      "y": 200.0,
+      "config": {
+        "tag": "LI-201.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 1000.0,
+        "eng_units": "gal",
+        "mode": "AUTO",
+        "label": "Tank201 Level"
+      }
+    },
+    {
+      "id": "cnd1",
+      "block_type": "CND",
+      "instance_name": "CND1",
+      "x": -500.0,
+      "y": 200.0,
+      "config": {
+        "EXPRESSION": "IN1 < 20",
+        "TIME_TRUE": 3.0,
+        "ERROR_OPT": "FALSE",
+        "description": "Tank201 level is <20 (loss of suction)"
+      }
+    },
+    {
+      "id": "bfi",
+      "block_type": "BFI",
+      "instance_name": "BFI1",
+      "x": -180.0,
+      "y": 240.0,
+      "config": {
+        "NUM_INPUTS": 1
+      }
+    },
+    {
+      "id": "not_ilk",
+      "block_type": "NOT",
+      "instance_name": "NOT_ILK",
+      "x": -180.0,
+      "y": 120.0,
+      "config": {}
+    },
+    {
+      "id": "dc",
+      "block_type": "DEVCTL",
+      "instance_name": "DC1",
+      "x": 180.0,
+      "y": -80.0,
+      "config": {
+        "START_TIMEOUT": 10.0,
+        "STOP_TIMEOUT": 10.0,
+        "RESET_REQUIRED": true,
+        "use_azeo_states": true,
+        "mode": "AUTO"
+      }
+    },
+    {
+      "id": "do_run",
+      "block_type": "DO",
+      "instance_name": "DO1",
+      "x": 580.0,
+      "y": -140.0,
+      "config": {
+        "tag": "MTR-203.do_start"
+      }
+    },
+    {
+      "id": "do_pv",
+      "block_type": "DO",
+      "instance_name": "DO_PV_D",
+      "x": 580.0,
+      "y": -60.0,
+      "config": {
+        "tag": "MTR-203.PV_D"
+      }
+    },
+    {
+      "id": "do_ilk",
+      "block_type": "DO",
+      "instance_name": "DO_INTERLOCKED",
+      "x": 580.0,
+      "y": 120.0,
+      "config": {
+        "tag": "MTR-203.interlocked"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "ai_level",
+      "src_terminal": "OUT",
+      "dst_block_id": "cnd1",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "cnd1",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "bfi",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "di_reset",
+      "src_terminal": "OUT",
+      "dst_block_id": "bfi",
+      "dst_terminal": "RESET_IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "cnd1",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "not_ilk",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "di_start",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "START_CMD"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "di_stop",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "STOP_CMD"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "di_run",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "di_reset",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RESET"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "not_ilk",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "dc",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "dc",
+      "src_terminal": "DO_START",
+      "dst_block_id": "do_run",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w011",
+      "src_block_id": "dc",
+      "src_terminal": "RUNNING",
+      "dst_block_id": "do_pv",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w012",
+      "src_block_id": "cnd1",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "do_ilk",
+      "dst_terminal": "IN"
+    }
+  ]
+}

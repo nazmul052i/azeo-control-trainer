@@ -1,0 +1,28 @@
+{
+  "name": "PI-101",
+  "description": "P-101 discharge pressure from PT-101, input register 30004.",
+  "blocks": [
+    {
+      "id": "ai",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "PT-101.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 100.0,
+        "eng_units": "psi",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "P-101 Discharge",
+        "HI_HI_ENAB": true,
+        "HI_HI_LIM": 85.0,
+        "HI_ENAB": true,
+        "HI_LIM": 70.0
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

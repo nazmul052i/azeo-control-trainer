@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="105" viewBox="0 0 58 105" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID different-diameter vessel</title>
+  <desc id="desc">Vertical vessel with sections of different diameters.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-682 -892)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="686" y="896" width="50" height="97" fill="none" stroke="none" />
+        <path d="M 696 910.92 C 696 902.68 702.72 896 711 896 C 719.28 896 726 902.68 726 910.92 L 726 935.79 L 736 945.74 L 736 980.56 C 736 987.43 724.81 993 711 993 C 697.19 993 686 987.43 686 980.56 L 686 945.99 L 696 935.79 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.508621" data-anchor-y="0.0428571" cx="29.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.918168" data-anchor-y="0.504762" cx="53.2538" cy="53" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.508621" data-anchor-y="0.966667" cx="29.5" cy="101.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.102772" data-anchor-y="0.504762" cx="5.96078" cy="53" r="3" />
+  </g>
+</svg>

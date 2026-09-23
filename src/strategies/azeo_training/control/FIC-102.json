@@ -1,0 +1,111 @@
+{
+  "name": "FIC-102",
+  "description": "Tank101 discharge flow control — course book Module 7, 'Azeo Regulatory Control'. AI -> PID -> SCALER -> AO with the BKCAL chain wired for bumpless transfer.",
+  "blocks": [
+    {
+      "id": "ai",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": -700.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-102.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 200.0,
+        "eng_units": "gpm",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "Tank101 Discharge Flow"
+      }
+    },
+    {
+      "id": "pid",
+      "block_type": "PID",
+      "instance_name": "PID1",
+      "x": -320.0,
+      "y": 0.0,
+      "config": {
+        "sp_init": 80.0,
+        "GAIN": 0.6,
+        "RESET": 20.0,
+        "RATE": 0.0,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 200.0,
+        "sp_lo": 0.0,
+        "sp_hi": 200.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "mode": "AUTO",
+        "pv_unit": "gpm"
+      }
+    },
+    {
+      "id": "scl",
+      "block_type": "SCALER",
+      "instance_name": "SCLR1",
+      "x": 20.0,
+      "y": 0.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "ao",
+      "block_type": "AO",
+      "instance_name": "AO1",
+      "x": 360.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FV-102.OUT",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "mode": "CAS",
+        "eng_units": "%"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "ai",
+      "src_terminal": "OUT",
+      "dst_block_id": "pid",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "pid",
+      "src_terminal": "OUT",
+      "dst_block_id": "scl",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "scl",
+      "src_terminal": "OUT",
+      "dst_block_id": "ao",
+      "dst_terminal": "CAS_IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "ao",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "scl",
+      "dst_terminal": "BKCAL_IN"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "scl",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "pid",
+      "dst_terminal": "BKCAL_IN"
+    }
+  ]
+}

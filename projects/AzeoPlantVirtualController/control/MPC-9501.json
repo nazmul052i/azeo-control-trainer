@@ -1,0 +1,305 @@
+{
+  "name": "MPC-9501",
+  "description": "Plant multivariable controller",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "PLANT",
+    "workbook_block_type": "MPC",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Constraint control across H1 duty, column loads and fuel header",
+    "pv_source_text": "Multiple",
+    "final_element_text": "Setpoints of lower loops",
+    "mapped_input_tags": [],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "controlled_variables": [
+      "AT-4001",
+      "AT-5001",
+      "AT-5002",
+      "AT-6001",
+      "AT-6002",
+      "AT-8002"
+    ],
+    "manipulated_setpoints": [
+      "TIC-4001",
+      "TIC-5001",
+      "TIC-5002",
+      "TIC-6001",
+      "TIC-6002",
+      "AIC-8001"
+    ],
+    "implementation_state": "INTEGRATION_READY",
+    "model_basis": "External dynamic matrix and economic objective are not supplied by workbook"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "APC_CONTROL",
+      "instance_name": "MPC-9501",
+      "x": 380.0,
+      "y": 80.0,
+      "config": {
+        "init_time": 30.0,
+        "cycle_period": 60.0,
+        "description": "Plant multivariable controller"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "AT-4001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "AT-4001",
+        "label": "R1 product impurity",
+        "scale_lo": 0.0,
+        "scale_hi": 500.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 500.0,
+        "eng_units": "ppm",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "AI",
+      "instance_name": "AT-5001",
+      "x": 0.0,
+      "y": 100.0,
+      "config": {
+        "tag": "AT-5001",
+        "label": "T1 distillate heavy key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "AI",
+      "instance_name": "AT-5002",
+      "x": 0.0,
+      "y": 200.0,
+      "config": {
+        "tag": "AT-5002",
+        "label": "T1 bottoms light key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "AI",
+      "instance_name": "AT-6001",
+      "x": 0.0,
+      "y": 300.0,
+      "config": {
+        "tag": "AT-6001",
+        "label": "T2 distillate heavy key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "AI",
+      "instance_name": "AT-6002",
+      "x": 0.0,
+      "y": 400.0,
+      "config": {
+        "tag": "AT-6002",
+        "label": "T2 bottoms light key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "AI",
+      "instance_name": "AT-8002",
+      "x": 0.0,
+      "y": 500.0,
+      "config": {
+        "tag": "AT-8002",
+        "label": "Neutralisation tank outlet pH",
+        "scale_lo": 0.0,
+        "scale_hi": 14.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 14.0,
+        "eng_units": "pH",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "ACT",
+      "instance_name": "MV_READBACK_1_4",
+      "x": 0.0,
+      "y": 680.0,
+      "config": {
+        "SCRIPT_MODE": 2,
+        "SCRIPT": "OUT1 = get_tag('ctrl.TIC-4001.OUT', 0.0)\nOUT2 = get_tag('ctrl.TIC-5001.OUT', 0.0)\nOUT3 = get_tag('ctrl.TIC-5002.OUT', 0.0)\nOUT4 = get_tag('ctrl.TIC-6001.OUT', 0.0)",
+        "ALGO_OPTS_ABORT_ON_READ_ERR": false
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "ACT",
+      "instance_name": "MV_READBACK_5_6",
+      "x": 0.0,
+      "y": 800.0,
+      "config": {
+        "SCRIPT_MODE": 2,
+        "SCRIPT": "OUT1 = get_tag('ctrl.TIC-6002.OUT', 0.0)\nOUT2 = get_tag('ctrl.AIC-8001.OUT', 0.0)",
+        "ALGO_OPTS_ABORT_ON_READ_ERR": false
+      }
+    },
+    {
+      "id": "b015",
+      "block_type": "SP_HANDOFF",
+      "instance_name": "TO_AIC-8001",
+      "x": 760.0,
+      "y": 525.0,
+      "config": {
+        "controller_tag": "AIC-8001",
+        "ramp_rate": 0.5,
+        "hold_on_shed": true,
+        "required_modes": "AUTO"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "CV_1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "CV_2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "CV_3"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "CV_4"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "CV_5"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b001",
+      "dst_terminal": "CV_6"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b008",
+      "src_terminal": "OUT1",
+      "dst_block_id": "b001",
+      "dst_terminal": "MV_FB_1"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b008",
+      "src_terminal": "OUT2",
+      "dst_block_id": "b001",
+      "dst_terminal": "MV_FB_2"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "b008",
+      "src_terminal": "OUT3",
+      "dst_block_id": "b001",
+      "dst_terminal": "MV_FB_3"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "b008",
+      "src_terminal": "OUT4",
+      "dst_block_id": "b001",
+      "dst_terminal": "MV_FB_4"
+    },
+    {
+      "id": "w011",
+      "src_block_id": "b009",
+      "src_terminal": "OUT1",
+      "dst_block_id": "b001",
+      "dst_terminal": "MV_FB_5"
+    },
+    {
+      "id": "w012",
+      "src_block_id": "b009",
+      "src_terminal": "OUT2",
+      "dst_block_id": "b001",
+      "dst_terminal": "MV_FB_6"
+    },
+    {
+      "id": "w023",
+      "src_block_id": "b001",
+      "src_terminal": "MV_SP_6",
+      "dst_block_id": "b015",
+      "dst_terminal": "APC_SP"
+    },
+    {
+      "id": "w024",
+      "src_block_id": "b001",
+      "src_terminal": "ACTIVE",
+      "dst_block_id": "b015",
+      "dst_terminal": "ACTIVE"
+    }
+  ],
+  "comments": []
+}

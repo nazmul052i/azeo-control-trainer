@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="105" viewBox="0 0 22 105" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID tower with packing</title>
+  <desc id="desc">Portable tower with packing symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-412.5 -354.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="416" y="358" width="14" height="97" fill="none" stroke="none" />
+        <path d="M 430 361.5 L 430 451.5 C 430 453.43 426.87 455 423 455 C 419.13 455 416 453.43 416 451.5 L 416 361.5 C 416 359.57 419.13 358 423 358 C 426.87 358 430 359.57 430 361.5 Z M 416 361.5 L 430 361.5 M 416 451.5 L 430 451.5 M 416 401.5 L 430 401.5 M 416 411.5 L 430 411.5 M 416 376.5 L 430 376.5 M 416 436.5 L 430 436.5 M 430 376.5 L 416 401.5 M 430 401.5 L 416 376.5 M 430 411.5 L 416 436.5 M 430 436.5 L 416 411.5" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0380952" cx="11" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.818182" data-anchor-y="0.5" cx="18" cy="52.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.961905" cx="11" cy="101" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.181818" data-anchor-y="0.5" cx="4" cy="52.5" r="3" />
+  </g>
+</svg>

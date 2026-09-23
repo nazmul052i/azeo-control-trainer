@@ -1,0 +1,16 @@
+{
+  "schema": "dynalive.publish/1",
+  "releases": {
+    "L2-AZEO_TRAINING": {
+      "revision": 1,
+      "published_at": 0.0,
+      "published_by": "engineer",
+      "targets": [
+        "*"
+      ]
+    }
+  },
+  "withdrawn": [],
+  "work_in_progress": [],
+  "accepted": {}
+}

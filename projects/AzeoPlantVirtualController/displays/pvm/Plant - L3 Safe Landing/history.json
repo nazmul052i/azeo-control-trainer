@@ -1,0 +1,163 @@
+[
+ {
+  "rev": 1,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:14",
+  "diff": [
+   "+ text itm_485d2ef0-5969-4916-a91c-0360b6250d27",
+   "+ text rotating_title",
+   "+ user entry itm_3ffb9b2b-81a6-4605-80f4-15583fa28559",
+   "+ text upstream_title",
+   "+ display link containment",
+   "+ display link heater",
+   "+ display link boiler",
+   "+ text boiler_title",
+   "+ text feed_title",
+   "+ display link rotating",
+   "+ rect itm_82bed999-a0bb-4790-a563-b021eeb91a7d",
+   "+ text field",
+   "+ text authority",
+   "+ display link columns",
+   "+ text heater_title",
+   "+ text sequence",
+   "+ display link feed",
+   "+ datalink itm_aa8bab00-a4c4-4d40-b49c-12cc3b5aab4c",
+   "+ display link monitor",
+   "+ text containment_title",
+   "+ text title",
+   "+ text columns_title",
+   "~ page width changed",
+   "~ page height changed",
+   "~ display level changed",
+   "~ parent display changed",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 2,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:15",
+  "diff": [
+   "+ text itm_a293b6b3-7889-49d6-a409-262be8a32704",
+   "+ rect itm_3992268f-ea02-4a29-bb94-d34be18a9798",
+   "+ datalink itm_14c0ce2c-02d6-44ee-a77c-d332c2911158",
+   "+ user entry itm_fe8e1cd1-e25a-4433-ac76-28adfd7e9930",
+   "- datalink itm_aa8bab00-a4c4-4d40-b49c-12cc3b5aab4c",
+   "- text itm_485d2ef0-5969-4916-a91c-0360b6250d27",
+   "- rect itm_82bed999-a0bb-4790-a563-b021eeb91a7d",
+   "- user entry itm_3ffb9b2b-81a6-4605-80f4-15583fa28559",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 3,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:16",
+  "diff": [
+   "+ user entry itm_04f5a48b-c993-4e26-a0c3-bb29d106cb9b",
+   "+ datalink itm_1fd2083d-22af-44b8-9f5f-71df73dba33b",
+   "+ text itm_74581620-fa15-47ea-8ef9-a79838a873cd",
+   "+ rect itm_17f41326-0263-450a-8402-94118d10bff1",
+   "- rect itm_3992268f-ea02-4a29-bb94-d34be18a9798",
+   "- user entry itm_fe8e1cd1-e25a-4433-ac76-28adfd7e9930",
+   "- text itm_a293b6b3-7889-49d6-a409-262be8a32704",
+   "- datalink itm_14c0ce2c-02d6-44ee-a77c-d332c2911158",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 4,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:21",
+  "diff": [
+   "+ datalink itm_d4bced0e-09ac-45df-b0e7-ba59a084e983",
+   "+ rect itm_a46cca00-78dc-4397-b717-dcafc8bac823",
+   "+ user entry itm_64d32b85-112d-4005-b477-afb6302ca6d6",
+   "+ text itm_5c0049d5-602c-48fe-ab5e-76897f50e5ea",
+   "- rect itm_17f41326-0263-450a-8402-94118d10bff1",
+   "- text itm_74581620-fa15-47ea-8ef9-a79838a873cd",
+   "- user entry itm_04f5a48b-c993-4e26-a0c3-bb29d106cb9b",
+   "- datalink itm_1fd2083d-22af-44b8-9f5f-71df73dba33b",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 5,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:24",
+  "diff": [
+   "+ user entry itm_0ea43aac-0df1-466a-ae76-2e58f26c64ff",
+   "+ rect itm_0ed1ee67-3dfc-4bb5-be74-f36139b256ea",
+   "+ text itm_af313e1e-7d66-487e-9897-af8c6c795282",
+   "+ datalink itm_23100967-ad07-43c9-bca0-5ef8afa07d0e",
+   "- rect itm_a46cca00-78dc-4397-b717-dcafc8bac823",
+   "- datalink itm_d4bced0e-09ac-45df-b0e7-ba59a084e983",
+   "- text itm_5c0049d5-602c-48fe-ab5e-76897f50e5ea",
+   "- user entry itm_64d32b85-112d-4005-b477-afb6302ca6d6",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 6,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:26",
+  "diff": [
+   "+ user entry itm_a17abba7-017b-46f0-a6a0-24a5a92761d3",
+   "+ datalink itm_745b56a0-345b-432b-8c98-43dbf2bc9edb",
+   "+ rect itm_bcbed3cd-79ad-4eef-b9d4-19e43d54670c",
+   "+ text itm_510dcb6d-2fbf-4362-a7c6-31f739be49d0",
+   "- datalink itm_23100967-ad07-43c9-bca0-5ef8afa07d0e",
+   "- user entry itm_0ea43aac-0df1-466a-ae76-2e58f26c64ff",
+   "- text itm_af313e1e-7d66-487e-9897-af8c6c795282",
+   "- rect itm_0ed1ee67-3dfc-4bb5-be74-f36139b256ea",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 7,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo engineering",
+  "at": "2026-09-12 13:59",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 8,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo engineering",
+  "at": "2026-09-12 14:03",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 9,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo engineering",
+  "at": "2026-09-12 14:13",
+  "diff": [
+   "~ rebound/configured itm_745b56a0-345b-432b-8c98-43dbf2bc9edb"
+  ],
+  "released_items": 0
+ }
+]

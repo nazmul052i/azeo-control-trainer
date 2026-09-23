@@ -1,0 +1,264 @@
+{
+  "name": "AIC-5002",
+  "description": "T1 bottoms quality",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U500",
+    "workbook_block_type": "PID",
+    "design_default_mode": "CAS",
+    "strategy_demonstrated": "Dual composition control",
+    "pv_source_text": "AT-5002",
+    "final_element_text": "TIC-5002 setpoint",
+    "mapped_input_tags": [
+      "AT-5002"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "TIC-5002"
+    ],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "AT-5002",
+        "Unit": "U500",
+        "Alarm description": "T1 bottoms off specification",
+        "Alarm type": "HI",
+        "Setpoint": 3,
+        "EU": "mol%",
+        "Priority": "High",
+        "Deadband": 0.2,
+        "On-delay (s)": 60
+      }
+    ],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "AT-5002"
+      ]
+    },
+    "external_reset_contract": {
+      "master": "AIC-5002",
+      "reset_source": "TIC-5002",
+      "path": "ctrl.TIC-5002.BKCAL_OUT -> AIC-5002/BKCAL_IN (0.0..400.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "AT-5002",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "AT-5002",
+        "label": "T1 bottoms light key content",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "mol%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "AIC-5002",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 0.4,
+        "RESET": 1200.0,
+        "RATE": 0.0,
+        "sp_init": 0.22064261314906553,
+        "action": "direct",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 10.0,
+        "sp_lo": 0.0,
+        "sp_hi": 10.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "mol%",
+        "op_unit": "%",
+        "description": "T1 bottoms quality",
+        "hi_lim": 3.0,
+        "alarm_hys": 0.2,
+        "sp_pv_track_man": true,
+        "reset_impl": "external",
+        "out_init": 67.90031626737394
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "MEM_BOOL",
+      "instance_name": "CASCADE_ENABLE",
+      "x": 760.0,
+      "y": 520.0,
+      "config": {
+        "initial_value": true,
+        "label": "Cascade demand armed; slave CAS owns transfer"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "SP_HANDOFF",
+      "instance_name": "TO_TIC-5002",
+      "x": 980.0,
+      "y": 400.0,
+      "config": {
+        "controller_tag": "TIC-5002",
+        "target_parameter": "CAS_IN",
+        "ramp_rate": 0.0,
+        "hold_on_shed": true,
+        "required_modes": "CAS"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "BKCAL_FROM_TIC-5002",
+      "x": 520.0,
+      "y": 670.0,
+      "config": {
+        "path": "ctrl.TIC-5002.BKCAL_OUT",
+        "default": 271.60126506949575,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.TIC-5002.BKCAL_OUT"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "SCALER",
+      "instance_name": "BKCAL_TIC-5002_EU_TO_PCT",
+      "x": 750.0,
+      "y": 670.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 400.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "SCALER",
+      "instance_name": "AIC-5002_PCT_TO_TIC-5002_EU",
+      "x": 660.0,
+      "y": 230.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 400.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "AI",
+      "instance_name": "PT-5002",
+      "x": 350.0,
+      "y": 330.0,
+      "config": {
+        "tag": "PT-5002",
+        "label": "T1 bottom pressure",
+        "scale_lo": 0.0,
+        "scale_hi": 16.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 16.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "ACT",
+      "instance_name": "TIC-5002_PRESSURE_COMP",
+      "x": 820.0,
+      "y": 250.0,
+      "config": {
+        "SCRIPT_MODE": 1,
+        "EXPRESSION": "OUT1 = IN1 + 7.5 * (IN2 - 8.642739320946738)",
+        "description": "7.5 degC/bar pressure compensation"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b008",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b009",
+      "src_terminal": "OUT1",
+      "dst_block_id": "b004",
+      "dst_terminal": "APC_SP"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b004",
+      "dst_terminal": "ACTIVE"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="75" viewBox="0 0 78 75" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID centrifugal pump 3</title>
+  <desc id="desc">Portable centrifugal pump 3 symbol extracted from Exchanger&amp;Pumps.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-262.5 -331.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="266" y="335" width="70" height="67" fill="none" stroke="none" />
+        <path d="M 288 389 L 276 402 L 336 402 L 324 389" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 335.4 360 C 332.97 345.63 320.57 335.09 306 335 L 266 335 L 266 355 L 277.55 355 C 273.74 365.7 276.29 377.63 284.14 385.83 C 292 394.03 303.81 397.09 314.66 393.74 C 325.51 390.39 333.54 381.2 335.4 370" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 314.6 360 C 312.34 356.08 307.72 354.17 303.35 355.34 C 298.98 356.51 295.94 360.47 295.94 365 C 295.94 369.53 298.98 373.49 303.35 374.66 C 307.72 375.83 312.34 373.92 314.6 370" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0533333" cx="39" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.941026" data-anchor-y="0.453333" cx="73.4" cy="34" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.946667" cx="39" cy="71" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0512821" data-anchor-y="0.186667" cx="4" cy="14" r="3" />
+  </g>
+</svg>

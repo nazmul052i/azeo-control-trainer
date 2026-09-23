@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="99" height="41" viewBox="0 0 99 41" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID reboiler</title>
+  <desc id="desc">Reboiler heat-exchanger symbol.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-522 -876)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="526" y="880" width="91" height="33" fill="none" stroke="none" />
+        <path d="M 530.48 895 L 542.41 895 L 542.41 910 L 530.48 910 C 528 910 526 906.64 526 902.5 C 526 898.36 528 895 530.48 895 M 545.39 895 L 552.36 895 L 567.27 880 L 612.03 880 C 614.77 880 617 886.72 617 895 C 617 903.28 614.77 910 612.03 910 L 545.39 910 Z M 530.48 895 L 530.48 910 M 567.27 880 L 567.27 910 M 612.03 880 L 612.03 910" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <rect x="542.41" y="892" width="2.98" height="21" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.505051" data-anchor-y="0.109756" cx="50" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.964646" data-anchor-y="0.47561" cx="95.5" cy="19.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.505051" data-anchor-y="0.841463" cx="50" cy="34.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0454545" data-anchor-y="0.658537" cx="4.5" cy="27" r="3" />
+  </g>
+</svg>

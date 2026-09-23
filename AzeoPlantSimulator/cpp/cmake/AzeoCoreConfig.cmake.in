@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+set_and_check(AzeoCore_RUNTIME_DIR "@PACKAGE_CMAKE_INSTALL_BINDIR@")
+include("${CMAKE_CURRENT_LIST_DIR}/AzeoCoreTargets.cmake")
+check_required_components(AzeoCore)

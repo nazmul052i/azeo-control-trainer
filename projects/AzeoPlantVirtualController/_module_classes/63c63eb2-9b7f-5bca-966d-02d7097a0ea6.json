@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "definition_kind": "control_module_class",
+  "id": "63c63eb2-9b7f-5bca-966d-02d7097a0ea6",
+  "name": "CT_FAN_CELL",
+  "description": "Reusable staged cooling-tower fan cell Control Module",
+  "language": "FBD",
+  "revision": 1,
+  "created_at": "2026-09-22T00:00:00+00:00",
+  "updated_at": "2026-09-22T00:00:00+00:00",
+  "digest": "f2d80e077d7b059fac76480927133e6c92161a20e5c877ee6b71978d406e7eed",
+  "public_parameters": [
+    {
+      "name": "Supply-temperature block name",
+      "path": "b001/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "SUPPLY_TEMP",
+      "description": "Unique shared-measurement identity"
+    },
+    {
+      "name": "Stage temperature",
+      "path": "b002/CONFIG/value",
+      "data_type": "FLOAT",
+      "default": 27.5,
+      "description": "Cell stage-on temperature"
+    },
+    {
+      "name": "Stage hysteresis",
+      "path": "b003/CONFIG/HYST",
+      "data_type": "FLOAT",
+      "default": 0.8,
+      "description": "Temperature staging hysteresis"
+    },
+    {
+      "name": "Available block name",
+      "path": "b004/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "AVAILABLE",
+      "description": "Availability DI identity"
+    },
+    {
+      "name": "Available tag",
+      "path": "b004/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "XS-CT011A-AVL",
+      "description": "Drive available input"
+    },
+    {
+      "name": "VFD block name",
+      "path": "b005/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "VFD_HEALTHY",
+      "description": "VFD-health DI identity"
+    },
+    {
+      "name": "VFD healthy tag",
+      "path": "b005/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "XS-CT011A-VFD",
+      "description": "VFD healthy input"
+    },
+    {
+      "name": "Fault block name",
+      "path": "b006/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "FAULT",
+      "description": "Fault DI identity"
+    },
+    {
+      "name": "Fault tag",
+      "path": "b006/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "XS-CT011A-FLT",
+      "description": "Drive fault input"
+    },
+    {
+      "name": "Run block name",
+      "path": "b010/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "RUN_FEEDBACK",
+      "description": "Run-feedback DI identity"
+    },
+    {
+      "name": "Run feedback tag",
+      "path": "b010/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "XS-CT011A-RUN",
+      "description": "Running feedback input"
+    },
+    {
+      "name": "Basin low-low block name",
+      "path": "b009/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "BASIN_LOW_LOW",
+      "description": "Unique basin-trip input identity"
+    },
+    {
+      "name": "Device block name",
+      "path": "b011/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "DEVICE",
+      "description": "Unique device-control identity"
+    },
+    {
+      "name": "Device description",
+      "path": "b011/CONFIG/description",
+      "data_type": "STRING",
+      "default": "Cooling-tower induced-draft fan",
+      "description": "Device description"
+    },
+    {
+      "name": "Start block name",
+      "path": "b012/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "START_OUTPUT",
+      "description": "Start DO identity"
+    },
+    {
+      "name": "Start tag",
+      "path": "b012/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "XY-CT011A-STR",
+      "description": "Start command output"
+    },
+    {
+      "name": "Stop block name",
+      "path": "b014/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "STOP_OUTPUT",
+      "description": "Stop DO identity"
+    },
+    {
+      "name": "Stop tag",
+      "path": "b014/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "XY-CT011A-STP",
+      "description": "Stop command output"
+    }
+  ],
+  "graph": {
+    "name": "CT_FAN_CELL",
+    "description": "Reusable staged cooling-tower fan cell",
+    "engineering": {
+      "source": "APVC cooling-water module-class engineering",
+      "unit": "U010",
+      "workbook_block_type": "MOTOR",
+      "strategy_demonstrated": "Wet-basin-protected fan staging with drive diagnostics",
+      "implementation_state": "COMMISSIONED"
+    },
+    "blocks": [
+      {
+        "id": "b001",
+        "block_type": "AI",
+        "instance_name": "SUPPLY_TEMP",
+        "x": 0.0,
+        "y": 0.0,
+        "config": {
+          "tag": "TT-0102",
+          "label": "Cooling water supply temperature",
+          "scale_lo": 0.0,
+          "scale_hi": 45.0,
+          "XD_SCALE_LO": 0.0,
+          "XD_SCALE_HI": 45.0,
+          "eng_units": "degC",
+          "L_TYPE": "DIRECT",
+          "mode": "AUTO",
+          "normal_mode": "AUTO"
+        }
+      },
+      {
+        "id": "b002",
+        "block_type": "CONSTANT",
+        "instance_name": "STAGE_ON",
+        "x": 220.0,
+        "y": 90.0,
+        "config": {
+          "value": 27.5,
+          "label": "Fan stage-on temperature"
+        }
+      },
+      {
+        "id": "b003",
+        "block_type": "COMPARATOR",
+        "instance_name": "FAN_DEMAND",
+        "x": 430.0,
+        "y": 20.0,
+        "config": {
+          "OP": "GT",
+          "HYST": 0.8
+        }
+      },
+      {
+        "id": "b004",
+        "block_type": "DI",
+        "instance_name": "AVAILABLE",
+        "x": 0.0,
+        "y": 250.0,
+        "config": {
+          "tag": "XS-CT011A-AVL",
+          "mode": "AUTO",
+          "normal_mode": "AUTO"
+        }
+      },
+      {
+        "id": "b005",
+        "block_type": "DI",
+        "instance_name": "VFD_HEALTHY",
+        "x": 0.0,
+        "y": 340.0,
+        "config": {
+          "tag": "XS-CT011A-VFD",
+          "mode": "AUTO",
+          "normal_mode": "AUTO"
+        }
+      },
+      {
+        "id": "b006",
+        "block_type": "DI",
+        "instance_name": "FAULT",
+        "x": 0.0,
+        "y": 430.0,
+        "config": {
+          "tag": "XS-CT011A-FLT",
+          "mode": "AUTO",
+          "normal_mode": "AUTO"
+        }
+      },
+      {
+        "id": "b007",
+        "block_type": "NOT",
+        "instance_name": "FAULT_HEALTHY",
+        "x": 230.0,
+        "y": 430.0,
+        "config": {}
+      },
+      {
+        "id": "b008",
+        "block_type": "AND",
+        "instance_name": "DRIVE_PERMITS",
+        "x": 430.0,
+        "y": 300.0,
+        "config": {
+          "NOF_INPUTS": 3
+        }
+      },
+      {
+        "id": "b009",
+        "block_type": "DI",
+        "instance_name": "BASIN_LOW_LOW",
+        "x": 0.0,
+        "y": 540.0,
+        "config": {
+          "tag": "LSLL-0101",
+          "mode": "AUTO",
+          "normal_mode": "AUTO"
+        }
+      },
+      {
+        "id": "b010",
+        "block_type": "DI",
+        "instance_name": "RUN_FEEDBACK",
+        "x": 0.0,
+        "y": 630.0,
+        "config": {
+          "tag": "XS-CT011A-RUN",
+          "mode": "AUTO",
+          "normal_mode": "AUTO"
+        }
+      },
+      {
+        "id": "b011",
+        "block_type": "DEVCTL",
+        "instance_name": "DEVICE",
+        "x": 690.0,
+        "y": 180.0,
+        "config": {
+          "DEVICE_KIND": "MOTOR",
+          "START_TIMEOUT": 8.0,
+          "STOP_TIMEOUT": 8.0,
+          "TRIP_TIME": 1.0,
+          "RESET_REQUIRED": true,
+          "use_azeo_states": true,
+          "mode": "CAS",
+          "normal_mode": "CAS",
+          "INTERLOCK_OPT": "PASSIVE_IF_BAD",
+          "description": "Cooling-tower induced-draft fan"
+        }
+      },
+      {
+        "id": "b012",
+        "block_type": "DO",
+        "instance_name": "START_OUTPUT",
+        "x": 1010.0,
+        "y": 160.0,
+        "config": {
+          "tag": "XY-CT011A-STR",
+          "mode": "MAN",
+          "normal_mode": "CAS"
+        }
+      },
+      {
+        "id": "b013",
+        "block_type": "NOT",
+        "instance_name": "STOP_COMMAND",
+        "x": 850.0,
+        "y": 360.0,
+        "config": {}
+      },
+      {
+        "id": "b014",
+        "block_type": "DO",
+        "instance_name": "STOP_OUTPUT",
+        "x": 1010.0,
+        "y": 360.0,
+        "config": {
+          "tag": "XY-CT011A-STP",
+          "mode": "MAN",
+          "normal_mode": "CAS"
+        }
+      }
+    ],
+    "wires": [
+      {
+        "id": "w001",
+        "src_block_id": "b001",
+        "src_terminal": "OUT",
+        "dst_block_id": "b003",
+        "dst_terminal": "IN1"
+      },
+      {
+        "id": "w002",
+        "src_block_id": "b002",
+        "src_terminal": "OUT",
+        "dst_block_id": "b003",
+        "dst_terminal": "IN2"
+      },
+      {
+        "id": "w003",
+        "src_block_id": "b004",
+        "src_terminal": "OUT",
+        "dst_block_id": "b008",
+        "dst_terminal": "IN_D1"
+      },
+      {
+        "id": "w004",
+        "src_block_id": "b005",
+        "src_terminal": "OUT",
+        "dst_block_id": "b008",
+        "dst_terminal": "IN_D2"
+      },
+      {
+        "id": "w005",
+        "src_block_id": "b006",
+        "src_terminal": "OUT",
+        "dst_block_id": "b007",
+        "dst_terminal": "IN_D"
+      },
+      {
+        "id": "w006",
+        "src_block_id": "b007",
+        "src_terminal": "OUT_D",
+        "dst_block_id": "b008",
+        "dst_terminal": "IN_D3"
+      },
+      {
+        "id": "w007",
+        "src_block_id": "b003",
+        "src_terminal": "OUT",
+        "dst_block_id": "b011",
+        "dst_terminal": "CAS_IN_D"
+      },
+      {
+        "id": "w008",
+        "src_block_id": "b008",
+        "src_terminal": "OUT_D",
+        "dst_block_id": "b011",
+        "dst_terminal": "INTERLOCK"
+      },
+      {
+        "id": "w009",
+        "src_block_id": "b008",
+        "src_terminal": "OUT_D",
+        "dst_block_id": "b011",
+        "dst_terminal": "PERMISSIVE_D"
+      },
+      {
+        "id": "w010",
+        "src_block_id": "b009",
+        "src_terminal": "OUT",
+        "dst_block_id": "b011",
+        "dst_terminal": "SHUTDOWN_D"
+      },
+      {
+        "id": "w011",
+        "src_block_id": "b010",
+        "src_terminal": "OUT",
+        "dst_block_id": "b011",
+        "dst_terminal": "RUN_FB"
+      },
+      {
+        "id": "w012",
+        "src_block_id": "b011",
+        "src_terminal": "DO_START",
+        "dst_block_id": "b012",
+        "dst_terminal": "CAS_IN_D"
+      },
+      {
+        "id": "w013",
+        "src_block_id": "b011",
+        "src_terminal": "DO_START",
+        "dst_block_id": "b013",
+        "dst_terminal": "IN_D"
+      },
+      {
+        "id": "w014",
+        "src_block_id": "b013",
+        "src_terminal": "OUT_D",
+        "dst_block_id": "b014",
+        "dst_terminal": "CAS_IN_D"
+      }
+    ],
+    "comments": [
+      {
+        "id": "c001",
+        "text": "Cell demand stages on cooling-water supply temperature. Availability, VFD health, fault and basin low-low remain independent device protections.",
+        "x": 410.0,
+        "y": 700.0,
+        "width": 520.0,
+        "height": 90.0
+      }
+    ]
+  }
+}

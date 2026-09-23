@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+azeoplant/_azeocore*.pyd
+.pytest_cache/
+.ruff_cache/
+logs/
+build/
+cpp/build-sdk/
+azeoplant/*.dll
+azeoplant/*.so*
+azeoplant/*.dylib
+dist/
+*.egg-info/

@@ -1,0 +1,135 @@
+{
+  "name": "ESD-9700",
+  "description": "U700 boiler trip",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U900",
+    "workbook_block_type": "SIS",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Boiler trip",
+    "pv_source_text": "Multiple",
+    "final_element_text": "XV-7001",
+    "mapped_input_tags": [],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "cause_tags": [
+      "LSLL-7001",
+      "PSHH-7001",
+      "BS-7001"
+    ],
+    "affected_effects": [
+      "E19",
+      "E21"
+    ],
+    "implementation_state": "COMMISSIONED"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "DI",
+      "instance_name": "LSLL-7001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "LSLL-7001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "PSHH-7001",
+      "x": 0.0,
+      "y": 90.0,
+      "config": {
+        "tag": "PSHH-7001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "DI",
+      "instance_name": "BS-7001",
+      "x": 0.0,
+      "y": 180.0,
+      "config": {
+        "tag": "BS-7001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "NOT",
+      "instance_name": "BS-7001_FLAME_FAIL",
+      "x": 210.0,
+      "y": 180.0,
+      "config": {}
+    },
+    {
+      "id": "b005",
+      "block_type": "OR",
+      "instance_name": "CAUSE_OR",
+      "x": 420.0,
+      "y": 80.0,
+      "config": {
+        "NOF_INPUTS": 3
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "INTERLOCK",
+      "instance_name": "ESD-9700",
+      "x": 700.0,
+      "y": 80.0,
+      "config": {
+        "description": "U700 boiler trip"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b004",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b005",
+      "dst_terminal": "IN_D3"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b005",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b006",
+      "dst_terminal": "TRIP"
+    }
+  ],
+  "comments": []
+}

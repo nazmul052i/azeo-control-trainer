@@ -1,0 +1,31 @@
+{
+  "name": "LI-101",
+  "description": "Tank101 level transmitter (0-1000 gal). Course book Module 2 'The Simulated Process' — the measurement MTR-102's CND2 interlock and the plant start-up EM both watch.",
+  "blocks": [
+    {
+      "id": "ai",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "LI-101.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 1000.0,
+        "eng_units": "gal",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "HI_HI_ENAB": true,
+        "HI_HI_LIM": 900.0,
+        "HI_ENAB": true,
+        "HI_LIM": 800.0,
+        "LO_ENAB": true,
+        "LO_LIM": 50.0,
+        "LO_LO_ENAB": true,
+        "LO_LO_LIM": 10.0,
+        "label": "Tank101 Level"
+      }
+    }
+  ],
+  "wires": []
+}

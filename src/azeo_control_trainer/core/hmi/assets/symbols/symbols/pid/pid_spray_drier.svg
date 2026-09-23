@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="88" viewBox="0 0 108 88" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID spray drier</title>
+  <desc id="desc">Spray-drier vessel symbol.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-554 -582)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="558" y="586" width="100" height="80" fill="none" stroke="none" />
+        <path d="M 558 586 L 558 641 L 608 666 L 658 641 L 658 586 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.50463" data-anchor-y="0.0511364" cx="54.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.967593" data-anchor-y="0.505682" cx="104.5" cy="44.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.50463" data-anchor-y="0.960227" cx="54.5" cy="84.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0416667" data-anchor-y="0.505682" cx="4.5" cy="44.5" r="3" />
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+# AzeoPlant default settings.
+#
+# Nothing here is read automatically yet: run.py takes its settings from the
+# command line so that a training rig can be started from a shortcut without a
+# config file to lose. This file records the intended defaults and is the place
+# to put site values when you wire up a loader.
+
+engine:
+  dt: 0.1                 # fixed integration step, seconds. Do not exceed 0.25:
+                          # the models stay stable but the burner sequence and
+                          # MOV travel timers lose resolution.
+  speed_factor: 1.0       # 0.1 to 20. Above about 8x on a modest machine the
+                          # engine starts logging overruns.
+  error_budget: 25        # consecutive failed steps before the engine fails safe
+
+opcua:
+  endpoint: "opc.tcp://0.0.0.0:48420/plant_sim/"
+  publish_period: 0.25    # seconds. Faster than the DCS scan buys nothing.
+  namespace_uri: "urn:azeoplant:simulator"
+  namespace_index: 2
+
+ui:
+  refresh_period_ms: 200
+  trend_window_s: 600
+
+logging:
+  directory: "logs"
+  console_level: INFO
+  file_level: DEBUG
+  max_bytes: 4000000
+  backup_count: 5

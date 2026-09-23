@@ -1,0 +1,87 @@
+{
+  "schema": "dynalive.tags/1",
+  "tags": {
+    "FIC-101": {
+      "description": "Discharge flow control",
+      "eu": "gpm",
+      "range": [
+        0.0,
+        200.0
+      ]
+    },
+    "II-101": {
+      "description": "MTR-101 stator current, input register",
+      "eu": "A",
+      "range": [
+        0.0,
+        100.0
+      ],
+      "limits": {
+        "HI": 42.0
+      }
+    },
+    "LI-101": {
+      "description": "TANK-101 level from LT-101, input",
+      "eu": "gal",
+      "range": [
+        0.0,
+        1000.0
+      ],
+      "limits": {
+        "HH": 900.0,
+        "HI": 800.0,
+        "LO": 150.0,
+        "LL": 50.0
+      }
+    },
+    "LIC-101": {
+      "description": "TANK-101 level control",
+      "eu": "gal",
+      "range": [
+        0.0,
+        1000.0
+      ]
+    },
+    "MTR-101": {
+      "description": "P-101 drive. Running feedback is",
+      "range": [
+        0.0,
+        100.0
+      ]
+    },
+    "PI-101": {
+      "description": "P-101 discharge pressure from PT-101",
+      "eu": "psi",
+      "range": [
+        0.0,
+        100.0
+      ],
+      "limits": {
+        "HH": 85.0,
+        "HI": 70.0
+      }
+    },
+    "SEQ-101": {
+      "description": "TANK-101 start-up sequence. Five steps",
+      "range": [
+        0.0,
+        100.0
+      ]
+    },
+    "SIC-101": {
+      "description": "VFD-101 speed control. **The drive owns",
+      "eu": "%",
+      "range": [
+        0.0,
+        100.0
+      ]
+    },
+    "XV-101": {
+      "description": "Discharge block valve",
+      "range": [
+        0.0,
+        100.0
+      ]
+    }
+  }
+}

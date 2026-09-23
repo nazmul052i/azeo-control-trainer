@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="103" viewBox="0 0 60 103" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID vessel dished ends heating cooling jacket</title>
+  <desc id="desc">Portable vessel dished ends heating cooling jacket symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-397.5 -204.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="401" y="208" width="52" height="95" fill="none" stroke="none" />
+        <path d="M 447 215.66 L 447 295.34 C 447 299.57 438.05 303 427 303 C 415.95 303 407 299.57 407 295.34 L 407 215.66 C 407 211.43 415.95 208 427 208 C 438.05 208 447 211.43 447 215.66 Z M 407 215.66 L 447 215.66 M 407 295.34 L 447 295.34" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <rect x="401" y="220.64" width="6" height="69.72" class="symbol-fill symbol-line" />
+        <rect x="447" y="220.64" width="6" height="69.72" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.038835" cx="30" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.933333" data-anchor-y="0.5" cx="56" cy="51.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.961165" cx="30" cy="99" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0666667" data-anchor-y="0.5" cx="4" cy="51.5" r="3" />
+  </g>
+</svg>

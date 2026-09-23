@@ -1,0 +1,691 @@
+{
+ "display": "U400 - L2 Reaction and Separation",
+ "pvms": [
+  {
+   "id": "u400_d3",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-4001/LIC-4001"
+   },
+   "x": 750,
+   "y": 250,
+   "w": 145,
+   "h": 110,
+   "standard": "hphmi.controller",
+   "variant": "vessel",
+   "label": "D3",
+   "choices": {
+    "equipment_symbol": "drum",
+    "show_hp_anatomy": false,
+    "show_readout": false
+   }
+  },
+  {
+   "id": "u400_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "TIC-4001/TIC-4001"
+   },
+   "x": 289.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "R1 temperature"
+  },
+  {
+   "id": "u400_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-4001/FIC-4001"
+   },
+   "x": 633.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Quench flow"
+  },
+  {
+   "id": "u400_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-4001/PIC-4001"
+   },
+   "x": 977.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "D3 pressure"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U400 · REACTION AND PRODUCT SEPARATION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Control R1 thermal severity and quench, then stabilize E401/D3 pressure and liquid inventories before fractionation.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u400_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u400_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U400",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u400_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u400_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "symbol",
+   "id": "u400_feed",
+   "x": 65,
+   "y": 280,
+   "w": 78,
+   "h": 65,
+   "symbol": "control_valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u400_feed_tag",
+   "x": 40,
+   "y": 253,
+   "w": 128,
+   "h": 22,
+   "text": "FCV-4001",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u400_feed_label",
+   "x": 35,
+   "y": 350,
+   "w": 138,
+   "h": 28,
+   "text": "Reactor feed",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u400_r1",
+   "x": 265,
+   "y": 190,
+   "w": 120,
+   "h": 240,
+   "symbol": "reactor",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u400_r1_tag",
+   "x": 240,
+   "y": 163,
+   "w": 170,
+   "h": 22,
+   "text": "R1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u400_r1_label",
+   "x": 235,
+   "y": 435,
+   "w": 180,
+   "h": 28,
+   "text": "Fixed-bed reactor",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u400_e401",
+   "x": 510,
+   "y": 260,
+   "w": 125,
+   "h": 100,
+   "symbol": "exchanger",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u400_e401_tag",
+   "x": 485,
+   "y": 233,
+   "w": 175,
+   "h": 22,
+   "text": "E401",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u400_e401_label",
+   "x": 480,
+   "y": 365,
+   "w": 185,
+   "h": 28,
+   "text": "Product cooler",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "text",
+   "id": "u400_d3_tag",
+   "x": 725,
+   "y": 223,
+   "w": 195,
+   "h": 22,
+   "text": "D3",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u400_d3_label",
+   "x": 720,
+   "y": 365,
+   "w": 205,
+   "h": 28,
+   "text": "Product separator",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u400_out",
+   "x": 1000,
+   "y": 280,
+   "w": 80,
+   "h": 65,
+   "symbol": "control_valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u400_out_tag",
+   "x": 975,
+   "y": 253,
+   "w": 130,
+   "h": 22,
+   "text": "LCV-4002",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u400_out_label",
+   "x": 970,
+   "y": 350,
+   "w": 140,
+   "h": 28,
+   "text": "Liquid to U500",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u400_pipe_0",
+   "a": "u400_feed",
+   "a_side": "outlet",
+   "b": "u400_r1",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u400_pipe_1",
+   "a": "u400_r1",
+   "a_side": "outlet",
+   "b": "u400_e401",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u400_pipe_2",
+   "a": "u400_e401",
+   "a_side": "outlet",
+   "b": "u400_d3",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u400_pipe_3",
+   "a": "u400_d3",
+   "a_side": "outlet",
+   "b": "u400_out",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u400_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u400_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "R1 temperature",
+     "value": {
+      "path": "TIC-4001/TIC-4001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "R1 differential pressure",
+     "value": {
+      "path": "TIC-4001/PDT-4001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "D3 pressure",
+     "value": {
+      "path": "PIC-4001/PIC-4001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u400_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u400_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "R1 temperature",
+     "path": "TIC-4001/TIC-4001/PV"
+    },
+    {
+     "label": "R1 differential pressure",
+     "path": "TIC-4001/PDT-4001/PV"
+    },
+    {
+     "label": "D3 pressure",
+     "path": "PIC-4001/PIC-4001/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u400_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE TIC-4001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u400_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "TIC-4001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u400_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u400_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  }
+ ],
+ "description": "L2 primary-operation display for U400, derived from AP-PID-U400. Native editable equipment with named process ports, smart pipes, registered live vessel PVMs, KPIs, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "schema": "dynalive.display/1",
+    "name": "L1 PLANT",
+    "id": "L1_PLANT",
+    "level": 1,
+    "area": "AZEO_TRAINING",
+    "w": 1800,
+    "h": 1100,
+    "scan_ms": 500,
+    "revision": 1
+  },
+  "objects": [
+    {
+      "id": "n_node_1",
+      "type": "pv",
+      "x": 200,
+      "y": 240,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "label": "TANK-101",
+        "show_bar": true
+      }
+    },
+    {
+      "id": "n_node_2",
+      "type": "pv",
+      "x": 560,
+      "y": 240,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "label": "TANK-201",
+        "show_bar": true
+      }
+    }
+  ]
+}

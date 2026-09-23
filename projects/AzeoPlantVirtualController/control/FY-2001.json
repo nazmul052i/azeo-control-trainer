@@ -1,0 +1,108 @@
+{
+  "name": "FY-2001",
+  "description": "Surge line calculation",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U200",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Compensated surge line with molecular weight correction",
+    "pv_source_text": "PT-2001 / PT-2002 / AT-2001",
+    "final_element_text": "UIC-2001 setpoint",
+    "mapped_input_tags": [
+      "PT-2001",
+      "PT-2002",
+      "AT-2001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "UIC-2001"
+    ],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "PT-2002",
+        "Unit": "U200",
+        "Alarm description": "C1 discharge pressure high high",
+        "Alarm type": "HI_HI",
+        "Setpoint": 54,
+        "EU": "barg",
+        "Priority": "Critical",
+        "Deadband": 0.3,
+        "On-delay (s)": 2
+      }
+    ],
+    "implementation_state": "MONITOR_ONLY_UNSPECIFIED",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "drives_control": false,
+    "evidence_gap": "compressor molecular-weight/surge calculation equation",
+    "evidence_checked": "AzeoPlantSimulator/azeoplant/control/strategy.py and engineering/Control_Modules.md"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "PT-2001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "PT-2001",
+        "label": "C1 suction pressure",
+        "scale_lo": 0.0,
+        "scale_hi": 20.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 20.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "PT-2002",
+      "x": 0.0,
+      "y": 110.0,
+      "config": {
+        "tag": "PT-2002",
+        "label": "C1 discharge pressure",
+        "scale_lo": 0.0,
+        "scale_hi": 60.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 60.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "HI_HI_LIM": 54.0,
+        "HI_HI_DELAY_ON": 2.0,
+        "ALARM_HYS": 0.3
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "AI",
+      "instance_name": "AT-2001",
+      "x": 0.0,
+      "y": 220.0,
+      "config": {
+        "tag": "AT-2001",
+        "label": "Recycle gas molecular weight",
+        "scale_lo": 4.0,
+        "scale_hi": 40.0,
+        "XD_SCALE_LO": 4.0,
+        "XD_SCALE_HI": 40.0,
+        "eng_units": "kg/kmol",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

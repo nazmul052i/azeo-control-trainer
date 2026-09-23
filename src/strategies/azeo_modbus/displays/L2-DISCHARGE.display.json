@@ -1,0 +1,408 @@
+{
+  "meta": {
+    "schema": "dynalive.display/1",
+    "name": "Discharge train — TANK-101 / P-101",
+    "id": "L2-DISCHARGE",
+    "level": 2,
+    "area": "AZEO_MODBUS",
+    "w": 1440,
+    "h": 720,
+    "scan_ms": 500,
+    "revision": 1
+  },
+  "objects": [
+    {
+      "id": "t_title",
+      "type": "text",
+      "x": 40,
+      "y": 22,
+      "w": 700,
+      "h": 20,
+      "props": {
+        "label": "DISCHARGE TRAIN — TANK-101 / P-101",
+        "size": 15
+      }
+    },
+    {
+      "id": "t_sub",
+      "type": "text",
+      "x": 40,
+      "y": 46,
+      "w": 900,
+      "h": 14,
+      "props": {
+        "label": "Modbus TCP 127.0.0.1:1502 · every value below is a register on the device",
+        "size": 10
+      }
+    },
+    {
+      "id": "g_storage",
+      "type": "box",
+      "x": 60,
+      "y": 100,
+      "w": 420,
+      "h": 340,
+      "props": {
+        "label": "STORAGE"
+      }
+    },
+    {
+      "id": "o_tank",
+      "type": "vessel",
+      "x": 90,
+      "y": 180,
+      "w": 220,
+      "h": 220,
+      "props": {
+        "tag": "LI-101",
+        "label": "TANK-101"
+      }
+    },
+    {
+      "id": "r_li",
+      "type": "pv",
+      "x": 330,
+      "y": 190,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "tag": "LI-101",
+        "label": "LI-101",
+        "show_bar": true,
+        "show_sub": false
+      }
+    },
+    {
+      "id": "r_lic",
+      "type": "pv",
+      "x": 330,
+      "y": 250,
+      "w": 132,
+      "h": 52,
+      "props": {
+        "tag": "LIC-101",
+        "label": "LIC-101",
+        "show_bar": true,
+        "show_sub": true
+      }
+    },
+    {
+      "id": "t_lic",
+      "type": "text",
+      "x": 330,
+      "y": 308,
+      "w": 140,
+      "h": 12,
+      "props": {
+        "label": "cascade primary → FIC-101",
+        "size": 9
+      }
+    },
+    {
+      "id": "p_suct_v",
+      "type": "pipe",
+      "x": 140,
+      "y": 400,
+      "w": 2,
+      "h": 70,
+      "props": {
+        "orient": "v",
+        "major": true
+      }
+    },
+    {
+      "id": "p_suct_h",
+      "type": "pipe",
+      "x": 140,
+      "y": 470,
+      "w": 400,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": true
+      }
+    },
+    {
+      "id": "g_train",
+      "type": "box",
+      "x": 500,
+      "y": 330,
+      "w": 660,
+      "h": 300,
+      "props": {
+        "label": "P-101 DISCHARGE TRAIN"
+      }
+    },
+    {
+      "id": "o_pump",
+      "type": "pump",
+      "x": 540,
+      "y": 448,
+      "w": 44,
+      "h": 44,
+      "props": {
+        "tag": "MTR-101",
+        "label": "P-101"
+      }
+    },
+    {
+      "id": "r_sic",
+      "type": "pv",
+      "x": 500,
+      "y": 548,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "tag": "SIC-101",
+        "label": "SIC-101",
+        "show_bar": true,
+        "show_sub": false
+      }
+    },
+    {
+      "id": "r_ii",
+      "type": "pv",
+      "x": 650,
+      "y": 548,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "tag": "II-101",
+        "label": "II-101",
+        "show_bar": true,
+        "show_sub": false
+      }
+    },
+    {
+      "id": "t_drive",
+      "type": "text",
+      "x": 500,
+      "y": 600,
+      "w": 300,
+      "h": 12,
+      "props": {
+        "label": "VFD-101 speed reference · MTR-101 stator current",
+        "size": 9
+      }
+    },
+    {
+      "id": "p_disch",
+      "type": "pipe",
+      "x": 584,
+      "y": 470,
+      "w": 180,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": true
+      }
+    },
+    {
+      "id": "r_pi",
+      "type": "pv",
+      "x": 620,
+      "y": 372,
+      "w": 132,
+      "h": 44,
+      "props": {
+        "tag": "PI-101",
+        "label": "PI-101",
+        "show_bar": true,
+        "show_sub": false
+      }
+    },
+    {
+      "id": "p_lead_pt",
+      "type": "pipe",
+      "x": 686,
+      "y": 416,
+      "w": 2,
+      "h": 54,
+      "props": {
+        "orient": "v",
+        "major": false
+      }
+    },
+    {
+      "id": "o_xv",
+      "type": "valve",
+      "x": 764,
+      "y": 450,
+      "w": 40,
+      "h": 40,
+      "props": {
+        "tag": "XV-101",
+        "label": "XV-101"
+      }
+    },
+    {
+      "id": "p_mid",
+      "type": "pipe",
+      "x": 804,
+      "y": 470,
+      "w": 150,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": true
+      }
+    },
+    {
+      "id": "r_fic",
+      "type": "pv",
+      "x": 890,
+      "y": 372,
+      "w": 132,
+      "h": 52,
+      "props": {
+        "tag": "FIC-101",
+        "label": "FIC-101",
+        "show_bar": true,
+        "show_sub": true
+      }
+    },
+    {
+      "id": "p_lead_ft",
+      "type": "pipe",
+      "x": 956,
+      "y": 424,
+      "w": 2,
+      "h": 46,
+      "props": {
+        "orient": "v",
+        "major": false
+      }
+    },
+    {
+      "id": "o_fv",
+      "type": "valve",
+      "x": 954,
+      "y": 450,
+      "w": 40,
+      "h": 40,
+      "props": {
+        "tag": "FIC-101",
+        "label": "FV-101",
+        "source": "op"
+      }
+    },
+    {
+      "id": "p_out",
+      "type": "pipe",
+      "x": 994,
+      "y": 470,
+      "w": 166,
+      "h": 2,
+      "props": {
+        "orient": "h",
+        "major": true
+      }
+    },
+    {
+      "id": "t_out",
+      "type": "text",
+      "x": 1170,
+      "y": 462,
+      "w": 200,
+      "h": 14,
+      "props": {
+        "label": "TO DOWNSTREAM",
+        "size": 10
+      }
+    },
+    {
+      "id": "g_seq",
+      "type": "box",
+      "x": 1200,
+      "y": 100,
+      "w": 200,
+      "h": 200,
+      "props": {
+        "label": "START-UP"
+      }
+    },
+    {
+      "id": "t_seq",
+      "type": "text",
+      "x": 1216,
+      "y": 128,
+      "w": 170,
+      "h": 12,
+      "props": {
+        "label": "SEQ-101 state",
+        "size": 9
+      }
+    },
+    {
+      "id": "o_seq",
+      "type": "mode_chip",
+      "x": 1216,
+      "y": 146,
+      "w": 150,
+      "h": 24,
+      "props": {
+        "tag": "SEQ-101"
+      }
+    },
+    {
+      "id": "t_seq_0",
+      "type": "text",
+      "x": 1216,
+      "y": 190,
+      "w": 176,
+      "h": 12,
+      "props": {
+        "label": "Every step waits on",
+        "size": 9
+      }
+    },
+    {
+      "id": "t_seq_1",
+      "type": "text",
+      "x": 1216,
+      "y": 205,
+      "w": 176,
+      "h": 12,
+      "props": {
+        "label": "confirmed field feedback —",
+        "size": 9
+      }
+    },
+    {
+      "id": "t_seq_2",
+      "type": "text",
+      "x": 1216,
+      "y": 220,
+      "w": 176,
+      "h": 12,
+      "props": {
+        "label": "the XV open limit, the",
+        "size": 9
+      }
+    },
+    {
+      "id": "t_seq_3",
+      "type": "text",
+      "x": 1216,
+      "y": 235,
+      "w": 176,
+      "h": 12,
+      "props": {
+        "label": "motor run contact, the",
+        "size": 9
+      }
+    },
+    {
+      "id": "t_seq_4",
+      "type": "text",
+      "x": 1216,
+      "y": 250,
+      "w": 176,
+      "h": 12,
+      "props": {
+        "label": "ramp reporting done.",
+        "size": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "definition_kind": "control_module_class",
+  "id": "4d9ec064-6608-5bf4-911e-976f74a582d5",
+  "name": "CW_ANALOG_LOOP",
+  "description": "Reusable cooling-water AI/PID/AO Control Module",
+  "language": "FBD",
+  "revision": 1,
+  "created_at": "2026-09-22T00:00:00+00:00",
+  "updated_at": "2026-09-22T00:00:00+00:00",
+  "digest": "8f0ece0e6875e156d54358de24e2f768a0613d8165d8bdd609363e0fc9ad5c68",
+  "public_parameters": [
+    {
+      "name": "PV block name",
+      "path": "b001/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "PV_INPUT",
+      "description": "Unique AI identity"
+    },
+    {
+      "name": "PV tag",
+      "path": "b001/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "TT-0102",
+      "description": "Plant measurement tag"
+    },
+    {
+      "name": "PV label",
+      "path": "b001/CONFIG/label",
+      "data_type": "STRING",
+      "default": "Cooling water supply temperature",
+      "description": "Measurement label"
+    },
+    {
+      "name": "PV scale low",
+      "path": "b001/CONFIG/scale_lo",
+      "data_type": "FLOAT",
+      "default": 0.0,
+      "description": "Measurement engineering range low"
+    },
+    {
+      "name": "PV scale high",
+      "path": "b001/CONFIG/scale_hi",
+      "data_type": "FLOAT",
+      "default": 45.0,
+      "description": "Measurement engineering range high"
+    },
+    {
+      "name": "PV channel low",
+      "path": "b001/CONFIG/XD_SCALE_LO",
+      "data_type": "FLOAT",
+      "default": 0.0,
+      "description": "Channel range low"
+    },
+    {
+      "name": "PV channel high",
+      "path": "b001/CONFIG/XD_SCALE_HI",
+      "data_type": "FLOAT",
+      "default": 45.0,
+      "description": "Channel range high"
+    },
+    {
+      "name": "PV units",
+      "path": "b001/CONFIG/eng_units",
+      "data_type": "STRING",
+      "default": "degC",
+      "description": "Measurement engineering units"
+    },
+    {
+      "name": "Controller block name",
+      "path": "b002/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "CONTROLLER",
+      "description": "Unique PID identity"
+    },
+    {
+      "name": "Controller description",
+      "path": "b002/CONFIG/description",
+      "data_type": "STRING",
+      "default": "Cooling-water control",
+      "description": "Loop description"
+    },
+    {
+      "name": "Gain",
+      "path": "b002/CONFIG/GAIN",
+      "data_type": "FLOAT",
+      "default": 3.0,
+      "description": "Proportional gain"
+    },
+    {
+      "name": "Reset",
+      "path": "b002/CONFIG/RESET",
+      "data_type": "FLOAT",
+      "default": 180.0,
+      "description": "Integral reset time in seconds"
+    },
+    {
+      "name": "Action",
+      "path": "b002/CONFIG/action",
+      "data_type": "STRING",
+      "default": "direct",
+      "description": "Controller action"
+    },
+    {
+      "name": "Controller PV low",
+      "path": "b002/CONFIG/pv_scale_lo",
+      "data_type": "FLOAT",
+      "default": 0.0,
+      "description": "PID PV range low"
+    },
+    {
+      "name": "Controller PV high",
+      "path": "b002/CONFIG/pv_scale_hi",
+      "data_type": "FLOAT",
+      "default": 45.0,
+      "description": "PID PV range high"
+    },
+    {
+      "name": "Setpoint low",
+      "path": "b002/CONFIG/sp_lo",
+      "data_type": "FLOAT",
+      "default": 0.0,
+      "description": "Setpoint range low"
+    },
+    {
+      "name": "Setpoint high",
+      "path": "b002/CONFIG/sp_hi",
+      "data_type": "FLOAT",
+      "default": 45.0,
+      "description": "Setpoint range high"
+    },
+    {
+      "name": "Controller units",
+      "path": "b002/CONFIG/pv_unit",
+      "data_type": "STRING",
+      "default": "degC",
+      "description": "PID process units"
+    },
+    {
+      "name": "Startup setpoint",
+      "path": "b002/CONFIG/sp_init",
+      "data_type": "FLOAT",
+      "default": 28.0,
+      "description": "Manual-download setpoint"
+    },
+    {
+      "name": "Startup output",
+      "path": "b002/CONFIG/out_init",
+      "data_type": "FLOAT",
+      "default": 45.0,
+      "description": "Manual-download output"
+    },
+    {
+      "name": "Output block name",
+      "path": "b004/IDENTITY/INSTANCE_NAME",
+      "data_type": "STRING",
+      "default": "FINAL_ELEMENT",
+      "description": "Unique AO identity"
+    },
+    {
+      "name": "Output tag",
+      "path": "b004/CONFIG/tag",
+      "data_type": "STRING",
+      "default": "SC-0102",
+      "description": "Plant final-element tag"
+    },
+    {
+      "name": "Output description",
+      "path": "b004/CONFIG/description",
+      "data_type": "STRING",
+      "default": "Cooling-water final element",
+      "description": "Final-element description"
+    },
+    {
+      "name": "Output units",
+      "path": "b004/CONFIG/eng_units",
+      "data_type": "STRING",
+      "default": "%",
+      "description": "Final-element units"
+    }
+  ],
+  "graph": {
+    "name": "CW_ANALOG_LOOP",
+    "description": "Reusable cooling-water analog control loop",
+    "engineering": {
+      "source": "APVC cooling-water module-class engineering",
+      "unit": "U010",
+      "workbook_block_type": "PID",
+      "strategy_demonstrated": "Class-based AI-PID-AO loop with external-reset wiring",
+      "implementation_state": "COMMISSIONED",
+      "control_module_basis": "engineering/control_modules.json"
+    },
+    "blocks": [
+      {
+        "id": "b001",
+        "block_type": "AI",
+        "instance_name": "PV_INPUT",
+        "x": 0.0,
+        "y": 40.0,
+        "config": {
+          "tag": "TT-0102",
+          "label": "Cooling water supply temperature",
+          "scale_lo": 0.0,
+          "scale_hi": 45.0,
+          "XD_SCALE_LO": 0.0,
+          "XD_SCALE_HI": 45.0,
+          "eng_units": "degC",
+          "L_TYPE": "DIRECT",
+          "mode": "AUTO",
+          "normal_mode": "AUTO"
+        }
+      },
+      {
+        "id": "b002",
+        "block_type": "PID",
+        "instance_name": "CONTROLLER",
+        "x": 430.0,
+        "y": 40.0,
+        "config": {
+          "GAIN": 3.0,
+          "RESET": 180.0,
+          "RATE": 0.0,
+          "sp_init": 28.0,
+          "action": "direct",
+          "form": "standard",
+          "structure": "pi_error_d_pv",
+          "pv_scale_lo": 0.0,
+          "pv_scale_hi": 45.0,
+          "sp_lo": 0.0,
+          "sp_hi": 45.0,
+          "out_lo": 0.0,
+          "out_hi": 100.0,
+          "use_out_limits": true,
+          "mode": "MAN",
+          "normal_mode": "AUTO",
+          "pv_unit": "degC",
+          "op_unit": "%",
+          "description": "Cooling-water control",
+          "sp_pv_track_man": true,
+          "out_init": 45.0
+        }
+      },
+      {
+        "id": "b003",
+        "block_type": "SCALER",
+        "instance_name": "OUT_SCALE",
+        "x": 700.0,
+        "y": 40.0,
+        "config": {
+          "in_lo": 0.0,
+          "in_hi": 100.0,
+          "out_lo": 0.0,
+          "out_hi": 100.0
+        }
+      },
+      {
+        "id": "b004",
+        "block_type": "AO",
+        "instance_name": "FINAL_ELEMENT",
+        "x": 980.0,
+        "y": 40.0,
+        "config": {
+          "tag": "SC-0102",
+          "out_lo": 0.0,
+          "out_hi": 100.0,
+          "sp_lo_lim": 0.0,
+          "sp_hi_lim": 100.0,
+          "mode": "MAN",
+          "normal_mode": "CAS",
+          "eng_units": "%",
+          "description": "Cooling-water final element"
+        }
+      }
+    ],
+    "wires": [
+      {
+        "id": "w001",
+        "src_block_id": "b001",
+        "src_terminal": "OUT",
+        "dst_block_id": "b002",
+        "dst_terminal": "IN"
+      },
+      {
+        "id": "w002",
+        "src_block_id": "b002",
+        "src_terminal": "OUT",
+        "dst_block_id": "b003",
+        "dst_terminal": "IN"
+      },
+      {
+        "id": "w003",
+        "src_block_id": "b003",
+        "src_terminal": "OUT",
+        "dst_block_id": "b004",
+        "dst_terminal": "CAS_IN"
+      },
+      {
+        "id": "w004",
+        "src_block_id": "b004",
+        "src_terminal": "BKCAL_OUT",
+        "dst_block_id": "b003",
+        "dst_terminal": "BKCAL_IN",
+        "is_bkcal": true
+      },
+      {
+        "id": "w005",
+        "src_block_id": "b003",
+        "src_terminal": "BKCAL_OUT",
+        "dst_block_id": "b002",
+        "dst_terminal": "BKCAL_IN",
+        "is_bkcal": true
+      }
+    ],
+    "comments": [
+      {
+        "id": "c001",
+        "text": "Linked class instance. Outputs download in Manual; verify the physical response before transferring the AO to Cascade.",
+        "x": 420.0,
+        "y": 300.0,
+        "width": 470.0,
+        "height": 80.0
+      }
+    ],
+    "scan_ms": 200
+  }
+}

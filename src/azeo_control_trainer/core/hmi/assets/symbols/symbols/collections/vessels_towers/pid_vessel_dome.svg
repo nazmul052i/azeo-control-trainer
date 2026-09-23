@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="103" height="63" viewBox="0 0 103 63" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID vessel dome</title>
+  <desc id="desc">Portable vessel dome symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-278.5 -94.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="282" y="98" width="95" height="55" fill="none" stroke="none" />
+        <path d="M 369.34 112.93 C 373.57 112.93 377.01 121.88 377.01 132.93 C 377.02 143.97 373.59 152.93 369.36 152.93 L 289.68 152.97 C 285.45 152.97 282.01 144.02 282.01 132.97 C 282 121.93 285.43 112.97 289.66 112.97 L 334.48 112.94 L 334.47 102.94 C 334.47 100.18 338.93 97.94 344.43 97.93 C 349.93 97.93 354.39 100.17 354.39 102.93 L 354.4 112.93 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.644951" data-anchor-y="0.062381" cx="66.43" cy="3.93" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.96126" data-anchor-y="0.618254" cx="99.0098" cy="38.95" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.500097" data-anchor-y="0.935714" cx="51.51" cy="58.95" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0389344" data-anchor-y="0.618254" cx="4.01024" cy="38.95" r="3" />
+  </g>
+</svg>

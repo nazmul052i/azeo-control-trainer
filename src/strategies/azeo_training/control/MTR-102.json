@@ -1,0 +1,377 @@
+{
+  "name": "MTR-102",
+  "description": "Tank101 discharge pump start/stop — course book Module 6, Workshop 'Creating MTR-102'. Device Control block interlocked by two Condition blocks (Step 4), with a BFI first-out trap and an OR for bypass indication (p. 249). CND1: XV-101 is closed. CND2: Tank101 level is <50 for 4 s.",
+  "blocks": [
+    {
+      "id": "di_start",
+      "block_type": "DI",
+      "instance_name": "DI_START_CMD",
+      "x": -900.0,
+      "y": -280.0,
+      "config": {
+        "tag": "MTR-102.cmd_start"
+      }
+    },
+    {
+      "id": "di_stop",
+      "block_type": "DI",
+      "instance_name": "DI_STOP_CMD",
+      "x": -900.0,
+      "y": -200.0,
+      "config": {
+        "tag": "MTR-102.cmd_stop"
+      }
+    },
+    {
+      "id": "di_reset",
+      "block_type": "DI",
+      "instance_name": "DI_RESET",
+      "x": -900.0,
+      "y": -120.0,
+      "config": {
+        "tag": "MTR-102.reset_cmd"
+      }
+    },
+    {
+      "id": "di_run",
+      "block_type": "DI",
+      "instance_name": "DI_RUN_FB",
+      "x": -900.0,
+      "y": -40.0,
+      "config": {
+        "tag": "MTR-102.run_fb"
+      }
+    },
+    {
+      "id": "di_xv101",
+      "block_type": "DI",
+      "instance_name": "DI_XV101_POS",
+      "x": -900.0,
+      "y": 60.0,
+      "config": {
+        "tag": "XV-101.PV_D"
+      }
+    },
+    {
+      "id": "ai_level",
+      "block_type": "AI",
+      "instance_name": "AI_LI101",
+      "x": -900.0,
+      "y": 160.0,
+      "config": {
+        "tag": "LI-101.PV",
+        "scale_lo": 0.0,
+        "scale_hi": 1000.0,
+        "eng_units": "gal",
+        "mode": "AUTO",
+        "label": "Tank101 Level"
+      }
+    },
+    {
+      "id": "di_byp1",
+      "block_type": "DI",
+      "instance_name": "DI_BYPASS_CND1",
+      "x": -900.0,
+      "y": 300.0,
+      "config": {
+        "tag": "MTR-102.bypass_1"
+      }
+    },
+    {
+      "id": "di_byp2",
+      "block_type": "DI",
+      "instance_name": "DI_BYPASS_CND2",
+      "x": -900.0,
+      "y": 380.0,
+      "config": {
+        "tag": "MTR-102.bypass_2"
+      }
+    },
+    {
+      "id": "cnd1",
+      "block_type": "CND",
+      "instance_name": "CND1",
+      "x": -520.0,
+      "y": 40.0,
+      "config": {
+        "EXPRESSION": "IN1 == 0",
+        "TIME_TRUE": 0.0,
+        "ERROR_OPT": "FALSE",
+        "description": "XV-101 is closed"
+      }
+    },
+    {
+      "id": "cnd2",
+      "block_type": "CND",
+      "instance_name": "CND2",
+      "x": -520.0,
+      "y": 200.0,
+      "config": {
+        "EXPRESSION": "IN1 < 50",
+        "TIME_TRUE": 4.0,
+        "ERROR_OPT": "FALSE",
+        "description": "Tank101 level is <50"
+      }
+    },
+    {
+      "id": "bfi",
+      "block_type": "BFI",
+      "instance_name": "BFI1",
+      "x": -180.0,
+      "y": 120.0,
+      "config": {
+        "NUM_INPUTS": 2
+      }
+    },
+    {
+      "id": "or_ilk",
+      "block_type": "OR",
+      "instance_name": "OR_ILK",
+      "x": -180.0,
+      "y": -40.0,
+      "config": {}
+    },
+    {
+      "id": "not_ilk",
+      "block_type": "NOT",
+      "instance_name": "NOT_ILK",
+      "x": 20.0,
+      "y": -40.0,
+      "config": {}
+    },
+    {
+      "id": "or_byp",
+      "block_type": "OR",
+      "instance_name": "OR_BYPASS",
+      "x": -180.0,
+      "y": 340.0,
+      "config": {}
+    },
+    {
+      "id": "dc",
+      "block_type": "DEVCTL",
+      "instance_name": "DC1",
+      "x": 260.0,
+      "y": -160.0,
+      "config": {
+        "START_TIMEOUT": 10.0,
+        "STOP_TIMEOUT": 10.0,
+        "TRIP_TIME": 2.0,
+        "RESET_REQUIRED": true,
+        "use_azeo_states": true,
+        "mode": "AUTO",
+        "INTERLOCK_OPT": "ALWAYS_USE_VALUE"
+      }
+    },
+    {
+      "id": "do_run",
+      "block_type": "DO",
+      "instance_name": "DO1",
+      "x": 680.0,
+      "y": -240.0,
+      "config": {
+        "tag": "MTR-102.do_start"
+      }
+    },
+    {
+      "id": "do_pv",
+      "block_type": "DO",
+      "instance_name": "DO_PV_D",
+      "x": 680.0,
+      "y": -160.0,
+      "config": {
+        "tag": "MTR-102.PV_D"
+      }
+    },
+    {
+      "id": "do_ilk",
+      "block_type": "DO",
+      "instance_name": "DO_INTERLOCKED",
+      "x": 680.0,
+      "y": -80.0,
+      "config": {
+        "tag": "MTR-102.interlocked"
+      }
+    },
+    {
+      "id": "do_byp",
+      "block_type": "DO",
+      "instance_name": "DO_BYPASS_ACTIVE",
+      "x": 680.0,
+      "y": 340.0,
+      "config": {
+        "tag": "MTR-102.bypass_active"
+      }
+    },
+    {
+      "id": "ao_first",
+      "block_type": "AO",
+      "instance_name": "AO_FIRST_OUT",
+      "x": 680.0,
+      "y": 120.0,
+      "config": {
+        "tag": "MTR-102.first_out",
+        "out_lo": 0.0,
+        "out_hi": 16.0,
+        "mode": "CAS",
+        "eng_units": ""
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "di_xv101",
+      "src_terminal": "OUT",
+      "dst_block_id": "cnd1",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "ai_level",
+      "src_terminal": "OUT",
+      "dst_block_id": "cnd2",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "di_byp1",
+      "src_terminal": "OUT",
+      "dst_block_id": "cnd1",
+      "dst_terminal": "DISABLE"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "di_byp2",
+      "src_terminal": "OUT",
+      "dst_block_id": "cnd2",
+      "dst_terminal": "DISABLE"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "cnd1",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "bfi",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "cnd2",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "bfi",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "di_reset",
+      "src_terminal": "OUT",
+      "dst_block_id": "bfi",
+      "dst_terminal": "RESET_IN"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "cnd1",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "or_ilk",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "cnd2",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "or_ilk",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "or_ilk",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "not_ilk",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w011",
+      "src_block_id": "di_byp1",
+      "src_terminal": "OUT",
+      "dst_block_id": "or_byp",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w012",
+      "src_block_id": "di_byp2",
+      "src_terminal": "OUT",
+      "dst_block_id": "or_byp",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w013",
+      "src_block_id": "di_start",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "START_CMD"
+    },
+    {
+      "id": "w014",
+      "src_block_id": "di_stop",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "STOP_CMD"
+    },
+    {
+      "id": "w015",
+      "src_block_id": "di_reset",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RESET"
+    },
+    {
+      "id": "w016",
+      "src_block_id": "di_run",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w017",
+      "src_block_id": "not_ilk",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "dc",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w018",
+      "src_block_id": "dc",
+      "src_terminal": "DO_START",
+      "dst_block_id": "do_run",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w019",
+      "src_block_id": "dc",
+      "src_terminal": "RUNNING",
+      "dst_block_id": "do_pv",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w020",
+      "src_block_id": "or_ilk",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "do_ilk",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w021",
+      "src_block_id": "or_byp",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "do_byp",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w022",
+      "src_block_id": "bfi",
+      "src_terminal": "FIRST_OUT",
+      "dst_block_id": "ao_first",
+      "dst_terminal": "CAS_IN"
+    }
+  ]
+}

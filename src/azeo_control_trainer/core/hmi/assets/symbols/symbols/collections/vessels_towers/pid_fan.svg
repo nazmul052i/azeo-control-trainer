@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID fan</title>
+  <desc id="desc">Portable fan symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-152.5 -504.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <ellipse cx="181" cy="533" rx="25" ry="25" class="symbol-fill symbol-line" />
+        <path d="M 171 510.25 L 204.5 524.5 M 171 555.75 L 204.5 541.5 M 177.14 526.27 C 179.69 529.29 181.38 532.23 181 533 C 180.8 533.42 180.01 533.14 178.84 532.23 C 177.67 531.32 176.22 529.86 174.86 528.23 C 172.28 525.15 170.63 522.21 171.13 521.55 C 171.38 521.21 172.16 521.53 173.3 522.42 C 174.43 523.31 175.82 524.71 177.14 526.27 Z M 174.85 537.87 C 176.14 536.33 177.49 534.96 178.62 534.07 C 179.74 533.17 180.54 532.82 180.83 533.1 C 181.45 533.64 179.8 536.64 177.15 539.8 C 175.86 541.33 174.51 542.7 173.38 543.6 C 172.26 544.49 171.46 544.84 171.17 544.57 C 170.55 544.02 172.2 541.02 174.85 537.87 Z" fill="none" stroke-miterlimit="10" class="symbol-line" />
+        <ellipse cx="188.5" cy="533" rx="7.5" ry="1.5" fill="none" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0689655" cx="29" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.931034" data-anchor-y="0.5" cx="54" cy="29" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.931034" cx="29" cy="54" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0689655" data-anchor-y="0.5" cx="4" cy="29" r="3" />
+  </g>
+</svg>

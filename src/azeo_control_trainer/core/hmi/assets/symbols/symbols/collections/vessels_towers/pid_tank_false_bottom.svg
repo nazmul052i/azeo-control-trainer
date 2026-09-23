@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="120" viewBox="0 0 48 120" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID tank false bottom</title>
+  <desc id="desc">Portable tank false bottom symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-512.5 -331.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="516" y="335" width="40" height="112" fill="none" stroke="none" />
+        <path d="M 556 342.64 L 556 422.15 C 556 426.38 547.05 429.8 536 429.8 C 524.95 429.8 516 426.38 516 422.15 L 516 342.64 C 516 338.42 524.95 335 536 335 C 547.05 335 556 338.42 556 342.64 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 516 342.64 L 556 342.64 M 516 422.15 L 556 422.15 M 516 422.15 L 516 447 L 556 447 L 556 422.15" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0333333" cx="24" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.916667" data-anchor-y="0.5" cx="44" cy="60" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.966667" cx="24" cy="116" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0833333" data-anchor-y="0.5" cx="4" cy="60" r="3" />
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="38" viewBox="0 0 108 38" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID floating-head heat exchanger</title>
+  <desc id="desc">Horizontal floating-head heat-exchanger symbol.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-632 -742)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="636" y="746" width="100" height="30" fill="none" stroke="none" />
+        <rect x="636" y="746" width="100" height="30" class="symbol-fill symbol-line" />
+        <path d="M 651 746 L 651 776 M 636 761 L 651 761 M 651 758.5 L 715 758.5 M 651 753.5 L 715 753.5 M 651 763.5 L 715 763.5 M 651 768.5 L 715 768.5" fill="none" stroke-miterlimit="10" class="symbol-line" />
+        <rect x="715" y="751" width="6" height="20" fill="none" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.50463" data-anchor-y="0.118421" cx="54.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.967593" data-anchor-y="0.513158" cx="104.5" cy="19.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.50463" data-anchor-y="0.907895" cx="54.5" cy="34.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0416667" data-anchor-y="0.513158" cx="4.5" cy="19.5" r="3" />
+  </g>
+</svg>

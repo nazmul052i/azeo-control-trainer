@@ -1,0 +1,178 @@
+{
+  "name": "FIC-1001",
+  "description": "D1 charge flow",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U100",
+    "workbook_block_type": "PID",
+    "design_default_mode": "CAS",
+    "strategy_demonstrated": "Flow PID, final element selectable between valve and VFD",
+    "pv_source_text": "FT-1001",
+    "final_element_text": "FCV-1001 or SC-1001",
+    "mapped_input_tags": [
+      "FT-1001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "FCV-1001"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "FT-1001"
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "id": "b005",
+      "block_type": "AI",
+      "instance_name": "FT-1004",
+      "x": 0.0,
+      "y": 330.0,
+      "config": {
+        "tag": "FT-1004",
+        "label": "Fresh feed from upstream battery limit",
+        "scale_lo": 0.0,
+        "scale_hi": 150.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 150.0,
+        "eng_units": "m3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "OPT_UNCERTAIN_IF_MAN": true
+      }
+    },
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "FT-1001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-1001",
+        "label": "Charge flow from D1",
+        "scale_lo": 0.0,
+        "scale_hi": 300.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 300.0,
+        "eng_units": "m3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "FIC-1001",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 2.4,
+        "RESET": 60.0,
+        "RATE": 0.0,
+        "sp_init": 123.60017573474572,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 300.0,
+        "sp_lo": 0.0,
+        "sp_hi": 300.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "CAS",
+        "pv_unit": "m3/h",
+        "op_unit": "%",
+        "description": "D1 charge flow",
+        "sp_pv_track_man": true,
+        "use_pv_for_bkcal_out": true,
+        "out_init": 53.689234837101466
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "SCALER",
+      "instance_name": "OUT_SCALE",
+      "x": 700.0,
+      "y": 40.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "AO",
+      "instance_name": "FCV-1001",
+      "x": 980.0,
+      "y": 40.0,
+      "config": {
+        "tag": "FCV-1001",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "sp_lo_lim": 0.0,
+        "sp_hi_lim": 100.0,
+        "mode": "MAN",
+        "normal_mode": "CAS",
+        "eng_units": "",
+        "description": "D1 charge flow control valve"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w002",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "CAS_IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b004",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b003",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

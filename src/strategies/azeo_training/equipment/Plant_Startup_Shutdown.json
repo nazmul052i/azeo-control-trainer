@@ -1,0 +1,52 @@
+{
+  "name": "Plant Startup Shutdown",
+  "description": "Course book Module 11, Workshop 'EM Plant Start-up and Shutdown'. Command-driven equipment module: STARTUP_T101 fills Tank201 to STARTUP_LEVEL then starts MTR-203 to maintain it; SHUTDOWN_T101 shuts Tank101 down and drives Tank201 to SHUTDOWN_LEVEL before stopping the process.",
+  "equipment_type": "PLANT_TRAIN",
+  "tag_prefix": "EM-100",
+  "parameters": {
+    "STARTUP_LEVEL": {
+      "value": 600.0,
+      "unit": "gal",
+      "description": "Tank201 level that must be reached before MTR-203 is started"
+    },
+    "SHUTDOWN_LEVEL": {
+      "value": 100.0,
+      "unit": "gal",
+      "description": "Final Tank201 level before the process is shut down"
+    }
+  },
+  "control_modules": [
+    "control/LI-101.json",
+    "control/XV-101.json",
+    "control/MTR-102.json",
+    "control/FIC-102.json",
+    "control/LIC-201.json",
+    "control/MTR-203.json"
+  ],
+  "sfc_modules": [],
+  "alarms": {
+    "tank101_hi": {
+      "tag": "LI-101.PV",
+      "limit": 800.0,
+      "priority": "HIGH"
+    },
+    "tank101_lo": {
+      "tag": "LI-101.PV",
+      "limit": 50.0,
+      "priority": "MEDIUM"
+    },
+    "mtr102_interlocked": {
+      "tag": "MTR-102.interlocked",
+      "limit": 0.5,
+      "priority": "HIGH"
+    }
+  },
+  "states": [
+    "IDLE",
+    "STARTING_UP",
+    "RUNNING",
+    "SHUTTING_DOWN",
+    "SHUTDOWN"
+  ],
+  "initial_state": "IDLE"
+}

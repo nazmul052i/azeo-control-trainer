@@ -1,0 +1,42 @@
+[
+ {
+  "rev": 1,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-08-24 13:18",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 2,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-08-24 13:25",
+  "diff": [
+   "+ PVM FIC-101/PID1 PID/dynamo_inline",
+   "+ PVM FIC-101/AI1 AI/dynamo_compact",
+   "+ PVM FIC-101/PID1 PID/dynamo_inline"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 3,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-08-26 23:14",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 4,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-08-27 00:02",
+  "diff": [],
+  "released_items": 0
+ }
+]

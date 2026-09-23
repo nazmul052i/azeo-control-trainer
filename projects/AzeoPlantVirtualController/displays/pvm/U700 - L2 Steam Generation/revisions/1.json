@@ -1,0 +1,607 @@
+{
+ "display": "U700 - L2 Steam Generation",
+ "pvms": [
+  {
+   "id": "u700_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-7001/LIC-7001"
+   },
+   "x": 117.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Drum level"
+  },
+  {
+   "id": "u700_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-7001/FIC-7001"
+   },
+   "x": 461.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Feedwater"
+  },
+  {
+   "id": "u700_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-7001/PIC-7001"
+   },
+   "x": 805.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Steam pressure"
+  },
+  {
+   "id": "u700_loop_3",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "AIC-7001/AIC-7001"
+   },
+   "x": 1149.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Flue O2"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U700 · STEAM GENERATION AND DISTRIBUTION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Balance deaerator/feedwater inventory, B1 firing, combustion air, drum level, and plant steam-header pressure.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u700_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u700_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U700/U700B",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u700_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u700_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "symbol",
+   "id": "u700_da",
+   "x": 75,
+   "y": 230,
+   "w": 110,
+   "h": 170,
+   "symbol": "tank"
+  },
+  {
+   "kind": "text",
+   "id": "u700_da_tag",
+   "x": 50,
+   "y": 203,
+   "w": 160,
+   "h": 22,
+   "text": "DA701",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u700_da_label",
+   "x": 45,
+   "y": 405,
+   "w": 170,
+   "h": 28,
+   "text": "Deaerator",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u700_p701",
+   "x": 290,
+   "y": 275,
+   "w": 110,
+   "h": 95,
+   "symbol": "pump"
+  },
+  {
+   "kind": "text",
+   "id": "u700_p701_tag",
+   "x": 265,
+   "y": 248,
+   "w": 160,
+   "h": 22,
+   "text": "P701A/B",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u700_p701_label",
+   "x": 260,
+   "y": 375,
+   "w": 170,
+   "h": 28,
+   "text": "Boiler-feedwater pumps",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u700_b1",
+   "x": 520,
+   "y": 180,
+   "w": 180,
+   "h": 280,
+   "symbol": "heater"
+  },
+  {
+   "kind": "text",
+   "id": "u700_b1_tag",
+   "x": 495,
+   "y": 153,
+   "w": 230,
+   "h": 22,
+   "text": "B1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u700_b1_label",
+   "x": 490,
+   "y": 465,
+   "w": 240,
+   "h": 28,
+   "text": "Steam boiler",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u700_fan",
+   "x": 790,
+   "y": 355,
+   "w": 95,
+   "h": 90,
+   "symbol": "fan"
+  },
+  {
+   "kind": "text",
+   "id": "u700_fan_tag",
+   "x": 765,
+   "y": 328,
+   "w": 145,
+   "h": 22,
+   "text": "FD-701",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u700_fan_label",
+   "x": 760,
+   "y": 450,
+   "w": 155,
+   "h": 28,
+   "text": "Combustion-air fan",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u700_stack",
+   "x": 930,
+   "y": 180,
+   "w": 80,
+   "h": 180,
+   "symbol": "stack"
+  },
+  {
+   "kind": "text",
+   "id": "u700_stack_tag",
+   "x": 905,
+   "y": 153,
+   "w": 130,
+   "h": 22,
+   "text": "STACK",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u700_stack_label",
+   "x": 900,
+   "y": 365,
+   "w": 140,
+   "h": 28,
+   "text": "Flue gas",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u700_pipe_0",
+   "a": "u700_da",
+   "a_side": "e",
+   "b": "u700_p701",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u700_pipe_1",
+   "a": "u700_p701",
+   "a_side": "e",
+   "b": "u700_b1",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u700_pipe_2",
+   "a": "u700_fan",
+   "a_side": "w",
+   "b": "u700_b1",
+   "b_side": "s",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u700_pipe_3",
+   "a": "u700_b1",
+   "a_side": "n",
+   "b": "u700_stack",
+   "b_side": "s",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u700_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u700_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "Steam pressure",
+     "value": {
+      "path": "PIC-7001/PIC-7001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Drum level",
+     "value": {
+      "path": "LIC-7001/LIC-7001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Steam temperature",
+     "value": {
+      "path": "TIC-7001/TIC-7001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u700_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u700_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "Steam pressure",
+     "path": "PIC-7001/PIC-7001/PV"
+    },
+    {
+     "label": "Drum level",
+     "path": "LIC-7001/LIC-7001/PV"
+    },
+    {
+     "label": "Steam temperature",
+     "path": "TIC-7001/TIC-7001/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u700_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE LIC-7001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u700_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "LIC-7001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u700_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u700_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  }
+ ],
+ "description": "L2 primary-operation display for U700, derived from AP-PID-U700/U700B. Native editable equipment, smart pipes, live PVMs, KPIs, profile, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

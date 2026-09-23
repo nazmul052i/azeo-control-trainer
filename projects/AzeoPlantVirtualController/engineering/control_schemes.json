@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "source": "engineering/Control_Modules.md + AzeoPlantSimulator/azeoplant/control/strategy.py",
+  "external_reset_contracts": [
+    {
+      "master": "LIC-1001",
+      "reset_source": "FIC-1001",
+      "path": "ctrl.FIC-1001.BKCAL_OUT -> LIC-1001/BKCAL_IN (0.0..300.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "PIC-2001",
+      "reset_source": "SIC-2001",
+      "path": "ctrl.SIC-2001.BKCAL_OUT -> PIC-2001/BKCAL_IN (0.0..14000.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "TIC-3001",
+      "reset_source": "FIC-3001",
+      "path": "ctrl.FIC-3001.BKCAL_OUT -> TIC-3001/BKCAL_IN (0.0..3000.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "ZC-3001",
+      "reset_source": "PIC-3001",
+      "path": "ctrl.PIC-3001.BKCAL_OUT -> ZC-3001/BKCAL_IN (0.0..25.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "TIC-4001",
+      "reset_source": "FIC-4001",
+      "path": "ctrl.FIC-4001.BKCAL_OUT -> TIC-4001/BKCAL_IN (0.0..40.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "AIC-4001",
+      "reset_source": "TIC-4001",
+      "path": "ctrl.TIC-4001.BKCAL_OUT -> AIC-4001/BKCAL_IN (0.0..550.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "TIC-5001",
+      "reset_source": "FIC-5001",
+      "path": "ctrl.FIC-5001.BKCAL_OUT -> TIC-5001/BKCAL_IN (0.0..400.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "TIC-5002",
+      "reset_source": "FIC-5002",
+      "path": "ctrl.FIC-5002.BKCAL_OUT -> TIC-5002/BKCAL_IN (0.0..45.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "AIC-5001",
+      "reset_source": "TIC-5001",
+      "path": "ctrl.TIC-5001.BKCAL_OUT -> AIC-5001/BKCAL_IN (0.0..300.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "AIC-5002",
+      "reset_source": "TIC-5002",
+      "path": "ctrl.TIC-5002.BKCAL_OUT -> AIC-5002/BKCAL_IN (0.0..400.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "TIC-6001",
+      "reset_source": "FIC-6001",
+      "path": "ctrl.FIC-6001.BKCAL_OUT -> TIC-6001/BKCAL_IN (0.0..400.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "TIC-6002",
+      "reset_source": "FIC-6002",
+      "path": "ctrl.FIC-6002.BKCAL_OUT -> TIC-6002/BKCAL_IN (0.0..45.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "AIC-6001",
+      "reset_source": "TIC-6001",
+      "path": "ctrl.TIC-6001.BKCAL_OUT -> AIC-6001/BKCAL_IN (0.0..300.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "AIC-6002",
+      "reset_source": "TIC-6002",
+      "path": "ctrl.TIC-6002.BKCAL_OUT -> AIC-6002/BKCAL_IN (0.0..400.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "LIC-7001",
+      "reset_source": "FIC-7001",
+      "path": "ctrl.FIC-7001.BKCAL_OUT -> LIC-7001/BKCAL_IN (0.0..80.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "PIC-7001",
+      "reset_source": "FIC-7002",
+      "path": "ctrl.FIC-7002.BKCAL_OUT -> PIC-7001/BKCAL_IN (0.0..5000.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    {
+      "master": "LIC-8001",
+      "reset_source": "FIC-8001",
+      "path": "ctrl.FIC-8001.BKCAL_OUT -> LIC-8001/BKCAL_IN (0.0..120.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    }
+  ],
+  "supervisory_sources": [
+    "AIC-3001",
+    "AIC-7001",
+    "AIC-7002",
+    "PDIC-5001",
+    "PDIC-6001",
+    "PIC-1001",
+    "PIC-2002",
+    "PIC-7001",
+    "TIC-2001",
+    "TIC-3004",
+    "TIC-4002"
+  ],
+  "handoff_owners": {
+    "FIC-1001": "LIC-1001",
+    "FIC-3001": "FY-3002",
+    "FIC-3003": "FY-3002",
+    "FIC-4001": "TIC-4001",
+    "FIC-5001": "TIC-5001",
+    "FIC-5002": "TIC-5002",
+    "FIC-6001": "TIC-6001",
+    "FIC-6002": "TIC-6002",
+    "FIC-7001": "LIC-7001",
+    "FIC-7002": "FY-7002",
+    "FIC-7003": "FY-7002",
+    "FIC-8001": "LIC-8001",
+    "PIC-3001": "ZC-3001",
+    "SIC-2001": "PIC-2001",
+    "TIC-4001": "AIC-4001",
+    "TIC-5001": "AIC-5001",
+    "TIC-5002": "AIC-5002",
+    "TIC-6001": "AIC-6001",
+    "TIC-6002": "AIC-6002"
+  },
+  "monitor_only_unspecified": [
+    "FY-0101",
+    "FY-2001",
+    "PY-0101"
+  ],
+  "monitor_only_superseded": [
+    "FY-3001",
+    "FY-5001",
+    "FY-5002",
+    "FY-6001",
+    "FY-6002",
+    "FY-7001",
+    "SIC-7001"
+  ],
+  "startup": {
+    "constraint_setpoints_and_released_outputs": {
+      "AIC-7002": {
+        "sp": 400.0,
+        "out": 0.0
+      },
+      "PDIC-5001": {
+        "sp": 340.0,
+        "out": 100.0
+      },
+      "PDIC-6001": {
+        "sp": 330.0,
+        "out": 100.0
+      },
+      "PIC-1001": {
+        "sp": 24.0,
+        "out": 100.0
+      },
+      "PIC-2002": {
+        "sp": 56.0,
+        "out": 0.0
+      },
+      "PIC-7002": {
+        "sp": 37.5,
+        "out": 0.0
+      },
+      "TIC-2001": {
+        "sp": 185.0,
+        "out": 0.0
+      },
+      "TIC-3004": {
+        "sp": 600.0,
+        "out": 100.0
+      },
+      "TIC-4002": {
+        "sp": 392.0,
+        "out": 0.0
+      }
+    },
+    "cascade_handoffs_armed": true,
+    "ownership_requires_slave_mode": true,
+    "master_output_basis": "first slave as-found PV normalized to percent"
+  }
+}

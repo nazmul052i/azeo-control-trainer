@@ -1,0 +1,157 @@
+{
+  "name": "FIC-6005",
+  "description": "P-602 minimum flow protection",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U600",
+    "workbook_block_type": "PID",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Pump protection override",
+    "pv_source_text": "FT-6008",
+    "final_element_text": "FCV-6007",
+    "mapped_input_tags": [
+      "FT-6008"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "FCV-6007"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "FT-6008"
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "FT-6008",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-6008",
+        "label": "T2 bottoms pump minimum flow",
+        "scale_lo": 0.0,
+        "scale_hi": 50.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 50.0,
+        "eng_units": "m3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "FIC-6005",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 1.5,
+        "RESET": 90.0,
+        "RATE": 0.0,
+        "sp_init": 12.000022637127778,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 50.0,
+        "sp_lo": 0.0,
+        "sp_hi": 50.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "m3/h",
+        "op_unit": "%",
+        "description": "P-602 minimum flow protection",
+        "sp_pv_track_man": true,
+        "out_init": 9.589495971165954
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "SCALER",
+      "instance_name": "OUT_SCALE",
+      "x": 700.0,
+      "y": 40.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "AO",
+      "instance_name": "FCV-6007",
+      "x": 980.0,
+      "y": 40.0,
+      "config": {
+        "tag": "FCV-6007",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "sp_lo_lim": 0.0,
+        "sp_hi_lim": 100.0,
+        "mode": "MAN",
+        "normal_mode": "CAS",
+        "eng_units": "",
+        "description": "T2 bottoms pump minimum flow"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w002",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "CAS_IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b004",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b003",
+      "src_terminal": "BKCAL_OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

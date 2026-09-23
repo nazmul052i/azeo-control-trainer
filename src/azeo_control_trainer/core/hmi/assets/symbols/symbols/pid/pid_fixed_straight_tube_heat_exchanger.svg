@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="48" viewBox="0 0 108 48" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID fixed straight-tube heat exchanger</title>
+  <desc id="desc">Fixed straight-tube heat-exchanger symbol.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-402 -772)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="406" y="776" width="100" height="40" fill="none" stroke="none" />
+        <rect x="406" y="776" width="100" height="40" class="symbol-fill symbol-line" />
+        <path d="M 414 776 L 414 816 M 498 776 L 498 816 M 414 781 L 498 781 M 414 786 L 498 786 M 414 791 L 498 791 M 414 796 L 498 796 M 414 801 L 498 801 M 414 806 L 498 806 M 414 811 L 498 811" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.50463" data-anchor-y="0.09375" cx="54.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.967593" data-anchor-y="0.510417" cx="104.5" cy="24.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.50463" data-anchor-y="0.927083" cx="54.5" cy="44.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0416667" data-anchor-y="0.510417" cx="4.5" cy="24.5" r="3" />
+  </g>
+</svg>

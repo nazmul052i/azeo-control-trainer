@@ -1,0 +1,505 @@
+{
+ "display": "Overview - L4 Heater Safety",
+ "pvms": [],
+ "items": [
+  {
+   "kind": "text",
+   "id": "title",
+   "x": 24,
+   "y": 10,
+   "w": 1090,
+   "h": 35,
+   "text": "H1 BMS AND SIS - SUPPORT AND DIAGNOSTICS",
+   "font_size": 19,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "purpose",
+   "x": 24,
+   "y": 49,
+   "w": 1090,
+   "h": 25,
+   "text": "Permits, interlocks, first-out evidence, final elements and reset readiness for the charge heater",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "level",
+   "x": 1484,
+   "y": 14,
+   "w": 88,
+   "h": 36,
+   "text": "L4",
+   "font_size": 19,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "configure_note",
+   "x": 24,
+   "y": 864,
+   "w": 1536,
+   "h": 25,
+   "text": "Configured from AP-PID-U300 and AP-PID-U900 on the ISA-101 L4 Support Display template | APVC-CTRL-1 bindings",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "display_link",
+   "id": "up",
+   "x": 1128,
+   "y": 32,
+   "w": 148,
+   "h": 34,
+   "target": "Overview - L3 Charge Heater",
+   "text": "Up one level"
+  },
+  {
+   "kind": "rect",
+   "id": "permits",
+   "x": 24,
+   "y": 90,
+   "w": 748,
+   "h": 340,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "permits_title",
+   "x": 40,
+   "y": 100,
+   "w": 716,
+   "h": 26,
+   "text": "PERMITS / INTERLOCKS / FIRST OUT",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "diagnostics",
+   "x": 792,
+   "y": 90,
+   "w": 784,
+   "h": 340,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "diagnostics_title",
+   "x": 808,
+   "y": 100,
+   "w": 752,
+   "h": 26,
+   "text": "BURNER AND FINAL-ELEMENT DIAGNOSTICS",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "procedure",
+   "x": 24,
+   "y": 450,
+   "w": 748,
+   "h": 394,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "procedure_title",
+   "x": 40,
+   "y": 460,
+   "w": 716,
+   "h": 26,
+   "text": "PROCEDURE / OPERATOR GUIDANCE",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "support",
+   "x": 792,
+   "y": 450,
+   "w": 784,
+   "h": 394,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "support_title",
+   "x": 808,
+   "y": 460,
+   "w": 752,
+   "h": 26,
+   "text": "RELATED HISTORY AND SUPPORT",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "table",
+   "id": "permit_table",
+   "x": 40,
+   "y": 142,
+   "w": 716,
+   "h": 248,
+   "columns": [
+    {
+     "key": "name",
+     "title": "Parameter / condition",
+     "width": 2.3
+    },
+    {
+     "key": "state",
+     "title": "State / value",
+     "width": 1.3
+    }
+   ],
+   "rows": [
+    {
+     "name": "Start permit BMS-3001",
+     "state": {
+      "path": "BMS-3001/BMS-3001/PERMIT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "GRANTED",
+       "false": "BLOCKED"
+      }
+     }
+    },
+    {
+     "name": "BMS trip latched",
+     "state": {
+      "path": "BMS-3001/BMS-3001/TRIPPED",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "name": "Plant ESD tripped ESD-9000",
+     "state": {
+      "path": "ESD-9000/ESD-9000/TRIPPED",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "name": "Plant ESD reset readiness",
+     "state": {
+      "path": "ESD-9000/ESD-9000/READY",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "READY",
+       "false": "NOT READY"
+      }
+     }
+    },
+    {
+     "name": "Bypass / suppression",
+     "state": "Not configured"
+    }
+   ],
+   "row_height": 36,
+   "header_height": 30
+  },
+  {
+   "kind": "table",
+   "id": "diagnostic_table",
+   "x": 808,
+   "y": 142,
+   "w": 752,
+   "h": 248,
+   "columns": [
+    {
+     "key": "name",
+     "title": "Parameter / condition",
+     "width": 2.3
+    },
+    {
+     "key": "state",
+     "title": "State / value",
+     "width": 1.3
+    }
+   ],
+   "rows": [
+    {
+     "name": "Burner flame BS-3001",
+     "state": {
+      "path": "BMS-3001/BS-3001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "PROVEN",
+       "false": "NO FLAME"
+      }
+     }
+    },
+    {
+     "name": "ID-301 fan running",
+     "state": {
+      "path": "BMS-3001/XS-ID301-RUN/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "RUNNING",
+       "false": "STOPPED"
+      }
+     }
+    },
+    {
+     "name": "Main fuel command",
+     "state": {
+      "path": "BMS-3001/BMS-3001/MAIN_FUEL_CMD",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ON",
+       "false": "OFF"
+      }
+     }
+    },
+    {
+     "name": "Main fuel shutoff XY-3010",
+     "state": {
+      "path": "BMS-3001/XY-3010/OUT_D",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "OPEN",
+       "false": "CLOSED"
+      }
+     }
+    },
+    {
+     "name": "Bridgewall temperature TT-3005",
+     "state": {
+      "path": "BMS-3001/TT-3005/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 36,
+   "header_height": 30
+  },
+  {
+   "kind": "text",
+   "id": "permit_note",
+   "x": 40,
+   "y": 398,
+   "w": 716,
+   "h": 26,
+   "text": "Bound to BMS-3001 and ESD-9000. An unbound permit is unknown, never FALSE.",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "diagnostic_note",
+   "x": 808,
+   "y": 398,
+   "w": 752,
+   "h": 26,
+   "text": "Use the TIC-3001 and BMS-3001 faceplates for authorized detail and tuning.",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "procedure_state",
+   "x": 40,
+   "y": 500,
+   "w": 716,
+   "h": 26,
+   "text": "Procedure reference: pa_safe_landing rev-003 - Remove H1 firing",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "procedure_guidance",
+   "x": 40,
+   "y": 548,
+   "w": 716,
+   "h": 82,
+   "text": "Open Tools > Procedures on this station to run the safe-landing procedure. Its heater step removes fuel and closes both fuel shutoff valves from Plant - L3 Manual Heater; verify the field feedback in the procedure conditions.",
+   "font_size": 12,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "approved_guidance",
+   "x": 40,
+   "y": 672,
+   "w": 716,
+   "h": 26,
+   "text": "Approved operating guidance / reset readiness",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "guidance_placeholder",
+   "x": 40,
+   "y": 716,
+   "w": 716,
+   "h": 64,
+   "text": "A reset is appropriate only after the first-out cause is understood, every field condition is healthy, final elements are verified, and operating procedure authorization is complete.",
+   "font_size": 11,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "support_history_title",
+   "x": 808,
+   "y": 500,
+   "w": 752,
+   "h": 26,
+   "text": "Bridgewall temperature TT-3005 | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "support_history",
+   "x": 808,
+   "y": 532,
+   "w": 752,
+   "h": 130,
+   "pens": [
+    {
+     "path": "BMS-3001/TT-3005/PV",
+     "label": "Bridgewall"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "alarms_title_4",
+   "x": 808,
+   "y": 690,
+   "w": 752,
+   "h": 26,
+   "text": "BMS ALARMS - BMS-3001 scope",
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "alarms_4",
+   "x": 808,
+   "y": 720,
+   "w": 752,
+   "h": 106,
+   "path_prefix": "BMS-3001",
+   "priority_min": 0
+  }
+ ],
+ "description": "L4 heater BMS/SIS support display derived from AP-PID-U300 and AP-PID-U900 and configured on the ISA-101 L4 Support Display template.",
+ "width": 1600,
+ "height": 900,
+ "level": 4,
+ "parent": "Overview - L3 Charge Heater",
+ "show_tag": "none",
+ "schema_version": 3
+}

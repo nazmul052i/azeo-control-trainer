@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="128" viewBox="0 0 58 128" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID valve-tray column</title>
+  <desc id="desc">Vertical process column containing valve-tray internals.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-282 -172)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 286 191 C 286 182.72 297.19 176 311 176 C 324.81 176 336 182.72 336 191 L 336 281 C 336 289.28 324.81 296 311 296 C 297.19 296 286 289.28 286 281 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 286 201 L 336 201 M 286 271 L 336 271" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+        <path d="M 286 211 L 306 211 M 306 209 L 316 209 M 316 211 L 336 211 M 286 221 L 306 221 M 306 219 L 316 219 M 316 221 L 336 221 M 286 231 L 306 231 M 306 229 L 316 229 M 316 231 L 336 231 M 286 241 L 306 241 M 306 239 L 316 239 M 316 241 L 336 241 M 286 251 L 306 251 M 306 249 L 316 249 M 316 251 L 336 251 M 286 261 L 306 261 M 306 259 L 316 259 M 316 261 L 336 261" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.508621" data-anchor-y="0.0351562" cx="29.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.939655" data-anchor-y="0.503906" cx="54.5" cy="64.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.508621" data-anchor-y="0.972656" cx="29.5" cy="124.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0775862" data-anchor-y="0.503906" cx="4.5" cy="64.5" r="3" />
+  </g>
+</svg>

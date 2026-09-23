@@ -1,0 +1,73 @@
+{
+  "name": "PY-0101",
+  "description": "Header import demand allocation",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U010",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Balances import against off-gas availability",
+    "pv_source_text": "PT-0101 / FT-0102",
+    "final_element_text": "PIC-0101 output bias",
+    "mapped_input_tags": [
+      "PT-0101",
+      "FT-0102"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "PIC-0101"
+    ],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "MONITOR_ONLY_UNSPECIFIED",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "drives_control": false,
+    "evidence_gap": "off-gas import-bias equation",
+    "evidence_checked": "AzeoPlantSimulator/azeoplant/control/strategy.py and engineering/Control_Modules.md"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "PT-0101",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "PT-0101",
+        "label": "Natural gas header pressure",
+        "scale_lo": 0.0,
+        "scale_hi": 25.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 25.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "FT-0102",
+      "x": 0.0,
+      "y": 110.0,
+      "config": {
+        "tag": "FT-0102",
+        "label": "D3 off-gas to fuel header",
+        "scale_lo": 0.0,
+        "scale_hi": 3000.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 3000.0,
+        "eng_units": "Nm3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

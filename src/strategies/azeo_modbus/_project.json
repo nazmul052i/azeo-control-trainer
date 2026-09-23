@@ -1,0 +1,71 @@
+{
+  "areas": [
+    {
+      "name": "AZEO_MODBUS",
+      "area_id": "azeomodbus",
+      "description": "The open-loop Modbus simulator, driven over TCP. Every field point in these modules is a register on a device at the other end of a socket \u2014 see fieldio/modbus_map.py.",
+      "controller": {
+        "name": "PK-CTLR-1",
+        "model": "PK100",
+        "modbus_server": {
+          "port": 5020
+        },
+        "opcua_server": {
+          "port": 43300,
+          "host": "0.0.0.0"
+        }
+      },
+      "console": {
+        "chrome": "azeo"
+      },
+      "strategies": [
+        "control\\FIC-101.json",
+        "control\\II-101.json",
+        "control\\LI-101.json",
+        "control\\LIC-101.json",
+        "control\\MTR-101.json",
+        "control\\PI-101.json",
+        "control\\SIC-101.json",
+        "control\\XV-101.json",
+        "DMC.json"
+      ],
+      "sfc_modules": [
+        "sequence\\SEQ-101.json"
+      ],
+      "equipment_modules": [
+        "equipment\\Discharge_Train.json"
+      ],
+      "units": [
+        {
+          "name": "TANK-101",
+          "description": "Tank, pump, drive and discharge path",
+          "modules": [
+            "LI-101",
+            "LIC-101",
+            "FIC-101",
+            "XV-101",
+            "MTR-101",
+            "SIC-101",
+            "PI-101",
+            "II-101",
+            "SEQ-101"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        }
+      ],
+      "field_io": {
+        "type": "modbus",
+        "host": "127.0.0.1",
+        "port": 1502,
+        "unit_id": 1,
+        "period_ms": 100,
+        "_comment": "The open-loop Modbus simulator. Start it first: azeo-open-loop-modbus-simulator/.venv/Scripts/python.exe -m azeo_open_loop. Every field tag in these modules is a register on that device \u2014 see src/azeo_control_trainer/fieldio/modbus_map.py."
+      }
+    }
+  ]
+}

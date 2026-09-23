@@ -1,0 +1,18 @@
+{
+  "source_repository": "azeo_dcs",
+  "source_commit": "f7b88b149dae51809ea5307f97a275bb1d03e205",
+  "source_path": "pa_designer/ui/desktop_app.py",
+  "source_sha256_lf": "fa0c7a85134ae4184350a3562cd9864b9dc6e525288c0db2b8ac01fed44d9cc2",
+  "classes": [
+    "FlowNodeGraphicsItem",
+    "FlowRouteHandle",
+    "FlowEdgeGraphicsItem"
+  ],
+  "adaptations": [
+    "Shared Azeo authoring colors",
+    "Weak canvas ownership",
+    "Host contains Qt events and commits document gestures",
+    "Authoring omits runtime furniture and creates route handles only on selection",
+    "Retained host updates incident edges and caches static text and icons"
+  ]
+}

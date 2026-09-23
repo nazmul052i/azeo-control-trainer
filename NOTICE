@@ -1,0 +1,25 @@
+Azeo Control Trainer — licensing and attribution notice
+
+The source repository's root LICENSE (`AZEO_LICENSE.txt` in a Windows binary
+distribution) applies only where a file or directory does not carry a more
+specific licence notice.
+
+Separately licensed material
+----------------------------
+
+* P&ID symbol assets and their source artwork:
+  src/azeo_control_trainer/core/hmi/assets/symbols/LICENSE
+* DejaVu fonts:
+  src/azeo_control_trainer/core/hmi/theme/assets/LICENSE_DEJAVU
+* Bundled Python, Qt and Python packages:
+  THIRD_PARTY_NOTICES.md and the licence files retained below
+  runtime/Lib/site-packages in a Windows distribution.
+
+The names Qt, Python, DejaVu and the names of other third-party projects are
+the property of their respective owners. Their inclusion does not imply
+affiliation with or endorsement of Azeo.
+
+Vendor product names used solely to identify compatible concepts or migration
+interfaces are trademarks of their respective owners. Azeo is an independent
+project and is not sponsored by, endorsed by, or affiliated with those
+vendors.

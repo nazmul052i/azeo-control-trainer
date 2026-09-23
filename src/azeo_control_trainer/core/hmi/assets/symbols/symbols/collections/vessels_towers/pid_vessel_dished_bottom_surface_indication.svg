@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="95" viewBox="0 0 48 95" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID vessel dished bottom surface indication</title>
+  <desc id="desc">Portable vessel dished bottom surface indication symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-632.5 -349.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="636" y="353" width="40" height="87" fill="none" stroke="none" />
+        <path d="M 676 353 L 676 432.37 C 676 436.59 667.05 440 656 440 C 644.95 440 636 436.59 636 432.37 L 636 353 L 676 353 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 636 362.92 L 676 362.92 M 636 432.37 L 676 432.37 M 656 357.96 L 646 357.96 L 649 361.93 L 652 357.96" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0421053" cx="24" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.916667" data-anchor-y="0.5" cx="44" cy="47.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.957895" cx="24" cy="91" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0833333" data-anchor-y="0.5" cx="4" cy="47.5" r="3" />
+  </g>
+</svg>

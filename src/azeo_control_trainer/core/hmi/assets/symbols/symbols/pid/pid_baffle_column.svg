@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="128" viewBox="0 0 58 128" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID baffle column</title>
+  <desc id="desc">Vertical process column containing alternating baffles.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-482 -222)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 486 241 C 486 232.72 497.19 226 511 226 C 524.81 226 536 232.72 536 241 L 536 331 C 536 339.28 524.81 346 511 346 C 497.19 346 486 339.28 486 331 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 486 251 L 536 251 M 486 321 L 536 321" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+        <path d="M 486 261 L 531 261 L 531 258 M 491 266 L 491 271 L 536 271 M 486 281 L 531 281 L 531 278 M 491 286 L 491 291 L 536 291 M 486 301 L 531 301 L 531 298 M 491 306 L 491 311 L 536 311" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.508621" data-anchor-y="0.0351562" cx="29.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.939655" data-anchor-y="0.503906" cx="54.5" cy="64.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.508621" data-anchor-y="0.972656" cx="29.5" cy="124.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0775862" data-anchor-y="0.503906" cx="4.5" cy="64.5" r="3" />
+  </g>
+</svg>

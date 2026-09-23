@@ -1,0 +1,119 @@
+{
+  "name": "XV-101",
+  "description": "Discharge block valve. Open and closed limit switches come back on discrete inputs 10001 and 10002; the solenoid is coil 2. The closed limit switch (10002) is brought in so a sequence can confirm closed rather than infer it from 'not open'.",
+  "blocks": [
+    {
+      "id": "di_open",
+      "block_type": "DI",
+      "instance_name": "DI_CMD_OPEN",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "XV-101.cmd_open"
+      }
+    },
+    {
+      "id": "di_close",
+      "block_type": "DI",
+      "instance_name": "DI_CMD_CLOSE",
+      "x": 0.0,
+      "y": 90.0,
+      "config": {
+        "tag": "XV-101.cmd_close"
+      }
+    },
+    {
+      "id": "di_zso",
+      "block_type": "DI",
+      "instance_name": "DI1",
+      "x": 0.0,
+      "y": 180.0,
+      "config": {
+        "tag": "XV-101.ZSO"
+      }
+    },
+    {
+      "id": "dc",
+      "block_type": "DEVCTL",
+      "instance_name": "DC1",
+      "x": 280.0,
+      "y": 60.0,
+      "config": {
+        "START_TIMEOUT": 15.0,
+        "STOP_TIMEOUT": 15.0,
+        "RESET_REQUIRED": false,
+        "use_azeo_states": true,
+        "mode": "AUTO",
+        "DEVICE_KIND": "VALVE"
+      }
+    },
+    {
+      "id": "do_sol",
+      "block_type": "DO",
+      "instance_name": "DO1",
+      "x": 540.0,
+      "y": 60.0,
+      "config": {
+        "tag": "XV-101.solenoid"
+      }
+    },
+    {
+      "id": "di_zsc",
+      "block_type": "DI",
+      "instance_name": "DI_ZSC",
+      "x": 0.0,
+      "y": 270.0,
+      "config": {
+        "tag": "XV-101.ZSC"
+      }
+    },
+    {
+      "id": "do_pv",
+      "block_type": "DO",
+      "instance_name": "DO_PV_D",
+      "x": 540.0,
+      "y": 160.0,
+      "config": {
+        "tag": "XV-101.PV_D"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "di_open",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "START_CMD"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "di_close",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "STOP_CMD"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "di_zso",
+      "src_terminal": "OUT",
+      "dst_block_id": "dc",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "dc",
+      "src_terminal": "DO_START",
+      "dst_block_id": "do_sol",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "dc",
+      "src_terminal": "RUNNING",
+      "dst_block_id": "do_pv",
+      "dst_terminal": "IN"
+    }
+  ],
+  "comments": []
+}

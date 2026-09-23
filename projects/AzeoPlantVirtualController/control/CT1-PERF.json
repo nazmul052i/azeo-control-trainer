@@ -1,0 +1,551 @@
+{
+  "engineering": {
+    "source": "APVC cooling-water module-class engineering",
+    "unit": "U010",
+    "workbook_block_type": "CALC",
+    "strategy_demonstrated": "Tower range, wet-bulb approach and estimated heat rejection",
+    "implementation_state": "COMMISSIONED"
+  },
+  "scan_ms": 1000,
+  "name": "CT1-PERF",
+  "description": "Cooling-tower thermal and hydraulic performance",
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "CT1_SUPPLY_TEMP",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "TT-0102",
+        "label": "Cooling water supply temperature",
+        "scale_lo": 0,
+        "scale_hi": 45,
+        "XD_SCALE_LO": 0,
+        "XD_SCALE_HI": 45,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "AI",
+      "instance_name": "CT1_RETURN_TEMP",
+      "x": 0.0,
+      "y": 100.0,
+      "config": {
+        "tag": "TT-0103",
+        "label": "Cooling water return temperature",
+        "scale_lo": 0,
+        "scale_hi": 80,
+        "XD_SCALE_LO": 0,
+        "XD_SCALE_HI": 80,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "AI",
+      "instance_name": "CT1_WET_BULB",
+      "x": 0.0,
+      "y": 200.0,
+      "config": {
+        "tag": "TT-0104",
+        "label": "Ambient wet-bulb temperature",
+        "scale_lo": -30,
+        "scale_hi": 50,
+        "XD_SCALE_LO": -30,
+        "XD_SCALE_HI": 50,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "AI",
+      "instance_name": "CT1_FLOW",
+      "x": 0.0,
+      "y": 300.0,
+      "config": {
+        "tag": "FT-0103",
+        "label": "Cooling water supply flow",
+        "scale_lo": 0,
+        "scale_hi": 5000,
+        "XD_SCALE_LO": 0,
+        "XD_SCALE_HI": 5000,
+        "eng_units": "m3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "AI",
+      "instance_name": "CT1_HEADER_PRESSURE",
+      "x": 0.0,
+      "y": 400.0,
+      "config": {
+        "tag": "PT-0105",
+        "label": "Cooling water supply header pressure",
+        "scale_lo": 0,
+        "scale_hi": 8,
+        "XD_SCALE_LO": 0,
+        "XD_SCALE_HI": 8,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "AI",
+      "instance_name": "CT1_BASIN_LEVEL",
+      "x": 0.0,
+      "y": 500.0,
+      "config": {
+        "tag": "LT-0101",
+        "label": "CT1 basin level",
+        "scale_lo": 0,
+        "scale_hi": 100,
+        "XD_SCALE_LO": 0,
+        "XD_SCALE_HI": 100,
+        "eng_units": "%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "AI",
+      "instance_name": "CT1_CONDUCTIVITY",
+      "x": 0.0,
+      "y": 600.0,
+      "config": {
+        "tag": "AT-0103",
+        "label": "CT1 basin conductivity",
+        "scale_lo": 0,
+        "scale_hi": 3000,
+        "XD_SCALE_LO": 0,
+        "XD_SCALE_HI": 3000,
+        "eng_units": "uS/cm",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "SUB",
+      "instance_name": "CT1_RANGE",
+      "x": 360.0,
+      "y": 80.0,
+      "config": {}
+    },
+    {
+      "id": "b009",
+      "block_type": "SUB",
+      "instance_name": "CT1_APPROACH",
+      "x": 360.0,
+      "y": 210.0,
+      "config": {}
+    },
+    {
+      "id": "b010",
+      "block_type": "MULTIPLIER",
+      "instance_name": "CT1_HEAT_REJECTION",
+      "x": 650.0,
+      "y": 80.0,
+      "config": {
+        "GAIN": 0.001158,
+        "N_INPUTS": 2,
+        "label": "Estimated heat rejection (MW)"
+      }
+    },
+    {
+      "id": "b011",
+      "block_type": "CONSTANT",
+      "instance_name": "APPROACH_LIMIT",
+      "x": 360.0,
+      "y": 340.0,
+      "config": {
+        "value": 8.0,
+        "label": "High approach threshold"
+      }
+    },
+    {
+      "id": "b012",
+      "block_type": "COMPARATOR",
+      "instance_name": "CT1_APPROACH_HIGH",
+      "x": 650.0,
+      "y": 250.0,
+      "config": {
+        "OP": "GT",
+        "HYST": 0.5
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b008",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b008",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b010",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b008",
+      "src_terminal": "OUT",
+      "dst_block_id": "b010",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b009",
+      "src_terminal": "OUT",
+      "dst_block_id": "b012",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b011",
+      "src_terminal": "OUT",
+      "dst_block_id": "b012",
+      "dst_terminal": "IN2"
+    }
+  ],
+  "comments": [
+    {
+      "id": "c001",
+      "text": "Range = return - supply. Approach = supply - wet bulb. Estimated heat rejection uses flow × range × 0.001158 MW.",
+      "x": 350.0,
+      "y": 500.0,
+      "width": 520.0,
+      "height": 80.0
+    }
+  ],
+  "module_class": {
+    "schema_version": 1,
+    "definition_id": "9fc5a2df-cea9-57c8-ac57-29a3111cb371",
+    "definition_name": "CT_PERFORMANCE",
+    "definition_revision": 1,
+    "definition_digest": "787d8dabd6bc62757dd9eb2e26dd147bcf65ebd67ce80298f03847d3483b5ca1",
+    "definition_snapshot": {
+      "schema_version": 1,
+      "definition_kind": "control_module_class",
+      "id": "9fc5a2df-cea9-57c8-ac57-29a3111cb371",
+      "name": "CT_PERFORMANCE",
+      "description": "Reusable cooling-tower performance and degradation monitor",
+      "language": "FBD",
+      "revision": 1,
+      "created_at": "2026-09-22T00:00:00+00:00",
+      "updated_at": "2026-09-22T00:00:00+00:00",
+      "digest": "787d8dabd6bc62757dd9eb2e26dd147bcf65ebd67ce80298f03847d3483b5ca1",
+      "public_parameters": [],
+      "graph": {
+        "name": "CT_PERFORMANCE",
+        "description": "Cooling-tower thermal and hydraulic performance",
+        "engineering": {
+          "source": "APVC cooling-water module-class engineering",
+          "unit": "U010",
+          "workbook_block_type": "CALC",
+          "strategy_demonstrated": "Tower range, wet-bulb approach and estimated heat rejection",
+          "implementation_state": "COMMISSIONED"
+        },
+        "blocks": [
+          {
+            "id": "b001",
+            "block_type": "AI",
+            "instance_name": "CT1_SUPPLY_TEMP",
+            "x": 0.0,
+            "y": 0.0,
+            "config": {
+              "tag": "TT-0102",
+              "label": "Cooling water supply temperature",
+              "scale_lo": 0,
+              "scale_hi": 45,
+              "XD_SCALE_LO": 0,
+              "XD_SCALE_HI": 45,
+              "eng_units": "degC",
+              "L_TYPE": "DIRECT",
+              "mode": "AUTO",
+              "normal_mode": "AUTO"
+            }
+          },
+          {
+            "id": "b002",
+            "block_type": "AI",
+            "instance_name": "CT1_RETURN_TEMP",
+            "x": 0.0,
+            "y": 100.0,
+            "config": {
+              "tag": "TT-0103",
+              "label": "Cooling water return temperature",
+              "scale_lo": 0,
+              "scale_hi": 80,
+              "XD_SCALE_LO": 0,
+              "XD_SCALE_HI": 80,
+              "eng_units": "degC",
+              "L_TYPE": "DIRECT",
+              "mode": "AUTO",
+              "normal_mode": "AUTO"
+            }
+          },
+          {
+            "id": "b003",
+            "block_type": "AI",
+            "instance_name": "CT1_WET_BULB",
+            "x": 0.0,
+            "y": 200.0,
+            "config": {
+              "tag": "TT-0104",
+              "label": "Ambient wet-bulb temperature",
+              "scale_lo": -30,
+              "scale_hi": 50,
+              "XD_SCALE_LO": -30,
+              "XD_SCALE_HI": 50,
+              "eng_units": "degC",
+              "L_TYPE": "DIRECT",
+              "mode": "AUTO",
+              "normal_mode": "AUTO"
+            }
+          },
+          {
+            "id": "b004",
+            "block_type": "AI",
+            "instance_name": "CT1_FLOW",
+            "x": 0.0,
+            "y": 300.0,
+            "config": {
+              "tag": "FT-0103",
+              "label": "Cooling water supply flow",
+              "scale_lo": 0,
+              "scale_hi": 5000,
+              "XD_SCALE_LO": 0,
+              "XD_SCALE_HI": 5000,
+              "eng_units": "m3/h",
+              "L_TYPE": "DIRECT",
+              "mode": "AUTO",
+              "normal_mode": "AUTO"
+            }
+          },
+          {
+            "id": "b005",
+            "block_type": "AI",
+            "instance_name": "CT1_HEADER_PRESSURE",
+            "x": 0.0,
+            "y": 400.0,
+            "config": {
+              "tag": "PT-0105",
+              "label": "Cooling water supply header pressure",
+              "scale_lo": 0,
+              "scale_hi": 8,
+              "XD_SCALE_LO": 0,
+              "XD_SCALE_HI": 8,
+              "eng_units": "barg",
+              "L_TYPE": "DIRECT",
+              "mode": "AUTO",
+              "normal_mode": "AUTO"
+            }
+          },
+          {
+            "id": "b006",
+            "block_type": "AI",
+            "instance_name": "CT1_BASIN_LEVEL",
+            "x": 0.0,
+            "y": 500.0,
+            "config": {
+              "tag": "LT-0101",
+              "label": "CT1 basin level",
+              "scale_lo": 0,
+              "scale_hi": 100,
+              "XD_SCALE_LO": 0,
+              "XD_SCALE_HI": 100,
+              "eng_units": "%",
+              "L_TYPE": "DIRECT",
+              "mode": "AUTO",
+              "normal_mode": "AUTO"
+            }
+          },
+          {
+            "id": "b007",
+            "block_type": "AI",
+            "instance_name": "CT1_CONDUCTIVITY",
+            "x": 0.0,
+            "y": 600.0,
+            "config": {
+              "tag": "AT-0103",
+              "label": "CT1 basin conductivity",
+              "scale_lo": 0,
+              "scale_hi": 3000,
+              "XD_SCALE_LO": 0,
+              "XD_SCALE_HI": 3000,
+              "eng_units": "uS/cm",
+              "L_TYPE": "DIRECT",
+              "mode": "AUTO",
+              "normal_mode": "AUTO"
+            }
+          },
+          {
+            "id": "b008",
+            "block_type": "SUB",
+            "instance_name": "CT1_RANGE",
+            "x": 360.0,
+            "y": 80.0,
+            "config": {}
+          },
+          {
+            "id": "b009",
+            "block_type": "SUB",
+            "instance_name": "CT1_APPROACH",
+            "x": 360.0,
+            "y": 210.0,
+            "config": {}
+          },
+          {
+            "id": "b010",
+            "block_type": "MULTIPLIER",
+            "instance_name": "CT1_HEAT_REJECTION",
+            "x": 650.0,
+            "y": 80.0,
+            "config": {
+              "GAIN": 0.001158,
+              "N_INPUTS": 2,
+              "label": "Estimated heat rejection (MW)"
+            }
+          },
+          {
+            "id": "b011",
+            "block_type": "CONSTANT",
+            "instance_name": "APPROACH_LIMIT",
+            "x": 360.0,
+            "y": 340.0,
+            "config": {
+              "value": 8.0,
+              "label": "High approach threshold"
+            }
+          },
+          {
+            "id": "b012",
+            "block_type": "COMPARATOR",
+            "instance_name": "CT1_APPROACH_HIGH",
+            "x": 650.0,
+            "y": 250.0,
+            "config": {
+              "OP": "GT",
+              "HYST": 0.5
+            }
+          }
+        ],
+        "wires": [
+          {
+            "id": "w001",
+            "src_block_id": "b002",
+            "src_terminal": "OUT",
+            "dst_block_id": "b008",
+            "dst_terminal": "IN1"
+          },
+          {
+            "id": "w002",
+            "src_block_id": "b001",
+            "src_terminal": "OUT",
+            "dst_block_id": "b008",
+            "dst_terminal": "IN2"
+          },
+          {
+            "id": "w003",
+            "src_block_id": "b001",
+            "src_terminal": "OUT",
+            "dst_block_id": "b009",
+            "dst_terminal": "IN1"
+          },
+          {
+            "id": "w004",
+            "src_block_id": "b003",
+            "src_terminal": "OUT",
+            "dst_block_id": "b009",
+            "dst_terminal": "IN2"
+          },
+          {
+            "id": "w005",
+            "src_block_id": "b004",
+            "src_terminal": "OUT",
+            "dst_block_id": "b010",
+            "dst_terminal": "IN1"
+          },
+          {
+            "id": "w006",
+            "src_block_id": "b008",
+            "src_terminal": "OUT",
+            "dst_block_id": "b010",
+            "dst_terminal": "IN2"
+          },
+          {
+            "id": "w007",
+            "src_block_id": "b009",
+            "src_terminal": "OUT",
+            "dst_block_id": "b012",
+            "dst_terminal": "IN1"
+          },
+          {
+            "id": "w008",
+            "src_block_id": "b011",
+            "src_terminal": "OUT",
+            "dst_block_id": "b012",
+            "dst_terminal": "IN2"
+          }
+        ],
+        "comments": [
+          {
+            "id": "c001",
+            "text": "Range = return - supply. Approach = supply - wet bulb. Estimated heat rejection uses flow × range × 0.001158 MW.",
+            "x": 350.0,
+            "y": 500.0,
+            "width": 520.0,
+            "height": 80.0
+          }
+        ],
+        "scan_ms": 1000
+      }
+    },
+    "public_parameter_overrides": {}
+  }
+}

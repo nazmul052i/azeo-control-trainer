@@ -1,0 +1,977 @@
+{
+ "display": "U500 - L2 Distillation Column",
+ "pvms": [
+  {
+   "id": "pressure_fan",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "PIC-5001/PT-5001"
+   },
+   "x": 45,
+   "y": 144,
+   "w": 210,
+   "h": 171,
+   "variant": "fan_indicator",
+   "choices": {
+    "show_hp_anatomy": false
+   }
+  },
+  {
+   "id": "quality_fan",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "AIC-5001/AT-5001"
+   },
+   "x": 45,
+   "y": 378,
+   "w": 210,
+   "h": 171,
+   "variant": "fan_indicator",
+   "choices": {
+    "show_hp_anatomy": false
+   }
+  },
+  {
+   "id": "temperature_fan",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "TIC-5002/TT-5006"
+   },
+   "x": 45,
+   "y": 612,
+   "w": 210,
+   "h": 171,
+   "variant": "fan_indicator",
+   "choices": {
+    "show_hp_anatomy": false
+   }
+  },
+  {
+   "id": "column",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5002/LIC-5002"
+   },
+   "x": 562,
+   "y": 254,
+   "w": 150,
+   "h": 420,
+   "variant": "vessel",
+   "choices": {
+    "show_hp_anatomy": false,
+    "equipment_symbol": "column",
+    "show_readout": false
+   }
+  },
+  {
+   "id": "receiver",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5001/LIC-5001"
+   },
+   "x": 950,
+   "y": 194.81366210526318,
+   "w": 200,
+   "h": 130,
+   "variant": "vessel",
+   "choices": {
+    "show_hp_anatomy": false,
+    "equipment_symbol": "drum",
+    "show_readout": false
+   }
+  },
+  {
+   "id": "reflux_pump",
+   "class": "DEVCTL/dynamo_compact",
+   "params": {
+    "path": "MC-P501A/MC-P501A"
+   },
+   "x": 1114,
+   "y": 387,
+   "w": 86,
+   "h": 96,
+   "variant": "pump",
+   "choices": {
+    "show_hp_anatomy": true
+   }
+  },
+  {
+   "id": "bottom_pump",
+   "class": "DEVCTL/dynamo_compact",
+   "params": {
+    "path": "MC-P502A/MC-P502A"
+   },
+   "x": 692,
+   "y": 766,
+   "w": 86,
+   "h": 96,
+   "variant": "pump",
+   "choices": {
+    "show_hp_anatomy": true
+   }
+  },
+  {
+   "id": "pressure_loop",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-5001/PIC-5001"
+   },
+   "x": 604,
+   "y": 96,
+   "w": 184,
+   "h": 100,
+   "variant": "hp",
+   "choices": {
+    "show_hp_anatomy": true,
+    "Typography": "Large"
+   }
+  },
+  {
+   "id": "reflux_loop",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-5001/FIC-5001"
+   },
+   "x": 979,
+   "y": 96,
+   "w": 184,
+   "h": 100,
+   "variant": "hp",
+   "choices": {
+    "show_hp_anatomy": true,
+    "Typography": "Large"
+   }
+  },
+  {
+   "id": "feed_loop",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-4002/LIC-4002"
+   },
+   "x": 318,
+   "y": 343,
+   "w": 184,
+   "h": 100,
+   "variant": "hp",
+   "choices": {
+    "show_hp_anatomy": true,
+    "Typography": "Large"
+   }
+  },
+  {
+   "id": "temperature_loop",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "TIC-5002/TIC-5002"
+   },
+   "x": 784,
+   "y": 387,
+   "w": 184,
+   "h": 100,
+   "variant": "hp",
+   "choices": {
+    "show_hp_anatomy": true,
+    "Typography": "Large"
+   }
+  },
+  {
+   "id": "distillate_loop",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5001/LIC-5001"
+   },
+   "x": 996,
+   "y": 510,
+   "w": 184,
+   "h": 100,
+   "variant": "hp",
+   "choices": {
+    "show_hp_anatomy": true,
+    "Typography": "Large"
+   }
+  },
+  {
+   "id": "steam_loop",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-5002/FIC-5002"
+   },
+   "x": 1000,
+   "y": 640,
+   "w": 184,
+   "h": 100,
+   "variant": "hp",
+   "choices": {
+    "show_hp_anatomy": true,
+    "Typography": "Large"
+   }
+  },
+  {
+   "id": "bottoms_loop",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5002/LIC-5002"
+   },
+   "x": 318,
+   "y": 570,
+   "w": 184,
+   "h": 100,
+   "variant": "hp",
+   "choices": {
+    "show_hp_anatomy": true,
+    "Typography": "Large"
+   }
+  },
+  {
+   "id": "receiver_level",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5001/LIC-5001"
+   },
+   "x": 1362,
+   "y": 141,
+   "w": 160,
+   "h": 190,
+   "variant": "vessel",
+   "choices": {
+    "show_hp_anatomy": false,
+    "show_readout": true,
+    "equipment_symbol": "vessel"
+   }
+  },
+  {
+   "id": "boot_level",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5003/LIC-5003"
+   },
+   "x": 1362,
+   "y": 356,
+   "w": 160,
+   "h": 190,
+   "variant": "vessel",
+   "choices": {
+    "show_hp_anatomy": false,
+    "show_readout": true,
+    "equipment_symbol": "vessel"
+   }
+  },
+  {
+   "id": "column_level",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-5002/LIC-5002"
+   },
+   "x": 1362,
+   "y": 631,
+   "w": 160,
+   "h": 190,
+   "variant": "vessel",
+   "choices": {
+    "show_hp_anatomy": false,
+    "show_readout": true,
+    "equipment_symbol": "vessel"
+   }
+  }
+ ],
+ "schema_version": 3,
+ "items": [
+  {
+   "id": "title",
+   "kind": "text",
+   "text": "DISTILLATION COLUMN  /  PRIMARY OPERATION",
+   "x": 440,
+   "y": 6,
+   "w": 850,
+   "h": 28,
+   "font_size": 17,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "level",
+   "kind": "text",
+   "text": "L2",
+   "x": 1490,
+   "y": 6,
+   "w": 70,
+   "h": 28,
+   "font_size": 16,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "kpi_title",
+   "kind": "text",
+   "text": "OPERATING MEASUREMENTS",
+   "x": 32,
+   "y": 82,
+   "w": 240,
+   "h": 24,
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "pressure_fan_title",
+   "kind": "text",
+   "text": "Column pressure",
+   "x": 45,
+   "y": 115,
+   "w": 220,
+   "h": 24,
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "quality_fan_title",
+   "kind": "text",
+   "text": "Overhead composition",
+   "x": 45,
+   "y": 349,
+   "w": 220,
+   "h": 24,
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "temperature_fan_title",
+   "kind": "text",
+   "text": "Bottom temperature",
+   "x": 45,
+   "y": 583,
+   "w": 220,
+   "h": 24,
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "column_title",
+   "kind": "text",
+   "text": "T1  /  COLUMN",
+   "x": 572,
+   "y": 286,
+   "w": 130,
+   "h": 25,
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "receiver_title",
+   "kind": "text",
+   "text": "D5  /  REFLUX DRUM",
+   "x": 968,
+   "y": 220.81366210526318,
+   "w": 184,
+   "h": 24,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "condenser",
+   "kind": "symbol",
+   "symbol": "condenser",
+   "x": 780,
+   "y": 221.56816800000001,
+   "w": 100,
+   "h": 76,
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL",
+   "text_role": "TEXT"
+  },
+  {
+   "id": "condenser_title",
+   "kind": "text",
+   "text": "E501 / CONDENSER",
+   "x": 775,
+   "y": 193,
+   "w": 190,
+   "h": 24,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "reboiler",
+   "kind": "symbol",
+   "symbol": "exchanger",
+   "x": 835,
+   "y": 628,
+   "w": 100,
+   "h": 100,
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL",
+   "text_role": "TEXT"
+  },
+  {
+   "id": "reboiler_title",
+   "kind": "text",
+   "text": "E502 / REBOILER",
+   "x": 704,
+   "y": 706,
+   "w": 135,
+   "h": 24,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "feed",
+   "kind": "symbol",
+   "symbol": "control_valve",
+   "x": 418,
+   "y": 441.66897,
+   "w": 70,
+   "h": 62,
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL",
+   "text_role": "TEXT"
+  },
+  {
+   "id": "reflux",
+   "kind": "symbol",
+   "symbol": "control_valve",
+   "x": 1135,
+   "y": 21.23147,
+   "w": 70,
+   "h": 62,
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL",
+   "text_role": "TEXT"
+  },
+  {
+   "id": "product",
+   "kind": "symbol",
+   "symbol": "control_valve",
+   "x": 1270,
+   "y": 543.23147,
+   "w": 70,
+   "h": 62,
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL",
+   "text_role": "TEXT"
+  },
+  {
+   "id": "steam",
+   "kind": "symbol",
+   "symbol": "control_valve",
+   "x": 500,
+   "y": 697.23147,
+   "w": 70,
+   "h": 62,
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL",
+   "text_role": "TEXT"
+  },
+  {
+   "id": "bottom_product",
+   "kind": "symbol",
+   "symbol": "control_valve",
+   "x": 1002,
+   "y": 737.04097,
+   "w": 70,
+   "h": 62,
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL",
+   "text_role": "TEXT"
+  },
+  {
+   "id": "feed_source",
+   "kind": "stream_connector",
+   "direction": "incoming",
+   "text": "Feed from D3",
+   "x": 298,
+   "y": 470.4375,
+   "w": 104,
+   "h": 28,
+   "ports": [
+    {
+     "name": "process",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e"
+    }
+   ]
+  },
+  {
+   "id": "product_sink",
+   "kind": "stream_connector",
+   "direction": "outgoing",
+   "text": "Distillate",
+   "x": 1390,
+   "y": 572,
+   "w": 104,
+   "h": 28,
+   "ports": [
+    {
+     "name": "process",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w"
+    }
+   ]
+  },
+  {
+   "id": "steam_source",
+   "kind": "stream_connector",
+   "direction": "incoming",
+   "text": "Steam",
+   "x": 370,
+   "y": 726,
+   "w": 104,
+   "h": 28,
+   "ports": [
+    {
+     "name": "process",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e"
+    }
+   ]
+  },
+  {
+   "id": "bottom_sink",
+   "kind": "stream_connector",
+   "direction": "outgoing",
+   "text": "Bottoms",
+   "x": 1190,
+   "y": 765.8095,
+   "w": 104,
+   "h": 28,
+   "ports": [
+    {
+     "name": "process",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w"
+    }
+   ]
+  },
+  {
+   "id": "feed_to_valve",
+   "kind": "pipe",
+   "a": "feed_source",
+   "a_side": "process",
+   "b": "feed",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "feed_to_column",
+   "kind": "pipe",
+   "a": "feed",
+   "a_side": "e",
+   "b": "column",
+   "b_side": "outline:w:0.0698:0.5500",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "overhead",
+   "kind": "pipe",
+   "a": "column",
+   "a_side": "n",
+   "b": "condenser",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "condensate",
+   "kind": "pipe",
+   "a": "condenser",
+   "a_side": "e",
+   "b": "receiver",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "receiver_to_pump",
+   "kind": "pipe",
+   "a": "receiver",
+   "a_side": "s",
+   "b": "reflux_pump",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "discharge_tee",
+   "kind": "ellipse",
+   "x": 1236,
+   "y": 396.8095,
+   "w": 8,
+   "h": 8,
+   "pipe_junction": true,
+   "routing_obstacle": false,
+   "fill_role": "EQUIPMENT",
+   "line_role": "EQUIPMENT",
+   "width": 1,
+   "z": 1
+  },
+  {
+   "id": "pump_discharge",
+   "kind": "pipe",
+   "a": "reflux_pump",
+   "a_side": "e",
+   "b": "discharge_tee",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "reflux_discharge",
+   "kind": "pipe",
+   "a": "discharge_tee",
+   "a_side": "n",
+   "b": "reflux",
+   "b_side": "e",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "reflux_return",
+   "kind": "pipe",
+   "a": "reflux",
+   "a_side": "w",
+   "b": "column",
+   "b_side": "outline:w:0.0698:0.1600",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump",
+   "route_mode": "manual",
+   "route_points": [
+    [
+     530,
+     64
+    ]
+   ]
+  },
+  {
+   "id": "distillate",
+   "kind": "pipe",
+   "a": "discharge_tee",
+   "a_side": "s",
+   "b": "product",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "distillate_out",
+   "kind": "pipe",
+   "a": "product",
+   "a_side": "e",
+   "b": "product_sink",
+   "b_side": "process",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "sump_to_pump",
+   "kind": "pipe",
+   "a": "column",
+   "a_side": "s",
+   "b": "bottom_pump",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "bottoms_outlet",
+   "kind": "pipe",
+   "a": "bottom_pump",
+   "a_side": "e",
+   "b": "bottom_product",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "bottoms_export",
+   "kind": "pipe",
+   "a": "bottom_product",
+   "a_side": "e",
+   "b": "bottom_sink",
+   "b_side": "process",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "boil_feed",
+   "kind": "pipe",
+   "a": "column",
+   "a_side": "outline:e:0.9535:0.8000",
+   "b": "reboiler",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "boil_return",
+   "kind": "pipe",
+   "a": "reboiler",
+   "a_side": "n",
+   "b": "column",
+   "b_side": "outline:e:0.9535:0.6400",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "steam_in",
+   "kind": "pipe",
+   "a": "steam_source",
+   "a_side": "process",
+   "b": "steam",
+   "b_side": "w",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump"
+  },
+  {
+   "id": "steam_to_reboiler",
+   "kind": "pipe",
+   "a": "steam",
+   "a_side": "e",
+   "b": "reboiler",
+   "b_side": "e",
+   "auto": false,
+   "width": 1.8,
+   "line_role": "EQUIPMENT",
+   "corner_radius": 3,
+   "crossover": "jump",
+   "route_mode": "manual",
+   "route_points": [
+    [
+     964,
+     740
+    ]
+   ]
+  },
+  {
+   "id": "pressure_loop_title",
+   "kind": "text",
+   "text": "PIC-5001",
+   "x": 604,
+   "y": 73,
+   "w": 184,
+   "h": 21,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "reflux_loop_title",
+   "kind": "text",
+   "text": "FIC-5001",
+   "x": 979,
+   "y": 73,
+   "w": 184,
+   "h": 21,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "feed_loop_title",
+   "kind": "text",
+   "text": "LIC-4002",
+   "x": 318,
+   "y": 320,
+   "w": 184,
+   "h": 21,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "temperature_loop_title",
+   "kind": "text",
+   "text": "TIC-5002",
+   "x": 784,
+   "y": 364,
+   "w": 184,
+   "h": 21,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "distillate_loop_title",
+   "kind": "text",
+   "text": "LIC-5001",
+   "x": 996,
+   "y": 487,
+   "w": 184,
+   "h": 21,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "steam_loop_title",
+   "kind": "text",
+   "text": "FIC-5002",
+   "x": 1000,
+   "y": 617,
+   "w": 184,
+   "h": 21,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "bottoms_loop_title",
+   "kind": "text",
+   "text": "LIC-5002",
+   "x": 318,
+   "y": 547,
+   "w": 184,
+   "h": 21,
+   "font_size": 9,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "inventory_title",
+   "kind": "text",
+   "text": "INVENTORY READOUTS",
+   "x": 1350,
+   "y": 82,
+   "w": 220,
+   "h": 24,
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "receiver_level_title",
+   "kind": "text",
+   "text": "D5 drum level",
+   "x": 1360,
+   "y": 116,
+   "w": 190,
+   "h": 23,
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "boot_level_title",
+   "kind": "text",
+   "text": "D5 water boot",
+   "x": 1360,
+   "y": 331,
+   "w": 190,
+   "h": 23,
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "column_level_title",
+   "kind": "text",
+   "text": "T1 sump level",
+   "x": 1360,
+   "y": 606,
+   "w": 190,
+   "h": 23,
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  },
+  {
+   "id": "guidance",
+   "kind": "text",
+   "text": "Open an indicator, vessel or pump for its faceplate, trend and permitted controls.",
+   "x": 290,
+   "y": 876,
+   "w": 1270,
+   "h": 20,
+   "font_size": 9,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "routing_obstacle": false
+  }
+ ],
+ "description": "Distillation column with compact process PVMs and inventory readouts",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant",
+ "show_tag": "none"
+}

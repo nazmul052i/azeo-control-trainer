@@ -1,0 +1,80 @@
+[
+ {
+  "rev": 1,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:16",
+  "diff": [
+   "+ display link monitor",
+   "+ text instruction",
+   "+ user entry FCV-3002_manual",
+   "+ text header0266",
+   "+ user entry FCV-3002_apply",
+   "+ datalink FCV-3001_mode",
+   "+ datalink XY-XV3001-OPN_readback",
+   "+ datalink FCV-3001_readback",
+   "+ display link workspace",
+   "+ text header00",
+   "+ user entry XY-XV3002-OPN_apply",
+   "+ user entry FCV-3001_apply",
+   "+ datalink FCV-3003_mode",
+   "+ datalink FCV-3002_readback",
+   "+ text header0430",
+   "+ datalink XY-XV3001-OPN_mode",
+   "+ datalink XY-XV3002-OPN_readback",
+   "+ user entry FCV-3003_apply",
+   "+ user entry XY-XV3001-OPN_apply",
+   "+ text title",
+   "+ text XY-XV3002-OPN_tag",
+   "+ text FCV-3002_tag",
+   "+ text authority",
+   "+ user entry FCV-3001_manual",
+   "+ text XY-XV3001-OPN_tag",
+   "+ user entry XY-XV3002-OPN_manual",
+   "+ datalink FCV-3002_mode",
+   "+ datalink FCV-3003_readback",
+   "+ user entry FCV-3003_manual",
+   "+ text FCV-3003_tag",
+   "+ text FCV-3001_tag",
+   "+ user entry XY-XV3001-OPN_manual",
+   "+ datalink XY-XV3002-OPN_mode",
+   "~ page width changed",
+   "~ page height changed",
+   "~ display level changed",
+   "~ parent display changed",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 2,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:21",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 3,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:24",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 4,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:26",
+  "diff": [
+   "~ rebound/configured XY-XV3002-OPN_apply",
+   "~ rebound/configured XY-XV3001-OPN_apply"
+  ],
+  "released_items": 0
+ }
+]

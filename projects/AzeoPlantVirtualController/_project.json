@@ -1,0 +1,1430 @@
+{
+  "areas": [
+    {
+      "name": "AZEO_PLANT_VIRTUAL_CONTROLLER",
+      "area_id": "azeo_plant_virtual_controller",
+      "description": "Azeo Plant regulatory, equipment, sequence and SIS control using project-configured local virtual I/O.",
+      "controller": {
+        "name": "APVC-CTRL-1",
+        "model": "PK750"
+      },
+      "console": {
+        "chrome": "azeo"
+      },
+      "strategies": [
+        "control/PIC-0101.json",
+        "control/PIC-0102.json",
+        "control/PIC-0103.json",
+        "control/FIC-0101.json",
+        "control/FY-0101.json",
+        "control/PY-0101.json",
+        "control/LIC-1001.json",
+        "control/FIC-1001.json",
+        "control/SIC-1001.json",
+        "control/PIC-1001.json",
+        "control/FIC-1002.json",
+        "control/LIC-1002.json",
+        "control/PIC-2001.json",
+        "control/SIC-2001.json",
+        "control/UIC-2001.json",
+        "control/FY-2001.json",
+        "control/PIC-2002.json",
+        "control/TIC-2001.json",
+        "control/TIC-2002.json",
+        "control/LIC-2001.json",
+        "control/TIC-3001.json",
+        "control/FIC-3001.json",
+        "control/FY-3001.json",
+        "control/PIC-3001.json",
+        "control/ZC-3001.json",
+        "control/FIC-3003.json",
+        "control/AIC-3001.json",
+        "control/FY-3002.json",
+        "control/TIC-3002.json",
+        "control/TIC-3003.json",
+        "control/TIC-3004.json",
+        "control/PIC-3002.json",
+        "control/TIC-4001.json",
+        "control/FIC-4001.json",
+        "control/AIC-4001.json",
+        "control/TIC-4002.json",
+        "control/TIC-4005.json",
+        "control/LIC-4001.json",
+        "control/LIC-4002.json",
+        "control/PIC-4001.json",
+        "control/PIC-5001.json",
+        "control/LIC-5001.json",
+        "control/LIC-5002.json",
+        "control/LIC-5003.json",
+        "control/TIC-5001.json",
+        "control/FIC-5001.json",
+        "control/FIC-5002.json",
+        "control/TIC-5002.json",
+        "control/AIC-5001.json",
+        "control/AIC-5002.json",
+        "control/FY-5001.json",
+        "control/FY-5002.json",
+        "control/FIC-5003.json",
+        "control/PDIC-5001.json",
+        "control/FIC-5004.json",
+        "control/FIC-5005.json",
+        "control/PIC-6001.json",
+        "control/LIC-6001.json",
+        "control/LIC-6002.json",
+        "control/TIC-6001.json",
+        "control/FIC-6001.json",
+        "control/FIC-6002.json",
+        "control/TIC-6002.json",
+        "control/AIC-6001.json",
+        "control/AIC-6002.json",
+        "control/FY-6001.json",
+        "control/FY-6002.json",
+        "control/FIC-6003.json",
+        "control/PDIC-6001.json",
+        "control/FIC-6004.json",
+        "control/FIC-6005.json",
+        "control/LIC-7001.json",
+        "control/FIC-7001.json",
+        "control/FY-7001.json",
+        "control/PIC-7001.json",
+        "control/FIC-7002.json",
+        "control/FIC-7003.json",
+        "control/SIC-7001.json",
+        "control/FY-7002.json",
+        "control/AIC-7001.json",
+        "control/AIC-7002.json",
+        "control/TIC-7001.json",
+        "control/CIC-7001.json",
+        "control/PIC-7002.json",
+        "control/LIC-7002.json",
+        "control/AIC-8001.json",
+        "control/FIC-8001.json",
+        "control/LIC-8001.json",
+        "control/MPC-9501.json",
+        "control/OPT-9501.json",
+        "control/ESD-9000.json",
+        "control/ESD-9200.json",
+        "control/ESD-9500.json",
+        "control/ESD-9700.json",
+        "control/MC-P101A.json",
+        "control/MC-P101B.json",
+        "control/MC-C1.json",
+        "control/MC-P201.json",
+        "control/MC-P202.json",
+        "control/MC-ID301.json",
+        "control/MC-P501A.json",
+        "control/MC-P501B.json",
+        "control/MC-P502A.json",
+        "control/MC-P502B.json",
+        "control/MC-P601A.json",
+        "control/MC-P601B.json",
+        "control/MC-P602A.json",
+        "control/MC-P602B.json",
+        "control/MC-P701A.json",
+        "control/MC-P701B.json",
+        "control/MC-FD701.json",
+        "control/MC-M801.json",
+        "control/MC-P801A.json",
+        "control/MC-P801B.json",
+        "control/XC-MOV0101.json",
+        "control/XC-MOV1001A.json",
+        "control/XC-MOV1001B.json",
+        "control/XC-MOV1002.json",
+        "control/XC-MOV5001A.json",
+        "control/XC-MOV5001B.json",
+        "control/XC-MOV5002A.json",
+        "control/XC-MOV5002B.json",
+        "control/XC-MOV6001A.json",
+        "control/XC-MOV6001B.json",
+        "control/XC-MOV6002A.json",
+        "control/XC-MOV6002B.json",
+        "control/XC-MOV7001A.json",
+        "control/XC-MOV7001B.json",
+        "control/XC-MOV8001A.json",
+        "control/XC-MOV8001B.json",
+        "control/XC-XV0101.json",
+        "control/XC-XV1001.json",
+        "control/XC-XV2001.json",
+        "control/XC-XV3001.json",
+        "control/XC-XV3002.json",
+        "control/XC-XV4001.json",
+        "control/XC-XV4002.json",
+        "control/XC-XV5001.json",
+        "control/XC-XV6001.json",
+        "control/XC-XV7001.json",
+        "control/XC-BDV4001.json",
+        "control/HC-HV1001.json",
+        "control/HC-HV1002.json",
+        "control/HC-HV3001.json",
+        "control/HC-HV5001.json",
+        "control/HC-HV5002.json",
+        "control/HC-HV6001.json",
+        "control/HC-HV7001.json",
+        "control/HC-HV8001.json",
+        "control/TIC-0102.json",
+        "control/PIC-0105.json",
+        "control/LIC-0101.json",
+        "control/AIC-0103.json",
+        "control/MC-CT011A.json",
+        "control/MC-CT011B.json",
+        "control/MC-P011A.json",
+        "control/MC-P011B.json",
+        "control/CT1-PERF.json"
+      ],
+      "sfc_modules": [
+        "sequence/BMS-3001.json",
+        "sequence/BMS-7001.json"
+      ],
+      "equipment_modules": [],
+      "units": [
+        {
+          "name": "U010",
+          "description": "",
+          "modules": [
+            "PIC-0101",
+            "PIC-0102",
+            "PIC-0103",
+            "FIC-0101",
+            "FY-0101",
+            "PY-0101",
+            "XC-MOV0101",
+            "XC-XV0101",
+            "TIC-0102",
+            "PIC-0105",
+            "LIC-0101",
+            "AIC-0103",
+            "MC-CT011A",
+            "MC-CT011B",
+            "MC-P011A",
+            "MC-P011B",
+            "CT1-PERF"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U100",
+          "description": "",
+          "modules": [
+            "LIC-1001",
+            "FIC-1001",
+            "SIC-1001",
+            "PIC-1001",
+            "FIC-1002",
+            "LIC-1002",
+            "MC-P101A",
+            "MC-P101B",
+            "XC-MOV1001A",
+            "XC-MOV1001B",
+            "XC-MOV1002",
+            "XC-XV1001",
+            "HC-HV1001",
+            "HC-HV1002"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U200",
+          "description": "",
+          "modules": [
+            "PIC-2001",
+            "SIC-2001",
+            "UIC-2001",
+            "FY-2001",
+            "PIC-2002",
+            "TIC-2001",
+            "TIC-2002",
+            "LIC-2001",
+            "MC-C1",
+            "MC-P201",
+            "MC-P202",
+            "XC-XV2001"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U300",
+          "description": "",
+          "modules": [
+            "TIC-3001",
+            "FIC-3001",
+            "FY-3001",
+            "PIC-3001",
+            "ZC-3001",
+            "FIC-3003",
+            "AIC-3001",
+            "FY-3002",
+            "TIC-3002",
+            "TIC-3003",
+            "TIC-3004",
+            "PIC-3002",
+            "BMS-3001",
+            "MC-ID301",
+            "XC-XV3001",
+            "XC-XV3002",
+            "HC-HV3001"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U400",
+          "description": "",
+          "modules": [
+            "TIC-4001",
+            "FIC-4001",
+            "AIC-4001",
+            "TIC-4002",
+            "TIC-4005",
+            "LIC-4001",
+            "LIC-4002",
+            "PIC-4001",
+            "XC-XV4001",
+            "XC-XV4002",
+            "XC-BDV4001"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U500",
+          "description": "",
+          "modules": [
+            "PIC-5001",
+            "LIC-5001",
+            "LIC-5002",
+            "LIC-5003",
+            "TIC-5001",
+            "FIC-5001",
+            "FIC-5002",
+            "TIC-5002",
+            "AIC-5001",
+            "AIC-5002",
+            "FY-5001",
+            "FY-5002",
+            "FIC-5003",
+            "PDIC-5001",
+            "FIC-5004",
+            "FIC-5005",
+            "MC-P501A",
+            "MC-P501B",
+            "MC-P502A",
+            "MC-P502B",
+            "XC-MOV5001A",
+            "XC-MOV5001B",
+            "XC-MOV5002A",
+            "XC-MOV5002B",
+            "XC-XV5001",
+            "HC-HV5001",
+            "HC-HV5002"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U600",
+          "description": "",
+          "modules": [
+            "PIC-6001",
+            "LIC-6001",
+            "LIC-6002",
+            "TIC-6001",
+            "FIC-6001",
+            "FIC-6002",
+            "TIC-6002",
+            "AIC-6001",
+            "AIC-6002",
+            "FY-6001",
+            "FY-6002",
+            "FIC-6003",
+            "PDIC-6001",
+            "FIC-6004",
+            "FIC-6005",
+            "MC-P601A",
+            "MC-P601B",
+            "MC-P602A",
+            "MC-P602B",
+            "XC-MOV6001A",
+            "XC-MOV6001B",
+            "XC-MOV6002A",
+            "XC-MOV6002B",
+            "XC-XV6001",
+            "HC-HV6001"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U700",
+          "description": "",
+          "modules": [
+            "LIC-7001",
+            "FIC-7001",
+            "FY-7001",
+            "PIC-7001",
+            "FIC-7002",
+            "FIC-7003",
+            "SIC-7001",
+            "FY-7002",
+            "AIC-7001",
+            "AIC-7002",
+            "TIC-7001",
+            "CIC-7001",
+            "PIC-7002",
+            "LIC-7002",
+            "BMS-7001",
+            "MC-P701A",
+            "MC-P701B",
+            "MC-FD701",
+            "XC-MOV7001A",
+            "XC-MOV7001B",
+            "XC-XV7001",
+            "HC-HV7001"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U800",
+          "description": "",
+          "modules": [
+            "AIC-8001",
+            "FIC-8001",
+            "LIC-8001",
+            "MC-M801",
+            "MC-P801A",
+            "MC-P801B",
+            "XC-MOV8001A",
+            "XC-MOV8001B",
+            "HC-HV8001"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "U900",
+          "description": "",
+          "modules": [
+            "ESD-9000",
+            "ESD-9200",
+            "ESD-9500",
+            "ESD-9700"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        },
+        {
+          "name": "PLANT",
+          "description": "Plant-wide advanced process control",
+          "modules": [
+            "MPC-9501",
+            "OPT-9501"
+          ],
+          "consolidate": {
+            "CRITICAL": false,
+            "WARNING": true,
+            "ADVISORY": true,
+            "LOG": true
+          }
+        }
+      ],
+      "engineering_source": {
+        "control_module_basis": "engineering/control_modules.json",
+        "virtual_io_catalog": "virtual_io/opcua_tag_catalog.json",
+        "simulator_catalog": "AzeoPlantSimulator/data/opcua_tag_catalog.json"
+      },
+      "virtual_io": {
+        "name": "APVC-VIO-1",
+        "type": "local_virtual_io",
+        "transport": "in_process",
+        "startup_mode": "manual",
+        "source": "APVC-CTRL-1",
+        "claim_outputs": true,
+        "provider_manages_claim": true,
+        "provider": {
+          "factory": "azeoplant.embedding:create_embedded_plant",
+          "call_style": "mapping",
+          "search_paths": [
+            "../../AzeoPlantSimulator"
+          ],
+          "options": {
+            "source": "APVC-CTRL-1",
+            "dt": 0.1,
+            "snapshot": "${PROJECT_DIR}/virtual_io/lined_up.snapshot.json",
+            "catalog": "${PROJECT_DIR}/virtual_io/opcua_tag_catalog.json",
+            "stale_timeout_s": 2.0,
+            "speed_factor": 1.0,
+            "autorun": true,
+            "open_loop": true
+          }
+        },
+        "dt": 0.1,
+        "period_ms": 100,
+        "input_stale_timeout_s": 2.0,
+        "timing": {
+          "integration_step_s": 0.1,
+          "exchange_period_ms": 100,
+          "regulatory_scan_rate_ms": 200,
+          "scheduling": "independent_provider_and_controller_workers",
+          "write_guarantee": "drain_queued_writes_between_plant_steps"
+        },
+        "snapshot": "virtual_io/lined_up.snapshot.json",
+        "catalog": "virtual_io/opcua_tag_catalog.json",
+        "control_module_basis": "engineering/control_modules.json",
+        "commissioning": {
+          "startup_state": "lined_up_hold",
+          "initial_modes": {
+            "PID": "MAN",
+            "AO": "MAN",
+            "DO": "MAN"
+          },
+          "pid_setpoint_source": "snapshot_pv_with_engineered_exceptions",
+          "engineered_setpoint_exceptions": {
+            "AIC-7002": "constraint_design_sp",
+            "PDIC-5001": "constraint_design_sp",
+            "PDIC-6001": "constraint_design_sp",
+            "PIC-1001": "constraint_design_sp",
+            "PIC-2002": "constraint_design_sp",
+            "PIC-7002": "constraint_design_sp",
+            "TIC-2001": "constraint_design_sp",
+            "TIC-3004": "constraint_design_sp",
+            "TIC-4002": "constraint_design_sp",
+            "PIC-5001": "commissioned_pressure_sp",
+            "FIC-5003": "snapshot_pv_x_1.35_headroom",
+            "FIC-6003": "snapshot_pv_x_1.35_headroom"
+          },
+          "transfer_policy": "operator_one_loop_at_a_time"
+        },
+        "profiles": {
+          "opcua": {
+            "enabled": false,
+            "catalog": "virtual_io/opcua_tag_catalog.json",
+            "description": "Optional interoperability profile; disabled until a deployment supplies network settings."
+          }
+        },
+        "output_ownership": {
+          "policy": "Every writable LocalAdapter route has exactly one executable owner; reserved routes retain a restored value or their model default.",
+          "routes": {
+            "FCV-0101": {
+              "owner": "strategy",
+              "reference": "control/FIC-0101.json"
+            },
+            "FCV-0102": {
+              "owner": "strategy",
+              "reference": "control/AIC-0103.json"
+            },
+            "FCV-1001": {
+              "owner": "strategy",
+              "reference": "control/FIC-1001.json"
+            },
+            "FCV-1002": {
+              "owner": "strategy",
+              "reference": "control/FIC-1002.json"
+            },
+            "FCV-2001": {
+              "owner": "strategy",
+              "reference": "control/UIC-2001.json"
+            },
+            "FCV-2002": {
+              "owner": "reserved_inactive",
+              "reference": "C1 suction-throttle actuator; no owning strategy is specified by engineering/Control_Modules.md"
+            },
+            "FCV-2003": {
+              "owner": "strategy",
+              "reference": "control/TIC-2002.json"
+            },
+            "FCV-2004": {
+              "owner": "reserved_inactive",
+              "reference": "C1 discharge-throttle alternative manipulated variable; the APVC anti-surge strategy owns the established recycle-valve path"
+            },
+            "FCV-3001": {
+              "owner": "strategy",
+              "reference": "control/FIC-3001.json"
+            },
+            "FCV-3002": {
+              "owner": "strategy",
+              "reference": "control/PIC-3001.json"
+            },
+            "FCV-3003": {
+              "owner": "strategy",
+              "reference": "control/PIC-3001.json"
+            },
+            "FCV-3004": {
+              "owner": "strategy",
+              "reference": "control/FIC-3003.json"
+            },
+            "FCV-3005": {
+              "owner": "strategy",
+              "reference": "control/TIC-3002.json"
+            },
+            "FCV-3006": {
+              "owner": "strategy",
+              "reference": "control/TIC-3003.json"
+            },
+            "FCV-4001": {
+              "owner": "strategy",
+              "reference": "control/FIC-4001.json"
+            },
+            "FCV-4002": {
+              "owner": "strategy",
+              "reference": "control/TIC-4005.json"
+            },
+            "FCV-4003": {
+              "owner": "reserved_inactive",
+              "reference": "R1 additive-injection classroom actuator; no owning APVC module is specified by engineering/Control_Modules.md"
+            },
+            "FCV-5001": {
+              "owner": "strategy",
+              "reference": "control/FIC-5001.json"
+            },
+            "FCV-5002": {
+              "owner": "strategy",
+              "reference": "control/LIC-5001.json"
+            },
+            "FCV-5003": {
+              "owner": "strategy",
+              "reference": "control/LIC-5002.json"
+            },
+            "FCV-5004": {
+              "owner": "strategy",
+              "reference": "control/FIC-5002.json"
+            },
+            "FCV-5005": {
+              "owner": "strategy",
+              "reference": "control/FIC-5003.json"
+            },
+            "FCV-5006": {
+              "owner": "strategy",
+              "reference": "control/FIC-5004.json"
+            },
+            "FCV-5007": {
+              "owner": "strategy",
+              "reference": "control/FIC-5005.json"
+            },
+            "FCV-6001": {
+              "owner": "strategy",
+              "reference": "control/FIC-6001.json"
+            },
+            "FCV-6002": {
+              "owner": "strategy",
+              "reference": "control/LIC-6001.json"
+            },
+            "FCV-6003": {
+              "owner": "strategy",
+              "reference": "control/LIC-6002.json"
+            },
+            "FCV-6004": {
+              "owner": "strategy",
+              "reference": "control/FIC-6002.json"
+            },
+            "FCV-6005": {
+              "owner": "strategy",
+              "reference": "control/FIC-6003.json"
+            },
+            "FCV-6006": {
+              "owner": "strategy",
+              "reference": "control/FIC-6004.json"
+            },
+            "FCV-6007": {
+              "owner": "strategy",
+              "reference": "control/FIC-6005.json"
+            },
+            "FCV-7001": {
+              "owner": "strategy",
+              "reference": "control/FIC-7001.json"
+            },
+            "FCV-7002": {
+              "owner": "strategy",
+              "reference": "control/FIC-7002.json"
+            },
+            "FCV-7003": {
+              "owner": "reserved_inactive",
+              "reference": "B1 forced-draft inlet damper; the evidenced FIC-7003 final element is SC-7001 and neither Control_Modules.md nor the simulator control strategy assigns this separate actuator a command producer"
+            },
+            "FCV-7004": {
+              "owner": "strategy",
+              "reference": "control/CIC-7001.json"
+            },
+            "FCV-7005": {
+              "owner": "reserved_inactive",
+              "reference": "B1 optional fuel-oil trim; the commissioned APVC boiler scheme is the established fuel-gas path"
+            },
+            "FCV-8001": {
+              "owner": "strategy",
+              "reference": "control/AIC-8001.json"
+            },
+            "FCV-8002": {
+              "owner": "strategy",
+              "reference": "control/AIC-8001.json"
+            },
+            "FCV-8003": {
+              "owner": "strategy",
+              "reference": "control/AIC-8001.json"
+            },
+            "FCV-8004": {
+              "owner": "strategy",
+              "reference": "control/FIC-8001.json"
+            },
+            "GV-2001": {
+              "owner": "reserved_inactive",
+              "reference": "C1 inlet-guide-vane alternative manipulated variable; the APVC capacity strategy owns the established speed path"
+            },
+            "LCV-0101": {
+              "owner": "strategy",
+              "reference": "control/LIC-0101.json"
+            },
+            "LCV-1001": {
+              "owner": "strategy",
+              "reference": "control/LIC-1002.json"
+            },
+            "LCV-2001": {
+              "owner": "strategy",
+              "reference": "control/LIC-2001.json"
+            },
+            "LCV-4001": {
+              "owner": "strategy",
+              "reference": "control/LIC-4001.json"
+            },
+            "LCV-4002": {
+              "owner": "strategy",
+              "reference": "control/LIC-4002.json"
+            },
+            "LCV-5001": {
+              "owner": "strategy",
+              "reference": "control/LIC-5003.json"
+            },
+            "LCV-7001": {
+              "owner": "strategy",
+              "reference": "control/LIC-7002.json"
+            },
+            "PCV-0101": {
+              "owner": "strategy",
+              "reference": "control/PIC-0101.json"
+            },
+            "PCV-0102": {
+              "owner": "strategy",
+              "reference": "control/PIC-0101.json"
+            },
+            "PCV-0103": {
+              "owner": "strategy",
+              "reference": "control/PIC-0102.json"
+            },
+            "PCV-0104": {
+              "owner": "strategy",
+              "reference": "control/PIC-0103.json"
+            },
+            "PCV-2003": {
+              "owner": "reserved_inactive",
+              "reference": "C1 hydrogen-makeup classroom actuator; no owning APVC module is specified by engineering/Control_Modules.md"
+            },
+            "PCV-4001": {
+              "owner": "strategy",
+              "reference": "control/PIC-4001.json"
+            },
+            "PCV-5001": {
+              "owner": "strategy",
+              "reference": "control/PIC-5001.json"
+            },
+            "PCV-5002": {
+              "owner": "strategy",
+              "reference": "control/PIC-5001.json"
+            },
+            "PCV-6001": {
+              "owner": "strategy",
+              "reference": "control/PIC-6001.json"
+            },
+            "PCV-7001": {
+              "owner": "strategy",
+              "reference": "control/PIC-7002.json"
+            },
+            "SC-0101": {
+              "owner": "strategy",
+              "reference": "control/PIC-0105.json"
+            },
+            "SC-0102": {
+              "owner": "strategy",
+              "reference": "control/TIC-0102.json"
+            },
+            "SC-1001": {
+              "owner": "strategy",
+              "reference": "control/SIC-1001.json"
+            },
+            "SC-2001": {
+              "owner": "strategy",
+              "reference": "control/SIC-2001.json"
+            },
+            "SC-3001": {
+              "owner": "strategy",
+              "reference": "control/PIC-3002.json"
+            },
+            "SC-7001": {
+              "owner": "strategy",
+              "reference": "control/FIC-7003.json"
+            },
+            "SC-7002": {
+              "owner": "reserved_inactive",
+              "reference": "P-701A VFD reference; no owning strategy is specified by engineering/Control_Modules.md"
+            },
+            "TCV-3002": {
+              "owner": "reserved_inactive",
+              "reference": "E5 charge-bypass classroom actuator; no owning APVC module is specified by engineering/Control_Modules.md"
+            },
+            "TCV-7001": {
+              "owner": "strategy",
+              "reference": "control/TIC-7001.json"
+            },
+            "TCV-8001": {
+              "owner": "reserved_inactive",
+              "reference": "E4 cooling-water classroom actuator; no owning APVC module is specified by engineering/Control_Modules.md"
+            },
+            "XY-3010": {
+              "owner": "strategy",
+              "reference": "sequence/BMS-3001.json"
+            },
+            "XY-3011": {
+              "owner": "strategy",
+              "reference": "sequence/BMS-3001.json"
+            },
+            "XY-7010": {
+              "owner": "strategy",
+              "reference": "sequence/BMS-7001.json"
+            },
+            "XY-7011": {
+              "owner": "strategy",
+              "reference": "sequence/BMS-7001.json"
+            },
+            "XY-9001": {
+              "owner": "simulator_sis",
+              "reference": "azeoplant.control.esd:SISMatrix total shutdown"
+            },
+            "XY-9002": {
+              "owner": "simulator_sis",
+              "reference": "azeoplant.control.esd:SISMatrix reaction shutdown"
+            },
+            "XY-9003": {
+              "owner": "simulator_sis",
+              "reference": "azeoplant.control.esd:SISMatrix fractionation shutdown"
+            },
+            "XY-9004": {
+              "owner": "simulator_sis",
+              "reference": "azeoplant.control.esd:SISMatrix boiler shutdown"
+            },
+            "XY-9005": {
+              "owner": "simulator_sis",
+              "reference": "azeoplant.control.esd:SISMatrix reactor depressuring"
+            },
+            "XY-9006": {
+              "owner": "simulator_sis",
+              "reference": "azeoplant.control.esd:SISMatrix healthy/reset lamp"
+            },
+            "XY-BDV4001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-BDV4001.json"
+            },
+            "XY-C1-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-C1.json"
+            },
+            "XY-C1-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-C1.json"
+            },
+            "XY-CT011A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-CT011A.json"
+            },
+            "XY-CT011A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-CT011A.json"
+            },
+            "XY-CT011B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-CT011B.json"
+            },
+            "XY-CT011B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-CT011B.json"
+            },
+            "XY-FD701-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-FD701.json"
+            },
+            "XY-FD701-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-FD701.json"
+            },
+            "XY-ID301-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-ID301.json"
+            },
+            "XY-ID301-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-ID301.json"
+            },
+            "XY-M801-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-M801.json"
+            },
+            "XY-M801-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-M801.json"
+            },
+            "XY-MOV0101-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV0101.json"
+            },
+            "XY-MOV0101-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV0101.json"
+            },
+            "XY-MOV0111A-CLS": {
+              "owner": "strategy",
+              "reference": "control/MC-P011A.json"
+            },
+            "XY-MOV0111A-OPN": {
+              "owner": "strategy",
+              "reference": "control/MC-P011A.json"
+            },
+            "XY-MOV0111B-CLS": {
+              "owner": "strategy",
+              "reference": "control/MC-P011B.json"
+            },
+            "XY-MOV0111B-OPN": {
+              "owner": "strategy",
+              "reference": "control/MC-P011B.json"
+            },
+            "XY-MOV1001A-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV1001A.json"
+            },
+            "XY-MOV1001A-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV1001A.json"
+            },
+            "XY-MOV1001B-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV1001B.json"
+            },
+            "XY-MOV1001B-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV1001B.json"
+            },
+            "XY-MOV1002-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV1002.json"
+            },
+            "XY-MOV1002-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV1002.json"
+            },
+            "XY-MOV5001A-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5001A.json"
+            },
+            "XY-MOV5001A-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5001A.json"
+            },
+            "XY-MOV5001B-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5001B.json"
+            },
+            "XY-MOV5001B-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5001B.json"
+            },
+            "XY-MOV5002A-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5002A.json"
+            },
+            "XY-MOV5002A-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5002A.json"
+            },
+            "XY-MOV5002B-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5002B.json"
+            },
+            "XY-MOV5002B-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV5002B.json"
+            },
+            "XY-MOV6001A-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6001A.json"
+            },
+            "XY-MOV6001A-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6001A.json"
+            },
+            "XY-MOV6001B-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6001B.json"
+            },
+            "XY-MOV6001B-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6001B.json"
+            },
+            "XY-MOV6002A-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6002A.json"
+            },
+            "XY-MOV6002A-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6002A.json"
+            },
+            "XY-MOV6002B-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6002B.json"
+            },
+            "XY-MOV6002B-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV6002B.json"
+            },
+            "XY-MOV7001A-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV7001A.json"
+            },
+            "XY-MOV7001A-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV7001A.json"
+            },
+            "XY-MOV7001B-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV7001B.json"
+            },
+            "XY-MOV7001B-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV7001B.json"
+            },
+            "XY-MOV8001A-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV8001A.json"
+            },
+            "XY-MOV8001A-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV8001A.json"
+            },
+            "XY-MOV8001B-CLS": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV8001B.json"
+            },
+            "XY-MOV8001B-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-MOV8001B.json"
+            },
+            "XY-P011A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P011A.json"
+            },
+            "XY-P011A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P011A.json"
+            },
+            "XY-P011B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P011B.json"
+            },
+            "XY-P011B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P011B.json"
+            },
+            "XY-P101A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P101A.json"
+            },
+            "XY-P101A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P101A.json"
+            },
+            "XY-P101B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P101B.json"
+            },
+            "XY-P101B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P101B.json"
+            },
+            "XY-P201-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P201.json"
+            },
+            "XY-P201-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P201.json"
+            },
+            "XY-P202-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P202.json"
+            },
+            "XY-P202-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P202.json"
+            },
+            "XY-P501A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P501A.json"
+            },
+            "XY-P501A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P501A.json"
+            },
+            "XY-P501B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P501B.json"
+            },
+            "XY-P501B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P501B.json"
+            },
+            "XY-P502A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P502A.json"
+            },
+            "XY-P502A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P502A.json"
+            },
+            "XY-P502B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P502B.json"
+            },
+            "XY-P502B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P502B.json"
+            },
+            "XY-P601A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P601A.json"
+            },
+            "XY-P601A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P601A.json"
+            },
+            "XY-P601B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P601B.json"
+            },
+            "XY-P601B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P601B.json"
+            },
+            "XY-P602A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P602A.json"
+            },
+            "XY-P602A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P602A.json"
+            },
+            "XY-P602B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P602B.json"
+            },
+            "XY-P602B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P602B.json"
+            },
+            "XY-P701A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P701A.json"
+            },
+            "XY-P701A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P701A.json"
+            },
+            "XY-P701B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P701B.json"
+            },
+            "XY-P701B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P701B.json"
+            },
+            "XY-P801A-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P801A.json"
+            },
+            "XY-P801A-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P801A.json"
+            },
+            "XY-P801B-STP": {
+              "owner": "strategy",
+              "reference": "control/MC-P801B.json"
+            },
+            "XY-P801B-STR": {
+              "owner": "strategy",
+              "reference": "control/MC-P801B.json"
+            },
+            "XY-XV0101-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV0101.json"
+            },
+            "XY-XV1001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV1001.json"
+            },
+            "XY-XV2001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV2001.json"
+            },
+            "XY-XV3001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV3001.json"
+            },
+            "XY-XV3002-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV3002.json"
+            },
+            "XY-XV4001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV4001.json"
+            },
+            "XY-XV4002-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV4002.json"
+            },
+            "XY-XV5001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV5001.json"
+            },
+            "XY-XV6001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV6001.json"
+            },
+            "XY-XV7001-OPN": {
+              "owner": "strategy",
+              "reference": "control/XC-XV7001.json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "apvc_ctrl_1",
+      "name": "APVC-CTRL-1",
+      "type": "controller",
+      "model": "PK750",
+      "hardware_id": "AZEO-APVC-PK-0001",
+      "serial": "APVC-PK-0001",
+      "description": "PK750 executing all 160 Azeo Plant modules (U010-U900 and plant-wide control)"
+    },
+    {
+      "node_id": "apvc_vio_1",
+      "name": "APVC-VIO-1",
+      "type": "virtual_io",
+      "model": "LOCAL_ADAPTER",
+      "description": "In-process AzeoPlantSimulator virtual-I/O adapter"
+    }
+  ],
+  "assignments": {
+    "control/PIC-0101.json": "apvc_ctrl_1",
+    "control/PIC-0102.json": "apvc_ctrl_1",
+    "control/PIC-0103.json": "apvc_ctrl_1",
+    "control/FIC-0101.json": "apvc_ctrl_1",
+    "control/FY-0101.json": "apvc_ctrl_1",
+    "control/PY-0101.json": "apvc_ctrl_1",
+    "control/LIC-1001.json": "apvc_ctrl_1",
+    "control/FIC-1001.json": "apvc_ctrl_1",
+    "control/SIC-1001.json": "apvc_ctrl_1",
+    "control/PIC-1001.json": "apvc_ctrl_1",
+    "control/FIC-1002.json": "apvc_ctrl_1",
+    "control/LIC-1002.json": "apvc_ctrl_1",
+    "control/PIC-2001.json": "apvc_ctrl_1",
+    "control/SIC-2001.json": "apvc_ctrl_1",
+    "control/UIC-2001.json": "apvc_ctrl_1",
+    "control/FY-2001.json": "apvc_ctrl_1",
+    "control/PIC-2002.json": "apvc_ctrl_1",
+    "control/TIC-2001.json": "apvc_ctrl_1",
+    "control/TIC-2002.json": "apvc_ctrl_1",
+    "control/LIC-2001.json": "apvc_ctrl_1",
+    "control/TIC-3001.json": "apvc_ctrl_1",
+    "control/FIC-3001.json": "apvc_ctrl_1",
+    "control/FY-3001.json": "apvc_ctrl_1",
+    "control/PIC-3001.json": "apvc_ctrl_1",
+    "control/ZC-3001.json": "apvc_ctrl_1",
+    "control/FIC-3003.json": "apvc_ctrl_1",
+    "control/AIC-3001.json": "apvc_ctrl_1",
+    "control/FY-3002.json": "apvc_ctrl_1",
+    "control/TIC-3002.json": "apvc_ctrl_1",
+    "control/TIC-3003.json": "apvc_ctrl_1",
+    "control/TIC-3004.json": "apvc_ctrl_1",
+    "control/PIC-3002.json": "apvc_ctrl_1",
+    "sequence/BMS-3001.json": "apvc_ctrl_1",
+    "control/TIC-4001.json": "apvc_ctrl_1",
+    "control/FIC-4001.json": "apvc_ctrl_1",
+    "control/AIC-4001.json": "apvc_ctrl_1",
+    "control/TIC-4002.json": "apvc_ctrl_1",
+    "control/LIC-4001.json": "apvc_ctrl_1",
+    "control/LIC-4002.json": "apvc_ctrl_1",
+    "control/PIC-4001.json": "apvc_ctrl_1",
+    "control/PIC-5001.json": "apvc_ctrl_1",
+    "control/LIC-5001.json": "apvc_ctrl_1",
+    "control/LIC-5002.json": "apvc_ctrl_1",
+    "control/LIC-5003.json": "apvc_ctrl_1",
+    "control/TIC-5001.json": "apvc_ctrl_1",
+    "control/FIC-5001.json": "apvc_ctrl_1",
+    "control/FIC-5002.json": "apvc_ctrl_1",
+    "control/TIC-5002.json": "apvc_ctrl_1",
+    "control/AIC-5001.json": "apvc_ctrl_1",
+    "control/AIC-5002.json": "apvc_ctrl_1",
+    "control/FY-5001.json": "apvc_ctrl_1",
+    "control/FY-5002.json": "apvc_ctrl_1",
+    "control/FIC-5003.json": "apvc_ctrl_1",
+    "control/PDIC-5001.json": "apvc_ctrl_1",
+    "control/FIC-5004.json": "apvc_ctrl_1",
+    "control/FIC-5005.json": "apvc_ctrl_1",
+    "control/PIC-6001.json": "apvc_ctrl_1",
+    "control/LIC-6001.json": "apvc_ctrl_1",
+    "control/LIC-6002.json": "apvc_ctrl_1",
+    "control/TIC-6001.json": "apvc_ctrl_1",
+    "control/FIC-6001.json": "apvc_ctrl_1",
+    "control/FIC-6002.json": "apvc_ctrl_1",
+    "control/TIC-6002.json": "apvc_ctrl_1",
+    "control/AIC-6001.json": "apvc_ctrl_1",
+    "control/AIC-6002.json": "apvc_ctrl_1",
+    "control/FY-6001.json": "apvc_ctrl_1",
+    "control/FY-6002.json": "apvc_ctrl_1",
+    "control/FIC-6003.json": "apvc_ctrl_1",
+    "control/PDIC-6001.json": "apvc_ctrl_1",
+    "control/FIC-6004.json": "apvc_ctrl_1",
+    "control/FIC-6005.json": "apvc_ctrl_1",
+    "control/LIC-7001.json": "apvc_ctrl_1",
+    "control/FIC-7001.json": "apvc_ctrl_1",
+    "control/FY-7001.json": "apvc_ctrl_1",
+    "control/PIC-7001.json": "apvc_ctrl_1",
+    "control/FIC-7002.json": "apvc_ctrl_1",
+    "control/FIC-7003.json": "apvc_ctrl_1",
+    "control/SIC-7001.json": "apvc_ctrl_1",
+    "control/FY-7002.json": "apvc_ctrl_1",
+    "control/AIC-7001.json": "apvc_ctrl_1",
+    "control/AIC-7002.json": "apvc_ctrl_1",
+    "control/TIC-7001.json": "apvc_ctrl_1",
+    "control/CIC-7001.json": "apvc_ctrl_1",
+    "control/PIC-7002.json": "apvc_ctrl_1",
+    "control/LIC-7002.json": "apvc_ctrl_1",
+    "sequence/BMS-7001.json": "apvc_ctrl_1",
+    "control/AIC-8001.json": "apvc_ctrl_1",
+    "control/FIC-8001.json": "apvc_ctrl_1",
+    "control/LIC-8001.json": "apvc_ctrl_1",
+    "control/MPC-9501.json": "apvc_ctrl_1",
+    "control/OPT-9501.json": "apvc_ctrl_1",
+    "control/ESD-9000.json": "apvc_ctrl_1",
+    "control/ESD-9200.json": "apvc_ctrl_1",
+    "control/ESD-9500.json": "apvc_ctrl_1",
+    "control/ESD-9700.json": "apvc_ctrl_1",
+    "control/MC-P101A.json": "apvc_ctrl_1",
+    "control/MC-P101B.json": "apvc_ctrl_1",
+    "control/MC-C1.json": "apvc_ctrl_1",
+    "control/MC-P201.json": "apvc_ctrl_1",
+    "control/MC-P202.json": "apvc_ctrl_1",
+    "control/MC-ID301.json": "apvc_ctrl_1",
+    "control/MC-P501A.json": "apvc_ctrl_1",
+    "control/MC-P501B.json": "apvc_ctrl_1",
+    "control/MC-P502A.json": "apvc_ctrl_1",
+    "control/MC-P502B.json": "apvc_ctrl_1",
+    "control/MC-P601A.json": "apvc_ctrl_1",
+    "control/MC-P601B.json": "apvc_ctrl_1",
+    "control/MC-P602A.json": "apvc_ctrl_1",
+    "control/MC-P602B.json": "apvc_ctrl_1",
+    "control/MC-P701A.json": "apvc_ctrl_1",
+    "control/MC-P701B.json": "apvc_ctrl_1",
+    "control/MC-FD701.json": "apvc_ctrl_1",
+    "control/MC-M801.json": "apvc_ctrl_1",
+    "control/MC-P801A.json": "apvc_ctrl_1",
+    "control/MC-P801B.json": "apvc_ctrl_1",
+    "control/XC-MOV0101.json": "apvc_ctrl_1",
+    "control/XC-MOV1001A.json": "apvc_ctrl_1",
+    "control/XC-MOV1001B.json": "apvc_ctrl_1",
+    "control/XC-MOV1002.json": "apvc_ctrl_1",
+    "control/XC-MOV5001A.json": "apvc_ctrl_1",
+    "control/XC-MOV5001B.json": "apvc_ctrl_1",
+    "control/XC-MOV5002A.json": "apvc_ctrl_1",
+    "control/XC-MOV5002B.json": "apvc_ctrl_1",
+    "control/XC-MOV6001A.json": "apvc_ctrl_1",
+    "control/XC-MOV6001B.json": "apvc_ctrl_1",
+    "control/XC-MOV6002A.json": "apvc_ctrl_1",
+    "control/XC-MOV6002B.json": "apvc_ctrl_1",
+    "control/XC-MOV7001A.json": "apvc_ctrl_1",
+    "control/XC-MOV7001B.json": "apvc_ctrl_1",
+    "control/XC-MOV8001A.json": "apvc_ctrl_1",
+    "control/XC-MOV8001B.json": "apvc_ctrl_1",
+    "control/XC-XV0101.json": "apvc_ctrl_1",
+    "control/XC-XV1001.json": "apvc_ctrl_1",
+    "control/XC-XV2001.json": "apvc_ctrl_1",
+    "control/XC-XV3001.json": "apvc_ctrl_1",
+    "control/XC-XV3002.json": "apvc_ctrl_1",
+    "control/XC-XV4001.json": "apvc_ctrl_1",
+    "control/XC-XV4002.json": "apvc_ctrl_1",
+    "control/XC-XV5001.json": "apvc_ctrl_1",
+    "control/XC-XV6001.json": "apvc_ctrl_1",
+    "control/XC-XV7001.json": "apvc_ctrl_1",
+    "control/XC-BDV4001.json": "apvc_ctrl_1",
+    "control/HC-HV1001.json": "apvc_ctrl_1",
+    "control/HC-HV1002.json": "apvc_ctrl_1",
+    "control/HC-HV3001.json": "apvc_ctrl_1",
+    "control/HC-HV5001.json": "apvc_ctrl_1",
+    "control/HC-HV5002.json": "apvc_ctrl_1",
+    "control/HC-HV6001.json": "apvc_ctrl_1",
+    "control/HC-HV7001.json": "apvc_ctrl_1",
+    "control/HC-HV8001.json": "apvc_ctrl_1",
+    "control/TIC-4005.json": "apvc_ctrl_1",
+    "control/TIC-0102.json": "apvc_ctrl_1",
+    "control/PIC-0105.json": "apvc_ctrl_1",
+    "control/LIC-0101.json": "apvc_ctrl_1",
+    "control/AIC-0103.json": "apvc_ctrl_1",
+    "control/MC-CT011A.json": "apvc_ctrl_1",
+    "control/MC-CT011B.json": "apvc_ctrl_1",
+    "control/MC-P011A.json": "apvc_ctrl_1",
+    "control/MC-P011B.json": "apvc_ctrl_1",
+    "control/CT1-PERF.json": "apvc_ctrl_1"
+  },
+  "name": "AzeoPlantVirtualController",
+  "project_id": "azeo_plant_virtual_controller",
+  "description": "Azeo Plant engineering project using a local in-process virtual-I/O adapter; independent of the legacy OPC-UA training project."
+}

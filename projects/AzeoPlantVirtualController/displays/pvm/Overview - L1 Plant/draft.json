@@ -1,0 +1,852 @@
+{
+ "display": "Overview - L1 Plant",
+ "pvms": [
+  {
+   "id": "area_0_bar_0",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "FIC-1001/FT-1001"
+   },
+   "x": 144,
+   "y": 176,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "FT-1001"
+  },
+  {
+   "id": "area_0_bar_1",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "LIC-1001/LT-1001"
+   },
+   "x": 144,
+   "y": 254,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "LT-1001"
+  },
+  {
+   "id": "area_0_bar_2",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "TIC-3001/TT-3001"
+   },
+   "x": 144,
+   "y": 332,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "TT-3001"
+  },
+  {
+   "id": "area_1_bar_0",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "TIC-4001/TT-4002"
+   },
+   "x": 536,
+   "y": 176,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "TT-4002"
+  },
+  {
+   "id": "area_1_bar_1",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "TIC-4001/PDT-4001"
+   },
+   "x": 536,
+   "y": 254,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "PDT-4001"
+  },
+  {
+   "id": "area_1_bar_2",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "LIC-4001/LT-4001"
+   },
+   "x": 536,
+   "y": 332,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "LT-4001"
+  },
+  {
+   "id": "area_2_bar_0",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "AIC-5001/AT-5001"
+   },
+   "x": 928,
+   "y": 176,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "AT-5001"
+  },
+  {
+   "id": "area_2_bar_1",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "AIC-6001/AT-6001"
+   },
+   "x": 928,
+   "y": 254,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "AT-6001"
+  },
+  {
+   "id": "area_2_bar_2",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "PIC-5001/PT-5001"
+   },
+   "x": 928,
+   "y": 332,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "PT-5001"
+  },
+  {
+   "id": "area_3_bar_0",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "FIC-0101/FT-0102"
+   },
+   "x": 1320,
+   "y": 176,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "FT-0102"
+  },
+  {
+   "id": "area_3_bar_1",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "PIC-7001/PT-7002"
+   },
+   "x": 1320,
+   "y": 254,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "PT-7002"
+  },
+  {
+   "id": "area_3_bar_2",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "AIC-8001/AT-8003"
+   },
+   "x": 1320,
+   "y": 332,
+   "w": 232,
+   "h": 68,
+   "variant": "hbar",
+   "label": "AT-8003"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "title",
+   "x": 24,
+   "y": 10,
+   "w": 1090,
+   "h": 35,
+   "text": "AZEO PLANT - PROCESS OVERVIEW",
+   "font_size": 19,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "purpose",
+   "x": 24,
+   "y": 49,
+   "w": 1090,
+   "h": 25,
+   "text": "Entire operating responsibility | performance, constraints and exceptions from U010 to U900",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "level",
+   "x": 1484,
+   "y": 14,
+   "w": 88,
+   "h": 36,
+   "text": "L1",
+   "font_size": 19,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "configure_note",
+   "x": 24,
+   "y": 864,
+   "w": 1536,
+   "h": 25,
+   "text": "Configured from AP-PID-U010 to AP-PID-U900 on the ISA-101 L1 High Level Overview template | APVC-CTRL-1 bindings",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "display_link",
+   "id": "down",
+   "x": 1292,
+   "y": 32,
+   "w": 172,
+   "h": 34,
+   "target": "Overview - L2 Process Coordination",
+   "text": "Open next level"
+  },
+  {
+   "kind": "rect",
+   "id": "area_0",
+   "x": 24,
+   "y": 90,
+   "w": 376,
+   "h": 448,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "area_0_title",
+   "x": 40,
+   "y": 100,
+   "w": 344,
+   "h": 26,
+   "text": "FEED AND CHARGE",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_0_state",
+   "x": 40,
+   "y": 131,
+   "w": 344,
+   "h": 26,
+   "text": "U100 D1 | U200 C1 recycle | U300 H1 heater",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_0_label_0",
+   "x": 40,
+   "y": 176,
+   "w": 100,
+   "h": 26,
+   "text": "Charge flow",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_0_label_1",
+   "x": 40,
+   "y": 254,
+   "w": 100,
+   "h": 26,
+   "text": "D1 level",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_0_label_2",
+   "x": 40,
+   "y": 332,
+   "w": 100,
+   "h": 26,
+   "text": "H1 outlet",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_0_trend_title",
+   "x": 40,
+   "y": 417,
+   "w": 344,
+   "h": 26,
+   "text": "Charge flow FT-1001 | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "area_0_trend",
+   "x": 40,
+   "y": 449,
+   "w": 344,
+   "h": 72,
+   "pens": [
+    {
+     "path": "FIC-1001/FT-1001/PV",
+     "label": "Charge flow"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "area_1",
+   "x": 416,
+   "y": 90,
+   "w": 376,
+   "h": 448,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "area_1_title",
+   "x": 432,
+   "y": 100,
+   "w": 344,
+   "h": 26,
+   "text": "REACTION AND SEPARATION",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_1_state",
+   "x": 432,
+   "y": 131,
+   "w": 344,
+   "h": 26,
+   "text": "U400 R1 thermal severity | E401 / D3 separation",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_1_label_0",
+   "x": 432,
+   "y": 176,
+   "w": 100,
+   "h": 26,
+   "text": "R1 temp.",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_1_label_1",
+   "x": 432,
+   "y": 254,
+   "w": 100,
+   "h": 26,
+   "text": "R1 differential",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_1_label_2",
+   "x": 432,
+   "y": 332,
+   "w": 100,
+   "h": 26,
+   "text": "D3 level",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_1_trend_title",
+   "x": 432,
+   "y": 417,
+   "w": 344,
+   "h": 26,
+   "text": "R1 temperature TT-4002 | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "area_1_trend",
+   "x": 432,
+   "y": 449,
+   "w": 344,
+   "h": 72,
+   "pens": [
+    {
+     "path": "TIC-4001/TT-4002/PV",
+     "label": "R1 temperature"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "area_2",
+   "x": 808,
+   "y": 90,
+   "w": 376,
+   "h": 448,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "area_2_title",
+   "x": 824,
+   "y": 100,
+   "w": 344,
+   "h": 26,
+   "text": "FRACTIONATION",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_2_state",
+   "x": 824,
+   "y": 131,
+   "w": 344,
+   "h": 26,
+   "text": "U500 T1 primary | U600 T2 product fractionation",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_2_label_0",
+   "x": 824,
+   "y": 176,
+   "w": 100,
+   "h": 26,
+   "text": "T1 overhead",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_2_label_1",
+   "x": 824,
+   "y": 254,
+   "w": 100,
+   "h": 26,
+   "text": "T2 overhead",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_2_label_2",
+   "x": 824,
+   "y": 332,
+   "w": 100,
+   "h": 26,
+   "text": "T1 pressure",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_2_trend_title",
+   "x": 824,
+   "y": 417,
+   "w": 344,
+   "h": 26,
+   "text": "T1 overhead quality AT-5001 | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "area_2_trend",
+   "x": 824,
+   "y": 449,
+   "w": 344,
+   "h": 72,
+   "pens": [
+    {
+     "path": "AIC-5001/AT-5001/PV",
+     "label": "T1 overhead"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "area_3",
+   "x": 1200,
+   "y": 90,
+   "w": 376,
+   "h": 448,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "area_3_title",
+   "x": 1216,
+   "y": 100,
+   "w": 344,
+   "h": 26,
+   "text": "UTILITIES AND EFFLUENT",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_3_state",
+   "x": 1216,
+   "y": 131,
+   "w": 344,
+   "h": 26,
+   "text": "U010 fuel | U700 steam | U800 pH | U900 SIS",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_3_label_0",
+   "x": 1216,
+   "y": 176,
+   "w": 100,
+   "h": 26,
+   "text": "Fuel-gas flow",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_3_label_1",
+   "x": 1216,
+   "y": 254,
+   "w": 100,
+   "h": 26,
+   "text": "Steam header",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_3_label_2",
+   "x": 1216,
+   "y": 332,
+   "w": 100,
+   "h": 26,
+   "text": "Discharge pH",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "area_3_trend_title",
+   "x": 1216,
+   "y": 417,
+   "w": 344,
+   "h": 26,
+   "text": "Steam header PT-7002 | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "area_3_trend",
+   "x": 1216,
+   "y": 449,
+   "w": 344,
+   "h": 72,
+   "pens": [
+    {
+     "path": "PIC-7001/PT-7002/PV",
+     "label": "Steam header"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "performance",
+   "x": 24,
+   "y": 558,
+   "w": 1020,
+   "h": 286,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "performance_title",
+   "x": 40,
+   "y": 568,
+   "w": 988,
+   "h": 26,
+   "text": "PLANT PERFORMANCE AND UPSTREAM / DOWNSTREAM CONTEXT",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "production_title",
+   "x": 40,
+   "y": 604,
+   "w": 480,
+   "h": 26,
+   "text": "Charge to U200 FIC-1002 | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "production",
+   "x": 40,
+   "y": 636,
+   "w": 480,
+   "h": 188,
+   "pens": [
+    {
+     "path": "FIC-1002/FIC-1002/PV",
+     "label": "Charge to U200"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "constraint_title",
+   "x": 544,
+   "y": 604,
+   "w": 484,
+   "h": 26,
+   "text": "C1 anti-surge recycle UIC-2001 | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "constraint",
+   "x": 544,
+   "y": 636,
+   "w": 484,
+   "h": 188,
+   "pens": [
+    {
+     "path": "UIC-2001/UIC-2001/PV",
+     "label": "Recycle flow"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "exceptions",
+   "x": 1060,
+   "y": 558,
+   "w": 516,
+   "h": 286,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "exceptions_title",
+   "x": 1076,
+   "y": 568,
+   "w": 484,
+   "h": 26,
+   "text": "PRIORITY EXCEPTIONS",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "alarms_title_1",
+   "x": 1076,
+   "y": 602,
+   "w": 484,
+   "h": 26,
+   "text": "PLANT ALARMS - priority 7 and above, all units",
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "alarms_1",
+   "x": 1076,
+   "y": 632,
+   "w": 484,
+   "h": 194,
+   "path_prefix": "",
+   "priority_min": 7
+  }
+ ],
+ "description": "L1 plant-wide situational-awareness display derived from P&IDs AP-PID-U010 through AP-PID-U900, configured on the ISA-101 L1 High Level Overview template.",
+ "width": 1600,
+ "height": 900,
+ "level": 1,
+ "show_tag": "none",
+ "schema_version": 3
+}

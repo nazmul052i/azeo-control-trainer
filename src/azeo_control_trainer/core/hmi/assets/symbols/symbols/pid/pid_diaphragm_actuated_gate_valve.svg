@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID diaphragm-actuated gate valve</title>
+  <desc id="desc">Gate valve with a diaphragm actuator.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-52 -62)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 106 88 L 106 136" fill="none" stroke-linejoin="round" stroke-miterlimit="10" class="symbol-line" />
+        <path d="M 81 88 C 86.56 81.3 95.94 77.27 106 77.27 C 116.06 77.27 125.44 81.3 131 88 Z" stroke-linejoin="round" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 56 106 L 106 136 L 56 166 Z M 156 106 L 106 136 L 156 166 Z" stroke-linejoin="round" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.50463" data-anchor-y="0.146019" cx="54.5" cy="15.77" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.967593" data-anchor-y="0.689815" cx="104.5" cy="74.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.50463" data-anchor-y="0.689815" cx="54.5" cy="74.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0416667" data-anchor-y="0.689815" cx="4.5" cy="74.5" r="3" />
+  </g>
+</svg>

@@ -1,0 +1,250 @@
+{
+  "name": "FIC-5002",
+  "description": "T1 reboiler steam flow",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U500",
+    "workbook_block_type": "PID",
+    "design_default_mode": "CAS",
+    "strategy_demonstrated": "Cascade slave, couples to U700 steam header",
+    "pv_source_text": "FT-5005",
+    "final_element_text": "FCV-5004",
+    "mapped_input_tags": [
+      "FT-5005"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "FCV-5004"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [
+      "E15"
+    ],
+    "alarms": [],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "FT-5005"
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "FT-5005",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "FT-5005",
+        "label": "T1 reboiler steam flow",
+        "scale_lo": 0.0,
+        "scale_hi": 45.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 45.0,
+        "eng_units": "t/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "FIC-5002",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 2.0,
+        "RESET": 45.0,
+        "RATE": 0.0,
+        "sp_init": 20.2152688849921,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 45.0,
+        "sp_lo": 0.0,
+        "sp_hi": 16.5,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "CAS",
+        "pv_unit": "t/h",
+        "op_unit": "%",
+        "description": "T1 reboiler steam flow",
+        "sp_pv_track_man": true,
+        "use_pv_for_bkcal_out": true,
+        "out_init": 50.46383134908626
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "DI",
+      "instance_name": "HS-9002",
+      "x": 0.0,
+      "y": 520.0,
+      "config": {
+        "tag": "HS-9002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "DI",
+      "instance_name": "HS-9001",
+      "x": 0.0,
+      "y": 600.0,
+      "config": {
+        "tag": "HS-9001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "DI",
+      "instance_name": "PSHH-5001",
+      "x": 0.0,
+      "y": 680.0,
+      "config": {
+        "tag": "PSHH-5001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "DI",
+      "instance_name": "LSLL-5002",
+      "x": 0.0,
+      "y": 760.0,
+      "config": {
+        "tag": "LSLL-5002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "OR",
+      "instance_name": "ESD_CAUSES",
+      "x": 650.0,
+      "y": 520.0,
+      "config": {
+        "NOF_INPUTS": 4
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "CONSTANT",
+      "instance_name": "ESD_FAIL_VALUE",
+      "x": 650.0,
+      "y": 330.0,
+      "config": {
+        "value": 0.0,
+        "label": "E15 fail-safe demand"
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "SWITCH",
+      "instance_name": "ESD_OVERRIDE",
+      "x": 850.0,
+      "y": 260.0,
+      "config": {}
+    },
+    {
+      "id": "b010",
+      "block_type": "AO",
+      "instance_name": "FCV-5004",
+      "x": 980.0,
+      "y": 40.0,
+      "config": {
+        "tag": "FCV-5004",
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "sp_lo_lim": 0.0,
+        "sp_hi_lim": 100.0,
+        "mode": "MAN",
+        "normal_mode": "CAS",
+        "eng_units": "",
+        "description": "T1 reboiler steam control valve"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w002",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN_D3"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN_D4"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b008",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN1"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN2"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b007",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b009",
+      "dst_terminal": "SELECT"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "b009",
+      "src_terminal": "OUT",
+      "dst_block_id": "b010",
+      "dst_terminal": "CAS_IN"
+    },
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

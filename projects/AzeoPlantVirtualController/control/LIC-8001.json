@@ -1,0 +1,226 @@
+{
+  "name": "LIC-8001",
+  "description": "NT-801 tank level",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U800",
+    "workbook_block_type": "PID",
+    "design_default_mode": "CAS",
+    "strategy_demonstrated": "Averaging level cascade",
+    "pv_source_text": "LT-8001",
+    "final_element_text": "FIC-8001 setpoint",
+    "mapped_input_tags": [
+      "LT-8001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "FIC-8001"
+    ],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "LT-8001",
+        "Unit": "U800",
+        "Alarm description": "NT-801 level high high",
+        "Alarm type": "HI_HI",
+        "Setpoint": 90,
+        "EU": "%",
+        "Priority": "High",
+        "Deadband": 2,
+        "On-delay (s)": 5
+      }
+    ],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "LT-8001"
+      ]
+    },
+    "external_reset_contract": {
+      "master": "LIC-8001",
+      "reset_source": "FIC-8001",
+      "path": "ctrl.FIC-8001.BKCAL_OUT -> LIC-8001/BKCAL_IN (0.0..120.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    "executable_consumers": [
+      {
+        "source": "LIC-8001.OUT",
+        "consumer": "SP_HANDOFF:FIC-8001",
+        "conversion": "0..100% -> 0.0..120.0 EU"
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "LT-8001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "LT-8001",
+        "label": "NT-801 neutralisation tank level",
+        "scale_lo": 0.0,
+        "scale_hi": 100.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 100.0,
+        "eng_units": "%",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "LIC-8001",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 2.0,
+        "RESET": 300.0,
+        "RATE": 0.0,
+        "sp_init": 54.99353205870408,
+        "action": "direct",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 100.0,
+        "sp_lo": 0.0,
+        "sp_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "%",
+        "op_unit": "%",
+        "description": "NT-801 tank level",
+        "hi_hi_lim": 90.0,
+        "alarm_hys": 2.0,
+        "sp_pv_track_man": true,
+        "reset_impl": "external",
+        "out_init": 19.56739408458791
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "MEM_BOOL",
+      "instance_name": "CASCADE_ENABLE",
+      "x": 760.0,
+      "y": 520.0,
+      "config": {
+        "initial_value": true,
+        "label": "Cascade demand armed; slave CAS owns transfer"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "SP_HANDOFF",
+      "instance_name": "TO_FIC-8001",
+      "x": 980.0,
+      "y": 400.0,
+      "config": {
+        "controller_tag": "FIC-8001",
+        "target_parameter": "CAS_IN",
+        "ramp_rate": 0.0,
+        "hold_on_shed": true,
+        "required_modes": "CAS"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "BKCAL_FROM_FIC-8001",
+      "x": 520.0,
+      "y": 670.0,
+      "config": {
+        "path": "ctrl.FIC-8001.BKCAL_OUT",
+        "default": 23.48087290150549,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.FIC-8001.BKCAL_OUT"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "SCALER",
+      "instance_name": "BKCAL_FIC-8001_EU_TO_PCT",
+      "x": 750.0,
+      "y": 670.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 120.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "SCALER",
+      "instance_name": "LIC-8001_PCT_TO_FIC-8001_EU",
+      "x": 700.0,
+      "y": 330.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 100.0,
+        "out_lo": 0.0,
+        "out_hi": 120.0,
+        "clamp": true
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b005",
+      "src_terminal": "OUT",
+      "dst_block_id": "b006",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b004",
+      "dst_terminal": "APC_SP"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b003",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b004",
+      "dst_terminal": "ACTIVE"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

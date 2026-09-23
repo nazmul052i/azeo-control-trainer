@@ -1,0 +1,48 @@
+# Local environments and generated output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+AzeoPlantSimulator/azeoplant/_azeocore*.pyd
+AzeoPlantSimulator/azeoplant/azeocore.dll
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+/build/
+/dist/
+/output/
+/tmp/
+/logs/
+/archive/
+*.db
+
+# Plant catalog source is tracked; generated local data is not.
+/data/
+!/AzeoPlantSimulator/data/
+!/AzeoPlantSimulator/data/opcua_tag_catalog.json
+
+# Workstation state is not project engineering data.
+projects/**/displays/pvm/**/.recovery.json
+projects/**/displays/pvm/_accepted.json
+projects/**/displays/pvm/**/.lock
+projects/**/sequence/versions/
+projects/**/procedures/runtime/
+projects/**/procedures/.pending-*/
+src/strategies/_scratch/
+src/strategies/**/versions/
+src/strategies/**/_download.log
+src/strategies/**/procedures/runtime/
+src/strategies/**/procedures/.pending-*/
+
+# Private release material and third-party references are not source inputs.
+/docs/uiux/
+/docs/HELP_AND_USER_GUIDE_REVIEW.md
+/docs/vendor_reference/
+/docs/external_reference/
+docs/**/*.chm
+docs/**/*.hlp
+*.pfx
+*.p12
+*.pem
+*.key
+*.lic

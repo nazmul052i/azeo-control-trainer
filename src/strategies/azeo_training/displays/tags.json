@@ -1,0 +1,63 @@
+{
+  "schema": "dynalive.tags/1",
+  "tags": {
+    "FIC-102": {
+      "description": "Tank101 discharge flow control",
+      "eu": "gpm",
+      "range": [
+        0.0,
+        200.0
+      ]
+    },
+    "LI-101": {
+      "description": "Tank101 level transmitter (0-1000 gal).",
+      "eu": "gal",
+      "range": [
+        0.0,
+        1000.0
+      ],
+      "limits": {
+        "HH": 900.0,
+        "HI": 800.0,
+        "LO": 50.0,
+        "LL": 10.0
+      }
+    },
+    "LIC-201": {
+      "description": "Tank201 level control",
+      "eu": "gal",
+      "range": [
+        0.0,
+        1000.0
+      ]
+    },
+    "MTR-102": {
+      "description": "Tank101 discharge pump start/stop",
+      "range": [
+        0.0,
+        100.0
+      ]
+    },
+    "MTR-203": {
+      "description": "Tank201 transfer pump",
+      "range": [
+        0.0,
+        100.0
+      ]
+    },
+    "XV-101": {
+      "description": "Tank101 inlet block valve",
+      "range": [
+        0.0,
+        100.0
+      ]
+    },
+    "XV-OPTION": {
+      "description": "Optional workshop, course book Module",
+      "range": [
+        0.0,
+        100.0
+      ]
+    }
+  }
+}

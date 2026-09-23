@@ -1,0 +1,12 @@
+# Public LocalAdapter provider options. Relative artifacts resolve below
+# model_root, so this file is portable with the simulator repository.
+embedding:
+  model_root: ".."
+  source: "APS-CTRL-1"
+  dt: 0.1
+  snapshot: "snapshots/lined_up.json"
+  catalog: "data/opcua_tag_catalog.json"
+  stale_timeout_s: 2.0
+  speed_factor: 1.0
+  autorun: true
+  open_loop: true

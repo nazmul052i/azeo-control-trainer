@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" version="1.1">
+  <title>AzeoPlant Open Loop Process Simulator</title>
+  <desc>Application icon: a fractionating column with liquid in the sump. Drawn
+  so the silhouette alone still reads at 16 pixels.</desc>
+  <defs>
+    <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B4B77"/>
+      <stop offset="1" stop-color="#0B2237"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F0A824"/>
+      <stop offset="1" stop-color="#D9781A"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="256" height="256" rx="56" ry="56" fill="url(#badge)"/>
+
+  <!-- feed and product nozzles: they give the silhouette its plant reading -->
+  <g stroke="#7FB2DA" stroke-width="11" stroke-linecap="round">
+    <line x1="40" y1="112" x2="86" y2="112"/>
+    <line x1="170" y1="80" x2="216" y2="80"/>
+    <line x1="170" y1="188" x2="216" y2="188"/>
+  </g>
+
+  <!-- column shell -->
+  <rect x="88" y="40" width="80" height="176" rx="40" ry="40" fill="#F4F7FA"/>
+
+  <!-- sump liquid: straight sides down to the tangent, then the shell's
+       own bottom semicircle, so it can never spill past the shell -->
+  <path d="M 88 150 L 168 150 L 168 176 A 40 40 0 0 1 88 176 Z"
+        fill="url(#liquid)"/>
+
+  <!-- trays -->
+  <g stroke="#1B4B77" stroke-width="8" stroke-linecap="round" opacity="0.85">
+    <line x1="104" y1="78" x2="152" y2="78"/>
+    <line x1="104" y1="106" x2="152" y2="106"/>
+    <line x1="104" y1="134" x2="152" y2="134"/>
+  </g>
+
+  <rect x="88" y="40" width="80" height="176" rx="40" ry="40"
+        fill="none" stroke="#0B2237" stroke-width="6"/>
+</svg>

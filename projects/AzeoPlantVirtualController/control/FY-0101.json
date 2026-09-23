@@ -1,0 +1,112 @@
+{
+  "name": "FY-0101",
+  "description": "Fuel gas heating value compensation",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U010",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Corrects fuel flow demand for heating value change",
+    "pv_source_text": "AT-0101",
+    "final_element_text": "FIC-3001 and FIC-7002 setpoints",
+    "mapped_input_tags": [
+      "AT-0101"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "FIC-3001",
+      "FIC-7002"
+    ],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "AT-0101",
+        "Unit": "U010",
+        "Alarm description": "Fuel gas heating value deviation",
+        "Alarm type": "DEV",
+        "Setpoint": 2,
+        "EU": "MJ/Nm3",
+        "Priority": "Advisory",
+        "Deadband": 0.2,
+        "On-delay (s)": 60
+      }
+    ],
+    "implementation_state": "MONITOR_ONLY_UNSPECIFIED",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "drives_control": false,
+    "evidence_gap": "fuel-gas heating-value compensation equation",
+    "evidence_checked": "AzeoPlantSimulator/azeoplant/control/strategy.py and engineering/Control_Modules.md"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "AT-0101",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "AT-0101",
+        "label": "Fuel gas lower heating value",
+        "scale_lo": 18.0,
+        "scale_hi": 46.0,
+        "XD_SCALE_LO": 18.0,
+        "XD_SCALE_HI": 46.0,
+        "eng_units": "MJ/Nm3",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "ALARM_HYS": 0.2
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "CONSTANT",
+      "instance_name": "AT-0101_NORMAL",
+      "x": 200.0,
+      "y": 55.0,
+      "config": {
+        "value": 50.0,
+        "label": "AT-0101 normal target"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "ALARM",
+      "instance_name": "AT-0101_DEVIATION",
+      "x": 400.0,
+      "y": 0.0,
+      "config": {
+        "HI_EN": false,
+        "HH_EN": false,
+        "LO_EN": false,
+        "LL_EN": false,
+        "DEV_EN": true,
+        "DEV_HI": 2.0,
+        "DEV_LO": 2.0,
+        "DV_HYS": 0.2,
+        "DEADBAND": 0.2,
+        "description": "Fuel gas heating value deviation"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "PV"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "SP"
+    }
+  ],
+  "comments": []
+}

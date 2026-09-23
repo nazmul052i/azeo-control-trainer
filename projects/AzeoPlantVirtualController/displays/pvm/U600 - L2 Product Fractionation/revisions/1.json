@@ -1,0 +1,660 @@
+{
+ "display": "U600 - L2 Product Fractionation",
+ "pvms": [
+  {
+   "id": "u600_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-6001/PIC-6001"
+   },
+   "x": 117.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "T2 pressure"
+  },
+  {
+   "id": "u600_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-6001/LIC-6001"
+   },
+   "x": 461.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "T2 bottoms"
+  },
+  {
+   "id": "u600_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-6002/LIC-6002"
+   },
+   "x": 805.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Reflux drum"
+  },
+  {
+   "id": "u600_loop_3",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "AIC-6001/AIC-6001"
+   },
+   "x": 1149.0,
+   "y": 704,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Product quality"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U600 · PRODUCT FRACTIONATION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Maintain T2 pressure, reflux and reboiler balance, inventories, and final overhead product quality.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u600_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u600_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U600/U600B",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u600_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u600_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "symbol",
+   "id": "u600_feed",
+   "x": 60,
+   "y": 310,
+   "w": 75,
+   "h": 60,
+   "symbol": "control_valve"
+  },
+  {
+   "kind": "text",
+   "id": "u600_feed_tag",
+   "x": 35,
+   "y": 283,
+   "w": 125,
+   "h": 22,
+   "text": "FEED",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u600_feed_label",
+   "x": 30,
+   "y": 375,
+   "w": 135,
+   "h": 28,
+   "text": "From T1",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u600_t2",
+   "x": 250,
+   "y": 170,
+   "w": 105,
+   "h": 300,
+   "symbol": "column"
+  },
+  {
+   "kind": "text",
+   "id": "u600_t2_tag",
+   "x": 225,
+   "y": 143,
+   "w": 155,
+   "h": 22,
+   "text": "T2",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u600_t2_label",
+   "x": 220,
+   "y": 475,
+   "w": 165,
+   "h": 28,
+   "text": "Product fractionator",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u600_cond",
+   "x": 485,
+   "y": 175,
+   "w": 110,
+   "h": 85,
+   "symbol": "condenser"
+  },
+  {
+   "kind": "text",
+   "id": "u600_cond_tag",
+   "x": 460,
+   "y": 148,
+   "w": 160,
+   "h": 22,
+   "text": "E601",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u600_cond_label",
+   "x": 455,
+   "y": 265,
+   "w": 170,
+   "h": 28,
+   "text": "Overhead condenser",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u600_d601",
+   "x": 690,
+   "y": 185,
+   "w": 125,
+   "h": 90,
+   "symbol": "drum"
+  },
+  {
+   "kind": "text",
+   "id": "u600_d601_tag",
+   "x": 665,
+   "y": 158,
+   "w": 175,
+   "h": 22,
+   "text": "D601",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u600_d601_label",
+   "x": 660,
+   "y": 280,
+   "w": 185,
+   "h": 28,
+   "text": "Reflux drum",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u600_p601",
+   "x": 890,
+   "y": 215,
+   "w": 105,
+   "h": 90,
+   "symbol": "pump"
+  },
+  {
+   "kind": "text",
+   "id": "u600_p601_tag",
+   "x": 865,
+   "y": 188,
+   "w": 155,
+   "h": 22,
+   "text": "P601A/B",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u600_p601_label",
+   "x": 860,
+   "y": 310,
+   "w": 165,
+   "h": 28,
+   "text": "Product/reflux pumps",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u600_reb",
+   "x": 480,
+   "y": 390,
+   "w": 115,
+   "h": 90,
+   "symbol": "reboiler"
+  },
+  {
+   "kind": "text",
+   "id": "u600_reb_tag",
+   "x": 455,
+   "y": 363,
+   "w": 165,
+   "h": 22,
+   "text": "E602",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u600_reb_label",
+   "x": 450,
+   "y": 485,
+   "w": 175,
+   "h": 28,
+   "text": "T2 reboiler",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u600_pipe_0",
+   "a": "u600_feed",
+   "a_side": "e",
+   "b": "u600_t2",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u600_pipe_1",
+   "a": "u600_t2",
+   "a_side": "n",
+   "b": "u600_cond",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u600_pipe_2",
+   "a": "u600_cond",
+   "a_side": "e",
+   "b": "u600_d601",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u600_pipe_3",
+   "a": "u600_d601",
+   "a_side": "e",
+   "b": "u600_p601",
+   "b_side": "w",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u600_pipe_4",
+   "a": "u600_reb",
+   "a_side": "w",
+   "b": "u600_t2",
+   "b_side": "s",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u600_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u600_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "T2 pressure",
+     "value": {
+      "path": "PIC-6001/PIC-6001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Product quality",
+     "value": {
+      "path": "AIC-6001/AIC-6001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Reboiler temperature",
+     "value": {
+      "path": "TIC-6002/TIC-6002/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u600_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u600_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "T2 pressure",
+     "path": "PIC-6001/PIC-6001/PV"
+    },
+    {
+     "label": "Product quality",
+     "path": "AIC-6001/AIC-6001/PV"
+    },
+    {
+     "label": "Reboiler temperature",
+     "path": "TIC-6002/TIC-6002/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u600_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE PIC-6001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u600_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "PIC-6001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u600_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u600_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  }
+ ],
+ "description": "L2 primary-operation display for U600, derived from AP-PID-U600/U600B. Native editable equipment, smart pipes, live PVMs, KPIs, profile, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

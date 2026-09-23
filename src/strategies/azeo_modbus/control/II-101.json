@@ -1,0 +1,26 @@
+{
+  "name": "II-101",
+  "description": "MTR-101 stator current, input register 30008. High current is the first sign of a pump running against a shut discharge.",
+  "blocks": [
+    {
+      "id": "ai",
+      "block_type": "AI",
+      "instance_name": "AI1",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "MTR-101.current",
+        "scale_lo": 0.0,
+        "scale_hi": 100.0,
+        "eng_units": "A",
+        "mode": "AUTO",
+        "L_TYPE": "Direct",
+        "label": "MTR-101 Current",
+        "HI_ENAB": true,
+        "HI_LIM": 42.0
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

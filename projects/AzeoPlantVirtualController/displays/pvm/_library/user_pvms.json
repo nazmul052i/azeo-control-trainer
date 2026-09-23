@@ -1,0 +1,2359 @@
+{
+  "PlantSafeLanding": {
+    "items": [
+      {
+        "kind": "rect",
+        "id": "surface",
+        "x": 0.0,
+        "y": 0.0,
+        "w": 440,
+        "h": 608,
+        "fill_role": "SURFACE_PANEL",
+        "width": 1,
+        "locked": true,
+        "source_element_id": "42839ee2-cdda-4e9b-9e46-219cf079823b"
+      },
+      {
+        "kind": "text",
+        "id": "title",
+        "text": "Pvm.Title · Advisory",
+        "x": 12.0,
+        "y": 8.0,
+        "w": 416,
+        "h": 22,
+        "font_size": 12,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "72353c0d-b6cc-48a8-85f4-59c88f6e07fd"
+      },
+      {
+        "kind": "datalink",
+        "id": "name",
+        "path": "@procedure/{ProcedureRef}/TITLE",
+        "datalink_type": "string",
+        "x": 12.0,
+        "y": 34.0,
+        "w": 416,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "ccc51c6f-3b06-4b56-823b-c053faf37e27"
+      },
+      {
+        "kind": "datalink",
+        "id": "state",
+        "path": "@procedure/{ProcedureRef}/STATE",
+        "datalink_type": "string",
+        "x": 12.0,
+        "y": 64.0,
+        "w": 416,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "7c322849-408a-4671-aa98-80d3afe9ce4e"
+      },
+      {
+        "kind": "datalink",
+        "id": "source",
+        "path": "@procedure/{ProcedureRef}/SOURCE",
+        "datalink_type": "string",
+        "x": 12.0,
+        "y": 93.0,
+        "w": 416,
+        "h": 44,
+        "word_wrap": true,
+        "source_element_id": "dbebbb50-d821-4f9e-92c7-541618ec7734"
+      },
+      {
+        "kind": "text",
+        "id": "current_label",
+        "text": "Current instruction / operator response",
+        "x": 12.0,
+        "y": 141.0,
+        "w": 416,
+        "h": 22,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "1e52515f-fa20-4bde-a288-04e17369b3d5"
+      },
+      {
+        "kind": "datalink",
+        "id": "instruction",
+        "path": "@procedure/{ProcedureRef}/INSTRUCTION",
+        "datalink_type": "string",
+        "x": 12.0,
+        "y": 169.0,
+        "w": 416,
+        "h": 126,
+        "word_wrap": true,
+        "source_element_id": "e0d19c0c-945a-4859-b289-675785286011"
+      },
+      {
+        "kind": "datalink",
+        "id": "progress",
+        "path": "@procedure/{ProcedureRef}/PROGRESS",
+        "datalink_type": "string",
+        "x": 12.0,
+        "y": 302.0,
+        "w": 416,
+        "h": 42,
+        "word_wrap": true,
+        "source_element_id": "ec53808b-d61d-4232-aa40-6da64839ec0d"
+      },
+      {
+        "kind": "user_entry",
+        "id": "respond",
+        "x": 12.0,
+        "y": 354.0,
+        "w": 416,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Respond to current prompt…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "respond",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_RESPOND",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_RESPOND",
+            "type": "string"
+          }
+        },
+        "source_element_id": "f94d661f-4ec6-436b-87c0-8527a9a96324"
+      },
+      {
+        "kind": "user_entry",
+        "id": "start",
+        "x": 12.0,
+        "y": 398.0,
+        "w": 96,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Start"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "start",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_START",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_START",
+            "type": "string"
+          }
+        },
+        "source_element_id": "cc9b1554-7ffe-4a7e-918f-c884e0392a39"
+      },
+      {
+        "kind": "user_entry",
+        "id": "pause",
+        "x": 119.0,
+        "y": 398.0,
+        "w": 96,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Pause"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "pause",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_PAUSE",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_PAUSE",
+            "type": "string"
+          }
+        },
+        "source_element_id": "6290bf0b-6ce4-4b3f-8c6c-8f9c2e6bfe21"
+      },
+      {
+        "kind": "user_entry",
+        "id": "resume",
+        "x": 226.0,
+        "y": 398.0,
+        "w": 96,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Resume"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "resume",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_RESUME",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_RESUME",
+            "type": "string"
+          }
+        },
+        "source_element_id": "c6cb5aee-a02d-4666-85f2-398225c953a4"
+      },
+      {
+        "kind": "user_entry",
+        "id": "abort",
+        "x": 333.0,
+        "y": 398.0,
+        "w": 95,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "End guide"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "abort",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_ABORT",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_ABORT",
+            "type": "string"
+          }
+        },
+        "source_element_id": "4518180b-8f85-40e1-9092-664624b2b9a0"
+      },
+      {
+        "kind": "user_entry",
+        "id": "detail",
+        "x": 12.0,
+        "y": 442.0,
+        "w": 282,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Workflow / observations / events…"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Detail"
+          }
+        ],
+        "source_element_id": "d72353fa-6458-441a-a337-9c876431ee68"
+      },
+      {
+        "kind": "user_entry",
+        "id": "equipment",
+        "x": 306.0,
+        "y": 442.0,
+        "w": 122,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Equipment…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "equipment",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_EQUIPMENT",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_EQUIPMENT",
+            "type": "string"
+          }
+        },
+        "source_element_id": "4c4b4bf0-2d20-4b94-b368-7824d99c75ea"
+      },
+      {
+        "kind": "user_entry",
+        "id": "conditions_page",
+        "x": 12.0,
+        "y": 484.0,
+        "w": 132,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Conditions"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Conditions"
+          }
+        ],
+        "source_element_id": "db121f1b-f7df-40f0-a75e-e0906172750a"
+      },
+      {
+        "kind": "user_entry",
+        "id": "tuning_page",
+        "x": 152.0,
+        "y": 484.0,
+        "w": 132,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Tuning"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Tuning"
+          }
+        ],
+        "source_element_id": "31a0e4d5-6c93-44a9-8e08-716cab2f4364"
+      },
+      {
+        "kind": "user_entry",
+        "id": "trends_page",
+        "x": 292.0,
+        "y": 484.0,
+        "w": 136,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Trends"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Trends"
+          }
+        ],
+        "source_element_id": "93465bef-15f6-4c2a-9755-b2bed091a7ae"
+      },
+      {
+        "kind": "user_entry",
+        "id": "history_page",
+        "x": 12.0,
+        "y": 526.0,
+        "w": 132,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "History"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_History"
+          }
+        ],
+        "source_element_id": "180dd48c-d727-4769-8bee-4af675ca1f72"
+      },
+      {
+        "kind": "user_entry",
+        "id": "help",
+        "x": 152.0,
+        "y": 526.0,
+        "w": 132,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Help"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "help",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_HELP",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_HELP",
+            "type": "string"
+          }
+        },
+        "source_element_id": "8643081d-3e81-4f53-b314-e055dda06fc3"
+      },
+      {
+        "kind": "text",
+        "id": "held",
+        "text": "Advisory guidance",
+        "x": 292.0,
+        "y": 530.0,
+        "w": 136,
+        "h": 22,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "43abe7fa-d19c-4ff7-8848-fde055d84f30"
+      },
+      {
+        "kind": "display_link",
+        "id": "manual",
+        "text": "Manual shutdown controls",
+        "target": "Plant - L3 Safe Landing",
+        "x": 12.0,
+        "y": 568.0,
+        "w": 416,
+        "h": 34,
+        "source_element_id": "469875c3-d34e-4131-ae33-d2c0dfc3b746"
+      }
+    ],
+    "w": 440.0,
+    "h": 608.0,
+    "folder": "My Faceplates",
+    "definition_kind": "faceplate",
+    "definition_id": "a6c4ce75-9959-469b-9127-4887ad575393",
+    "definition_revision": 4,
+    "schema_version": 2
+  },
+  "PlantSafeLanding_PVM": {
+    "items": [
+      {
+        "kind": "rect",
+        "id": "surface",
+        "x": 0.0,
+        "y": 0.0,
+        "w": 240,
+        "h": 100,
+        "fill_role": "SURFACE_PANEL",
+        "width": 1,
+        "locked": true,
+        "source_element_id": "abb25e82-23b4-4be3-9930-7d96f795d4ca"
+      },
+      {
+        "kind": "text",
+        "id": "title",
+        "text": "Pvm.Title",
+        "x": 10.0,
+        "y": 5.0,
+        "w": 220,
+        "h": 22,
+        "font_size": 11,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "c98931ea-7791-4e4b-bf8a-b8be3eb6d9ea"
+      },
+      {
+        "kind": "datalink",
+        "id": "state",
+        "path": "@procedure/{ProcedureRef}/STATE",
+        "datalink_type": "string",
+        "x": 10.0,
+        "y": 27.0,
+        "w": 220,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "0aeec7dd-00cc-486c-9f27-951988ad3fe9"
+      },
+      {
+        "kind": "user_entry",
+        "id": "open",
+        "x": 10.0,
+        "y": 60.0,
+        "w": 220,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Procedure…"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_faceplate",
+            "target": "PlantSafeLanding"
+          }
+        ],
+        "source_element_id": "20745834-09b3-4991-8e87-f31838cfc17d"
+      }
+    ],
+    "w": 240.0,
+    "h": 100.0,
+    "folder": "My PVMs",
+    "definition_kind": "pvm",
+    "definition_id": "4b05fcc2-760d-4099-a0f2-1de1170e9009",
+    "definition_revision": 3,
+    "schema_version": 2,
+    "paired_faceplate": "PlantSafeLanding"
+  },
+  "PlantSafeLanding_Detail": {
+    "items": [
+      {
+        "kind": "rect",
+        "id": "surface",
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1020,
+        "h": 706,
+        "fill_role": "SURFACE_PANEL",
+        "width": 1,
+        "locked": true,
+        "source_element_id": "06ffb8f1-576d-4f1b-a53e-820a658489ca"
+      },
+      {
+        "kind": "text",
+        "id": "title",
+        "text": "Pvm.Title · Workflow",
+        "x": 16.0,
+        "y": 8.0,
+        "w": 988,
+        "h": 22,
+        "font_size": 13,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "b03c9235-3947-4a48-a6b4-4509f638d4a7"
+      },
+      {
+        "kind": "datalink",
+        "id": "state",
+        "path": "@procedure/{ProcedureRef}/STATE",
+        "datalink_type": "string",
+        "x": 16.0,
+        "y": 40.0,
+        "w": 330,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "4746fb37-3c19-45e0-961c-e1c79af7111b"
+      },
+      {
+        "kind": "datalink",
+        "id": "source",
+        "path": "@procedure/{ProcedureRef}/SOURCE",
+        "datalink_type": "string",
+        "x": 360.0,
+        "y": 40.0,
+        "w": 644,
+        "h": 34,
+        "word_wrap": true,
+        "source_element_id": "ac02f732-e9b3-47e0-a624-0c8bfa889ebf"
+      },
+      {
+        "kind": "user_entry",
+        "id": "workflow_page",
+        "x": 16.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Workflow"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Detail"
+          }
+        ],
+        "source_element_id": "6fa96eb9-e4c9-402f-a4c9-36fd9932e172"
+      },
+      {
+        "kind": "user_entry",
+        "id": "conditions_page",
+        "x": 150.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Conditions"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Conditions"
+          }
+        ],
+        "source_element_id": "3214229e-3b51-4967-ab40-0879999e79a4"
+      },
+      {
+        "kind": "user_entry",
+        "id": "tuning_page",
+        "x": 284.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Tuning"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Tuning"
+          }
+        ],
+        "source_element_id": "867ce2c5-cd88-4331-aa2e-ed255c3e800f"
+      },
+      {
+        "kind": "user_entry",
+        "id": "trends_page",
+        "x": 418.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Trends"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Trends"
+          }
+        ],
+        "source_element_id": "e3e19278-93d3-4292-8db0-5b625d805f56"
+      },
+      {
+        "kind": "user_entry",
+        "id": "history_page",
+        "x": 552.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "History"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_History"
+          }
+        ],
+        "source_element_id": "a4496553-2af0-4cc7-9b0e-bd345db589e5"
+      },
+      {
+        "kind": "user_entry",
+        "id": "equipment",
+        "x": 686.0,
+        "y": 84.0,
+        "w": 152,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Equipment…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "equipment",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_EQUIPMENT",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_EQUIPMENT",
+            "type": "string"
+          }
+        },
+        "source_element_id": "22d1d663-e090-4c12-ab2e-eb4ced8e3c21"
+      },
+      {
+        "kind": "user_entry",
+        "id": "help",
+        "x": 848.0,
+        "y": 84.0,
+        "w": 156,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Help"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "help",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_HELP",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_HELP",
+            "type": "string"
+          }
+        },
+        "source_element_id": "615ce1e0-4173-4032-a58d-f7c115eb333d"
+      },
+      {
+        "kind": "table",
+        "id": "workflow",
+        "x": 16.0,
+        "y": 130.0,
+        "w": 590,
+        "h": 558,
+        "rows_path": "@procedure/{ProcedureRef}/STEPS",
+        "rows": [],
+        "row_height": 26,
+        "header_height": 24,
+        "row_help": true,
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "empty_text": "No observations available",
+        "columns": [
+          {
+            "key": "step",
+            "title": "Step",
+            "width": 1
+          },
+          {
+            "key": "instruction",
+            "title": "Instruction",
+            "width": 3
+          },
+          {
+            "key": "state",
+            "title": "State",
+            "width": 1
+          }
+        ],
+        "presentation": "workflow",
+        "source_element_id": "d9f514f1-b672-4382-83d3-8e6d4de0b694"
+      },
+      {
+        "kind": "text",
+        "id": "current_label",
+        "text": "Current instruction",
+        "x": 628.0,
+        "y": 132.0,
+        "w": 376,
+        "h": 22,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "ceb84eea-8772-4108-9eb4-2fdd03af70f9"
+      },
+      {
+        "kind": "datalink",
+        "id": "instruction",
+        "path": "@procedure/{ProcedureRef}/INSTRUCTION",
+        "datalink_type": "string",
+        "x": 628.0,
+        "y": 163.0,
+        "w": 376,
+        "h": 130,
+        "word_wrap": true,
+        "source_element_id": "04cd17bb-81aa-445d-9e2f-acd12bdf1caa"
+      },
+      {
+        "kind": "datalink",
+        "id": "progress",
+        "path": "@procedure/{ProcedureRef}/PROGRESS",
+        "datalink_type": "string",
+        "x": 628.0,
+        "y": 304.0,
+        "w": 376,
+        "h": 70,
+        "word_wrap": true,
+        "source_element_id": "aca52df4-c7e5-4448-b166-22b642f7f112"
+      },
+      {
+        "kind": "user_entry",
+        "id": "respond",
+        "x": 628.0,
+        "y": 386.0,
+        "w": 376,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Respond to current prompt…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "respond",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_RESPOND",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_RESPOND",
+            "type": "string"
+          }
+        },
+        "source_element_id": "285cee1e-f3e7-4b92-9d63-4c2a7b61a076"
+      },
+      {
+        "kind": "user_entry",
+        "id": "faceplate",
+        "x": 628.0,
+        "y": 430.0,
+        "w": 376,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Procedure faceplate…"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_faceplate",
+            "target": "PlantSafeLanding"
+          }
+        ],
+        "source_element_id": "651943a7-7760-44c1-a5b8-42954c66f51b"
+      },
+      {
+        "kind": "text",
+        "id": "manual",
+        "text": "Pause guidance at any time to work manually through equipment faceplates. Resume restarts hold qualification. Held ends the run.",
+        "x": 628.0,
+        "y": 530.0,
+        "w": 376,
+        "h": 108,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "top",
+        "source_element_id": "78c0307a-7a52-436d-a68b-4c90b2e2df54"
+      },
+      {
+        "kind": "user_entry",
+        "id": "pause",
+        "x": 628.0,
+        "y": 650.0,
+        "w": 180,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Pause guidance"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "pause",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_PAUSE",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_PAUSE",
+            "type": "string"
+          }
+        },
+        "source_element_id": "6108b5cf-b35f-4d46-b43a-365b1fac4c57"
+      },
+      {
+        "kind": "user_entry",
+        "id": "resume",
+        "x": 824.0,
+        "y": 650.0,
+        "w": 180,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Resume"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "resume",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_RESUME",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_RESUME",
+            "type": "string"
+          }
+        },
+        "source_element_id": "883a109d-f424-49a4-8331-3d020c971b47"
+      },
+      {
+        "kind": "display_link",
+        "id": "manual_shutdown",
+        "text": "Manual shutdown controls",
+        "target": "Plant - L3 Safe Landing",
+        "x": 628.0,
+        "y": 474.0,
+        "w": 376,
+        "h": 34,
+        "source_element_id": "26ec614d-0476-4486-bfc8-3966f07241bf"
+      }
+    ],
+    "w": 1020.0,
+    "h": 706.0,
+    "folder": "My Details",
+    "definition_kind": "detail",
+    "definition_id": "194a3c81-26cc-4bbf-ae6f-b4eb3f3a8c3a",
+    "definition_revision": 4,
+    "schema_version": 2
+  },
+  "PlantSafeLanding_Conditions": {
+    "items": [
+      {
+        "kind": "rect",
+        "id": "surface",
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1020,
+        "h": 706,
+        "fill_role": "SURFACE_PANEL",
+        "width": 1,
+        "locked": true,
+        "source_element_id": "74bf7186-470d-4e4c-a235-803423f86af2"
+      },
+      {
+        "kind": "text",
+        "id": "title",
+        "text": "Pvm.Title · Conditions / hold monitor",
+        "x": 16.0,
+        "y": 8.0,
+        "w": 988,
+        "h": 22,
+        "font_size": 13,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "25d61e0c-422c-4ed3-8491-01f617e11644"
+      },
+      {
+        "kind": "datalink",
+        "id": "state",
+        "path": "@procedure/{ProcedureRef}/STATE",
+        "datalink_type": "string",
+        "x": 16.0,
+        "y": 40.0,
+        "w": 330,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "70f066bb-329b-4a80-b74e-53b163d61415"
+      },
+      {
+        "kind": "datalink",
+        "id": "source",
+        "path": "@procedure/{ProcedureRef}/SOURCE",
+        "datalink_type": "string",
+        "x": 360.0,
+        "y": 40.0,
+        "w": 644,
+        "h": 34,
+        "word_wrap": true,
+        "source_element_id": "c0c8a772-39cc-4de3-b255-07b776ff6567"
+      },
+      {
+        "kind": "user_entry",
+        "id": "workflow_page",
+        "x": 16.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Workflow"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Detail"
+          }
+        ],
+        "source_element_id": "79acf0d1-3f64-4c6b-88ce-3559bba35b1d"
+      },
+      {
+        "kind": "user_entry",
+        "id": "conditions_page",
+        "x": 150.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Conditions"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Conditions"
+          }
+        ],
+        "source_element_id": "72b9e8a1-c9b5-467f-bc0c-2188b0b8faca"
+      },
+      {
+        "kind": "user_entry",
+        "id": "tuning_page",
+        "x": 284.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Tuning"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Tuning"
+          }
+        ],
+        "source_element_id": "2ccf971b-a935-4075-9f4f-eab5bd55999b"
+      },
+      {
+        "kind": "user_entry",
+        "id": "trends_page",
+        "x": 418.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Trends"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Trends"
+          }
+        ],
+        "source_element_id": "f1dd3c9d-e843-46ff-846d-a4f19451601c"
+      },
+      {
+        "kind": "user_entry",
+        "id": "history_page",
+        "x": 552.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "History"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_History"
+          }
+        ],
+        "source_element_id": "d0ff0454-1c4d-4561-9d47-45f2764b8401"
+      },
+      {
+        "kind": "user_entry",
+        "id": "equipment",
+        "x": 686.0,
+        "y": 84.0,
+        "w": 152,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Equipment…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "equipment",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_EQUIPMENT",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_EQUIPMENT",
+            "type": "string"
+          }
+        },
+        "source_element_id": "f50eab5c-68c0-4fc1-b395-dcb94698a59b"
+      },
+      {
+        "kind": "user_entry",
+        "id": "help",
+        "x": 848.0,
+        "y": 84.0,
+        "w": 156,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Help"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "help",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_HELP",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_HELP",
+            "type": "string"
+          }
+        },
+        "source_element_id": "d4f04828-beaf-4c40-ba4d-123e188a2129"
+      },
+      {
+        "kind": "datalink",
+        "id": "progress",
+        "path": "@procedure/{ProcedureRef}/PROGRESS",
+        "datalink_type": "string",
+        "x": 16.0,
+        "y": 130.0,
+        "w": 988,
+        "h": 42,
+        "word_wrap": true,
+        "source_element_id": "2ff70c29-b75f-4b8a-a020-eefdd2e3ab24"
+      },
+      {
+        "kind": "table",
+        "id": "conditions",
+        "x": 16.0,
+        "y": 184.0,
+        "w": 988,
+        "h": 270,
+        "rows_path": "@procedure/{ProcedureRef}/CONDITIONS",
+        "rows": [],
+        "row_height": 26,
+        "header_height": 24,
+        "row_help": false,
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "empty_text": "No active wait · conditions appear when a wait step runs",
+        "columns": [
+          {
+            "key": "id",
+            "title": "Row",
+            "width": 0.5
+          },
+          {
+            "key": "condition",
+            "title": "Expression",
+            "width": 2.3
+          },
+          {
+            "key": "value",
+            "title": "Observed values",
+            "width": 2
+          },
+          {
+            "key": "quality",
+            "title": "Quality",
+            "width": 0.8
+          },
+          {
+            "key": "state",
+            "title": "State",
+            "width": 0.8
+          },
+          {
+            "key": "timer",
+            "title": "Continuous hold",
+            "width": 1
+          },
+          {
+            "key": "reason",
+            "title": "Reason",
+            "width": 1.5
+          }
+        ],
+        "source_element_id": "36de047c-bd2e-4601-bc4c-abe0139b600c"
+      },
+      {
+        "kind": "text",
+        "id": "evidence",
+        "text": "All rows use one captured scan. False or unknown resets that row; group hold starts only after the configured ALL / ANY / custom group qualifies.",
+        "x": 16.0,
+        "y": 464.0,
+        "w": 988,
+        "h": 48,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "top",
+        "source_element_id": "a7b90077-eb71-4cea-b4e1-71b38d80b922"
+      },
+      {
+        "kind": "table",
+        "id": "values",
+        "x": 16.0,
+        "y": 526.0,
+        "w": 988,
+        "h": 160,
+        "rows_path": "@procedure/{ProcedureRef}/VALUES",
+        "rows": [],
+        "row_height": 26,
+        "header_height": 24,
+        "row_help": false,
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "empty_text": "No observations available",
+        "columns": [
+          {
+            "key": "tag",
+            "title": "Tag",
+            "width": 1.2
+          },
+          {
+            "key": "path",
+            "title": "Source",
+            "width": 2
+          },
+          {
+            "key": "value",
+            "title": "Value",
+            "width": 1
+          },
+          {
+            "key": "quality",
+            "title": "Quality",
+            "width": 0.8
+          }
+        ],
+        "source_element_id": "572078c6-790e-4df0-a063-52e4b1829e9e"
+      }
+    ],
+    "w": 1020.0,
+    "h": 706.0,
+    "folder": "My Details",
+    "definition_kind": "detail",
+    "definition_id": "d58f1faf-0dba-4211-9532-f2c18edeba00",
+    "definition_revision": 2,
+    "schema_version": 2
+  },
+  "PlantSafeLanding_Tuning": {
+    "items": [
+      {
+        "kind": "rect",
+        "id": "surface",
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1020,
+        "h": 706,
+        "fill_role": "SURFACE_PANEL",
+        "width": 1,
+        "locked": true,
+        "source_element_id": "d016bd52-a358-4b8a-81e7-9f9039dd42b7"
+      },
+      {
+        "kind": "text",
+        "id": "title",
+        "text": "Pvm.Title · Tuning",
+        "x": 16.0,
+        "y": 8.0,
+        "w": 988,
+        "h": 22,
+        "font_size": 13,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "3f035e46-1567-4cd0-9730-8c8f5072a2b3"
+      },
+      {
+        "kind": "datalink",
+        "id": "state",
+        "path": "@procedure/{ProcedureRef}/STATE",
+        "datalink_type": "string",
+        "x": 16.0,
+        "y": 40.0,
+        "w": 330,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "85471e32-58a0-49c4-89fd-966f00575da0"
+      },
+      {
+        "kind": "datalink",
+        "id": "source",
+        "path": "@procedure/{ProcedureRef}/SOURCE",
+        "datalink_type": "string",
+        "x": 360.0,
+        "y": 40.0,
+        "w": 644,
+        "h": 34,
+        "word_wrap": true,
+        "source_element_id": "0707d5e7-823d-49bd-b927-aaf472f751b5"
+      },
+      {
+        "kind": "user_entry",
+        "id": "workflow_page",
+        "x": 16.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Workflow"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Detail"
+          }
+        ],
+        "source_element_id": "6105fdae-e3d8-4133-b5e8-5723e2c98932"
+      },
+      {
+        "kind": "user_entry",
+        "id": "conditions_page",
+        "x": 150.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Conditions"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Conditions"
+          }
+        ],
+        "source_element_id": "06408203-c6e2-4956-8006-ccfdf52edecf"
+      },
+      {
+        "kind": "user_entry",
+        "id": "tuning_page",
+        "x": 284.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Tuning"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Tuning"
+          }
+        ],
+        "source_element_id": "0dea0657-ceee-41d7-9a44-4fa6606e021e"
+      },
+      {
+        "kind": "user_entry",
+        "id": "trends_page",
+        "x": 418.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Trends"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Trends"
+          }
+        ],
+        "source_element_id": "effa83aa-c368-4ff3-b6c6-4abbc5fea7c5"
+      },
+      {
+        "kind": "user_entry",
+        "id": "history_page",
+        "x": 552.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "History"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_History"
+          }
+        ],
+        "source_element_id": "ffee72ba-99b2-4474-b07f-91ce8a801448"
+      },
+      {
+        "kind": "user_entry",
+        "id": "equipment",
+        "x": 686.0,
+        "y": 84.0,
+        "w": 152,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Equipment…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "equipment",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_EQUIPMENT",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_EQUIPMENT",
+            "type": "string"
+          }
+        },
+        "source_element_id": "58ce65db-2f24-4b6d-8f6f-7f04350ca44a"
+      },
+      {
+        "kind": "user_entry",
+        "id": "help",
+        "x": 848.0,
+        "y": 84.0,
+        "w": 156,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Help"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "help",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_HELP",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_HELP",
+            "type": "string"
+          }
+        },
+        "source_element_id": "e5c6a934-507a-4ff6-b0be-deef9669f2f0"
+      },
+      {
+        "kind": "text",
+        "id": "instructions",
+        "text": "Double-click a row or right-click → Tune parameter. Only engineer-exposed values are adjustable.",
+        "x": 16.0,
+        "y": 132.0,
+        "w": 988,
+        "h": 34,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "top",
+        "source_element_id": "a40d9c8d-43ff-46d2-86f0-dd495d03cbe5"
+      },
+      {
+        "kind": "table",
+        "id": "parameters",
+        "x": 16.0,
+        "y": 178.0,
+        "w": 988,
+        "h": 394,
+        "rows_path": "@procedure/{ProcedureRef}/PARAMETERS",
+        "rows": [],
+        "row_height": 26,
+        "header_height": 24,
+        "row_help": false,
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "empty_text": "No exposed parameters · configure operator tuning in PA Designer",
+        "columns": [
+          {
+            "key": "parameter",
+            "title": "Parameter",
+            "width": 2
+          },
+          {
+            "key": "value",
+            "title": "Current",
+            "width": 1
+          },
+          {
+            "key": "unit",
+            "title": "Unit",
+            "width": 0.5
+          },
+          {
+            "key": "limits",
+            "title": "Limits",
+            "width": 1
+          },
+          {
+            "key": "access",
+            "title": "Applies",
+            "width": 1.2
+          },
+          {
+            "key": "pending",
+            "title": "Next run",
+            "width": 1
+          }
+        ],
+        "row_action": "tune",
+        "source_element_id": "1117e174-d654-47f9-88f6-def8031dd849"
+      },
+      {
+        "kind": "user_entry",
+        "id": "tune",
+        "x": 16.0,
+        "y": 588.0,
+        "w": 250,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Tune parameter…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "tune",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_TUNE",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_TUNE",
+            "type": "string"
+          }
+        },
+        "source_element_id": "e3025391-7bc5-4aaf-bd96-0f0f3d043199"
+      },
+      {
+        "kind": "text",
+        "id": "effect",
+        "text": "Live: applies at an observation boundary and resets hold evidence. Next run: saved once for this revision; does not alter the active run. Changes record actor, previous value, new value and effect.",
+        "x": 16.0,
+        "y": 632.0,
+        "w": 988,
+        "h": 58,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "top",
+        "source_element_id": "cfa1ca6c-930a-4030-960c-80ae00c77a6c"
+      }
+    ],
+    "w": 1020.0,
+    "h": 706.0,
+    "folder": "My Details",
+    "definition_kind": "detail",
+    "definition_id": "2727f848-ecdc-43f8-9ee2-9bbf379901ad",
+    "definition_revision": 2,
+    "schema_version": 2
+  },
+  "PlantSafeLanding_Trends": {
+    "items": [
+      {
+        "kind": "rect",
+        "id": "surface",
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1020,
+        "h": 706,
+        "fill_role": "SURFACE_PANEL",
+        "width": 1,
+        "locked": true,
+        "source_element_id": "9bcc6b8e-4498-4b1c-8abe-d9fe07417016"
+      },
+      {
+        "kind": "text",
+        "id": "title",
+        "text": "Pvm.Title · Trends",
+        "x": 16.0,
+        "y": 8.0,
+        "w": 988,
+        "h": 22,
+        "font_size": 13,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "5750c075-b5a3-420a-b2db-999d53dfdb32"
+      },
+      {
+        "kind": "datalink",
+        "id": "state",
+        "path": "@procedure/{ProcedureRef}/STATE",
+        "datalink_type": "string",
+        "x": 16.0,
+        "y": 40.0,
+        "w": 330,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "18d2ac9d-094e-4537-85c5-1f2a03efa91d"
+      },
+      {
+        "kind": "datalink",
+        "id": "source",
+        "path": "@procedure/{ProcedureRef}/SOURCE",
+        "datalink_type": "string",
+        "x": 360.0,
+        "y": 40.0,
+        "w": 644,
+        "h": 34,
+        "word_wrap": true,
+        "source_element_id": "bc7c45a9-0bdd-46e1-92f1-57cb8f103623"
+      },
+      {
+        "kind": "user_entry",
+        "id": "workflow_page",
+        "x": 16.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Workflow"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Detail"
+          }
+        ],
+        "source_element_id": "51a5b5c4-b7f2-44ed-943a-6a261256a46f"
+      },
+      {
+        "kind": "user_entry",
+        "id": "conditions_page",
+        "x": 150.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Conditions"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Conditions"
+          }
+        ],
+        "source_element_id": "3a544976-8ab0-412b-b71f-4c2c076ae712"
+      },
+      {
+        "kind": "user_entry",
+        "id": "tuning_page",
+        "x": 284.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Tuning"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Tuning"
+          }
+        ],
+        "source_element_id": "f896599c-4292-4ad9-9858-d22e014e3747"
+      },
+      {
+        "kind": "user_entry",
+        "id": "trends_page",
+        "x": 418.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Trends"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Trends"
+          }
+        ],
+        "source_element_id": "08121bac-9c7e-4c32-94a9-8837d71857cb"
+      },
+      {
+        "kind": "user_entry",
+        "id": "history_page",
+        "x": 552.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "History"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_History"
+          }
+        ],
+        "source_element_id": "8b1034d7-a870-4ec6-ac68-1185867bbcba"
+      },
+      {
+        "kind": "user_entry",
+        "id": "equipment",
+        "x": 686.0,
+        "y": 84.0,
+        "w": 152,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Equipment…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "equipment",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_EQUIPMENT",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_EQUIPMENT",
+            "type": "string"
+          }
+        },
+        "source_element_id": "e28b4952-7642-456d-9603-e487491a375f"
+      },
+      {
+        "kind": "user_entry",
+        "id": "help",
+        "x": 848.0,
+        "y": 84.0,
+        "w": 156,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Help"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "help",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_HELP",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_HELP",
+            "type": "string"
+          }
+        },
+        "source_element_id": "a667edee-6d64-4e56-837e-ee05a79363f9"
+      },
+      {
+        "kind": "chart",
+        "id": "history_chart",
+        "x": 16.0,
+        "y": 132.0,
+        "w": 988,
+        "h": 474,
+        "pens": [],
+        "series_path": "@procedure/{ProcedureRef}/TREND",
+        "source_element_id": "e9af2dda-e6b8-4c0d-bd19-2382e1986b08"
+      },
+      {
+        "kind": "user_entry",
+        "id": "trends",
+        "x": 16.0,
+        "y": 624.0,
+        "w": 250,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Process History View…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "trends",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_TRENDS",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_TRENDS",
+            "type": "string"
+          }
+        },
+        "source_element_id": "c779b476-e974-455b-87de-9adc50ec0293"
+      },
+      {
+        "kind": "text",
+        "id": "trend_help",
+        "text": "Select pens, adjust ranges and scales, inspect event markers, and export in Process History View. Memory and process values use the shared station historian; gaps remain gaps.",
+        "x": 284.0,
+        "y": 618.0,
+        "w": 720,
+        "h": 70,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "top",
+        "source_element_id": "cc97c26d-6792-4436-8396-d058354a70a0"
+      }
+    ],
+    "w": 1020.0,
+    "h": 706.0,
+    "folder": "My Details",
+    "definition_kind": "detail",
+    "definition_id": "887c45d6-808e-4865-80f3-9cc0c7577a59",
+    "definition_revision": 2,
+    "schema_version": 2
+  },
+  "PlantSafeLanding_History": {
+    "items": [
+      {
+        "kind": "rect",
+        "id": "surface",
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1020,
+        "h": 706,
+        "fill_role": "SURFACE_PANEL",
+        "width": 1,
+        "locked": true,
+        "source_element_id": "8b7db781-da98-48e6-a85d-c0ad65ddcdaf"
+      },
+      {
+        "kind": "text",
+        "id": "title",
+        "text": "Pvm.Title · History",
+        "x": 16.0,
+        "y": 8.0,
+        "w": 988,
+        "h": 22,
+        "font_size": 13,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "f72271f4-671e-4186-9cc1-afe273c484d8"
+      },
+      {
+        "kind": "datalink",
+        "id": "state",
+        "path": "@procedure/{ProcedureRef}/STATE",
+        "datalink_type": "string",
+        "x": 16.0,
+        "y": 40.0,
+        "w": 330,
+        "h": 26,
+        "word_wrap": true,
+        "source_element_id": "5ae60552-8883-499a-ba8c-0d2ca2bf0428"
+      },
+      {
+        "kind": "datalink",
+        "id": "source",
+        "path": "@procedure/{ProcedureRef}/SOURCE",
+        "datalink_type": "string",
+        "x": 360.0,
+        "y": 40.0,
+        "w": 644,
+        "h": 34,
+        "word_wrap": true,
+        "source_element_id": "1e5e8f68-369e-481d-ad97-5e64b84bf6cc"
+      },
+      {
+        "kind": "user_entry",
+        "id": "workflow_page",
+        "x": 16.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Workflow"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Detail"
+          }
+        ],
+        "source_element_id": "3654d5d2-37fd-44a7-804b-e84ba106e2e5"
+      },
+      {
+        "kind": "user_entry",
+        "id": "conditions_page",
+        "x": 150.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Conditions"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Conditions"
+          }
+        ],
+        "source_element_id": "b20b32bf-a12c-46ec-bd74-c861a6d06905"
+      },
+      {
+        "kind": "user_entry",
+        "id": "tuning_page",
+        "x": 284.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Tuning"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Tuning"
+          }
+        ],
+        "source_element_id": "d4880cac-f443-4429-8f19-6336d2066c38"
+      },
+      {
+        "kind": "user_entry",
+        "id": "trends_page",
+        "x": 418.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Trends"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_Trends"
+          }
+        ],
+        "source_element_id": "4e054e36-2258-4d95-8c5c-4eb31e3c9d23"
+      },
+      {
+        "kind": "user_entry",
+        "id": "history_page",
+        "x": 552.0,
+        "y": 84.0,
+        "w": 124,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "History"
+        },
+        "actions": [
+          {
+            "event": "click",
+            "kind": "open_user_detail",
+            "target": "PlantSafeLanding_History"
+          }
+        ],
+        "source_element_id": "e89f03c4-868b-4cb9-82db-1a9f69667217"
+      },
+      {
+        "kind": "user_entry",
+        "id": "equipment",
+        "x": 686.0,
+        "y": 84.0,
+        "w": 152,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Equipment…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "equipment",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_EQUIPMENT",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_EQUIPMENT",
+            "type": "string"
+          }
+        },
+        "source_element_id": "53544975-ebd0-4cce-a034-ce51d5794fbf"
+      },
+      {
+        "kind": "user_entry",
+        "id": "help",
+        "x": 848.0,
+        "y": 84.0,
+        "w": 156,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Help"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "help",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_HELP",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_HELP",
+            "type": "string"
+          }
+        },
+        "source_element_id": "56ed679a-5fb3-44a5-8b80-fde0114c355a"
+      },
+      {
+        "kind": "text",
+        "id": "current_events",
+        "text": "Current run events · simulation seconds",
+        "x": 16.0,
+        "y": 132.0,
+        "w": 988,
+        "h": 22,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "9ed50768-94e2-4b85-a0be-aaac50392cad"
+      },
+      {
+        "kind": "table",
+        "id": "events",
+        "x": 16.0,
+        "y": 162.0,
+        "w": 988,
+        "h": 220,
+        "rows_path": "@procedure/{ProcedureRef}/EVENTS",
+        "rows": [],
+        "row_height": 26,
+        "header_height": 24,
+        "row_help": false,
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "empty_text": "No events yet · start a procedure to record its progress",
+        "columns": [
+          {
+            "key": "time",
+            "title": "Time",
+            "width": 0.7
+          },
+          {
+            "key": "event",
+            "title": "Event",
+            "width": 1
+          },
+          {
+            "key": "detail",
+            "title": "Detail",
+            "width": 4
+          }
+        ],
+        "source_element_id": "7b687611-4bcd-4ae7-91af-577c3cde2037"
+      },
+      {
+        "kind": "text",
+        "id": "past_runs",
+        "text": "Recent runs of this procedure · UTC",
+        "x": 16.0,
+        "y": 398.0,
+        "w": 988,
+        "h": 22,
+        "font_size": 10,
+        "text_wrap": true,
+        "text_valign": "middle",
+        "source_element_id": "eb08cfc0-f035-4559-8045-57a46ccea9d2"
+      },
+      {
+        "kind": "table",
+        "id": "runs",
+        "x": 16.0,
+        "y": 430.0,
+        "w": 988,
+        "h": 208,
+        "rows_path": "@procedure/{ProcedureRef}/HISTORY",
+        "rows": [],
+        "row_height": 26,
+        "header_height": 24,
+        "row_help": false,
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "empty_text": "No recorded runs for this procedure",
+        "columns": [
+          {
+            "key": "time",
+            "title": "Started",
+            "width": 1.2
+          },
+          {
+            "key": "name",
+            "title": "Procedure",
+            "width": 1.4
+          },
+          {
+            "key": "state",
+            "title": "Result",
+            "width": 0.7
+          },
+          {
+            "key": "run_id",
+            "title": "Run ID",
+            "width": 2
+          }
+        ],
+        "source_element_id": "e2626a36-c343-4632-94cd-8822d96ada8e"
+      },
+      {
+        "kind": "user_entry",
+        "id": "history",
+        "x": 16.0,
+        "y": 656.0,
+        "w": 350,
+        "h": 30,
+        "entry": {
+          "kind": "button",
+          "label": "Review / compare / export runs…"
+        },
+        "tooltip": "Procedure unavailable: verify the revision, audit storage and controller readiness",
+        "command_context": "@procedure/{ProcedureRef}/CONTEXT",
+        "actions": [
+          {
+            "event": "click",
+            "kind": "procedure_command",
+            "target": "history",
+            "source": "@procedure/{ProcedureRef}/CONTEXT"
+          }
+        ],
+        "enabled": false,
+        "props": {
+          "enabled": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/CAN_HISTORY",
+            "type": "boolean"
+          },
+          "tooltip": {
+            "kind": "animation",
+            "path": "@procedure/{ProcedureRef}/REASON_HISTORY",
+            "type": "string"
+          }
+        },
+        "source_element_id": "c4574bca-62fb-4f75-9881-bd5fa05ca7bb"
+      }
+    ],
+    "w": 1020.0,
+    "h": 706.0,
+    "folder": "My Details",
+    "definition_kind": "detail",
+    "definition_id": "0abc46a4-6008-4797-b127-fb2bce8c917c",
+    "definition_revision": 2,
+    "schema_version": 2
+  }
+}

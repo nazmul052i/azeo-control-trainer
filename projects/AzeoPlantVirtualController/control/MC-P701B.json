@@ -1,0 +1,232 @@
+{
+  "name": "MC-P701B",
+  "description": "B1 boiler feedwater pump B (standby) motor control",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U700",
+    "workbook_block_type": "MOTOR",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Motor start and stop control, permissives, run feedback timeout, duty-standby changeover",
+    "pv_source_text": "XS-P701B-RUN",
+    "final_element_text": "XY-P701B-STR and XY-P701B-STP",
+    "mapped_input_tags": [
+      "XS-P701B-RUN"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "XY-P701B-STR",
+      "XY-P701B-STP"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [
+      "E20"
+    ],
+    "alarms": [],
+    "implementation_state": "COMMISSIONED",
+    "start_permissives": "MOV-7001B fully open, deaerator level normal"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "DI",
+      "instance_name": "XS-P701B-RUN",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "XS-P701B-RUN",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "XS-P701B-FLT",
+      "x": 0.0,
+      "y": 95.0,
+      "config": {
+        "tag": "XS-P701B-FLT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "DI",
+      "instance_name": "XS-P701B-AVL",
+      "x": 0.0,
+      "y": 190.0,
+      "config": {
+        "tag": "XS-P701B-AVL",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "DI",
+      "instance_name": "ZSO-MOV7001B",
+      "x": 0.0,
+      "y": 285.0,
+      "config": {
+        "tag": "ZSO-MOV7001B",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "MOTOR_INTERLOCK",
+      "instance_name": "INTERLOCK",
+      "x": 360.0,
+      "y": 60.0,
+      "config": {
+        "STARTUP_TIMEOUT": 5.0,
+        "STOP_TIMEOUT": 5.0,
+        "AUTO_RESET": false,
+        "LATCH_TRIPS": true,
+        "PERM_1_DESC": "Drive available",
+        "PERM_2_DESC": "Suction valve open",
+        "TRIP_1_DESC": "Drive fault",
+        "TRIP_2_DESC": "Emergency shutdown"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "DI",
+      "instance_name": "HS-9002",
+      "x": 0.0,
+      "y": 500.0,
+      "config": {
+        "tag": "HS-9002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "DEVCTL",
+      "instance_name": "MC-P701B",
+      "x": 680.0,
+      "y": 60.0,
+      "config": {
+        "DEVICE_KIND": "MOTOR",
+        "START_TIMEOUT": 5.0,
+        "STOP_TIMEOUT": 5.0,
+        "RESET_REQUIRED": true,
+        "use_azeo_states": true,
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "INTERLOCK_OPT": "PASSIVE_IF_BAD",
+        "description": "B1 boiler feedwater pump B (standby) motor control"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "DO",
+      "instance_name": "XY-P701B-STR",
+      "x": 980.0,
+      "y": 40.0,
+      "config": {
+        "tag": "XY-P701B-STR",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "NOT",
+      "instance_name": "STOP_COMMAND",
+      "x": 850.0,
+      "y": 230.0,
+      "config": {}
+    },
+    {
+      "id": "b010",
+      "block_type": "DO",
+      "instance_name": "XY-P701B-STP",
+      "x": 980.0,
+      "y": 230.0,
+      "config": {
+        "tag": "XY-P701B-STP",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "PERM_1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "PERM_2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "TRIP_1"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "TRIP_2"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b005",
+      "src_terminal": "START_PERMIT",
+      "dst_block_id": "b007",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b007",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b007",
+      "src_terminal": "DO_START",
+      "dst_block_id": "b008",
+      "dst_terminal": "CAS_IN_D"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "b007",
+      "src_terminal": "DO_START",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "b009",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b010",
+      "dst_terminal": "CAS_IN_D"
+    }
+  ],
+  "comments": []
+}

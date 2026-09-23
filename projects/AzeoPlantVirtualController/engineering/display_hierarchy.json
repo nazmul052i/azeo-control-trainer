@@ -1,0 +1,592 @@
+{
+  "description": "Operator display hierarchy configured from the ISA-101 L1-L4 templates. Every entry fills the slots of its level's template by item id; tools/apply_hierarchy_templates.py builds, checks and publishes the documents.",
+  "display_root": "displays/pvm",
+  "environment": "PROD",
+  "workstations": ["CON-01"],
+  "displays": {
+    "Overview - L1 Plant": {
+      "level": 1,
+      "parent": "",
+      "child": "Overview - L2 Process Coordination",
+      "description": "L1 plant-wide situational-awareness display derived from P&IDs AP-PID-U010 through AP-PID-U900, configured on the ISA-101 L1 High Level Overview template.",
+      "texts": {
+        "title": "AZEO PLANT - PROCESS OVERVIEW",
+        "purpose": "Entire operating responsibility | performance, constraints and exceptions from U010 to U900",
+        "configure_note": "Configured from AP-PID-U010 to AP-PID-U900 on the ISA-101 L1 High Level Overview template | APVC-CTRL-1 bindings",
+        "area_0_title": "FEED AND CHARGE",
+        "area_0_state": "U100 D1 | U200 C1 recycle | U300 H1 heater",
+        "area_0_label_0": "Charge flow",
+        "area_0_label_1": "D1 level",
+        "area_0_label_2": "H1 outlet",
+        "area_0_trend_title": "Charge flow FT-1001 | recent samples",
+        "area_1_title": "REACTION AND SEPARATION",
+        "area_1_state": "U400 R1 thermal severity | E401 / D3 separation",
+        "area_1_label_0": "R1 temp.",
+        "area_1_label_1": "R1 differential",
+        "area_1_label_2": "D3 level",
+        "area_1_trend_title": "R1 temperature TT-4002 | recent samples",
+        "area_2_title": "FRACTIONATION",
+        "area_2_state": "U500 T1 primary | U600 T2 product fractionation",
+        "area_2_label_0": "T1 overhead",
+        "area_2_label_1": "T2 overhead",
+        "area_2_label_2": "T1 pressure",
+        "area_2_trend_title": "T1 overhead quality AT-5001 | recent samples",
+        "area_3_title": "UTILITIES AND EFFLUENT",
+        "area_3_state": "U010 fuel | U700 steam | U800 pH | U900 SIS",
+        "area_3_label_0": "Fuel-gas flow",
+        "area_3_label_1": "Steam header",
+        "area_3_label_2": "Discharge pH",
+        "area_3_trend_title": "Steam header PT-7002 | recent samples",
+        "performance_title": "PLANT PERFORMANCE AND UPSTREAM / DOWNSTREAM CONTEXT",
+        "production_title": "Charge to U200 FIC-1002 | recent samples",
+        "constraint_title": "C1 anti-surge recycle UIC-2001 | recent samples",
+        "exceptions_title": "PRIORITY EXCEPTIONS",
+        "alarms_title_1": "PLANT ALARMS - priority 7 and above, all units"
+      },
+      "pvms": {
+        "area_0_bar_0": {"path": "FIC-1001/FT-1001", "label": "FT-1001"},
+        "area_0_bar_1": {"path": "LIC-1001/LT-1001", "label": "LT-1001"},
+        "area_0_bar_2": {"path": "TIC-3001/TT-3001", "label": "TT-3001"},
+        "area_1_bar_0": {"path": "TIC-4001/TT-4002", "label": "TT-4002"},
+        "area_1_bar_1": {"path": "TIC-4001/PDT-4001", "label": "PDT-4001"},
+        "area_1_bar_2": {"path": "LIC-4001/LT-4001", "label": "LT-4001"},
+        "area_2_bar_0": {"path": "AIC-5001/AT-5001", "label": "AT-5001"},
+        "area_2_bar_1": {"path": "AIC-6001/AT-6001", "label": "AT-6001"},
+        "area_2_bar_2": {"path": "PIC-5001/PT-5001", "label": "PT-5001"},
+        "area_3_bar_0": {"path": "FIC-0101/FT-0102", "label": "FT-0102"},
+        "area_3_bar_1": {"path": "PIC-7001/PT-7002", "label": "PT-7002"},
+        "area_3_bar_2": {"path": "AIC-8001/AT-8003", "label": "AT-8003"}
+      },
+      "pens": {
+        "area_0_trend": [["Charge flow", "FIC-1001/FT-1001/PV"]],
+        "area_1_trend": [["R1 temperature", "TIC-4001/TT-4002/PV"]],
+        "area_2_trend": [["T1 overhead", "AIC-5001/AT-5001/PV"]],
+        "area_3_trend": [["Steam header", "PIC-7001/PT-7002/PV"]],
+        "production": [["Charge to U200", "FIC-1002/FIC-1002/PV"]],
+        "constraint": [["Recycle flow", "UIC-2001/UIC-2001/PV"]]
+      },
+      "alarms": {
+        "alarms_1": {"path_prefix": "", "priority_min": 7}
+      }
+    },
+    "Overview - L2 Process Coordination": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 cross-unit coordination display derived from AP-PID-U010 through AP-PID-U800, configured on the ISA-101 L2 Primary Operation template. Unit-specific routine operation is handled by the sibling L2 displays.",
+      "texts": {
+        "title": "AZEO PLANT - PROCESS COORDINATION",
+        "purpose": "Routine monitoring across the train | charge, heating, reaction, fractionation and utilities",
+        "configure_note": "Configured from AP-PID-U010 to AP-PID-U800 on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "MAIN PROCESS TRAIN",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "D1 feed surge drum",
+        "pump_tag": "P101A/B charge pumps",
+        "reactor_tag": "H1 heater and R1 reactor",
+        "product_tag": "D3 product separator",
+        "loop_label_FEED_FLOW": "CHARGE TO U200",
+        "loop_label_TEMPERATURE": "H1 OUTLET TEMPERATURE",
+        "loop_label_LEVEL": "D1 LEVEL",
+        "envelope_PRESSURE": "Steam header",
+        "envelope_QUALITY": "T1 overhead",
+        "envelope_UTILITY": "Fuel-gas flow",
+        "operating_trends_title": "TRAIN TRENDS",
+        "unit_flow_title": "Charge / recycle | recent samples",
+        "unit_temp_title": "H1 outlet / R1 temperature | recent samples",
+        "unit_alarms_title": "PLANT EXCEPTIONS",
+        "alarms_title_2": "PLANT ALARMS - all units"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-1002/FIC-1002", "label": "FIC-1002"},
+        "loop_TEMPERATURE": {"path": "TIC-3001/TIC-3001", "label": "TIC-3001"},
+        "loop_LEVEL": {"path": "LIC-1001/LIC-1001", "label": "LIC-1001"},
+        "kpi_PRESSURE": {"path": "PIC-7001/PT-7002", "label": "PT-7002"},
+        "kpi_QUALITY": {"path": "AIC-5001/AT-5001", "label": "AT-5001"},
+        "kpi_UTILITY": {"path": "FIC-0101/FT-0102", "label": "FT-0102"}
+      },
+      "pens": {
+        "unit_flow": [["Charge", "FIC-1002/FIC-1002/PV"], ["Recycle", "UIC-2001/UIC-2001/PV"]],
+        "unit_temp": [["H1 outlet", "TIC-3001/TIC-3001/PV"], ["R1", "TIC-4001/TIC-4001/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "", "priority_min": 0}
+      }
+    },
+    "U010 - L2 Fuel Gas and Utilities": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U010, derived from AP-PID-U010 and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U010 - FUEL GAS AND UTILITIES",
+        "purpose": "Routine monitoring and control | fuel-gas supply, header pressures and the H1 / B1 consumers",
+        "configure_note": "Configured from AP-PID-U010 on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U010",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "Natural-gas supply",
+        "pump_tag": "Import / flare split",
+        "reactor_tag": "Fuel-gas header",
+        "product_tag": "H1 and B1 consumers",
+        "loop_label_FEED_FLOW": "FUEL-GAS FLOW",
+        "loop_label_TEMPERATURE": "SUPPLY PRESSURE",
+        "loop_label_LEVEL": "H1 HEADER PRESSURE",
+        "envelope_PRESSURE": "H1 fuel pressure",
+        "envelope_QUALITY": "Fuel-gas quality",
+        "envelope_UTILITY": "B1 fuel pressure",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Fuel flow / supply pressure | recent samples",
+        "unit_temp_title": "H1 / B1 header pressure | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - PIC-0101 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-0101/FIC-0101", "label": "FIC-0101"},
+        "loop_TEMPERATURE": {"path": "PIC-0101/PIC-0101", "label": "PIC-0101"},
+        "loop_LEVEL": {"path": "PIC-0102/PIC-0102", "label": "PIC-0102"},
+        "kpi_PRESSURE": {"path": "PIC-0102/PT-0102", "label": "PT-0102"},
+        "kpi_QUALITY": {"path": "FY-0101/AT-0101", "label": "AT-0101"},
+        "kpi_UTILITY": {"path": "PIC-0103/PT-0103", "label": "PT-0103"}
+      },
+      "pens": {
+        "unit_flow": [["Fuel flow", "FIC-0101/FIC-0101/PV"], ["Supply pressure", "PIC-0101/PIC-0101/PV"]],
+        "unit_temp": [["H1 header", "PIC-0102/PIC-0102/PV"], ["B1 header", "PIC-0103/PIC-0103/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "PIC-0101", "priority_min": 0}
+      }
+    },
+    "U100 - L2 Feed Preparation": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U100, derived from AP-PID-U100 and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U100 - FEED PREPARATION",
+        "purpose": "Routine monitoring and control | D1 inventory, charge pumps and charge flow to U200",
+        "configure_note": "Configured from AP-PID-U100 on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U100",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "D1 feed surge drum",
+        "pump_tag": "P101A/B charge pumps",
+        "reactor_tag": "FCV-1002 charge control",
+        "product_tag": "Charge to U200",
+        "loop_label_FEED_FLOW": "CHARGE FLOW",
+        "loop_label_TEMPERATURE": "D1 PRESSURE",
+        "loop_label_LEVEL": "D1 LEVEL",
+        "envelope_PRESSURE": "D1 pressure",
+        "envelope_QUALITY": "Feed inlet flow",
+        "envelope_UTILITY": "Pump speed",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Charge / feed inlet | recent samples",
+        "unit_temp_title": "D1 level / pressure | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - LIC-1001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-1002/FIC-1002", "label": "FIC-1002"},
+        "loop_TEMPERATURE": {"path": "PIC-1001/PIC-1001", "label": "PIC-1001"},
+        "loop_LEVEL": {"path": "LIC-1001/LIC-1001", "label": "LIC-1001"},
+        "kpi_PRESSURE": {"path": "PIC-1001/PT-1002", "label": "PT-1002"},
+        "kpi_QUALITY": {"path": "FIC-1001/FT-1001", "label": "FT-1001"},
+        "kpi_UTILITY": {"path": "SIC-1001/ST-1001", "label": "ST-1001"}
+      },
+      "pens": {
+        "unit_flow": [["Charge", "FIC-1002/FIC-1002/PV"], ["Feed inlet", "FIC-1001/FIC-1001/PV"]],
+        "unit_temp": [["D1 level", "LIC-1001/LIC-1001/PV"], ["D1 pressure", "PIC-1001/PIC-1001/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "LIC-1001", "priority_min": 0}
+      }
+    },
+    "U200 - L2 Recycle Compression": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U200, derived from AP-PID-U200 and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U200 - RECYCLE COMPRESSION",
+        "purpose": "Routine monitoring and control | C1 surge margin, knockout level, discharge pressure and temperature",
+        "configure_note": "Configured from AP-PID-U200 on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U200",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "V201 knockout drum",
+        "pump_tag": "C1 recycle compressor",
+        "reactor_tag": "E201 discharge cooler",
+        "product_tag": "Recycle to U300",
+        "loop_label_FEED_FLOW": "ANTI-SURGE RECYCLE",
+        "loop_label_TEMPERATURE": "DISCHARGE TEMPERATURE",
+        "loop_label_LEVEL": "V201 LEVEL",
+        "envelope_PRESSURE": "Discharge pressure",
+        "envelope_QUALITY": "Suction pressure",
+        "envelope_UTILITY": "C1 speed",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Recycle flow / speed | recent samples",
+        "unit_temp_title": "Discharge temperature / pressure | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - PIC-2001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "UIC-2001/UIC-2001", "label": "UIC-2001"},
+        "loop_TEMPERATURE": {"path": "TIC-2002/TIC-2002", "label": "TIC-2002"},
+        "loop_LEVEL": {"path": "LIC-2001/LIC-2001", "label": "LIC-2001"},
+        "kpi_PRESSURE": {"path": "PIC-2002/PT-2002", "label": "PT-2002"},
+        "kpi_QUALITY": {"path": "PIC-2001/PT-2001", "label": "PT-2001"},
+        "kpi_UTILITY": {"path": "SIC-2001/ST-2001", "label": "ST-2001"}
+      },
+      "pens": {
+        "unit_flow": [["Recycle flow", "UIC-2001/UIC-2001/PV"], ["C1 speed", "SIC-2001/SIC-2001/PV"]],
+        "unit_temp": [["Discharge temperature", "TIC-2002/TIC-2002/PV"], ["Discharge pressure", "PIC-2002/PIC-2002/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "PIC-2001", "priority_min": 0}
+      }
+    },
+    "U300 - L2 Charge Heating": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "Overview - L3 Charge Heater",
+      "description": "L2 primary-operation display for U300, derived from AP-PID-U300 and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U300 - CHARGE HEATING",
+        "purpose": "Routine monitoring and control | H1 firing, combustion air, draft and the reactor-inlet temperature",
+        "configure_note": "Configured from AP-PID-U300 on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U300",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "Charge from U200",
+        "pump_tag": "ID-301 draft fan",
+        "reactor_tag": "H1 charge heater",
+        "product_tag": "Charge to R1 (U400)",
+        "loop_label_FEED_FLOW": "FUEL-GAS FLOW",
+        "loop_label_TEMPERATURE": "H1 OUTLET TEMPERATURE",
+        "loop_label_LEVEL": "DRAFT PRESSURE",
+        "envelope_PRESSURE": "Draft pressure",
+        "envelope_QUALITY": "Flue oxygen",
+        "envelope_UTILITY": "Bridgewall TT-3005",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Fuel gas / combustion air | recent samples",
+        "unit_temp_title": "H1 outlet / draft | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - TIC-3001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-3001/FIC-3001", "label": "FIC-3001"},
+        "loop_TEMPERATURE": {"path": "TIC-3001/TIC-3001", "label": "TIC-3001"},
+        "loop_LEVEL": {"path": "PIC-3001/PIC-3001", "label": "PIC-3001"},
+        "kpi_PRESSURE": {"path": "TIC-3001/PT-3001", "label": "PT-3001"},
+        "kpi_QUALITY": {"path": "AIC-3001/AT-3001", "label": "AT-3001"},
+        "kpi_UTILITY": {"path": "BMS-3001/TT-3005", "label": "TT-3005"}
+      },
+      "pens": {
+        "unit_flow": [["Fuel gas", "FIC-3001/FIC-3001/PV"], ["Combustion air", "FIC-3003/FIC-3003/PV"]],
+        "unit_temp": [["H1 outlet", "TIC-3001/TIC-3001/PV"], ["Draft", "PIC-3001/PIC-3001/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "TIC-3001", "priority_min": 0}
+      }
+    },
+    "U400 - L2 Reaction and Separation": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U400, derived from AP-PID-U400 and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U400 - REACTION AND SEPARATION",
+        "purpose": "Routine monitoring and control | R1 thermal severity, quench, and E401 / D3 separation",
+        "configure_note": "Configured from AP-PID-U400 on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U400",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "Charge from H1",
+        "pump_tag": "FCV-4001 quench",
+        "reactor_tag": "R1 fixed-bed reactor",
+        "product_tag": "D3 product separator",
+        "loop_label_FEED_FLOW": "QUENCH FLOW",
+        "loop_label_TEMPERATURE": "R1 TEMPERATURE",
+        "loop_label_LEVEL": "D3 LEVEL",
+        "envelope_PRESSURE": "D3 pressure",
+        "envelope_QUALITY": "Conversion AT-4001",
+        "envelope_UTILITY": "R1 differential",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Quench / D3 level | recent samples",
+        "unit_temp_title": "R1 temperature / D3 pressure | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - TIC-4001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-4001/FIC-4001", "label": "FIC-4001"},
+        "loop_TEMPERATURE": {"path": "TIC-4001/TIC-4001", "label": "TIC-4001"},
+        "loop_LEVEL": {"path": "LIC-4001/LIC-4001", "label": "LIC-4001"},
+        "kpi_PRESSURE": {"path": "PIC-4001/PT-4002", "label": "PT-4002"},
+        "kpi_QUALITY": {"path": "AIC-4001/AT-4001", "label": "AT-4001"},
+        "kpi_UTILITY": {"path": "TIC-4001/PDT-4001", "label": "PDT-4001"}
+      },
+      "pens": {
+        "unit_flow": [["Quench", "FIC-4001/FIC-4001/PV"], ["D3 level", "LIC-4001/LIC-4001/PV"]],
+        "unit_temp": [["R1 temperature", "TIC-4001/TIC-4001/PV"], ["D3 pressure", "PIC-4001/PIC-4001/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "TIC-4001", "priority_min": 0}
+      }
+    },
+    "U500 - L2 Primary Fractionation": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U500, derived from AP-PID-U500/U500B and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U500 - PRIMARY FRACTIONATION",
+        "purpose": "Routine monitoring and control | T1 pressure, reflux, reboiler duty and overhead composition",
+        "configure_note": "Configured from AP-PID-U500/U500B on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U500",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "Feed from D3",
+        "pump_tag": "P501A/B reflux pumps",
+        "reactor_tag": "T1 primary fractionator",
+        "product_tag": "D501 reflux drum",
+        "loop_label_FEED_FLOW": "REFLUX FLOW",
+        "loop_label_TEMPERATURE": "TOP TEMPERATURE",
+        "loop_label_LEVEL": "D501 LEVEL",
+        "envelope_PRESSURE": "T1 pressure",
+        "envelope_QUALITY": "Overhead quality",
+        "envelope_UTILITY": "Bottoms level",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Reflux / reboiler steam | recent samples",
+        "unit_temp_title": "Top temperature / T1 pressure | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - PIC-5001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-5001/FIC-5001", "label": "FIC-5001"},
+        "loop_TEMPERATURE": {"path": "TIC-5001/TIC-5001", "label": "TIC-5001"},
+        "loop_LEVEL": {"path": "LIC-5001/LIC-5001", "label": "LIC-5001"},
+        "kpi_PRESSURE": {"path": "PIC-5001/PT-5001", "label": "PT-5001"},
+        "kpi_QUALITY": {"path": "AIC-5001/AT-5001", "label": "AT-5001"},
+        "kpi_UTILITY": {"path": "LIC-5002/LT-5002", "label": "LT-5002"}
+      },
+      "pens": {
+        "unit_flow": [["Reflux", "FIC-5001/FIC-5001/PV"], ["Reboiler steam", "FIC-5002/FIC-5002/PV"]],
+        "unit_temp": [["Top temperature", "TIC-5001/TIC-5001/PV"], ["T1 pressure", "PIC-5001/PIC-5001/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "PIC-5001", "priority_min": 0}
+      }
+    },
+    "U600 - L2 Product Fractionation": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U600, derived from AP-PID-U600/U600B and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U600 - PRODUCT FRACTIONATION",
+        "purpose": "Routine monitoring and control | T2 pressure, reflux and reboiler balance, and final overhead quality",
+        "configure_note": "Configured from AP-PID-U600/U600B on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U600",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "Feed from T1",
+        "pump_tag": "P601A/B reflux pumps",
+        "reactor_tag": "T2 product fractionator",
+        "product_tag": "D601 reflux drum",
+        "loop_label_FEED_FLOW": "REFLUX FLOW",
+        "loop_label_TEMPERATURE": "TOP TEMPERATURE",
+        "loop_label_LEVEL": "D601 LEVEL",
+        "envelope_PRESSURE": "T2 pressure",
+        "envelope_QUALITY": "Product quality",
+        "envelope_UTILITY": "Bottoms level",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Reflux / reboiler steam | recent samples",
+        "unit_temp_title": "Top temperature / T2 pressure | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - PIC-6001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-6001/FIC-6001", "label": "FIC-6001"},
+        "loop_TEMPERATURE": {"path": "TIC-6001/TIC-6001", "label": "TIC-6001"},
+        "loop_LEVEL": {"path": "LIC-6001/LIC-6001", "label": "LIC-6001"},
+        "kpi_PRESSURE": {"path": "PIC-6001/PT-6001", "label": "PT-6001"},
+        "kpi_QUALITY": {"path": "AIC-6001/AT-6001", "label": "AT-6001"},
+        "kpi_UTILITY": {"path": "LIC-6002/LT-6002", "label": "LT-6002"}
+      },
+      "pens": {
+        "unit_flow": [["Reflux", "FIC-6001/FIC-6001/PV"], ["Reboiler steam", "FIC-6002/FIC-6002/PV"]],
+        "unit_temp": [["Top temperature", "TIC-6001/TIC-6001/PV"], ["T2 pressure", "PIC-6001/PIC-6001/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "PIC-6001", "priority_min": 0}
+      }
+    },
+    "U700 - L2 Steam Generation": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U700, derived from AP-PID-U700/U700B and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U700 - STEAM GENERATION",
+        "purpose": "Routine monitoring and control | feedwater, B1 firing, drum level and steam-header pressure",
+        "configure_note": "Configured from AP-PID-U700/U700B on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U700",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "DA701 deaerator",
+        "pump_tag": "P701A/B BFW pumps",
+        "reactor_tag": "B1 steam boiler",
+        "product_tag": "Steam header",
+        "loop_label_FEED_FLOW": "FEEDWATER FLOW",
+        "loop_label_TEMPERATURE": "STEAM TEMPERATURE",
+        "loop_label_LEVEL": "DRUM LEVEL",
+        "envelope_PRESSURE": "Steam header",
+        "envelope_QUALITY": "Flue oxygen",
+        "envelope_UTILITY": "Fuel flow",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Feedwater / fuel | recent samples",
+        "unit_temp_title": "Steam temperature / header pressure | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - LIC-7001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-7001/FIC-7001", "label": "FIC-7001"},
+        "loop_TEMPERATURE": {"path": "TIC-7001/TIC-7001", "label": "TIC-7001"},
+        "loop_LEVEL": {"path": "LIC-7001/LIC-7001", "label": "LIC-7001"},
+        "kpi_PRESSURE": {"path": "PIC-7001/PT-7002", "label": "PT-7002"},
+        "kpi_QUALITY": {"path": "AIC-7001/AT-7001", "label": "AT-7001"},
+        "kpi_UTILITY": {"path": "FIC-7002/FT-7003", "label": "FT-7003"}
+      },
+      "pens": {
+        "unit_flow": [["Feedwater", "FIC-7001/FIC-7001/PV"], ["Fuel", "FIC-7002/FIC-7002/PV"]],
+        "unit_temp": [["Steam temperature", "TIC-7001/TIC-7001/PV"], ["Header pressure", "PIC-7001/PIC-7001/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "LIC-7001", "priority_min": 0}
+      }
+    },
+    "U800 - L2 Effluent Treatment": {
+      "level": 2,
+      "parent": "Overview - L1 Plant",
+      "child": "",
+      "description": "L2 primary-operation display for U800, derived from AP-PID-U800 and configured on the ISA-101 L2 Primary Operation template.",
+      "texts": {
+        "title": "U800 - EFFLUENT TREATMENT",
+        "purpose": "Routine monitoring and control | NT801 pH, inventory, reagent dosing and compliant discharge",
+        "configure_note": "Configured from AP-PID-U800 on the ISA-101 L2 Primary Operation template | APVC-CTRL-1 bindings",
+        "process_title": "PROCESS PATH - AP-PID-U800",
+        "envelope_title": "OPERATING ENVELOPE",
+        "feed_tag": "Plant effluent",
+        "pump_tag": "M801 agitator",
+        "reactor_tag": "NT801 neutralization tank",
+        "product_tag": "Outfall via P801A/B",
+        "loop_label_FEED_FLOW": "DISCHARGE FLOW",
+        "loop_label_TEMPERATURE": "TANK pH",
+        "loop_label_LEVEL": "TANK LEVEL",
+        "envelope_PRESSURE": "Discharge pH",
+        "envelope_QUALITY": "Tank pH",
+        "envelope_UTILITY": "Discharge flow",
+        "operating_trends_title": "UNIT TRENDS",
+        "unit_flow_title": "Discharge / tank level | recent samples",
+        "unit_temp_title": "Tank / discharge pH | recent samples",
+        "unit_alarms_title": "UNIT EXCEPTIONS",
+        "alarms_title_2": "UNIT ALARMS - AIC-8001 scope"
+      },
+      "pvms": {
+        "loop_FEED_FLOW": {"path": "FIC-8001/FIC-8001", "label": "FIC-8001"},
+        "loop_TEMPERATURE": {"path": "AIC-8001/AIC-8001", "label": "AIC-8001"},
+        "loop_LEVEL": {"path": "LIC-8001/LIC-8001", "label": "LIC-8001"},
+        "kpi_PRESSURE": {"path": "AIC-8001/AT-8003", "label": "AT-8003"},
+        "kpi_QUALITY": {"path": "AIC-8001/AT-8002", "label": "AT-8002"},
+        "kpi_UTILITY": {"path": "FIC-8001/FT-8001", "label": "FT-8001"}
+      },
+      "pens": {
+        "unit_flow": [["Discharge", "FIC-8001/FIC-8001/PV"], ["Tank level", "LIC-8001/LIC-8001/PV"]],
+        "unit_temp": [["Tank pH", "AIC-8001/AIC-8001/PV"], ["Discharge pH", "AIC-8001/AT-8003/PV"]]
+      },
+      "alarms": {
+        "alarms_2": {"path_prefix": "AIC-8001", "priority_min": 0}
+      }
+    },
+    "Overview - L3 Charge Heater": {
+      "level": 3,
+      "parent": "U300 - L2 Charge Heating",
+      "child": "Overview - L4 Heater Safety",
+      "description": "L3 charge-heater secondary-operation display derived from AP-PID-U300 and configured on the ISA-101 L3 Secondary Operation template.",
+      "texts": {
+        "title": "H1 CHARGE HEATER - EQUIPMENT DETAIL",
+        "purpose": "Investigate deviations | fuel, combustion air, draft, flue oxygen and the H1 outlet temperature",
+        "configure_note": "Configured from AP-PID-U300 on the ISA-101 L3 Secondary Operation template | APVC-CTRL-1 bindings",
+        "detail_title": "H1 HEATER AND COMBUSTION",
+        "left_title": "FUEL AND COMBUSTION AIR",
+        "right_title": "DRAFT AND FLUE OXYGEN",
+        "inlet_tag": "Charge from U200",
+        "outlet_tag": "Charge to R1",
+        "vessel_tag": "H1 heater outlet TIC-3001",
+        "recirc_tag": "ID-301 induced-draft fan",
+        "cooler_tag": "Convection section and stack",
+        "label_FEED_FLOW": "FUEL-GAS FLOW",
+        "label_TEMPERATURE": "COMBUSTION AIR",
+        "label_PRESSURE": "DRAFT PRESSURE",
+        "label_LEVEL": "FLUE OXYGEN",
+        "history_FEED_FLOW_title": "FIC-3001 PV / SP / OUT | recent samples",
+        "history_TEMPERATURE_title": "FIC-3003 PV / SP / OUT | recent samples",
+        "history_PRESSURE_title": "PIC-3001 PV / SP / OUT | recent samples",
+        "history_LEVEL_title": "AIC-3001 PV / SP / OUT | recent samples",
+        "alarms_title_3": "H1 ALARMS - TIC-3001 scope"
+      },
+      "pvms": {
+        "vessel": {"path": "TIC-3001/TIC-3001", "label": "TIC-3001"},
+        "detail_FEED_FLOW": {"path": "FIC-3001/FIC-3001", "label": "FIC-3001"},
+        "detail_TEMPERATURE": {"path": "FIC-3003/FIC-3003", "label": "FIC-3003"},
+        "detail_PRESSURE": {"path": "PIC-3001/PIC-3001", "label": "PIC-3001"},
+        "detail_LEVEL": {"path": "AIC-3001/AIC-3001", "label": "AIC-3001"}
+      },
+      "pens": {
+        "history_FEED_FLOW": [["PV", "FIC-3001/FIC-3001/PV"], ["SP", "FIC-3001/FIC-3001/SP"], ["OUT", "FIC-3001/FIC-3001/OUT"]],
+        "history_TEMPERATURE": [["PV", "FIC-3003/FIC-3003/PV"], ["SP", "FIC-3003/FIC-3003/SP"], ["OUT", "FIC-3003/FIC-3003/OUT"]],
+        "history_PRESSURE": [["PV", "PIC-3001/PIC-3001/PV"], ["SP", "PIC-3001/PIC-3001/SP"], ["OUT", "PIC-3001/PIC-3001/OUT"]],
+        "history_LEVEL": [["PV", "AIC-3001/AIC-3001/PV"], ["SP", "AIC-3001/AIC-3001/SP"], ["OUT", "AIC-3001/AIC-3001/OUT"]]
+      },
+      "alarms": {
+        "alarms_3": {"path_prefix": "TIC-3001", "priority_min": 0}
+      }
+    },
+    "Overview - L4 Heater Safety": {
+      "level": 4,
+      "parent": "Overview - L3 Charge Heater",
+      "child": "",
+      "description": "L4 heater BMS/SIS support display derived from AP-PID-U300 and AP-PID-U900 and configured on the ISA-101 L4 Support Display template.",
+      "texts": {
+        "title": "H1 BMS AND SIS - SUPPORT AND DIAGNOSTICS",
+        "purpose": "Permits, interlocks, first-out evidence, final elements and reset readiness for the charge heater",
+        "configure_note": "Configured from AP-PID-U300 and AP-PID-U900 on the ISA-101 L4 Support Display template | APVC-CTRL-1 bindings",
+        "permits_title": "PERMITS / INTERLOCKS / FIRST OUT",
+        "diagnostics_title": "BURNER AND FINAL-ELEMENT DIAGNOSTICS",
+        "procedure_title": "PROCEDURE / OPERATOR GUIDANCE",
+        "support_title": "RELATED HISTORY AND SUPPORT",
+        "permit_note": "Bound to BMS-3001 and ESD-9000. An unbound permit is unknown, never FALSE.",
+        "diagnostic_note": "Use the TIC-3001 and BMS-3001 faceplates for authorized detail and tuning.",
+        "procedure_state": "Procedure reference: pa_safe_landing rev-003 - Remove H1 firing",
+        "procedure_guidance": "Open Tools > Procedures on this station to run the safe-landing procedure. Its heater step removes fuel and closes both fuel shutoff valves from Plant - L3 Manual Heater; verify the field feedback in the procedure conditions.",
+        "approved_guidance": "Approved operating guidance / reset readiness",
+        "guidance_placeholder": "A reset is appropriate only after the first-out cause is understood, every field condition is healthy, final elements are verified, and operating procedure authorization is complete.",
+        "support_history_title": "Bridgewall temperature TT-3005 | recent samples",
+        "alarms_title_4": "BMS ALARMS - BMS-3001 scope"
+      },
+      "tables": {
+        "permit_table": [
+          {"name": "Start permit BMS-3001", "state": {"path": "BMS-3001/BMS-3001/PERMIT", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "GRANTED", "false": "BLOCKED"}}},
+          {"name": "BMS trip latched", "state": {"path": "BMS-3001/BMS-3001/TRIPPED", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "ACTIVE", "false": "CLEAR"}}},
+          {"name": "Plant ESD tripped ESD-9000", "state": {"path": "ESD-9000/ESD-9000/TRIPPED", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "ACTIVE", "false": "CLEAR"}}},
+          {"name": "Plant ESD reset readiness", "state": {"path": "ESD-9000/ESD-9000/READY", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "READY", "false": "NOT READY"}}},
+          {"name": "Bypass / suppression", "state": "Not configured"}
+        ],
+        "diagnostic_table": [
+          {"name": "Burner flame BS-3001", "state": {"path": "BMS-3001/BS-3001/OUT", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "PROVEN", "false": "NO FLAME"}}},
+          {"name": "ID-301 fan running", "state": {"path": "BMS-3001/XS-ID301-RUN/OUT", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "RUNNING", "false": "STOPPED"}}},
+          {"name": "Main fuel command", "state": {"path": "BMS-3001/BMS-3001/MAIN_FUEL_CMD", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "ON", "false": "OFF"}}},
+          {"name": "Main fuel shutoff XY-3010", "state": {"path": "BMS-3001/XY-3010/OUT_D", "type": "numeric", "decimals": 1, "units": false, "boolean_labels": {"true": "OPEN", "false": "CLOSED"}}},
+          {"name": "Bridgewall temperature TT-3005", "state": {"path": "BMS-3001/TT-3005/PV", "type": "numeric", "decimals": 1, "units": true}}
+        ]
+      },
+      "pens": {
+        "support_history": [["Bridgewall", "BMS-3001/TT-3005/PV"]]
+      },
+      "alarms": {
+        "alarms_4": {"path_prefix": "BMS-3001", "priority_min": 0}
+      }
+    }
+  }
+}

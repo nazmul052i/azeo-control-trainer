@@ -1,0 +1,66 @@
+{
+  "areas": [
+    {
+      "name": "PLANT_AREA_A",
+      "area_id": "3a1f2b4c5d6e",
+      "description": "Tank101 — inlet valve, level, discharge pump and discharge flow control (course book Modules 2, 6 and 7).",
+      "strategies": [
+        "control\\LI-101.json",
+        "control\\XV-101.json",
+        "control\\MTR-102.json",
+        "control\\XV-OPTION.json",
+        "control\\FIC-102.json"
+      ],
+      "sfc_modules": [],
+      "equipment_modules": [],
+      "units": [
+        {
+          "name": "TANK-101",
+          "description": "Tank101 unit — inlet valve, level, discharge pump and flow control",
+          "modules": [
+            "LI-101",
+            "XV-101",
+            "MTR-102",
+            "FIC-102",
+            "XV-OPTION"
+          ],
+          "banner": {
+            "CRITICAL": "module",
+            "WARNING": "unit",
+            "ADVISORY": "unit",
+            "LOG": "unit"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLANT_AREA_B",
+      "area_id": "3a1f2b4c5d6f",
+      "description": "Tank201 — level control and transfer pump (course book Modules 9 and 11).",
+      "strategies": [
+        "control\\LIC-201.json",
+        "control\\MTR-203.json"
+      ],
+      "sfc_modules": [],
+      "equipment_modules": [
+        "equipment\\Plant_Startup_Shutdown.json"
+      ],
+      "units": [
+        {
+          "name": "TANK-201",
+          "description": "Tank201 unit — level control and transfer pump",
+          "modules": [
+            "LIC-201",
+            "MTR-203"
+          ],
+          "banner": {
+            "CRITICAL": "module",
+            "WARNING": "unit",
+            "ADVISORY": "unit",
+            "LOG": "unit"
+          }
+        }
+      ]
+    }
+  ]
+}

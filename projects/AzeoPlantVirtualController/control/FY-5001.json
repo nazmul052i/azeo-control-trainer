@@ -1,0 +1,44 @@
+{
+  "name": "FY-5001",
+  "description": "T1 reflux and reboil decoupler",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U500",
+    "workbook_block_type": "CALC",
+    "design_default_mode": "-",
+    "strategy_demonstrated": "Static decoupling",
+    "pv_source_text": "FIC-5001 / FIC-5002",
+    "final_element_text": "Setpoint corrections",
+    "mapped_input_tags": [],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "MONITOR_ONLY_SUPERSEDED",
+    "formula_basis": "PRELIMINARY — workbook supplies function, not coefficients",
+    "drives_control": false,
+    "implemented_in": [
+      "TIC-5002"
+    ]
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "TIC-5002_DEMAND_MONITOR",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "path": "ctrl.TIC-5002.OUT",
+        "default": 44.92281974442689,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.TIC-5002.OUT"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

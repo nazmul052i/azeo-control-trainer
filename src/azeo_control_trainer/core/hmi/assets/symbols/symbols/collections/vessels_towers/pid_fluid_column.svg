@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="128" viewBox="0 0 58 128" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID fluid column</title>
+  <desc id="desc">Portable fluid column symbol extracted from Vessels&amp;Towers.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-612.5 -524.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 616 543 C 616 534.72 627.19 528 641 528 C 654.81 528 666 534.72 666 543 L 666 633 C 666 641.28 654.81 648 641 648 C 627.19 648 616 641.28 616 633 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 616 553 L 666 553 M 616 623 L 666 623" fill="none" stroke-miterlimit="10" stroke-dasharray="3 3" class="symbol-line" />
+        <ellipse cx="619" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="624" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="629" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="634" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="639" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="644" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="649" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="654" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="659" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="664" cy="556" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="621.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="626.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="631.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="636.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="641.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="646.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="651.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="656.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="661.5" cy="561" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="619" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="624" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="629" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="634" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="639" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="644" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="649" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="654" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="659" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="664" cy="566" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="621.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="626.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="631.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="636.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="641.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="646.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="651.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="656.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="661.5" cy="571" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="619" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="624" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="629" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="634" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="639" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="644" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="649" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="654" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="659" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="664" cy="576" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="621.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="626.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="631.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="636.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="641.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="646.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="651.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="656.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="661.5" cy="581" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="619" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="624" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="629" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="634" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="639" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="644" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="649" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="654" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="659" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="664" cy="586" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="621.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="626.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="631.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="636.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="641.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="646.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="651.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="656.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="661.5" cy="591" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="619" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="624" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="629" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="634" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="639" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="644" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="649" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="654" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="659" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="664" cy="596" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="621.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="626.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="631.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="636.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="641.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="646.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="651.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="656.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="661.5" cy="601" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="619" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="624" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="629" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="634" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="639" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="644" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="649" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="654" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="659" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="664" cy="606" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="621.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="626.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="631.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="636.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="641.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="646.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="651.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="656.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="661.5" cy="611" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="619" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="624" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="629" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="634" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="639" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="644" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="649" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="654" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="659" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="664" cy="616" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="621.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="626.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="631.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="636.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="641.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="646.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="651.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="656.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+        <ellipse cx="661.5" cy="621" rx="0.5" ry="0.5" stroke-dasharray="3 3" class="symbol-solid symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.03125" cx="29" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.931034" data-anchor-y="0.5" cx="54" cy="64" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.96875" cx="29" cy="124" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0689655" data-anchor-y="0.5" cx="4" cy="64" r="3" />
+  </g>
+</svg>

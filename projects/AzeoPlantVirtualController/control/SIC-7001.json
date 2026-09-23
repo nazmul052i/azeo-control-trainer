@@ -1,0 +1,46 @@
+{
+  "name": "SIC-7001",
+  "description": "B1 forced draft fan speed",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U700",
+    "workbook_block_type": "PID",
+    "design_default_mode": "CAS",
+    "strategy_demonstrated": "VFD speed loop",
+    "pv_source_text": "SC-7001",
+    "final_element_text": "SC-7001",
+    "mapped_input_tags": [
+      "SC-7001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "SC-7001"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "MONITOR_ONLY_SUPERSEDED",
+    "drives_control": false,
+    "superseded_by": "FIC-7003"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "SC-7001_MONITOR",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "path": "SC-7001",
+        "default": 27.923575195179705,
+        "missing_is_bad": true,
+        "description": "Monitor only; FIC-7003 owns SC-7001"
+      }
+    }
+  ],
+  "wires": [],
+  "comments": []
+}

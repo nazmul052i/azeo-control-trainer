@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 70 85" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID centrifugal pump 2</title>
+  <desc id="desc">Centrifugal-pump symbol variant 2.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-492 -665)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="496" y="669" width="62" height="77" fill="none" stroke="none" />
+        <path d="M 507.98 733 L 496 746 L 520.96 746 L 520.96 738.4 Z M 530.95 738.4 L 530.95 746 L 555.91 746 L 543.93 733 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 520.96 738.4 C 506.62 735.97 496.09 723.57 496 709 L 496 669 L 515.97 669 L 515.97 680.55 C 526.65 676.74 538.57 679.29 546.76 687.14 C 554.94 695 558 706.81 554.66 717.66 C 551.31 728.51 542.13 736.54 530.95 738.4" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 520.96 717.6 C 517.05 715.34 515.14 710.72 516.31 706.35 C 517.48 701.98 521.44 698.94 525.96 698.94 C 530.48 698.94 534.43 701.98 535.6 706.35 C 536.77 710.72 534.86 715.34 530.95 717.6" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.206929" data-anchor-y="0.0529412" cx="14.485" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.920778" data-anchor-y="0.505882" cx="64.4544" cy="43" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.492214" data-anchor-y="0.869412" cx="34.455" cy="73.9" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0642857" data-anchor-y="0.505882" cx="4.5" cy="43" r="3" />
+  </g>
+</svg>

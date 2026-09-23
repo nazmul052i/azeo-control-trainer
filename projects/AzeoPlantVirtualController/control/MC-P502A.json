@@ -1,0 +1,287 @@
+{
+  "name": "MC-P502A",
+  "description": "T1 bottoms pump A motor control",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U500",
+    "workbook_block_type": "MOTOR",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Motor start and stop control, permissives, run feedback timeout, duty-standby changeover",
+    "pv_source_text": "XS-P502A-RUN",
+    "final_element_text": "XY-P502A-STR and XY-P502A-STP",
+    "mapped_input_tags": [
+      "XS-P502A-RUN"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "XY-P502A-STR",
+      "XY-P502A-STP"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [
+      "E14"
+    ],
+    "alarms": [],
+    "implementation_state": "COMMISSIONED",
+    "start_permissives": "MOV-5002A fully open, T1 bottom level above LSLL, FCV-5007 minimum flow open"
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "DI",
+      "instance_name": "XS-P502A-RUN",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "XS-P502A-RUN",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "XS-P502A-FLT",
+      "x": 0.0,
+      "y": 95.0,
+      "config": {
+        "tag": "XS-P502A-FLT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "DI",
+      "instance_name": "XS-P502A-AVL",
+      "x": 0.0,
+      "y": 190.0,
+      "config": {
+        "tag": "XS-P502A-AVL",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "DI",
+      "instance_name": "ZSO-MOV5002A",
+      "x": 0.0,
+      "y": 285.0,
+      "config": {
+        "tag": "ZSO-MOV5002A",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "MOTOR_INTERLOCK",
+      "instance_name": "INTERLOCK",
+      "x": 360.0,
+      "y": 60.0,
+      "config": {
+        "STARTUP_TIMEOUT": 5.0,
+        "STOP_TIMEOUT": 5.0,
+        "AUTO_RESET": false,
+        "LATCH_TRIPS": true,
+        "PERM_1_DESC": "Drive available",
+        "PERM_2_DESC": "Suction valve open",
+        "TRIP_1_DESC": "Drive fault",
+        "TRIP_2_DESC": "Emergency shutdown"
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "DI",
+      "instance_name": "HS-9002",
+      "x": 0.0,
+      "y": 500.0,
+      "config": {
+        "tag": "HS-9002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "DI",
+      "instance_name": "LSLL-5001",
+      "x": 0.0,
+      "y": 580.0,
+      "config": {
+        "tag": "LSLL-5001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "DI",
+      "instance_name": "LSLL-5002",
+      "x": 0.0,
+      "y": 660.0,
+      "config": {
+        "tag": "LSLL-5002",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "OR",
+      "instance_name": "ESD_CAUSES",
+      "x": 650.0,
+      "y": 500.0,
+      "config": {
+        "NOF_INPUTS": 3
+      }
+    },
+    {
+      "id": "b010",
+      "block_type": "DEVCTL",
+      "instance_name": "MC-P502A",
+      "x": 680.0,
+      "y": 60.0,
+      "config": {
+        "DEVICE_KIND": "MOTOR",
+        "START_TIMEOUT": 5.0,
+        "STOP_TIMEOUT": 5.0,
+        "RESET_REQUIRED": true,
+        "use_azeo_states": true,
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "INTERLOCK_OPT": "PASSIVE_IF_BAD",
+        "description": "T1 bottoms pump A motor control"
+      }
+    },
+    {
+      "id": "b011",
+      "block_type": "DO",
+      "instance_name": "XY-P502A-STR",
+      "x": 980.0,
+      "y": 40.0,
+      "config": {
+        "tag": "XY-P502A-STR",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    },
+    {
+      "id": "b012",
+      "block_type": "NOT",
+      "instance_name": "STOP_COMMAND",
+      "x": 850.0,
+      "y": 230.0,
+      "config": {}
+    },
+    {
+      "id": "b013",
+      "block_type": "DO",
+      "instance_name": "XY-P502A-STP",
+      "x": 980.0,
+      "y": 230.0,
+      "config": {
+        "tag": "XY-P502A-STP",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b003",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "PERM_1"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "PERM_2"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "TRIP_1"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b005",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b006",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN_D1"
+    },
+    {
+      "id": "w006",
+      "src_block_id": "b007",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN_D2"
+    },
+    {
+      "id": "w007",
+      "src_block_id": "b008",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN_D3"
+    },
+    {
+      "id": "w008",
+      "src_block_id": "b009",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b005",
+      "dst_terminal": "TRIP_2"
+    },
+    {
+      "id": "w009",
+      "src_block_id": "b005",
+      "src_terminal": "START_PERMIT",
+      "dst_block_id": "b010",
+      "dst_terminal": "INTERLOCK"
+    },
+    {
+      "id": "w010",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b010",
+      "dst_terminal": "RUN_FB"
+    },
+    {
+      "id": "w011",
+      "src_block_id": "b010",
+      "src_terminal": "DO_START",
+      "dst_block_id": "b011",
+      "dst_terminal": "CAS_IN_D"
+    },
+    {
+      "id": "w012",
+      "src_block_id": "b010",
+      "src_terminal": "DO_START",
+      "dst_block_id": "b012",
+      "dst_terminal": "IN_D"
+    },
+    {
+      "id": "w013",
+      "src_block_id": "b012",
+      "src_terminal": "OUT_D",
+      "dst_block_id": "b013",
+      "dst_terminal": "CAS_IN_D"
+    }
+  ],
+  "comments": []
+}

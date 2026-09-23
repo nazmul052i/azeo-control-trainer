@@ -1,0 +1,333 @@
+{
+  "name": "TIC-3001",
+  "description": "H1 combined outlet temperature",
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U300",
+    "workbook_block_type": "PID",
+    "design_default_mode": "CAS",
+    "strategy_demonstrated": "Cascade master with charge rate feedforward",
+    "pv_source_text": "TT-3001",
+    "final_element_text": "FIC-3001 setpoint",
+    "mapped_input_tags": [
+      "TT-3001"
+    ],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [
+      "FIC-3001"
+    ],
+    "esd_effects": [],
+    "alarms": [
+      {
+        "Tag": "TT-3001",
+        "Unit": "U300",
+        "Alarm description": "H1 outlet temperature high",
+        "Alarm type": "HI",
+        "Setpoint": 370,
+        "EU": "degC",
+        "Priority": "High",
+        "Deadband": 3,
+        "On-delay (s)": 5
+      },
+      {
+        "Tag": "TT-3001",
+        "Unit": "U300",
+        "Alarm description": "H1 outlet temperature high high",
+        "Alarm type": "HI_HI",
+        "Setpoint": 395,
+        "EU": "degC",
+        "Priority": "Critical",
+        "Deadband": 3,
+        "On-delay (s)": 3
+      },
+      {
+        "Tag": "TT-3004",
+        "Unit": "U300",
+        "Alarm description": "H1 stack temperature high",
+        "Alarm type": "HI",
+        "Setpoint": 430,
+        "EU": "degC",
+        "Priority": "Advisory",
+        "Deadband": 5,
+        "On-delay (s)": 10
+      },
+      {
+        "Tag": "PT-3001",
+        "Unit": "U300",
+        "Alarm description": "H1 fuel gas pressure low low",
+        "Alarm type": "LO_LO",
+        "Setpoint": 1.5,
+        "EU": "barg",
+        "Priority": "Critical",
+        "Deadband": 0.1,
+        "On-delay (s)": 1
+      },
+      {
+        "Tag": "AT-3002",
+        "Unit": "U300",
+        "Alarm description": "H1 carbon monoxide high",
+        "Alarm type": "HI",
+        "Setpoint": 250,
+        "EU": "ppm",
+        "Priority": "High",
+        "Deadband": 20,
+        "On-delay (s)": 15
+      },
+      {
+        "Tag": "BS-3001",
+        "Unit": "U300",
+        "Alarm description": "H1 main burner flame failure",
+        "Alarm type": "DISCRETE",
+        "Setpoint": "False",
+        "EU": "-",
+        "Priority": "Critical",
+        "Deadband": 0,
+        "On-delay (s)": 1
+      }
+    ],
+    "tuning_basis": "PRELIMINARY",
+    "implementation_state": "COMMISSIONED",
+    "control_module_basis": "engineering/control_modules.json",
+    "actual_pv_path": {
+      "algorithm": "direct",
+      "sources": [
+        "TT-3001"
+      ]
+    },
+    "external_reset_contract": {
+      "master": "TIC-3001",
+      "reset_source": "FIC-3001",
+      "path": "ctrl.FIC-3001.BKCAL_OUT -> TIC-3001/BKCAL_IN (0.0..3000.0 EU -> 0..100%)",
+      "feedforward_excluded_from_reset": true
+    },
+    "feedforward_contract": {
+      "source": "FT-1001",
+      "path": "PID.FF_VAL",
+      "gain": 0.3333333333333333,
+      "excluded_from_external_reset": true
+    }
+  },
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "AI",
+      "instance_name": "TT-3001",
+      "x": 0.0,
+      "y": 0.0,
+      "config": {
+        "tag": "TT-3001",
+        "label": "H1 combined outlet temperature",
+        "scale_lo": 0.0,
+        "scale_hi": 500.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 500.0,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "PID",
+      "instance_name": "TIC-3001",
+      "x": 430.0,
+      "y": 40.0,
+      "config": {
+        "GAIN": 6.0,
+        "RESET": 300.0,
+        "RATE": 0.0,
+        "sp_init": 348.16048003609825,
+        "action": "reverse",
+        "form": "standard",
+        "structure": "pi_error_d_pv",
+        "pv_scale_lo": 0.0,
+        "pv_scale_hi": 500.0,
+        "sp_lo": 0.0,
+        "sp_hi": 500.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "use_out_limits": true,
+        "mode": "MAN",
+        "normal_mode": "AUTO",
+        "pv_unit": "degC",
+        "op_unit": "%",
+        "description": "H1 combined outlet temperature",
+        "hi_lim": 370.0,
+        "hi_hi_lim": 395.0,
+        "alarm_hys": 3.0,
+        "sp_pv_track_man": true,
+        "reset_impl": "external",
+        "out_init": 60.43050132123975,
+        "ff_enable": true,
+        "ff_gain": 0.3333333333333333,
+        "ff_scale_lo": 0.0,
+        "ff_scale_hi": 100.0,
+        "sp_rate_up": 0.5,
+        "sp_rate_dn": 0.5
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "AI",
+      "instance_name": "TT-3004",
+      "x": 0.0,
+      "y": 320.0,
+      "config": {
+        "tag": "TT-3004",
+        "label": "H1 stack gas temperature",
+        "scale_lo": 0.0,
+        "scale_hi": 600.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 600.0,
+        "eng_units": "degC",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "HI_LIM": 430.0,
+        "HI_DELAY_ON": 10.0,
+        "ALARM_HYS": 5.0
+      }
+    },
+    {
+      "id": "b006",
+      "block_type": "AI",
+      "instance_name": "PT-3001",
+      "x": 0.0,
+      "y": 410.0,
+      "config": {
+        "tag": "PT-3001",
+        "label": "H1 fuel gas burner pressure",
+        "scale_lo": 0.0,
+        "scale_hi": 10.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 10.0,
+        "eng_units": "barg",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "LO_LO_LIM": 1.5,
+        "LO_LO_DELAY_ON": 1.0,
+        "ALARM_HYS": 0.1
+      }
+    },
+    {
+      "id": "b007",
+      "block_type": "AI",
+      "instance_name": "AT-3002",
+      "x": 0.0,
+      "y": 500.0,
+      "config": {
+        "tag": "AT-3002",
+        "label": "H1 flue gas carbon monoxide",
+        "scale_lo": 0.0,
+        "scale_hi": 2000.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 2000.0,
+        "eng_units": "ppm",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "HI_LIM": 250.0,
+        "HI_DELAY_ON": 15.0,
+        "ALARM_HYS": 20.0
+      }
+    },
+    {
+      "id": "b008",
+      "block_type": "DI",
+      "instance_name": "BS-3001",
+      "x": 0.0,
+      "y": 590.0,
+      "config": {
+        "tag": "BS-3001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO",
+        "DISC_LIM": 0,
+        "PV_FTIME": 1.0
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "REMOTE_ANALOG",
+      "instance_name": "BKCAL_FROM_FIC-3001",
+      "x": 520.0,
+      "y": 670.0,
+      "config": {
+        "path": "ctrl.FIC-3001.BKCAL_OUT",
+        "default": 1812.9150396371926,
+        "missing_is_bad": true,
+        "description": "Typed cross-module reference ctrl.FIC-3001.BKCAL_OUT"
+      }
+    },
+    {
+      "id": "b009",
+      "block_type": "SCALER",
+      "instance_name": "BKCAL_FIC-3001_EU_TO_PCT",
+      "x": 750.0,
+      "y": 670.0,
+      "config": {
+        "in_lo": 0.0,
+        "in_hi": 3000.0,
+        "out_lo": 0.0,
+        "out_hi": 100.0,
+        "clamp": true
+      }
+    },
+    {
+      "id": "b010",
+      "block_type": "AI",
+      "instance_name": "FT-1001",
+      "x": 180.0,
+      "y": 520.0,
+      "config": {
+        "tag": "FT-1001",
+        "label": "Charge flow from D1",
+        "scale_lo": 0.0,
+        "scale_hi": 300.0,
+        "XD_SCALE_LO": 0.0,
+        "XD_SCALE_HI": 300.0,
+        "eng_units": "m3/h",
+        "L_TYPE": "DIRECT",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b004",
+      "src_terminal": "OUT",
+      "dst_block_id": "b009",
+      "dst_terminal": "IN"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b009",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "BKCAL_IN",
+      "is_bkcal": true
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b010",
+      "src_terminal": "OUT",
+      "dst_block_id": "b002",
+      "dst_terminal": "FF_VAL"
+    }
+  ],
+  "comments": [],
+  "scan_ms": 200
+}

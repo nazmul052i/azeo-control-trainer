@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="76" viewBox="0 0 60 76" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID steam boiler</title>
+  <desc id="desc">Hand-authored for AzeoPlant following the symbol library contract: steam drum over a fired box with a stack.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #24407C;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #F8FAFD;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #24407C;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g shape-rendering="geometricPrecision">
+    <rect x="38" y="4" width="8" height="12" class="symbol-fill symbol-line" />
+    <rect x="10" y="38" width="40" height="30" class="symbol-fill symbol-line" />
+    <rect x="6" y="16" width="48" height="22" rx="11" class="symbol-fill symbol-line" />
+    <path d="M 20 62 Q 24 46 28 56 Q 30 61 34 50 Q 36 45 40 60" fill="none" class="symbol-line" />
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.7" data-anchor-y="0.052632" cx="42" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.9" data-anchor-y="0.355263" cx="54" cy="27" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.894737" cx="30" cy="68" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.1" data-anchor-y="0.355263" cx="6" cy="27" r="3" />
+  </g>
+</svg>

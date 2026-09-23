@@ -1,0 +1,749 @@
+{
+ "display": "U100 - L2 Feed Preparation",
+ "pvms": [
+  {
+   "id": "u100_d1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-1001/LIC-1001"
+   },
+   "x": 260,
+   "y": 210,
+   "w": 120,
+   "h": 205,
+   "standard": "hphmi.controller",
+   "variant": "vessel",
+   "label": "D1",
+   "choices": {
+    "equipment_symbol": "tank",
+    "show_hp_anatomy": false,
+    "show_readout": false
+   }
+  },
+  {
+   "id": "u100_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-1001/FIC-1001"
+   },
+   "x": 289.0,
+   "y": 720,
+   "w": 330,
+   "h": 164,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Pump flow"
+  },
+  {
+   "id": "u100_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "SIC-1001/SIC-1001"
+   },
+   "x": 633.0,
+   "y": 720,
+   "w": 330,
+   "h": 164,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Pump speed"
+  },
+  {
+   "id": "u100_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-1002/FIC-1002"
+   },
+   "x": 977.0,
+   "y": 720,
+   "w": 330,
+   "h": 164,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Charge flow"
+  }
+ ],
+ "schema_version": 3,
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U100 · FEED PREPARATION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Hold D1 inventory and deliver stable charge flow through the duty and standby feed-pump train.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "text_role": "TEXT_DIM"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE",
+   "fill_role": "SURFACE_PANEL",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid",
+   "line_role": "LINE_SOFT"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u100_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE_SOFT",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "u100_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U100",
+   "font_size": 10,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u100_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE_SOFT",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "u100_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "symbol",
+   "id": "u100_feed",
+   "x": 75,
+   "y": 283,
+   "w": 70,
+   "h": 70,
+   "symbol": "valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w",
+     "source": "catalog"
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e",
+     "source": "catalog"
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0,
+     "normal": "n",
+     "source": "catalog"
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0,
+     "normal": "s",
+     "source": "catalog"
+    }
+   ],
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "u100_feed_tag",
+   "x": 50,
+   "y": 256,
+   "w": 120,
+   "h": 22,
+   "text": "FEED",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "u100_feed_label",
+   "x": 45,
+   "y": 358,
+   "w": 130,
+   "h": 28,
+   "text": "Battery-limit feed",
+   "font_size": 8,
+   "font_bold": false,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "text_role": "TEXT_DIM"
+  },
+  {
+   "kind": "text",
+   "id": "u100_d1_tag",
+   "x": 235,
+   "y": 183,
+   "w": 170,
+   "h": 22,
+   "text": "D1",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "u100_d1_label",
+   "x": 230,
+   "y": 420,
+   "w": 180,
+   "h": 28,
+   "text": "Feed surge drum",
+   "font_size": 8,
+   "font_bold": false,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "text_role": "TEXT_DIM"
+  },
+  {
+   "kind": "symbol",
+   "id": "u100_p101a",
+   "x": 530,
+   "y": 230,
+   "w": 100,
+   "h": 95,
+   "symbol": "pump",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w",
+     "source": "catalog"
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e",
+     "source": "catalog"
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0,
+     "normal": "n",
+     "source": "catalog"
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0,
+     "normal": "s",
+     "source": "catalog"
+    }
+   ],
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "u100_p101a_tag",
+   "x": 505,
+   "y": 203,
+   "w": 150,
+   "h": 22,
+   "text": "P101A",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "u100_p101a_label",
+   "x": 500,
+   "y": 330,
+   "w": 160,
+   "h": 28,
+   "text": "Duty charge pump",
+   "font_size": 8,
+   "font_bold": false,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "text_role": "TEXT_DIM"
+  },
+  {
+   "kind": "symbol",
+   "id": "u100_p101b",
+   "x": 530,
+   "y": 410,
+   "w": 100,
+   "h": 95,
+   "symbol": "pump",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w",
+     "source": "catalog"
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e",
+     "source": "catalog"
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0,
+     "normal": "n",
+     "source": "catalog"
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0,
+     "normal": "s",
+     "source": "catalog"
+    }
+   ],
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "u100_p101b_tag",
+   "x": 505,
+   "y": 383,
+   "w": 150,
+   "h": 22,
+   "text": "P101B",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "u100_p101b_label",
+   "x": 500,
+   "y": 510,
+   "w": 160,
+   "h": 28,
+   "text": "Standby charge pump",
+   "font_size": 8,
+   "font_bold": false,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "text_role": "TEXT_DIM"
+  },
+  {
+   "kind": "symbol",
+   "id": "u100_out",
+   "x": 835,
+   "y": 280,
+   "w": 80,
+   "h": 65,
+   "symbol": "control_valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5,
+     "normal": "w",
+     "source": "catalog"
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5,
+     "normal": "e",
+     "source": "catalog"
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0,
+     "normal": "n",
+     "source": "catalog"
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0,
+     "normal": "s",
+     "source": "catalog"
+    }
+   ],
+   "line_role": "EQUIPMENT",
+   "fill_role": "EQUIPMENT_FILL"
+  },
+  {
+   "kind": "text",
+   "id": "u100_out_tag",
+   "x": 810,
+   "y": 253,
+   "w": 130,
+   "h": 22,
+   "text": "FCV-1002",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "text",
+   "id": "u100_out_label",
+   "x": 805,
+   "y": 350,
+   "w": 140,
+   "h": 28,
+   "text": "Charge to U200",
+   "font_size": 8,
+   "font_bold": false,
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "text_role": "TEXT_DIM"
+  },
+  {
+   "kind": "pipe",
+   "id": "u100_pipe_0",
+   "a": "u100_feed",
+   "a_side": "outlet",
+   "b": "u100_d1",
+   "b_side": "inlet",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "u100_pipe_1",
+   "a": "u100_d1",
+   "a_side": "outlet",
+   "b": "u100_p101a",
+   "b_side": "inlet",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "u100_pipe_2",
+   "a": "u100_d1",
+   "a_side": "outlet",
+   "b": "u100_p101b",
+   "b_side": "inlet",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "u100_pipe_3",
+   "a": "u100_p101a",
+   "a_side": "outlet",
+   "b": "u100_out",
+   "b_side": "inlet",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "pipe",
+   "id": "u100_pipe_4",
+   "a": "u100_p101b",
+   "a_side": "outlet",
+   "b": "u100_out",
+   "b_side": "inlet",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false,
+   "line_role": "EQUIPMENT"
+  },
+  {
+   "kind": "text",
+   "id": "u100_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "table",
+   "id": "u100_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "D1 level",
+     "value": {
+      "path": "LIC-1001/LIC-1001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Charge flow",
+     "value": {
+      "path": "FIC-1002/FIC-1002/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "D1 pressure",
+     "value": {
+      "path": "PIC-1001/PIC-1001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u100_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "chart",
+   "id": "u100_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "D1 level",
+     "path": "LIC-1001/LIC-1001/PV"
+    },
+    {
+     "label": "Charge flow",
+     "path": "FIC-1002/FIC-1002/PV"
+    },
+    {
+     "label": "D1 pressure",
+     "path": "PIC-1001/PIC-1001/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u100_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE LIC-1001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "TEXT"
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u100_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "LIC-1001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u100_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 237,
+   "width": 1,
+   "radius": 5,
+   "line_role": "LINE_SOFT",
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "u100_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false,
+   "text_role": "HEADING"
+  }
+ ],
+ "description": "L2 primary-operation display for U100, derived from AP-PID-U100. Native editable equipment with named process ports, smart pipes, registered live vessel PVMs, KPIs, alarms, and hierarchy navigation.",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

@@ -1,0 +1,138 @@
+{
+  "engineering": {
+    "source": "AzeoPlantSimulator_OPCUA_TagList.xlsx",
+    "source_sheet": "Control_Modules",
+    "unit": "U700",
+    "workbook_block_type": "SFC",
+    "design_default_mode": "AUTO",
+    "strategy_demonstrated": "Procedure automation: purge, light off, load release",
+    "pv_source_text": "Multiple",
+    "final_element_text": "XY-7010 and XY-7011",
+    "mapped_input_tags": [],
+    "unavailable_input_tags": [],
+    "mapped_output_tags": [
+      "XY-7010",
+      "XY-7011"
+    ],
+    "unavailable_output_tags": [],
+    "supervisory_targets": [],
+    "esd_effects": [],
+    "alarms": [],
+    "implementation_state": "COMMISSIONED"
+  },
+  "name": "BMS-7001",
+  "description": "B1 burner management sequence",
+  "blocks": [
+    {
+      "id": "b001",
+      "block_type": "DI",
+      "instance_name": "BS-7001",
+      "x": 30.0,
+      "y": 20.0,
+      "config": {
+        "tag": "BS-7001",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b002",
+      "block_type": "DI",
+      "instance_name": "XS-FD701-RUN",
+      "x": 30.0,
+      "y": -110.0,
+      "config": {
+        "tag": "XS-FD701-RUN",
+        "mode": "AUTO",
+        "normal_mode": "AUTO"
+      }
+    },
+    {
+      "id": "b003",
+      "block_type": "BURNER_SEQ",
+      "instance_name": "BMS-7001",
+      "x": 380.0,
+      "y": 50.0,
+      "config": {
+        "purge_time": 60.0,
+        "ignition_trial": 10.0,
+        "stabilize_time": 15.0,
+        "post_purge_time": 30.0,
+        "shutdown_delay": 2.0,
+        "description": "B1 burner management sequence"
+      }
+    },
+    {
+      "id": "b004",
+      "block_type": "DO",
+      "instance_name": "XY-7010",
+      "x": 630.0,
+      "y": 180.0,
+      "config": {
+        "tag": "XY-7010",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    },
+    {
+      "id": "b005",
+      "block_type": "DO",
+      "instance_name": "XY-7011",
+      "x": 630.0,
+      "y": 50.0,
+      "config": {
+        "tag": "XY-7011",
+        "mode": "MAN",
+        "normal_mode": "CAS"
+      }
+    }
+  ],
+  "wires": [
+    {
+      "id": "w001",
+      "src_block_id": "b002",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "DRAFT_OK",
+      "route_points": [
+        [
+          300.0,
+          -78.0
+        ],
+        [
+          300.0,
+          138.0
+        ]
+      ]
+    },
+    {
+      "id": "w002",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "MAIN_FLAME"
+    },
+    {
+      "id": "w003",
+      "src_block_id": "b001",
+      "src_terminal": "OUT",
+      "dst_block_id": "b003",
+      "dst_terminal": "PILOT_FLAME"
+    },
+    {
+      "id": "w004",
+      "src_block_id": "b003",
+      "src_terminal": "IGNITER_CMD",
+      "dst_block_id": "b004",
+      "dst_terminal": "CAS_IN_D"
+    },
+    {
+      "id": "w005",
+      "src_block_id": "b003",
+      "src_terminal": "BLOWER_CMD",
+      "dst_block_id": "b005",
+      "dst_terminal": "CAS_IN_D"
+    }
+  ],
+  "comments": []
+}

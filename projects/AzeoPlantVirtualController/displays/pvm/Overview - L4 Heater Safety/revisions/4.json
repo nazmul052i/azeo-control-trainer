@@ -1,0 +1,1001 @@
+{
+ "display": "Overview - L4 Heater Safety",
+ "pvms": [
+  {
+   "id": "l4_esd_switch",
+   "class": "DI/dynamo_compact",
+   "params": {
+    "path": "ESD-9000/HS-9002"
+   },
+   "x": 604,
+   "y": 814,
+   "w": 180,
+   "h": 38,
+   "standard": "hphmi.controller",
+   "label": "PLANT ESD"
+  },
+  {
+   "id": "l4_flame",
+   "class": "DI/dynamo_compact",
+   "params": {
+    "path": "BMS-3001/BS-3001"
+   },
+   "x": 797,
+   "y": 814,
+   "w": 180,
+   "h": 38,
+   "standard": "hphmi.controller",
+   "label": "FLAME"
+  },
+  {
+   "id": "l4_fan",
+   "class": "DI/dynamo_compact",
+   "params": {
+    "path": "BMS-3001/XS-ID301-RUN"
+   },
+   "x": 990,
+   "y": 814,
+   "w": 180,
+   "h": 38,
+   "standard": "hphmi.controller",
+   "label": "ID FAN"
+  }
+ ],
+ "schema_version": 2,
+ "items": [
+  {
+   "kind": "text",
+   "id": "l4_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U300 / U900 · H1 BMS AND SIS SUPPORT",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l4_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Task and diagnostic display for heater permissives, first-out trip analysis, reset readiness, and final-element verification. This is a support surface, not a second process-control display.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l4_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L4",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l4_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l4_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L3 Charge Heater",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_causes_panel",
+   "x": 38,
+   "y": 116,
+   "w": 510,
+   "h": 535,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l4_causes_title",
+   "x": 50,
+   "y": 122,
+   "w": 486,
+   "h": 24,
+   "text": "TRIP CAUSES / PERMISSIVES",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_sequence_panel",
+   "x": 564,
+   "y": 116,
+   "w": 475,
+   "h": 535,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l4_sequence_title",
+   "x": 576,
+   "y": 122,
+   "w": 451,
+   "h": 24,
+   "text": "BURNER MANAGEMENT STATE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_response_panel",
+   "x": 1055,
+   "y": 116,
+   "w": 503,
+   "h": 535,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l4_response_title",
+   "x": 1067,
+   "y": 122,
+   "w": 479,
+   "h": 24,
+   "text": "FINAL ELEMENTS / ALARMS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "l4_cause_table",
+   "x": 54,
+   "y": 154,
+   "w": 478,
+   "h": 260,
+   "columns": [
+    {
+     "key": "cause",
+     "title": "Cause / permit",
+     "width": 2.5
+    },
+    {
+     "key": "state",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "cause": "Emergency shutdown",
+     "state": {
+      "path": "BMS-3001/HS-9002/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "cause": "Local emergency stop",
+     "state": {
+      "path": "BMS-3001/HS-9001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "cause": "Gas detected",
+     "state": {
+      "path": "BMS-3001/GD-9001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "cause": "Fire detected",
+     "state": {
+      "path": "BMS-3001/FD-9001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "cause": "Fuel-gas pressure low-low",
+     "state": {
+      "path": "BMS-3001/PSLL-0101/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "cause": "Feed drum level low-low",
+     "state": {
+      "path": "BMS-3001/LSLL-1001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "cause": "Fuel pressure low-low",
+     "state": {
+      "path": "BMS-3001/PSLL-3001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "cause": "Reactor temperature high-high",
+     "state": {
+      "path": "BMS-3001/TSHH-4001/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    }
+   ],
+   "row_height": 28,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "l4_first_out_title",
+   "x": 54,
+   "y": 432,
+   "w": 478,
+   "h": 23,
+   "text": "FIRST-OUT / LATCH STATUS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "l4_first_out",
+   "x": 54,
+   "y": 459,
+   "w": 478,
+   "h": 170,
+   "columns": [
+    {
+     "key": "parameter",
+     "title": "Parameter",
+     "width": 2
+    },
+    {
+     "key": "state",
+     "title": "State",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "parameter": "BMS trip latched",
+     "state": {
+      "path": "BMS-3001/BMS-3001/TRIPPED",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "parameter": "BMS start permit",
+     "state": {
+      "path": "BMS-3001/BMS-3001/PERMIT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "GRANTED",
+       "false": "BLOCKED"
+      }
+     }
+    },
+    {
+     "parameter": "Plant ESD tripped",
+     "state": {
+      "path": "ESD-9000/ESD-9000/TRIPPED",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ACTIVE",
+       "false": "CLEAR"
+      }
+     }
+    },
+    {
+     "parameter": "Plant ESD ready",
+     "state": {
+      "path": "ESD-9000/ESD-9000/READY",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "READY",
+       "false": "NOT READY"
+      }
+     }
+    }
+   ],
+   "row_height": 31,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "l4_state_label",
+   "x": 580,
+   "y": 155,
+   "w": 205,
+   "h": 21,
+   "text": "SEQUENCE STATE",
+   "font_size": 8,
+   "font_bold": true,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "datalink",
+   "id": "l4_state",
+   "x": 580,
+   "y": 178,
+   "w": 205,
+   "h": 42,
+   "datalink_type": "numeric",
+   "path": "BMS-3001/BMS-3001/STATE",
+   "decimals": 0,
+   "units": false
+  },
+  {
+   "kind": "text",
+   "id": "l4_timer_label",
+   "x": 802,
+   "y": 155,
+   "w": 205,
+   "h": 21,
+   "text": "STEP TIMER",
+   "font_size": 8,
+   "font_bold": true,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "datalink",
+   "id": "l4_timer",
+   "x": 802,
+   "y": 178,
+   "w": 205,
+   "h": 42,
+   "datalink_type": "numeric",
+   "path": "BMS-3001/BMS-3001/TIMER",
+   "decimals": 1,
+   "units": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_sequence_flow",
+   "x": 580,
+   "y": 239,
+   "w": 443,
+   "h": 152,
+   "line": "#8D9AA3",
+   "width": 1,
+   "fill": "#F7F8F9",
+   "radius": 4
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_state_0",
+   "x": 594,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "line": "#8D9AA3",
+   "width": 1,
+   "fill": "#D7DEE3",
+   "radius": 3
+  },
+  {
+   "kind": "text",
+   "id": "l4_state_0_label",
+   "x": 594,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "text": "IDLE",
+   "font_size": 7.5,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "line",
+   "id": "l4_state_arrow_0",
+   "x": 664,
+   "y": 307,
+   "w": 14,
+   "h": 1,
+   "line": "#526B7A",
+   "width": 2,
+   "end_arrow": "filled_arrow",
+   "style": "solid"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_state_1",
+   "x": 678,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "line": "#8D9AA3",
+   "width": 1,
+   "fill": "#D7DEE3",
+   "radius": 3
+  },
+  {
+   "kind": "text",
+   "id": "l4_state_1_label",
+   "x": 678,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "text": "PURGE",
+   "font_size": 7.5,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "line",
+   "id": "l4_state_arrow_1",
+   "x": 748,
+   "y": 307,
+   "w": 14,
+   "h": 1,
+   "line": "#526B7A",
+   "width": 2,
+   "end_arrow": "filled_arrow",
+   "style": "solid"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_state_2",
+   "x": 762,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "line": "#8D9AA3",
+   "width": 1,
+   "fill": "#D7DEE3",
+   "radius": 3
+  },
+  {
+   "kind": "text",
+   "id": "l4_state_2_label",
+   "x": 762,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "text": "PILOT",
+   "font_size": 7.5,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "line",
+   "id": "l4_state_arrow_2",
+   "x": 832,
+   "y": 307,
+   "w": 14,
+   "h": 1,
+   "line": "#526B7A",
+   "width": 2,
+   "end_arrow": "filled_arrow",
+   "style": "solid"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_state_3",
+   "x": 846,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "line": "#8D9AA3",
+   "width": 1,
+   "fill": "#D7DEE3",
+   "radius": 3
+  },
+  {
+   "kind": "text",
+   "id": "l4_state_3_label",
+   "x": 846,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "text": "MAIN FLAME",
+   "font_size": 7.5,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "line",
+   "id": "l4_state_arrow_3",
+   "x": 916,
+   "y": 307,
+   "w": 14,
+   "h": 1,
+   "line": "#526B7A",
+   "width": 2,
+   "end_arrow": "filled_arrow",
+   "style": "solid"
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_state_4",
+   "x": 930,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "line": "#8D9AA3",
+   "width": 1,
+   "fill": "#D7DEE3",
+   "radius": 3
+  },
+  {
+   "kind": "text",
+   "id": "l4_state_4_label",
+   "x": 930,
+   "y": 282,
+   "w": 70,
+   "h": 52,
+   "text": "RUN",
+   "font_size": 7.5,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "text",
+   "id": "l4_permit_title",
+   "x": 580,
+   "y": 411,
+   "w": 443,
+   "h": 23,
+   "text": "LIVE SEQUENCE CONDITIONS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "l4_permits",
+   "x": 580,
+   "y": 438,
+   "w": 443,
+   "h": 191,
+   "columns": [
+    {
+     "key": "condition",
+     "title": "Condition",
+     "width": 2
+    },
+    {
+     "key": "state",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "condition": "Draft proven",
+     "state": {
+      "path": "BMS-3001/BMS-3001/DRAFT_OK",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "PROVEN",
+       "false": "NOT PROVEN"
+      }
+     }
+    },
+    {
+     "condition": "Pilot flame",
+     "state": {
+      "path": "BMS-3001/BMS-3001/PILOT_FLAME",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "PROVEN",
+       "false": "NO FLAME"
+      }
+     }
+    },
+    {
+     "condition": "Main flame",
+     "state": {
+      "path": "BMS-3001/BMS-3001/MAIN_FLAME",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "PROVEN",
+       "false": "NO FLAME"
+      }
+     }
+    },
+    {
+     "condition": "ID fan running",
+     "state": {
+      "path": "BMS-3001/XS-ID301-RUN/OUT",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "RUNNING",
+       "false": "STOPPED"
+      }
+     }
+    },
+    {
+     "condition": "Bridgewall temperature",
+     "state": {
+      "path": "BMS-3001/TT-3005/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 31,
+   "header_height": 22
+  },
+  {
+   "kind": "table",
+   "id": "l4_outputs",
+   "x": 1071,
+   "y": 154,
+   "w": 471,
+   "h": 215,
+   "columns": [
+    {
+     "key": "element",
+     "title": "Final element",
+     "width": 2.5
+    },
+    {
+     "key": "state",
+     "title": "Command",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "element": "Combustion blower command",
+     "state": {
+      "path": "BMS-3001/BMS-3001/BLOWER_CMD",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ON",
+       "false": "OFF"
+      }
+     }
+    },
+    {
+     "element": "Igniter command",
+     "state": {
+      "path": "BMS-3001/BMS-3001/IGNITER_CMD",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ON",
+       "false": "OFF"
+      }
+     }
+    },
+    {
+     "element": "Pilot fuel command",
+     "state": {
+      "path": "BMS-3001/BMS-3001/PILOT_FUEL_CMD",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ON",
+       "false": "OFF"
+      }
+     }
+    },
+    {
+     "element": "Main fuel command",
+     "state": {
+      "path": "BMS-3001/BMS-3001/MAIN_FUEL_CMD",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ON",
+       "false": "OFF"
+      }
+     }
+    },
+    {
+     "element": "Main fuel shutoff XY-3010",
+     "state": {
+      "path": "BMS-3001/XY-3010/OUT_D",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ON",
+       "false": "OFF"
+      }
+     }
+    },
+    {
+     "element": "Main fuel shutoff XY-3011",
+     "state": {
+      "path": "BMS-3001/XY-3011/OUT_D",
+      "type": "numeric",
+      "decimals": 1,
+      "units": false,
+      "boolean_labels": {
+       "true": "ON",
+       "false": "OFF"
+      }
+     }
+    }
+   ],
+   "row_height": 30,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "l4_alarm_title",
+   "x": 1071,
+   "y": 388,
+   "w": 471,
+   "h": 23,
+   "text": "ACTIVE BMS / SIS ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "l4_bms_alarms",
+   "x": 1071,
+   "y": 414,
+   "w": 471,
+   "h": 100,
+   "path_prefix": "BMS-3001",
+   "priority_min": 0
+  },
+  {
+   "kind": "alarm_list",
+   "id": "l4_esd_alarms",
+   "x": 1071,
+   "y": 521,
+   "w": 471,
+   "h": 108,
+   "path_prefix": "ESD-9000",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "l4_footer",
+   "x": 38,
+   "y": 671,
+   "w": 1520,
+   "h": 191,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l4_footer_title",
+   "x": 54,
+   "y": 684,
+   "w": 280,
+   "h": 24,
+   "text": "DIAGNOSTIC EVIDENCE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "l4_temperature",
+   "x": 54,
+   "y": 712,
+   "w": 520,
+   "h": 131,
+   "pens": [
+    {
+     "label": "Bridgewall",
+     "path": "BMS-3001/TT-3005/PV"
+    },
+    {
+     "label": "H1 outlet",
+     "path": "TIC-3001/TIC-3001/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 700
+  },
+  {
+   "kind": "text",
+   "id": "l4_reset_title",
+   "x": 604,
+   "y": 698,
+   "w": 270,
+   "h": 23,
+   "text": "RESET READINESS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l4_reset_rule",
+   "x": 604,
+   "y": 727,
+   "w": 510,
+   "h": 62,
+   "text": "A reset is appropriate only after the first-out cause is understood, every field condition is healthy, final elements are verified, and operating procedure authorization is complete.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "top",
+   "text_wrap": true
+  },
+  {
+   "kind": "display_link",
+   "id": "l4_return",
+   "x": 1220,
+   "y": 742,
+   "w": 300,
+   "h": 42,
+   "target": "Overview - L3 Charge Heater",
+   "text": "Return to H1 secondary operation"
+  }
+ ],
+ "description": "L4 heater BMS/SIS support display derived from AP-PID-U300 and AP-PID-U900. Live cause/permissive and final-element tables, scoped alarms, sequence state, and diagnostic trends.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 4,
+ "parent": "Overview - L3 Charge Heater"
+}

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="107" viewBox="0 0 88 107" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID furnace</title>
+  <desc id="desc">Portable furnace symbol extracted from Exchanger&amp;Pumps.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-662.5 -12.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="666" y="16" width="80" height="99" fill="none" stroke="none" />
+        <path d="M 691 16 L 721 16 L 721 50.5 L 736 60.5 L 736 115 L 726 115 L 726 105.5 L 686 105.5 L 686 115 L 676 115 L 676 60.5 L 691 50.5 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+        <path d="M 691 50.5 L 721 50.5 M 676 60.5 L 736 60.5 M 676 105.5 L 736 105.5 M 666 70.5 L 721 70.5 L 691 95.5 L 746 95.5" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.0373832" cx="44" cy="4" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.954545" data-anchor-y="0.780374" cx="84" cy="83.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.873832" cx="44" cy="93.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0454545" data-anchor-y="0.546729" cx="4" cy="58.5" r="3" />
+  </g>
+</svg>

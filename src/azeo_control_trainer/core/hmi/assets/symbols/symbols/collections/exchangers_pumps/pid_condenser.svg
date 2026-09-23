@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID condenser</title>
+  <desc id="desc">Portable condenser symbol extracted from Exchanger&amp;Pumps.svg.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-22.5 -61.5)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <rect x="26" y="65" width="80" height="80" fill="none" stroke="none" />
+        <ellipse cx="66" cy="105" rx="30" ry="30" class="symbol-fill symbol-line" />
+        <path d="M 36 105 L 46 105 L 56 90 L 76 120 L 86 105 L 96 105 M 106 65 L 26 145 M 96 69.5 L 106 65 L 101.5 75 L 101 70 Z" stroke-miterlimit="10" class="symbol-fill symbol-line" />
+      </g>
+    </g>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.5" data-anchor-y="0.159091" cx="44" cy="14" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.840909" data-anchor-y="0.5" cx="74" cy="44" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.5" data-anchor-y="0.840909" cx="44" cy="74" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.159091" data-anchor-y="0.5" cx="14" cy="44" r="3" />
+  </g>
+</svg>

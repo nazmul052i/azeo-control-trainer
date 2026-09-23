@@ -1,0 +1,569 @@
+schema_version: 1
+field_catalog:
+  - {key: expression, label: Calculation expression, group: Data handling, editor: expression, description: "Sandboxed arithmetic, string, or statistical expression assigned to a runtime variable."}
+  - {key: event_name, label: Event name, group: Events, editor: text, description: Stable event identifier written to the procedure audit.}
+  - {key: event_payload, label: Event payload, group: Events, editor: yaml, description: Optional structured YAML value attached to the event.}
+blocks:
+  - block_id: core.read_tag
+    name: PCS Input to Variable
+    palette_label: PCS Input
+    category: PCS and DCS I/O
+    step_type: read_tag
+    description: Reads a quality-aware control-system value into a declared procedure variable.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Added native quality-aware read and variable assignment.
+    tags: [pcs, dcs, input, read, variable]
+    field_keys: [section, unit_procedure, equipment, description, tag, variable, skip_if, on_failure, document_link, notes]
+    template: {id: read_pcs_value, type: read_tag, description: Read the reviewed PCS value into a procedure variable., tag: TAG.PV, variable: pcs_value}
+  - block_id: core.calculate
+    name: Safe Calculation and Substitution
+    palette_label: Safe Calculation
+    category: Calculation and Data
+    step_type: calculate
+    description: Evaluates a sandboxed expression and stores the result in a declared procedure variable.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Added safe arithmetic, string, and limited statistical functions.
+    tags: [calculation, substitution, expression, variable]
+    field_keys: [section, unit_procedure, equipment, description, expression, variable, skip_if, on_failure, notes]
+    template: {id: calculate_value, type: calculate, description: Calculate the reviewed procedure value., expression: source_value * 1.0, variable: calculated_value}
+  - block_id: core.user_event
+    name: User Event Transmission
+    palette_label: User Event
+    category: Calculation and Data
+    step_type: user_event
+    description: Emits a named structured event to the immutable procedure audit without external side effects.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Added internal auditable user-event transmission.
+    tags: [event, notification, audit, payload]
+    field_keys: [section, unit_procedure, equipment, description, event_name, event_payload, skip_if, notes]
+    template: {id: transmit_user_event, type: user_event, description: Record the reviewed procedure event., event_name: procedure_event, event_payload: {state: active}}
+
+  - block_id: equipment.pump_start
+    name: Pump Start
+    category: Field and Equipment Actions
+    step_type: write_tag
+    description: Issues a reviewed pump-start command; permissive and feedback checks are configured as adjacent blocks.
+    version: 1.0.0
+    owner: Rotating Equipment Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: Composed equipment pattern using controlled output and confirmation blocks.
+    tags: [pump, start, equipment, command]
+    field_keys: [section, unit_procedure, equipment, description, tag, value, require_confirmation, skip_if, on_failure, goto_on_pass, goto_on_fail, document_link, notes]
+    template: {id: start_pump, type: write_tag, description: Issue the reviewed pump start command., tag: PUMP.CMD, value: 1, require_confirmation: true}
+  - block_id: equipment.pump_stop
+    name: Pump Stop
+    category: Field and Equipment Actions
+    step_type: write_tag
+    description: Issues a reviewed pump-stop command with configurable confirmation and failure handling.
+    version: 1.0.0
+    owner: Rotating Equipment Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: Composed equipment pattern using controlled output and confirmation blocks.
+    tags: [pump, stop, equipment, command]
+    field_keys: [section, unit_procedure, equipment, description, tag, value, require_confirmation, skip_if, on_failure, goto_on_pass, goto_on_fail, document_link, notes]
+    template: {id: stop_pump, type: write_tag, description: Issue the reviewed pump stop command., tag: PUMP.CMD, value: 0, require_confirmation: true}
+  - block_id: equipment.set_valve_opening
+    name: Set Valve Opening
+    category: Field and Equipment Actions
+    step_type: write_tag
+    description: Writes a reviewed open, closed, or intermediate valve command through the safe execution boundary.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: Composed valve command pattern.
+    tags: [valve, opening, close, position, command]
+    field_keys: [section, unit_procedure, equipment, description, tag, value, require_confirmation, skip_if, on_failure, goto_on_pass, goto_on_fail, document_link, notes]
+    template: {id: set_valve_opening, type: write_tag, description: Set the reviewed valve position., tag: VALVE.CMD, value: 0}
+  - block_id: equipment.ramp_up_down
+    name: Ramp Up or Down
+    category: Field and Equipment Actions
+    step_type: ramp_tag
+    description: Changes a reviewed target gradually in either direction at a bounded rate.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Specialized equipment-facing ramp definition.
+    tags: [ramp, up, down, gradual, setpoint]
+    field_keys: [section, unit_procedure, equipment, description, operator_guidance, tag, start, end, rate_per_sec, poll_sec, require_confirmation, skip_if, on_failure, document_link, notes]
+    template: {id: ramp_up_down, type: ramp_tag, description: Ramp the reviewed target at the approved rate., tag: LOOP.SP, start: 0, end: 10, rate_per_sec: 1, poll_sec: 1}
+  - block_id: field.request_work
+    name: Request Field Work
+    category: Field and Equipment Actions
+    step_type: instruction
+    description: Presents a field task, equipment context, detailed guidance, and controlled references for acknowledgement.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Field-work instruction pattern.
+    tags: [field, work, instruction, operator]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, require_confirmation, on_failure, document_link, video_link, notes]
+    template: {id: request_field_work, type: instruction, description: Perform the reviewed field task., display_text: Complete the field task and acknowledge., audible: true}
+  - block_id: field.confirmation
+    name: Field Work Confirmation
+    palette_label: Field Confirmation
+    category: Field and Equipment Actions
+    step_type: operator_confirm
+    description: Requires operator confirmation that a field action and local verification are complete.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Field-specific confirmation pattern.
+    tags: [field, confirmation, acknowledgement]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, timeout_sec, on_failure, document_link, video_link, notes]
+    template: {id: confirm_field_work, type: operator_confirm, description: Confirm the field task is complete., audible: true}
+
+  - block_id: pcs.set_data
+    name: Set Data or Output to PCS
+    palette_label: Set PCS Data
+    category: PCS and DCS I/O
+    step_type: write_tag
+    description: Writes a typed setpoint, parameter, or output in simulator mode and records proposals in advisory mode.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: PCS output specialization.
+    tags: [pcs, dcs, output, write, setpoint]
+    field_keys: [section, unit_procedure, equipment, description, tag, value, require_confirmation, skip_if, on_failure, document_link, notes]
+    template: {id: set_pcs_data, type: write_tag, description: Set the reviewed PCS value., tag: TAG.SP, value: 0}
+  - block_id: pcs.get_data
+    name: Get Data or Input from PCS
+    palette_label: Get PCS Data
+    category: PCS and DCS I/O
+    step_type: read_tag
+    description: Reads a quality-aware process value and stores it for decisions, calculations, or reporting.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: PCS input specialization.
+    tags: [pcs, dcs, input, read]
+    field_keys: [section, unit_procedure, equipment, description, tag, variable, skip_if, on_failure, document_link, notes]
+    template: {id: get_pcs_data, type: read_tag, description: Read the reviewed PCS value., tag: TAG.PV, variable: pcs_input}
+  - block_id: pcs.block_mode_setting
+    name: Block Mode Setting
+    category: PCS and DCS I/O
+    step_type: write_tag
+    description: Sets a control block mode such as AUTO, MANUAL, or CASCADE using a typed declared mode tag.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: Mode-setting specialization using controlled tag output.
+    tags: [mode, auto, manual, cascade, pcs]
+    field_keys: [section, unit_procedure, equipment, description, tag, value, require_confirmation, on_failure, document_link, notes]
+    template: {id: set_block_mode, type: write_tag, description: Set the reviewed control-block mode., tag: LOOP.MODE, value: MANUAL}
+  - block_id: pcs.input_main_variable
+    name: Input from Main-Procedure Variable
+    palette_label: Main-Proc Input
+    category: PCS and DCS I/O
+    step_type: calculate
+    description: Copies or transforms a reviewed runtime variable into another procedure variable.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Variable input and substitution pattern.
+    tags: [variable, input, substitution, procedure]
+    field_keys: [section, unit_procedure, equipment, description, expression, variable, skip_if, on_failure, notes]
+    template: {id: input_main_variable, type: calculate, description: Read the reviewed main-procedure variable., expression: source_variable, variable: local_variable}
+
+  - block_id: flow.pause
+    name: Pause Procedure
+    category: Flow Control and Logic
+    step_type: hold
+    description: Places the procedure into a controlled held state pending operator review and resume handling.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Controlled pause maps to the auditable hold state.
+    tags: [pause, hold, resume]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, severity, document_link, notes]
+    template: {id: pause_procedure, type: hold, description: Pause for operator review., severity: warning}
+  - block_id: flow.wait_condition
+    name: Wait for Condition
+    category: Flow Control and Logic
+    step_type: wait_until
+    description: Waits for a reviewed process or variable condition with polling, timeout, and recovery behavior.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Condition-wait specialization.
+    tags: [wait, condition, polling, timeout]
+    field_keys: [section, unit_procedure, equipment, description, condition, timeout_sec, poll_sec, on_timeout, goto_on_pass, goto_on_timeout, notes]
+    template: {id: wait_condition, type: wait_until, description: Wait for the reviewed condition., condition: TAG.PV > 0, timeout_sec: 60, poll_sec: 1, on_timeout: hold}
+  - block_id: flow.wait_timer
+    name: Wait for Defined Period
+    palette_label: Wait Timer
+    category: Flow Control and Logic
+    step_type: delay
+    description: Waits for a reviewed fixed duration before continuing.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Timer specialization.
+    tags: [wait, timer, delay]
+    field_keys: [section, unit_procedure, equipment, description, delay_sec, skip_if, goto_on_pass, notes]
+    template: {id: wait_period, type: delay, description: Wait for the reviewed period., delay_sec: 5}
+  - block_id: flow.event_wait
+    name: Event Wait
+    category: Flow Control and Logic
+    step_type: wait_until
+    description: Waits for a process event represented by a reviewed tag or runtime-variable expression.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: Event waiting is composed from condition polling and timeout handling.
+    tags: [event, wait, condition]
+    field_keys: [section, unit_procedure, equipment, description, condition, timeout_sec, poll_sec, on_timeout, notes]
+    template: {id: wait_for_event, type: wait_until, description: Wait for the reviewed process event., condition: EVENT_TAG.PV == 1, timeout_sec: 60, poll_sec: 1, on_timeout: hold}
+  - block_id: flow.user_event_wait
+    name: User Event Wait
+    category: Flow Control and Logic
+    step_type: wait_until
+    description: Waits for a reviewed procedure-variable event state set by operator or procedural logic.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: Internal event waiting uses runtime-variable conditions.
+    tags: [user event, wait, variable]
+    field_keys: [section, unit_procedure, equipment, description, condition, timeout_sec, poll_sec, on_timeout, notes]
+    template: {id: wait_for_user_event, type: wait_until, description: Wait for the reviewed user event., condition: user_event_ready == True, timeout_sec: 60, poll_sec: 1, on_timeout: hold}
+  - block_id: flow.judge_branch
+    name: Judge and Branch
+    category: Flow Control and Logic
+    step_type: check
+    description: Evaluates a decision expression; explicit graph choices characterize the downstream Yes and No routes.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: Decision calculation is native; multi-route topology uses graph choice nodes.
+    tags: [judge, branch, decision, "yes", "no"]
+    field_keys: [section, unit_procedure, equipment, description, condition, timeout_sec, on_failure, goto_on_pass, goto_on_fail, notes]
+    template: {id: judge_condition, type: check, description: Evaluate the reviewed branch condition., condition: TAG.PV > 0}
+  - block_id: flow.loop_repeat
+    name: Loop or Repeat Control
+    palette_label: Loop / Repeat
+    category: Flow Control and Logic
+    step_type: check
+    description: Evaluates a reviewed loop-exit condition and is paired with an explicit graph loop node.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: review
+    builder_set: procedure_flow
+    execution_support: modeled
+    revision_note: Loop topology is modeled; engineering limits and execution-visit protection remain mandatory.
+    tags: [loop, repeat, exit condition]
+    field_keys: [section, unit_procedure, equipment, description, condition, on_failure, notes]
+    template: {id: evaluate_loop_exit, type: check, description: Evaluate the reviewed loop exit condition., condition: loop_complete == True}
+  - block_id: flow.call_subprocedure
+    name: Call Subprocedure
+    category: Flow Control and Logic
+    step_type: subprocedure
+    description: Calls a reusable reviewed procedure with an isolated namespace in ordered-flow procedures.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Reusable procedure composition pattern.
+    tags: [call, subprocedure, reuse, module]
+    field_keys: [section, unit_procedure, equipment, description, subprocedure_path, prefix, skip_if, on_failure, document_link, notes]
+    template: {id: call_subprocedure, type: subprocedure, description: Execute the reviewed reusable subprocedure., subprocedure_path: subprocedures/example.yaml, prefix: module}
+
+  - block_id: message.guidance
+    name: Guidance Message
+    category: Messages and Guidance
+    step_type: instruction
+    description: Displays concise operator guidance with optional expanded text and controlled references.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Guidance message specialization.
+    tags: [guidance, message, operator]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, require_confirmation, document_link, video_link, notes]
+    template: {id: guidance_message, type: instruction, description: Review the operating guidance., display_text: Follow the reviewed operating guidance.}
+  - block_id: message.confirmation
+    name: Confirmation Message
+    category: Messages and Guidance
+    step_type: operator_confirm
+    description: Presents a message that requires an explicit operator acknowledgement and audit timestamp.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Confirmation message specialization.
+    tags: [confirmation, message, acknowledge]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, timeout_sec, on_failure, document_link, video_link, notes]
+    template: {id: confirmation_message, type: operator_confirm, description: Confirm the reviewed operation., audible: true}
+  - block_id: message.alarm
+    name: Alarm Message
+    category: Messages and Guidance
+    step_type: alarm
+    description: Creates a severity-classified procedure alarm and auditable operator indication.
+    version: 1.0.0
+    owner: Process Safety
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Alarm message specialization.
+    tags: [alarm, message, severity]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, severity, require_confirmation, document_link, notes]
+    template: {id: alarm_message, type: alarm, description: Procedure alarm requires operator attention., severity: alarm, audible: true}
+  - block_id: message.io
+    name: I/O Message
+    category: Messages and Guidance
+    step_type: instruction
+    description: Presents a process-input or output-related operator message with equipment and tag context.
+    version: 1.0.0
+    owner: Control Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: I/O messaging uses the operator instruction primitive.
+    tags: [io, message, input, output]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, require_confirmation, document_link, notes]
+    template: {id: io_message, type: instruction, description: Review the process I/O message., display_text: Verify the indicated process value or output.}
+  - block_id: message.operator_guide
+    name: Operator Guide Message
+    palette_label: Operator Guide
+    category: Messages and Guidance
+    step_type: instruction
+    description: Provides control-room operator guidance independent of any specific vendor HMI product.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Vendor-neutral operator guide pattern.
+    tags: [operator guide, hmi, message]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, document_link, video_link, notes]
+    template: {id: operator_guide_message, type: instruction, description: Review the control-room operator guide., display_text: Follow the reviewed console guidance.}
+  - block_id: message.hmi_alarm
+    name: HMI Alarm Notification
+    palette_label: HMI Alarm
+    category: Messages and Guidance
+    step_type: alarm
+    description: Models an operator alarm notification while retaining PADesigner audit and severity handling.
+    version: 1.0.0
+    owner: Process Safety
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: composed
+    revision_note: External HMI annunciation is not written; the procedure alarm remains native.
+    tags: [hmi, alarm, notification]
+    field_keys: [section, unit_procedure, equipment, description, display_text, audible, severity, document_link, notes]
+    template: {id: hmi_alarm_notification, type: alarm, description: Notify the operator of the reviewed alarm condition., severity: alarm, audible: true}
+  - block_id: message.hmi_window
+    name: HMI Window Reference
+    category: Messages and Guidance
+    step_type: instruction
+    description: Presents a controlled link or display identifier for the operator; it does not remotely manipulate an HMI session.
+    version: 1.0.0
+    owner: HMI Engineering
+    approval_status: review
+    builder_set: procedure_flow
+    execution_support: modeled
+    revision_note: Safe modeled replacement for vendor-specific window invocation.
+    tags: [hmi, window, display, graphic]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, document_link, notes]
+    template: {id: hmi_window_reference, type: instruction, description: Open the reviewed process display., display_text: Navigate to the referenced process display., document_link: displays/process_overview}
+
+  - block_id: data.calculation_substitution
+    name: Calculation or Substitution
+    palette_label: Calc / Substitute
+    category: Calculation and Data
+    step_type: calculate
+    description: Performs safe arithmetic or value substitution and stores the result in a runtime variable.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Safe expression specialization.
+    tags: [calculation, substitution, arithmetic]
+    field_keys: [section, unit_procedure, equipment, description, expression, variable, skip_if, on_failure, notes]
+    template: {id: calculate_substitute, type: calculate, description: Calculate the reviewed value., expression: source_value + 1, variable: result_value}
+  - block_id: data.string_operation
+    name: String Operation
+    category: Calculation and Data
+    step_type: calculate
+    description: Performs sandboxed string concatenation or comparison without arbitrary script execution.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Safe string expression specialization.
+    tags: [string, text, concatenate, compare]
+    field_keys: [section, unit_procedure, equipment, description, expression, variable, on_failure, notes]
+    template: {id: string_operation, type: calculate, description: Perform the reviewed string operation., expression: unit_name + '-READY', variable: message_text}
+  - block_id: data.statistic_processing
+    name: Statistic Processing
+    category: Calculation and Data
+    step_type: calculate
+    description: Applies approved min, max, sum, average, length, absolute, or rounding functions to reviewed values.
+    version: 1.0.0
+    owner: Process Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Limited statistical functions added to the sandboxed evaluator.
+    tags: [statistics, average, min, max, sum]
+    field_keys: [section, unit_procedure, equipment, description, expression, variable, on_failure, notes]
+    template: {id: statistic_processing, type: calculate, description: Calculate the reviewed process statistic., expression: 'avg([sample_1, sample_2, sample_3])', variable: average_value}
+  - block_id: data.user_event_transmission
+    name: User Event Transmission
+    palette_label: Send User Event
+    category: Calculation and Data
+    step_type: user_event
+    description: Records a stable named event and structured payload for downstream audit and integration adapters.
+    version: 1.0.0
+    owner: Procedure Engineering
+    approval_status: approved
+    builder_set: procedure_flow
+    execution_support: native
+    revision_note: Auditable event specialization.
+    tags: [event, transmit, payload, audit]
+    field_keys: [section, unit_procedure, equipment, description, event_name, event_payload, skip_if, notes]
+    template: {id: send_user_event, type: user_event, description: Record the reviewed user event., event_name: operation_state_changed, event_payload: {state: ready}}
+
+  - block_id: monitor.process_value
+    name: Process-Value Monitoring
+    palette_label: Process Monitor
+    category: Advanced Monitoring Logic
+    step_type: watchdog
+    description: Monitors a reviewed process-value envelope or predictive indicator and raises configured handling on violation.
+    version: 1.0.0
+    owner: Process Engineering
+    approval_status: approved
+    builder_set: monitoring_logic
+    execution_support: composed
+    revision_note: Monitoring-logic pattern composed from watchdog and alarm handling.
+    tags: [monitoring, process value, prediction, abnormal]
+    field_keys: [section, unit_procedure, equipment, description, condition, severity, poll_sec, on_failure, document_link, notes]
+    template: {id: monitor_process_value, type: watchdog, description: Monitor the reviewed process-value envelope., condition: TAG.PV >= LOW_LIMIT and TAG.PV <= HIGH_LIMIT, severity: alarm, poll_sec: 1, on_failure: hold}
+  - block_id: monitor.device_state
+    name: Device or Equipment State Monitoring
+    palette_label: Device Monitor
+    category: Advanced Monitoring Logic
+    step_type: watchdog
+    description: Monitors reviewed equipment-state relationships such as command-versus-feedback or flow-versus-position.
+    version: 1.0.0
+    owner: Reliability Engineering
+    approval_status: approved
+    builder_set: monitoring_logic
+    execution_support: composed
+    revision_note: Equipment-monitoring pattern composed from safe expressions and watchdog handling.
+    tags: [device, equipment, state, performance, valve]
+    field_keys: [section, unit_procedure, equipment, description, condition, severity, poll_sec, on_failure, document_link, notes]
+    template: {id: monitor_equipment_state, type: watchdog, description: Monitor the reviewed equipment-state relationship., condition: DEVICE.FEEDBACK == DEVICE.COMMAND, severity: alarm, poll_sec: 1, on_failure: hold}
+  - block_id: monitor.operator_notification
+    name: Monitoring Notification
+    palette_label: Notification
+    category: Advanced Monitoring Logic
+    step_type: warning
+    description: Delivers an auditable operator notification from monitoring logic with reviewed severity and guidance.
+    version: 1.0.0
+    owner: Operations Engineering
+    approval_status: approved
+    builder_set: monitoring_logic
+    execution_support: composed
+    revision_note: Monitoring notification pattern.
+    tags: [monitoring, notification, annunciation, operator]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, audible, severity, require_confirmation, document_link, notes]
+    template: {id: monitoring_notification, type: warning, description: Review the monitoring notification., severity: warning, audible: true}
+
+  - block_id: integration.legacy_script
+    name: Legacy Script Unit Procedure
+    palette_label: Legacy Script
+    category: Extensibility and Integration
+    step_type: instruction
+    description: Catalog reference for legacy desktop scripting; arbitrary script execution is intentionally unsupported.
+    version: 1.0.0
+    owner: Platform Engineering
+    approval_status: retired
+    builder_set: integration
+    execution_support: unsupported
+    introduced_version: R3.10 reference
+    availability_notes: Version-dependent legacy capability. PADesigner does not execute VBScript or Office automation.
+    revision_note: Retained as a migration reference only.
+    tags: [legacy, script, vbscript, migration]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, document_link, notes]
+    template: {id: legacy_script_reference, type: instruction, description: Legacy script integration requires migration to a reviewed adapter., display_text: This legacy integration is not executable in PADesigner.}
+  - block_id: integration.user_application
+    name: User Application Unit Procedure
+    palette_label: User Application
+    category: Extensibility and Integration
+    step_type: instruction
+    description: Catalog reference for reusable custom integrations; execution requires a separately reviewed adapter contract.
+    version: 1.0.0
+    owner: Platform Engineering
+    approval_status: review
+    builder_set: integration
+    execution_support: modeled
+    introduced_version: R3.10 reference
+    availability_notes: Version-dependent reference. Custom icons are modeled as governed blocks, not arbitrary scripts.
+    revision_note: Adapter SDK is not implemented in this release.
+    tags: [user application, custom block, adapter, migration]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, document_link, notes]
+    template: {id: user_application_reference, type: instruction, description: Invoke the reviewed custom-application adapter., display_text: Custom adapter execution is not enabled in this release.}
+  - block_id: integration.activex_opc_com
+    name: ActiveX, OPC, or COM Integration
+    palette_label: OPC / COM
+    category: Extensibility and Integration
+    step_type: instruction
+    description: Catalog reference for legacy component integration; arbitrary COM and ActiveX execution is intentionally unsupported.
+    version: 1.0.0
+    owner: Platform Engineering
+    approval_status: retired
+    builder_set: integration
+    execution_support: unsupported
+    availability_notes: Read-only OPC UA uses the governed connector subsystem. ActiveX and COM automation are not executed.
+    revision_note: Retained as an integration migration reference only.
+    tags: [activex, opc, com, integration, migration]
+    field_keys: [section, unit_procedure, equipment, description, display_text, operator_guidance, document_link, notes]
+    template: {id: legacy_component_reference, type: instruction, description: Migrate the legacy component integration to a reviewed connector., display_text: Legacy component execution is not enabled in PADesigner.}

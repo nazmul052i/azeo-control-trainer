@@ -1,0 +1,729 @@
+{
+ "display": "Plant - L2 Shutdown Monitoring",
+ "pvms": [
+  {
+   "id": "D1_vessel",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "LIC-1001/LT-1001"
+   },
+   "x": 34,
+   "y": 270,
+   "w": 188,
+   "h": 328,
+   "variant": "vessel",
+   "label": "D1",
+   "choices": {
+    "equipment_symbol": "vessel",
+    "show_hp_anatomy": false
+   }
+  },
+  {
+   "id": "LT-1001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "LIC-1001/LT-1001"
+   },
+   "x": 234,
+   "y": 276,
+   "w": 143,
+   "h": 72,
+   "label": "LT-1001"
+  },
+  {
+   "id": "PT-1002",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "PIC-1001/PT-1002"
+   },
+   "x": 234,
+   "y": 367,
+   "w": 143,
+   "h": 72,
+   "label": "PT-1002"
+  },
+  {
+   "id": "FT-1001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-1001/FT-1001"
+   },
+   "x": 234,
+   "y": 458,
+   "w": 143,
+   "h": 72,
+   "label": "FT-1001"
+  },
+  {
+   "id": "FT-1004",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-1001/FT-1004"
+   },
+   "x": 234,
+   "y": 549,
+   "w": 143,
+   "h": 72,
+   "label": "FT-1004"
+  },
+  {
+   "id": "D3_vessel",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "LIC-4001/LT-4001"
+   },
+   "x": 418,
+   "y": 270,
+   "w": 188,
+   "h": 328,
+   "variant": "vessel",
+   "label": "D3",
+   "choices": {
+    "equipment_symbol": "vessel",
+    "show_hp_anatomy": false
+   }
+  },
+  {
+   "id": "LT-4001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "LIC-4001/LT-4001"
+   },
+   "x": 618,
+   "y": 276,
+   "w": 143,
+   "h": 72,
+   "label": "LT-4001"
+  },
+  {
+   "id": "PT-4001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "TIC-4001/PT-4001"
+   },
+   "x": 618,
+   "y": 367,
+   "w": 143,
+   "h": 72,
+   "label": "PT-4001"
+  },
+  {
+   "id": "TT-4002",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "TIC-4001/TT-4002"
+   },
+   "x": 618,
+   "y": 458,
+   "w": 143,
+   "h": 72,
+   "label": "TT-4002"
+  },
+  {
+   "id": "TT-4003",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "TIC-4001/TT-4003"
+   },
+   "x": 618,
+   "y": 549,
+   "w": 143,
+   "h": 72,
+   "label": "TT-4003"
+  },
+  {
+   "id": "V501_vessel",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "LIC-5001/LT-5001"
+   },
+   "x": 802,
+   "y": 270,
+   "w": 188,
+   "h": 328,
+   "variant": "vessel",
+   "label": "V501",
+   "choices": {
+    "equipment_symbol": "vessel",
+    "show_hp_anatomy": false
+   }
+  },
+  {
+   "id": "LT-5001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "LIC-5001/LT-5001"
+   },
+   "x": 1002,
+   "y": 276,
+   "w": 143,
+   "h": 72,
+   "label": "LT-5001"
+  },
+  {
+   "id": "FT-5005",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-5002/FT-5005"
+   },
+   "x": 1002,
+   "y": 367,
+   "w": 143,
+   "h": 72,
+   "label": "FT-5005"
+  },
+  {
+   "id": "FT-5006",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-5003/FT-5006"
+   },
+   "x": 1002,
+   "y": 458,
+   "w": 143,
+   "h": 72,
+   "label": "FT-5006"
+  },
+  {
+   "id": "V601_vessel",
+   "class": "AI/dynamo_inline",
+   "params": {
+    "path": "LIC-6001/LT-6001"
+   },
+   "x": 1186,
+   "y": 270,
+   "w": 188,
+   "h": 328,
+   "variant": "vessel",
+   "label": "V601",
+   "choices": {
+    "equipment_symbol": "vessel",
+    "show_hp_anatomy": false
+   }
+  },
+  {
+   "id": "LT-6001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "LIC-6001/LT-6001"
+   },
+   "x": 1386,
+   "y": 276,
+   "w": 143,
+   "h": 72,
+   "label": "LT-6001"
+  },
+  {
+   "id": "FT-6005",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-6002/FT-6005"
+   },
+   "x": 1386,
+   "y": 367,
+   "w": 143,
+   "h": 72,
+   "label": "FT-6005"
+  },
+  {
+   "id": "FT-6006",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-6003/FT-6006"
+   },
+   "x": 1386,
+   "y": 458,
+   "w": 143,
+   "h": 72,
+   "label": "FT-6006"
+  },
+  {
+   "id": "LT-7001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "LIC-7001/LT-7001"
+   },
+   "x": 24,
+   "y": 781,
+   "w": 280,
+   "h": 66,
+   "label": "LT-7001"
+  },
+  {
+   "id": "PT-7001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "LIC-7001/PT-7001"
+   },
+   "x": 328,
+   "y": 781,
+   "w": 280,
+   "h": 66,
+   "label": "PT-7001"
+  },
+  {
+   "id": "TT-3005",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "ESD-9200/TT-3005"
+   },
+   "x": 632,
+   "y": 781,
+   "w": 280,
+   "h": 66,
+   "label": "TT-3005"
+  },
+  {
+   "id": "FT-3001",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-3001/FT-3001"
+   },
+   "x": 936,
+   "y": 781,
+   "w": 280,
+   "h": 66,
+   "label": "FT-3001"
+  },
+  {
+   "id": "FT-7003",
+   "class": "AI/dynamo_compact",
+   "params": {
+    "path": "FIC-7002/FT-7003"
+   },
+   "x": 1240,
+   "y": 781,
+   "w": 280,
+   "h": 66,
+   "label": "FT-7003"
+  }
+ ],
+ "schema_version": 3,
+ "items": [
+  {
+   "kind": "text",
+   "id": "title",
+   "text": "PLANT  /  Shutdown monitoring",
+   "x": 24,
+   "y": 18,
+   "w": 1140,
+   "h": 42,
+   "font_size": 20,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "subtitle",
+   "text": "Measured levels and recent trends · operator-guided safe landing",
+   "x": 24,
+   "y": 65,
+   "w": 1080,
+   "h": 28,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "scope",
+   "text": "Monitored hot, pressurized hold — retain cooling, lube and protection. Not a maintenance release.",
+   "x": 24,
+   "y": 112,
+   "w": 1512,
+   "h": 42,
+   "font_size": 11,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "workflow",
+   "text": "Safe Landing / manual controls",
+   "target": "Plant - L3 Safe Landing",
+   "x": 24,
+   "y": 864,
+   "w": 320,
+   "h": 34
+  },
+  {
+   "kind": "display_link",
+   "id": "overview",
+   "text": "Plant overview",
+   "target": "Overview - L1 Plant",
+   "x": 378,
+   "y": 864,
+   "w": 260,
+   "h": 34
+  },
+  {
+   "kind": "rect",
+   "id": "itm_1241848b-b951-43eb-af42-d876f38e3a93",
+   "x": 1290.0,
+   "y": 12.0,
+   "w": 240,
+   "h": 100,
+   "fill_role": "SURFACE_PANEL",
+   "width": 1.0,
+   "locked": true,
+   "source_element_id": "195ffeeb-3a7d-4380-b4a6-360de818e8e4",
+   "group": "ug_387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 0,
+   "pvm_link": "linked",
+   "instance_id": "387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 0.0,
+   "source_y": 0.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "actions": [
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "text",
+   "id": "itm_549975ab-0316-4cda-a69e-795c12be65c9",
+   "text": "SAFE LANDING",
+   "x": 1300.0,
+   "y": 17.0,
+   "w": 220,
+   "h": 22,
+   "font_size": 11.0,
+   "source_element_id": "eaef6f0e-31ac-46b4-ac03-a5e4b719822b",
+   "group": "ug_387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 1,
+   "pvm_link": "linked",
+   "instance_id": "387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 10.0,
+   "source_y": 5.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "actions": [
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "datalink",
+   "id": "itm_273ae9a0-ed7d-4f4f-ab50-b459e8b965f3",
+   "path": "@procedure/pa_safe_landing/rev-001/procedure.yaml/STATE",
+   "datalink_type": "string",
+   "x": 1300.0,
+   "y": 39.0,
+   "w": 220,
+   "h": 26,
+   "word_wrap": true,
+   "source_element_id": "e95fd75a-98cd-4fbc-9a7a-7476b5a4b346",
+   "group": "ug_387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 2,
+   "pvm_link": "linked",
+   "instance_id": "387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 10.0,
+   "source_y": 27.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "actions": [
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "user_entry",
+   "id": "itm_4912498f-fc38-4b23-9bf3-0408eac01a23",
+   "x": 1300.0,
+   "y": 72.0,
+   "w": 220,
+   "h": 30,
+   "entry": {
+    "kind": "button",
+    "label": "Procedure…"
+   },
+   "actions": [
+    {
+     "event": "click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    },
+    {
+     "event": "double_click",
+     "kind": "open_user_faceplate",
+     "target": "PlantSafeLanding"
+    }
+   ],
+   "source_element_id": "8843c923-da70-4475-a25b-ed1f45c16e5f",
+   "group": "ug_387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "user_pvm": "PlantSafeLanding_PVM",
+   "pvm_index": 3,
+   "pvm_link": "linked",
+   "instance_id": "387edf0f-d757-4ea5-b1fe-bb90b4e0dae2",
+   "instance_definition": "PlantSafeLanding_PVM",
+   "instance_link": "linked",
+   "instance_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "instance_overrides": {},
+   "instance_origin_x": 1290.0,
+   "instance_origin_y": 12.0,
+   "definition_id": "ff21724f-3de7-413d-bcc7-2cc5b7d1618a",
+   "definition_revision": 1,
+   "source_x": 10.0,
+   "source_y": 60.0,
+   "pvm_choices": {
+    "ProcedureRef": "pa_safe_landing/rev-001/procedure.yaml",
+    "Title": "SAFE LANDING"
+   },
+   "pvm_overrides": {},
+   "instance_detached_nested": {}
+  },
+  {
+   "kind": "rect",
+   "id": "D1_panel",
+   "x": 24,
+   "y": 177,
+   "w": 366,
+   "h": 540,
+   "fill_role": "SURFACE_PANEL",
+   "width": 1
+  },
+  {
+   "kind": "text",
+   "id": "D1_title",
+   "text": "D1 / Feed inventory",
+   "x": 36,
+   "y": 193,
+   "w": 342,
+   "h": 38,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "D1_unit",
+   "text": "Open unit display",
+   "target": "U100 - L2 Feed Preparation",
+   "x": 36,
+   "y": 658,
+   "w": 340,
+   "h": 34
+  },
+  {
+   "kind": "rect",
+   "id": "D3_panel",
+   "x": 408,
+   "y": 177,
+   "w": 366,
+   "h": 540,
+   "fill_role": "SURFACE_PANEL",
+   "width": 1
+  },
+  {
+   "kind": "text",
+   "id": "D3_title",
+   "text": "D3 / Reactor separator",
+   "x": 420,
+   "y": 193,
+   "w": 342,
+   "h": 38,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "D3_unit",
+   "text": "Open unit display",
+   "target": "U400 - L2 Reaction and Separation",
+   "x": 420,
+   "y": 658,
+   "w": 340,
+   "h": 34
+  },
+  {
+   "kind": "rect",
+   "id": "V501_panel",
+   "x": 792,
+   "y": 177,
+   "w": 366,
+   "h": 540,
+   "fill_role": "SURFACE_PANEL",
+   "width": 1
+  },
+  {
+   "kind": "text",
+   "id": "V501_title",
+   "text": "V501 / T1 bottom inventory",
+   "x": 804,
+   "y": 193,
+   "w": 342,
+   "h": 38,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "V501_unit",
+   "text": "Open unit display",
+   "target": "U500 - L2 Primary Fractionation",
+   "x": 804,
+   "y": 658,
+   "w": 340,
+   "h": 34
+  },
+  {
+   "kind": "rect",
+   "id": "V601_panel",
+   "x": 1176,
+   "y": 177,
+   "w": 366,
+   "h": 540,
+   "fill_role": "SURFACE_PANEL",
+   "width": 1
+  },
+  {
+   "kind": "text",
+   "id": "V601_title",
+   "text": "V601 / T2 bottom inventory",
+   "x": 1188,
+   "y": 193,
+   "w": 342,
+   "h": 38,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  },
+  {
+   "kind": "display_link",
+   "id": "V601_unit",
+   "text": "Open unit display",
+   "target": "U600 - L2 Product Fractionation",
+   "x": 1188,
+   "y": 658,
+   "w": 340,
+   "h": 34
+  },
+  {
+   "kind": "text",
+   "id": "boiler",
+   "text": "B1 / Drum inventory and retained energy",
+   "x": 24,
+   "y": 737,
+   "w": 480,
+   "h": 35,
+   "font_size": 13,
+   "text_wrap": true,
+   "text_valign": "middle"
+  }
+ ],
+ "stacking_order": [
+  "D1_vessel",
+  "LT-1001",
+  "PT-1002",
+  "FT-1001",
+  "FT-1004",
+  "D3_vessel",
+  "LT-4001",
+  "PT-4001",
+  "TT-4002",
+  "TT-4003",
+  "V501_vessel",
+  "LT-5001",
+  "FT-5005",
+  "FT-5006",
+  "V601_vessel",
+  "LT-6001",
+  "FT-6005",
+  "FT-6006",
+  "LT-7001",
+  "PT-7001",
+  "TT-3005",
+  "FT-3001",
+  "FT-7003",
+  "title",
+  "subtitle",
+  "scope",
+  "workflow",
+  "overview",
+  "itm_1241848b-b951-43eb-af42-d876f38e3a93",
+  "itm_549975ab-0316-4cda-a69e-795c12be65c9",
+  "itm_273ae9a0-ed7d-4f4f-ab50-b459e8b965f3",
+  "itm_4912498f-fc38-4b23-9bf3-0408eac01a23",
+  "D1_panel",
+  "D1_title",
+  "D1_unit",
+  "D3_panel",
+  "D3_title",
+  "D3_unit",
+  "V501_panel",
+  "V501_title",
+  "V501_unit",
+  "V601_panel",
+  "V601_title",
+  "V601_unit",
+  "boiler"
+ ],
+ "description": "Shutdown inventory overview with measured AI values and recent sample trends.",
+ "width": 1560,
+ "height": 920,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

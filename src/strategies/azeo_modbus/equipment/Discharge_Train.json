@@ -1,0 +1,75 @@
+{
+  "name": "Discharge Train",
+  "description": "TANK-101's discharge train: the block valve, the drive, the pump motor and the flow loop, coordinated by SEQ-101 to establish and hold discharge flow. **A descriptor, not a strategy** — it names what belongs together and what the train's own numbers are; the modules it lists are what execute.\n\nThe motor is deliberately *not* an equipment module of its own. A single device with its own permissives, interlocks and timeouts is a control module; an equipment module exists to coordinate several of them through a phase, which is what this one does.",
+  "equipment_type": "PUMP",
+  "tag_prefix": "EM-101",
+  "parameters": {
+    "OPERATING_SPEED": {
+      "value": 55.0,
+      "unit": "%",
+      "description": "VFD speed SEQ-101 ramps to. Lived as an unlabelled CONSTANT inside the sequence, where changing it meant opening a graph and knowing which constant was which."
+    },
+    "RAMP_RATE": {
+      "value": 8.0,
+      "unit": "%/s",
+      "description": "How fast the drive is brought up to speed."
+    },
+    "OPEN_TIMEOUT": {
+      "value": 40.0,
+      "unit": "s",
+      "description": "Longest wait for the XV-101 open limit switch before the sequence gives up on the step."
+    },
+    "START_TIMEOUT": {
+      "value": 40.0,
+      "unit": "s",
+      "description": "Longest wait for the motor run contact."
+    },
+    "MIN_LEVEL": {
+      "value": 150.0,
+      "unit": "gal",
+      "description": "Below this the pump has no suction worth having; LI-101's LO limit is set here."
+    }
+  },
+  "control_modules": [
+    "control/XV-101.json",
+    "control/MTR-101.json",
+    "control/SIC-101.json",
+    "control/FIC-101.json",
+    "control/LI-101.json",
+    "control/PI-101.json",
+    "control/II-101.json"
+  ],
+  "sfc_modules": [
+    "sequence/SEQ-101.json"
+  ],
+  "alarms": {
+    "tank_low": {
+      "tag": "LT-101.PV",
+      "limit": 150.0,
+      "priority": "HIGH"
+    },
+    "discharge_pressure_hi": {
+      "tag": "PT-101.PV",
+      "limit": 70.0,
+      "priority": "HIGH"
+    },
+    "motor_current_hi": {
+      "tag": "MTR-101.current",
+      "limit": 42.0,
+      "priority": "MEDIUM"
+    },
+    "comms_stale": {
+      "tag": "SYS.comms_age_ms",
+      "limit": 2000.0,
+      "priority": "HIGH"
+    }
+  },
+  "states": [
+    "IDLE",
+    "OPEN_PATH",
+    "START_DRIVE",
+    "RAMP",
+    "RUNNING"
+  ],
+  "initial_state": "IDLE"
+}

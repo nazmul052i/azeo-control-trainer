@@ -1,0 +1,10 @@
+[
+  {
+    "workstation": "CON-01",
+    "layout": "Azeo Plant - Operator Layout",
+    "display_sets": [
+      "Azeo Plant - Operator Hierarchy"
+    ],
+    "active_display_set": "Azeo Plant - Operator Hierarchy"
+  }
+]

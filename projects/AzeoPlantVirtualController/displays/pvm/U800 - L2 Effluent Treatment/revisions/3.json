@@ -1,0 +1,738 @@
+{
+ "display": "U800 - L2 Effluent Treatment",
+ "pvms": [
+  {
+   "id": "u800_loop_0",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "AIC-8001/AIC-8001"
+   },
+   "x": 289.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Neutralization pH"
+  },
+  {
+   "id": "u800_loop_1",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-8001/FIC-8001"
+   },
+   "x": 633.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "Effluent flow"
+  },
+  {
+   "id": "u800_loop_2",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "LIC-8001/LIC-8001"
+   },
+   "x": 977.0,
+   "y": 720,
+   "w": 330,
+   "h": 132,
+   "standard": "hphmi.controller",
+   "variant": "hp",
+   "label": "NT801 level"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "l2_title",
+   "x": 38,
+   "y": 17,
+   "w": 930,
+   "h": 35,
+   "text": "U800 · EFFLUENT NEUTRALIZATION",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "l2_purpose",
+   "x": 38,
+   "y": 54,
+   "w": 1045,
+   "h": 30,
+   "text": "Control NT801 pH and inventory, proportion acid/caustic addition, and verify compliant discharge to outfall.",
+   "font_size": 9,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "round_rect",
+   "id": "l2_badge",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "line": "#0B5E91",
+   "width": 1,
+   "fill": "#0B5E91",
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "l2_badge_text",
+   "x": 1470,
+   "y": 20,
+   "w": 88,
+   "h": 54,
+   "text": "L2",
+   "font_size": 19,
+   "font_bold": true,
+   "text_color": "#FFFFFF",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "line",
+   "id": "l2_rule",
+   "x": 38,
+   "y": 95,
+   "w": 1520,
+   "h": 1,
+   "line": "#8D9AA3",
+   "width": 1,
+   "end_arrow": "none",
+   "style": "solid"
+  },
+  {
+   "kind": "display_link",
+   "id": "l2_up",
+   "x": 1130,
+   "y": 51,
+   "w": 150,
+   "h": 32,
+   "target": "Overview - L1 Plant",
+   "text": "Up one level"
+  },
+  {
+   "kind": "round_rect",
+   "id": "u800_process_panel",
+   "x": 38,
+   "y": 116,
+   "w": 1100,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u800_process_title",
+   "x": 50,
+   "y": 122,
+   "w": 1076,
+   "h": 24,
+   "text": "PROCESS ARRANGEMENT · AP-PID-U800",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "round_rect",
+   "id": "u800_focus_panel",
+   "x": 1154,
+   "y": 116,
+   "w": 404,
+   "h": 520,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u800_focus_title",
+   "x": 1166,
+   "y": 122,
+   "w": 380,
+   "h": 24,
+   "text": "OPERATING ENVELOPE",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "symbol",
+   "id": "u800_in",
+   "x": 65,
+   "y": 285,
+   "w": 70,
+   "h": 70,
+   "symbol": "valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u800_in_tag",
+   "x": 40,
+   "y": 258,
+   "w": 120,
+   "h": 22,
+   "text": "EFFLUENT",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u800_in_label",
+   "x": 35,
+   "y": 360,
+   "w": 130,
+   "h": 28,
+   "text": "Plant effluent",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u800_nt",
+   "x": 300,
+   "y": 190,
+   "w": 150,
+   "h": 245,
+   "symbol": "dished_tank",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ],
+   "instrumentation": {
+    "pv_path": "LIC-8001/LIC-8001/PV",
+    "sp_path": "LIC-8001/LIC-8001/SP",
+    "lo": 0.0,
+    "hi": 100.0,
+    "units": "%",
+    "decimals": 1,
+    "show_bar": true,
+    "bar_side": "right",
+    "show_trend": true,
+    "pens": [
+     {
+      "label": "PV",
+      "path": "LIC-8001/LIC-8001/PV",
+      "color": "#0B5E91"
+     },
+     {
+      "label": "SP",
+      "path": "LIC-8001/LIC-8001/SP",
+      "color": "#61717C"
+     }
+    ],
+    "limits": {
+     "hihi": 90.0,
+     "hi": 80.0,
+     "lo": 20.0,
+     "lolo": 10.0
+    },
+    "inset": [
+     0.12,
+     0.18,
+     0.1,
+     0.17
+    ]
+   }
+  },
+  {
+   "kind": "text",
+   "id": "u800_nt_tag",
+   "x": 275,
+   "y": 163,
+   "w": 200,
+   "h": 22,
+   "text": "NT801",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u800_nt_label",
+   "x": 270,
+   "y": 440,
+   "w": 210,
+   "h": 28,
+   "text": "Neutralization tank",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u800_ag",
+   "x": 340,
+   "y": 125,
+   "w": 70,
+   "h": 60,
+   "symbol": "motor",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u800_ag_tag",
+   "x": 315,
+   "y": 98,
+   "w": 120,
+   "h": 22,
+   "text": "M801",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u800_ag_label",
+   "x": 310,
+   "y": 190,
+   "w": 130,
+   "h": 28,
+   "text": "Agitator",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u800_p801",
+   "x": 620,
+   "y": 270,
+   "w": 115,
+   "h": 100,
+   "symbol": "pump",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u800_p801_tag",
+   "x": 595,
+   "y": 243,
+   "w": 165,
+   "h": 22,
+   "text": "P801A/B",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u800_p801_label",
+   "x": 590,
+   "y": 375,
+   "w": 175,
+   "h": 28,
+   "text": "Discharge pumps",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "symbol",
+   "id": "u800_out",
+   "x": 900,
+   "y": 285,
+   "w": 85,
+   "h": 70,
+   "symbol": "control_valve",
+   "ports": [
+    {
+     "name": "inlet",
+     "x": 0.0,
+     "y": 0.5
+    },
+    {
+     "name": "outlet",
+     "x": 1.0,
+     "y": 0.5
+    },
+    {
+     "name": "top",
+     "x": 0.5,
+     "y": 0.0
+    },
+    {
+     "name": "bottom",
+     "x": 0.5,
+     "y": 1.0
+    }
+   ]
+  },
+  {
+   "kind": "text",
+   "id": "u800_out_tag",
+   "x": 875,
+   "y": 258,
+   "w": 135,
+   "h": 22,
+   "text": "OUTFALL",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "text",
+   "id": "u800_out_label",
+   "x": 870,
+   "y": 360,
+   "w": 145,
+   "h": 28,
+   "text": "Treated discharge",
+   "font_size": 8,
+   "font_bold": false,
+   "text_color": "#61717C",
+   "text_halign": "center",
+   "text_valign": "middle",
+   "text_wrap": true
+  },
+  {
+   "kind": "pipe",
+   "id": "u800_pipe_0",
+   "a": "u800_in",
+   "a_side": "outlet",
+   "b": "u800_nt",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u800_pipe_1",
+   "a": "u800_ag",
+   "a_side": "bottom",
+   "b": "u800_nt",
+   "b_side": "top",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u800_pipe_2",
+   "a": "u800_nt",
+   "a_side": "outlet",
+   "b": "u800_p801",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "pipe",
+   "id": "u800_pipe_3",
+   "a": "u800_p801",
+   "a_side": "outlet",
+   "b": "u800_out",
+   "b_side": "inlet",
+   "line": "#526B7A",
+   "width": 4,
+   "style": "solid",
+   "end_arrow": "filled_arrow",
+   "crossover": "jump",
+   "auto": false
+  },
+  {
+   "kind": "text",
+   "id": "u800_kpi_title",
+   "x": 1170,
+   "y": 155,
+   "w": 372,
+   "h": 23,
+   "text": "LIVE CONSTRAINTS / KPIs",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "table",
+   "id": "u800_kpis",
+   "x": 1170,
+   "y": 182,
+   "w": 372,
+   "h": 142,
+   "columns": [
+    {
+     "key": "variable",
+     "title": "Variable",
+     "width": 1.8
+    },
+    {
+     "key": "value",
+     "title": "Live",
+     "width": 1
+    }
+   ],
+   "rows": [
+    {
+     "variable": "Tank pH",
+     "value": {
+      "path": "AIC-8001/AIC-8001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Discharge pH",
+     "value": {
+      "path": "AIC-8001/AT-8003/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    },
+    {
+     "variable": "Tank level",
+     "value": {
+      "path": "LIC-8001/LIC-8001/PV",
+      "type": "numeric",
+      "decimals": 1,
+      "units": true
+     }
+    }
+   ],
+   "row_height": 34,
+   "header_height": 22
+  },
+  {
+   "kind": "text",
+   "id": "u800_trend_title",
+   "x": 1170,
+   "y": 341,
+   "w": 372,
+   "h": 23,
+   "text": "UNIT PROFILE",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "chart",
+   "id": "u800_trend",
+   "x": 1170,
+   "y": 368,
+   "w": 372,
+   "h": 145,
+   "pens": [
+    {
+     "label": "Tank pH",
+     "path": "AIC-8001/AIC-8001/PV"
+    },
+    {
+     "label": "Discharge pH",
+     "path": "AIC-8001/AT-8003/PV"
+    },
+    {
+     "label": "Tank level",
+     "path": "LIC-8001/LIC-8001/PV"
+    }
+   ],
+   "lo": 0,
+   "hi": 500
+  },
+  {
+   "kind": "text",
+   "id": "u800_alarm_title",
+   "x": 1170,
+   "y": 530,
+   "w": 372,
+   "h": 23,
+   "text": "ACTIVE AIC-8001 ALARMS",
+   "font_size": 9,
+   "font_bold": true,
+   "text_color": "#34434D",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "u800_alarms",
+   "x": 1170,
+   "y": 556,
+   "w": 372,
+   "h": 61,
+   "path_prefix": "AIC-8001",
+   "priority_min": 0
+  },
+  {
+   "kind": "round_rect",
+   "id": "u800_loop_panel",
+   "x": 38,
+   "y": 655,
+   "w": 1520,
+   "h": 207,
+   "line": "#8D9AA3",
+   "width": 1,
+   "radius": 5
+  },
+  {
+   "kind": "text",
+   "id": "u800_loop_title",
+   "x": 54,
+   "y": 666,
+   "w": 300,
+   "h": 23,
+   "text": "PRIMARY OPERATING LOOPS",
+   "font_size": 10,
+   "font_bold": true,
+   "text_color": "#0B5E91",
+   "text_halign": "left",
+   "text_valign": "middle",
+   "text_wrap": false
+  }
+ ],
+ "description": "L2 primary-operation display for U800, derived from AP-PID-U800. Native editable equipment with named process ports, smart pipes, embedded vessel trends/scales, live PVMs, KPIs, alarms, and hierarchy navigation.",
+ "background": "#E3E6EA",
+ "width": 1600,
+ "height": 900,
+ "level": 2,
+ "parent": "Overview - L1 Plant"
+}

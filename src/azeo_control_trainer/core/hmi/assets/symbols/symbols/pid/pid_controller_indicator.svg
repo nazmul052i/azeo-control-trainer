@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="108" viewBox="0 0 58 108" role="img" aria-labelledby="title desc">
+  <title id="title">P&amp;ID controller indicator</title>
+  <desc id="desc">Instrument bubble inside a square with a downward connection stem.</desc>
+  <style id="symbol-theme" type="text/css">/* Edit these values to restyle this symbol. */
+.symbol-line {
+  stroke: #000000;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+.symbol-fill {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+.symbol-solid {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.symbol-text {
+  fill: #000000;
+  fill-opacity: 1;
+}
+.connection-port {
+  display: none;
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.5;
+  pointer-events: all;
+  cursor: crosshair;
+}
+</style>
+  <g transform="translate(-122 -412)" shape-rendering="geometricPrecision">
+    <g>
+      <g transform="translate(0.5,0.5)">
+        <path d="M 151 466 L 151 516" fill="none" stroke-miterlimit="10" class="symbol-line" />
+        <rect x="126" y="416" width="50" height="50" class="symbol-fill symbol-line" />
+        <ellipse cx="151" cy="441" rx="25" ry="25" fill="none" class="symbol-line" />
+        <path d="M 126 441 L 176 441" fill="none" stroke-miterlimit="10" class="symbol-line" />
+      </g>
+    </g>
+    <text x="151" y="436" class="symbol-text" font-family="Arial" font-size="12" text-anchor="middle">TI</text>
+    <text x="151" y="456" class="symbol-text" font-family="Arial" font-size="12" text-anchor="middle">##</text>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.508621" data-anchor-y="0.0416667" cx="29.5" cy="4.5" r="3" />
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.939655" data-anchor-y="0.50463" cx="54.5" cy="54.5" r="3" />
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.508621" data-anchor-y="0.967593" cx="29.5" cy="104.5" r="3" />
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.0775862" data-anchor-y="0.50463" cx="4.5" cy="54.5" r="3" />
+  </g>
+</svg>

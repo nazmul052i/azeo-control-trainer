@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="62" viewBox="0 0 100 62" role="img" aria-labelledby="title desc">
+  <title id="title">Compressor — tapered process symbol</title>
+  <desc id="desc">Azeo process symbol adapted from the project turbine reference, mirrored horizontally.</desc>
+  <style id="symbol-theme" type="text/css">
+    .symbol-line { stroke: #46555F; stroke-width: 1.5; stroke-opacity: 1; }
+    .symbol-fill { fill: #C2CED6; fill-opacity: 1; }
+    .symbol-solid { fill: #46555F; fill-opacity: 1; }
+    .symbol-text { fill: #46555F; fill-opacity: 1; }
+    .connection-port { display: none; }
+  </style>
+  <g transform="translate(99 1) scale(-1 1)">
+    <path class="symbol-line symbol-fill" d="M0 22H9V15L89 0V22H98V38H89V60L9 45V38H0Z"/>
+    <path class="symbol-line" fill="none" d="M9 22V38M89 22V38"/>
+  </g>
+  <g class="connection-points" data-role="connection-points" aria-hidden="true">
+    <circle class="connection-port" data-connection-side="top" data-anchor-x="0.1" data-anchor-y="0.016129032258" cx="10" cy="1" r="2"/>
+    <circle class="connection-port" data-connection-side="right" data-anchor-x="0.99" data-anchor-y="0.5" cx="99" cy="31" r="2"/>
+    <circle class="connection-port" data-connection-side="bottom" data-anchor-x="0.1" data-anchor-y="0.983870967742" cx="10" cy="61" r="2"/>
+    <circle class="connection-port" data-connection-side="left" data-anchor-x="0.01" data-anchor-y="0.5" cx="1" cy="31" r="2"/>
+  </g>
+</svg>

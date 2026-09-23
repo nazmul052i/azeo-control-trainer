@@ -1,0 +1,81 @@
+[
+ {
+  "rev": 1,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:16",
+  "diff": [
+   "+ datalink XY-MOV1002-OPN_readback",
+   "+ datalink XY-MOV1002-CLS_readback",
+   "+ datalink LCV-1001_mode",
+   "+ display link monitor",
+   "+ datalink LCV-1001_readback",
+   "+ text instruction",
+   "+ user entry XY-XV1001-OPN_manual",
+   "+ user entry LCV-1001_manual",
+   "+ datalink XY-XV1001-OPN_readback",
+   "+ user entry XY-MOV1002-CLS_manual",
+   "+ text header0266",
+   "+ user entry FCV-1001_apply",
+   "+ display link workspace",
+   "+ text header00",
+   "+ datalink XY-XV1001-OPN_mode",
+   "+ text header0430",
+   "+ text FCV-1001_tag",
+   "+ user entry XY-MOV1002-OPN_apply",
+   "+ text LCV-1001_tag",
+   "+ user entry FCV-1001_manual",
+   "+ text title",
+   "+ user entry XY-XV1001-OPN_apply",
+   "+ text authority",
+   "+ text XY-MOV1002-CLS_tag",
+   "+ text XY-MOV1002-OPN_tag",
+   "+ user entry LCV-1001_apply",
+   "+ datalink FCV-1001_readback",
+   "+ user entry XY-MOV1002-OPN_manual",
+   "+ user entry XY-MOV1002-CLS_apply",
+   "+ datalink FCV-1001_mode",
+   "+ datalink XY-MOV1002-CLS_mode",
+   "+ datalink XY-MOV1002-OPN_mode",
+   "+ text XY-XV1001-OPN_tag",
+   "~ page width changed",
+   "~ page height changed",
+   "~ display level changed",
+   "~ parent display changed",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 2,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:21",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 3,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:24",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 4,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:26",
+  "diff": [
+   "~ rebound/configured XY-XV1001-OPN_apply",
+   "~ rebound/configured XY-MOV1002-OPN_apply",
+   "~ rebound/configured XY-MOV1002-CLS_apply"
+  ],
+  "released_items": 0
+ }
+]

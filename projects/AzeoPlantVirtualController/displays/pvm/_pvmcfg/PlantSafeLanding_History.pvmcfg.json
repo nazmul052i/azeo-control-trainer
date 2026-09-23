@@ -1,0 +1,23 @@
+{
+  "pvm_class": "PlantSafeLanding_History",
+  "groups": [
+    {
+      "name": "Procedure",
+      "properties": [
+        {
+          "name": "ProcedureRef",
+          "type": "Procedure Reference",
+          "title": "Procedure revision",
+          "description": "Project procedures/ relative YAML revision, e.g. startup/rev-001/procedure.yaml. Read-only advisory state.",
+          "required": true
+        },
+        {
+          "name": "Title",
+          "type": "String",
+          "title": "Display title",
+          "default": "PROCEDURE"
+        }
+      ]
+    }
+  ]
+}

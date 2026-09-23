@@ -1,0 +1,74 @@
+{
+  "displays": [
+    {
+      "key": "L1_PLANT",
+      "file": "L1_PLANT.json",
+      "name": "PLANT_AREA_A overview",
+      "level": 1,
+      "parent": null,
+      "equipment_refs": [],
+      "description": "Whole span of control on one screen."
+    },
+    {
+      "key": "L2_TANK101",
+      "file": "L2_TANK101.json",
+      "name": "Tank 101 unit control",
+      "level": 2,
+      "parent": "L1_PLANT",
+      "equipment_refs": [
+        "TANK-101",
+        "LI-101",
+        "XV-101",
+        "MTR-102",
+        "FIC-102",
+        "XV-OPTION"
+      ],
+      "description": "Tank 101 unit control"
+    },
+    {
+      "key": "L2_TANK201",
+      "file": "L2_TANK201.json",
+      "name": "Tank 201 unit control",
+      "level": 2,
+      "parent": "L1_PLANT",
+      "equipment_refs": [
+        "TANK-201",
+        "LI-201",
+        "LIC-201",
+        "MTR-203"
+      ],
+      "description": "Tank 201 unit control"
+    },
+    {
+      "key": "L3_MTR102",
+      "file": "L3_MTR102.json",
+      "name": "MTR-102 discharge system detail",
+      "level": 3,
+      "parent": "L2_TANK101",
+      "equipment_refs": [
+        "MTR-102"
+      ],
+      "description": "MTR-102 discharge system detail"
+    },
+    {
+      "key": "L4_LOOP",
+      "file": "",
+      "kind": "panel",
+      "name": "Loop diagnostic (CLPM)",
+      "level": 4,
+      "parent": "L3_MTR102",
+      "equipment_refs": [],
+      "description": "Loop performance, tuning and model quality."
+    },
+    {
+      "key": "ALARM_SUMMARY",
+      "file": "",
+      "kind": "panel",
+      "name": "Alarm summary",
+      "level": 2,
+      "parent": "L1_PLANT",
+      "equipment_refs": [],
+      "description": "ISA-18.2 alarm list and alarm-system performance."
+    }
+  ]
+}

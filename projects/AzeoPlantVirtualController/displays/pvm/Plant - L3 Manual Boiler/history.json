@@ -1,0 +1,79 @@
+[
+ {
+  "rev": 1,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:16",
+  "diff": [
+   "+ text FCV-7002_tag",
+   "+ user entry FCV-7004_apply",
+   "+ display link monitor",
+   "+ text FCV-7004_tag",
+   "+ datalink FCV-7002_readback",
+   "+ text instruction",
+   "+ datalink TCV-7001_readback",
+   "+ datalink FCV-7004_readback",
+   "+ text header0266",
+   "+ datalink FCV-7001_readback",
+   "+ user entry FCV-7001_manual",
+   "+ display link workspace",
+   "+ text header00",
+   "+ user entry XY-XV7001-OPN_manual",
+   "+ text FCV-7001_tag",
+   "+ user entry FCV-7002_manual",
+   "+ user entry XY-XV7001-OPN_apply",
+   "+ text header0430",
+   "+ user entry TCV-7001_apply",
+   "+ text XY-XV7001-OPN_tag",
+   "+ datalink XY-XV7001-OPN_readback",
+   "+ text title",
+   "+ datalink FCV-7001_mode",
+   "+ user entry TCV-7001_manual",
+   "+ text authority",
+   "+ datalink TCV-7001_mode",
+   "+ datalink FCV-7004_mode",
+   "+ user entry FCV-7002_apply",
+   "+ datalink XY-XV7001-OPN_mode",
+   "+ text TCV-7001_tag",
+   "+ user entry FCV-7004_manual",
+   "+ datalink FCV-7002_mode",
+   "+ user entry FCV-7001_apply",
+   "~ page width changed",
+   "~ page height changed",
+   "~ display level changed",
+   "~ parent display changed",
+   "~ object stacking changed"
+  ],
+  "released_items": 0
+ },
+ {
+  "rev": 2,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:22",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 3,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:24",
+  "diff": [],
+  "released_items": 0
+ },
+ {
+  "rev": 4,
+  "env": "TEST",
+  "workstations": [],
+  "by": "Azeo",
+  "at": "2026-09-10 20:26",
+  "diff": [
+   "~ rebound/configured XY-XV7001-OPN_apply"
+  ],
+  "released_items": 0
+ }
+]

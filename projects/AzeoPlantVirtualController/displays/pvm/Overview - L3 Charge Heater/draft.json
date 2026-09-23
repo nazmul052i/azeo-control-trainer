@@ -1,0 +1,638 @@
+{
+ "display": "Overview - L3 Charge Heater",
+ "pvms": [
+  {
+   "id": "vessel",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "TIC-3001/TIC-3001"
+   },
+   "x": 702,
+   "y": 284,
+   "w": 186,
+   "h": 222,
+   "variant": "vessel",
+   "label": "TIC-3001",
+   "choices": {
+    "show_readout": false
+   }
+  },
+  {
+   "id": "detail_FEED_FLOW",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-3001/FIC-3001"
+   },
+   "x": 40,
+   "y": 184,
+   "w": 350,
+   "h": 116,
+   "label": "FIC-3001"
+  },
+  {
+   "id": "detail_TEMPERATURE",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "FIC-3003/FIC-3003"
+   },
+   "x": 40,
+   "y": 506,
+   "w": 350,
+   "h": 116,
+   "label": "FIC-3003"
+  },
+  {
+   "id": "detail_PRESSURE",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "PIC-3001/PIC-3001"
+   },
+   "x": 1210,
+   "y": 184,
+   "w": 350,
+   "h": 116,
+   "label": "PIC-3001"
+  },
+  {
+   "id": "detail_LEVEL",
+   "class": "PID/dynamo_inline",
+   "params": {
+    "path": "AIC-3001/AIC-3001"
+   },
+   "x": 1210,
+   "y": 506,
+   "w": 350,
+   "h": 116,
+   "label": "AIC-3001"
+  }
+ ],
+ "items": [
+  {
+   "kind": "text",
+   "id": "title",
+   "x": 24,
+   "y": 10,
+   "w": 1090,
+   "h": 35,
+   "text": "H1 CHARGE HEATER - EQUIPMENT DETAIL",
+   "font_size": 19,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "purpose",
+   "x": 24,
+   "y": 49,
+   "w": 1090,
+   "h": 25,
+   "text": "Investigate deviations | fuel, combustion air, draft, flue oxygen and the H1 outlet temperature",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "level",
+   "x": 1484,
+   "y": 14,
+   "w": 88,
+   "h": 36,
+   "text": "L3",
+   "font_size": 19,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "configure_note",
+   "x": 24,
+   "y": 864,
+   "w": 1536,
+   "h": 25,
+   "text": "Configured from AP-PID-U300 on the ISA-101 L3 Secondary Operation template | APVC-CTRL-1 bindings",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "display_link",
+   "id": "up",
+   "x": 1128,
+   "y": 32,
+   "w": 148,
+   "h": 34,
+   "target": "U300 - L2 Charge Heating",
+   "text": "Up one level"
+  },
+  {
+   "kind": "display_link",
+   "id": "down",
+   "x": 1292,
+   "y": 32,
+   "w": 172,
+   "h": 34,
+   "target": "Overview - L4 Heater Safety",
+   "text": "Open next level"
+  },
+  {
+   "kind": "rect",
+   "id": "detail",
+   "x": 422,
+   "y": 90,
+   "w": 756,
+   "h": 754,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "detail_title",
+   "x": 438,
+   "y": 100,
+   "w": 724,
+   "h": 26,
+   "text": "H1 HEATER AND COMBUSTION",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "left",
+   "x": 24,
+   "y": 90,
+   "w": 382,
+   "h": 754,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "left_title",
+   "x": 40,
+   "y": 100,
+   "w": 350,
+   "h": 26,
+   "text": "FUEL AND COMBUSTION AIR",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "rect",
+   "id": "right",
+   "x": 1194,
+   "y": 90,
+   "w": 382,
+   "h": 754,
+   "fill_role": "SURFACE_PANEL",
+   "line_role": "LINE_SOFT",
+   "width": 1,
+   "routing_obstacle": false,
+   "z": -5
+  },
+  {
+   "kind": "text",
+   "id": "right_title",
+   "x": 1210,
+   "y": 100,
+   "w": 350,
+   "h": 26,
+   "text": "DRAFT AND FLUE OXYGEN",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "symbol",
+   "id": "inlet",
+   "x": 484,
+   "y": 328,
+   "w": 92,
+   "h": 72,
+   "symbol": "control_valve"
+  },
+  {
+   "kind": "symbol",
+   "id": "outlet",
+   "x": 1000,
+   "y": 328,
+   "w": 92,
+   "h": 72,
+   "symbol": "control_valve"
+  },
+  {
+   "kind": "symbol",
+   "id": "recirc",
+   "x": 982,
+   "y": 646,
+   "w": 96,
+   "h": 90,
+   "symbol": "pump"
+  },
+  {
+   "kind": "symbol",
+   "id": "cooler",
+   "x": 522,
+   "y": 638,
+   "w": 144,
+   "h": 98,
+   "symbol": "exchanger"
+  },
+  {
+   "kind": "pipe",
+   "id": "inlet_run",
+   "a": "inlet",
+   "a_side": "e",
+   "b": "vessel",
+   "b_side": "w",
+   "auto": false,
+   "crossover": "jump",
+   "width": 2,
+   "corner_radius": 6
+  },
+  {
+   "kind": "pipe",
+   "id": "outlet_run",
+   "a": "vessel",
+   "a_side": "e",
+   "b": "outlet",
+   "b_side": "w",
+   "auto": false,
+   "crossover": "jump",
+   "width": 2,
+   "corner_radius": 6
+  },
+  {
+   "kind": "pipe",
+   "id": "drain_run",
+   "a": "vessel",
+   "a_side": "drain",
+   "b": "recirc",
+   "b_side": "w",
+   "auto": false,
+   "crossover": "jump",
+   "width": 2,
+   "corner_radius": 6
+  },
+  {
+   "kind": "pipe",
+   "id": "cooling_run",
+   "a": "cooler",
+   "a_side": "e",
+   "b": "recirc",
+   "b_side": "s",
+   "auto": false,
+   "crossover": "jump",
+   "width": 2,
+   "corner_radius": 6
+  },
+  {
+   "kind": "text",
+   "id": "inlet_tag",
+   "x": 478,
+   "y": 290,
+   "w": 210,
+   "h": 26,
+   "text": "Charge from U200",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "outlet_tag",
+   "x": 990,
+   "y": 290,
+   "w": 210,
+   "h": 26,
+   "text": "Charge to R1",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "vessel_tag",
+   "x": 450,
+   "y": 530,
+   "w": 210,
+   "h": 26,
+   "text": "H1 heater outlet TIC-3001",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "recirc_tag",
+   "x": 964,
+   "y": 758,
+   "w": 210,
+   "h": 26,
+   "text": "ID-301 induced-draft fan",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "cooler_tag",
+   "x": 500,
+   "y": 758,
+   "w": 210,
+   "h": 26,
+   "text": "Convection section and stack",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "label_FEED_FLOW",
+   "x": 40,
+   "y": 148,
+   "w": 350,
+   "h": 26,
+   "text": "FUEL-GAS FLOW",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "history_FEED_FLOW_title",
+   "x": 40,
+   "y": 316,
+   "w": 350,
+   "h": 26,
+   "text": "FIC-3001 PV / SP / OUT | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "history_FEED_FLOW",
+   "x": 40,
+   "y": 348,
+   "w": 350,
+   "h": 106,
+   "pens": [
+    {
+     "path": "FIC-3001/FIC-3001/PV",
+     "label": "PV"
+    },
+    {
+     "path": "FIC-3001/FIC-3001/SP",
+     "label": "SP"
+    },
+    {
+     "path": "FIC-3001/FIC-3001/OUT",
+     "label": "OUT"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "label_TEMPERATURE",
+   "x": 40,
+   "y": 470,
+   "w": 350,
+   "h": 26,
+   "text": "COMBUSTION AIR",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "history_TEMPERATURE_title",
+   "x": 40,
+   "y": 638,
+   "w": 350,
+   "h": 26,
+   "text": "FIC-3003 PV / SP / OUT | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "history_TEMPERATURE",
+   "x": 40,
+   "y": 670,
+   "w": 350,
+   "h": 106,
+   "pens": [
+    {
+     "path": "FIC-3003/FIC-3003/PV",
+     "label": "PV"
+    },
+    {
+     "path": "FIC-3003/FIC-3003/SP",
+     "label": "SP"
+    },
+    {
+     "path": "FIC-3003/FIC-3003/OUT",
+     "label": "OUT"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "label_PRESSURE",
+   "x": 1210,
+   "y": 148,
+   "w": 350,
+   "h": 26,
+   "text": "DRAFT PRESSURE",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "history_PRESSURE_title",
+   "x": 1210,
+   "y": 316,
+   "w": 350,
+   "h": 26,
+   "text": "PIC-3001 PV / SP / OUT | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "history_PRESSURE",
+   "x": 1210,
+   "y": 348,
+   "w": 350,
+   "h": 106,
+   "pens": [
+    {
+     "path": "PIC-3001/PIC-3001/PV",
+     "label": "PV"
+    },
+    {
+     "path": "PIC-3001/PIC-3001/SP",
+     "label": "SP"
+    },
+    {
+     "path": "PIC-3001/PIC-3001/OUT",
+     "label": "OUT"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "label_LEVEL",
+   "x": 1210,
+   "y": 470,
+   "w": 350,
+   "h": 26,
+   "text": "FLUE OXYGEN",
+   "font_size": 11,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "history_LEVEL_title",
+   "x": 1210,
+   "y": 638,
+   "w": 350,
+   "h": 26,
+   "text": "AIC-3001 PV / SP / OUT | recent samples",
+   "font_size": 10,
+   "font_bold": false,
+   "text_role": "TEXT_DIM",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "chart",
+   "id": "history_LEVEL",
+   "x": 1210,
+   "y": 670,
+   "w": 350,
+   "h": 106,
+   "pens": [
+    {
+     "path": "AIC-3001/AIC-3001/PV",
+     "label": "PV"
+    },
+    {
+     "path": "AIC-3001/AIC-3001/SP",
+     "label": "SP"
+    },
+    {
+     "path": "AIC-3001/AIC-3001/OUT",
+     "label": "OUT"
+    }
+   ],
+   "routing_obstacle": false
+  },
+  {
+   "kind": "text",
+   "id": "alarms_title_3",
+   "x": 442,
+   "y": 138,
+   "w": 712,
+   "h": 26,
+   "text": "H1 ALARMS - TIC-3001 scope",
+   "font_size": 10,
+   "font_bold": true,
+   "text_role": "TEXT",
+   "text_valign": "middle",
+   "text_wrap": true,
+   "routing_obstacle": false
+  },
+  {
+   "kind": "alarm_list",
+   "id": "alarms_3",
+   "x": 442,
+   "y": 168,
+   "w": 712,
+   "h": 82,
+   "path_prefix": "TIC-3001",
+   "priority_min": 0
+  }
+ ],
+ "description": "L3 charge-heater secondary-operation display derived from AP-PID-U300 and configured on the ISA-101 L3 Secondary Operation template.",
+ "width": 1600,
+ "height": 900,
+ "level": 3,
+ "parent": "U300 - L2 Charge Heating",
+ "show_tag": "none",
+ "schema_version": 3
+}
