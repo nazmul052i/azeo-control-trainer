@@ -5,7 +5,7 @@ engineering and operation. Build function-block control modules, connect them
 to a simulated plant, author operator graphics and guided procedures, then
 operate the result through alarms, faceplates and trends.
 
-![Operator Station showing the training plant](docs/images/operator_themes/distillation-hpgray.png)
+![Operator Station overview of the training plant](docs/images/user_manual/operator-overview.png)
 
 > **Development preview.** This software is for training and simulation. It is
 > not qualified to control a real plant or perform a safety function. A public
